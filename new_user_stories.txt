@@ -1,5 +1,0 @@
-VIEW UTENTI BANNATI: Come amministratore,voglio visualizzare lista degli utenti bannati
-VIEW ANDAMENTO ISCRIZIONI:come amministratore voglio tenere traccia del numero di iscrizioni nel tempo
-VIEW ANDAMENTO NUOVE PUBBLICAZIONI: come amministratore voglio tenere traccia del numero di pubblicazioni nel tempo
-MAILING IN BROADCAST: Come amministratore,voglio poter inviare comunicazioni importanti a tutti gli iscritti
-COUNT COMMENTI GIORNALIERI:come amministratore voglio quantificare le interazioni che gli utenti hanno con le pubblicazioni
