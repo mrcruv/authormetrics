@@ -1,0 +1,99 @@
+CREATE TABLE Utente(
+	username varchar(25) NOT NULL,
+	psw varchar(30) NOT NULL,
+	email varchar(45) NOT NULL,
+	nome varchar(20) NOT NULL,
+	cognome varchar(20) NOT NULL,
+	data_nascita date NOT NULL,
+	data_iscrizione TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,  
+	PRIMARY KEY(username,email)
+);
+
+CREATE TABLE Author (
+	_id varchar(25) NOT NULL,
+	nome_cognome varchar(50) NOT NULL,
+	interest varchar(25)[],
+	affiliazioni text,
+	PRIMARY KEY(_id)
+	
+);
+
+CREATE TABLE Articolo(
+	_id varchar(25) NOT NULL,
+	titolo text NOT NULL,
+	pubblication text NOT NULL,
+	cited_by integer NOT NULL check(cited_by>=0),
+	anno_pubblicazione integer NOT NULL,
+	PRIMARY KEY(_id)
+);
+
+CREATE TABLE Scritto(
+	id_author varchar(25) NOT NULL,
+	id_articolo varchar(25) NOT NULL,
+	PRIMARY KEY(id_author,id_articolo),
+	UNIQUE(id_articolo),
+	FOREIGN KEY (id_articolo) REFERENCES Articolo(_id),
+	FOREIGN KEY (id_author) REFERENCES Author (_id)
+);
+
+ALTER TABLE articolo add FOREIGN KEY(_id) REFERENCES Scritto(id_articolo);
+
+CREATE TABLE Autore_preferito(
+	id_author varchar(25) NOT NULL,
+	username_utente varchar(25) NOT NULL,
+	email_utente varchar(45) NOT NULL,
+	PRIMARY KEY(id_author,username_utente,email_utente),
+	FOREIGN KEY (username_utente,email_utente) REFERENCES Utente(username,email),
+	FOREIGN KEY (id_author) REFERENCES Author (_id)
+);
+
+CREATE TABLE Rating_autore(
+	id_author varchar(25),
+	username_utente varchar(25) NOT NULL,
+	email_utente varchar(45) NOT NULL,
+	rating integer NOT NULL check(rating>0 and rating <11),
+	data_valutazione date NOT NULL,
+	PRIMARY KEY(id_author,username_utente,email_utente),
+	FOREIGN KEY (username_utente,email_utente) REFERENCES Utente(username,email),
+	FOREIGN KEY (id_author) REFERENCES Author (_id)
+);
+
+CREATE TABLE Recensione_autore(
+	id_author varchar(25),
+	username_utente varchar(25) NOT NULL,
+	email_utente varchar(45) NOT NULL,
+	recensione text NOT NULL,
+	data_recensione date NOT NULL,
+	PRIMARY KEY(id_author,username_utente,email_utente),
+	FOREIGN KEY (username_utente,email_utente) REFERENCES Utente(username,email),
+	FOREIGN KEY (id_author) REFERENCES Author (_id)
+);
+
+CREATE TABLE articolo_preferito(
+	id_articolo varchar(25) NOT NULL REFERENCES articolo(_id),
+	username_utente varchar(25) NOT NULL,
+	email_utente varchar(45) NOT NULL,
+	FOREIGN KEY(username_utente,email_utente) REFERENCES utente(username,email),
+	PRIMARY KEY(id_articolo,username_utente,email_utente)
+);
+
+CREATE TABLE rating_articolo(
+	id_articolo varchar(25) NOT NULL REFERENCES articolo(_id),
+	username_utente varchar(25) NOT NULL,
+	email_utente varchar(45) NOT NULL,
+	rating integer NOT NULL check(rating>0 and rating <11),
+	data_valutazione date NOT NULL,
+	FOREIGN KEY(username_utente,email_utente) REFERENCES utente(username,email),
+	PRIMARY KEY(id_articolo,username_utente,email_utente)
+);
+
+CREATE TABLE Commento(
+	id_articolo varchar(25) NOT NULL REFERENCES articolo(_id),
+	username_utente varchar(25) NOT NULL,
+	email_utente varchar(45) NOT NULL,
+	testo text NOT NULL,
+	data_commento date DEFAULT CURRENT_DATE NOT NULL,
+	ora time DEFAULT CURRENT_TIME  NOT NULL,
+	FOREIGN KEY(username_utente,email_utente) REFERENCES utente(username,email),
+	PRIMARY KEY(id_articolo,username_utente,email_utente,data_commento,ora)
+);
