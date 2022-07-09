@@ -1,12 +1,13 @@
-CREATE TABLE Utente(
+CREATE TABLE utente(
+	id SERIAL PRIMARY KEY NOT NULL,
 	username varchar(25) NOT NULL,
 	psw varchar(30) NOT NULL,
 	email varchar(45) NOT NULL,
 	nome varchar(20) NOT NULL,
 	cognome varchar(20) NOT NULL,
 	data_nascita date NOT NULL,
-	data_iscrizione TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,  
-	PRIMARY KEY(username,email)
+	data_iscrizione TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+	UNIQUE(username,email)
 );
 
 CREATE TABLE Author (
@@ -28,69 +29,63 @@ CREATE TABLE Articolo(
 );
 
 CREATE TABLE Scritto(
-	id_author varchar(25) NOT NULL,
-	id_articolo varchar(25) NOT NULL,
-	PRIMARY KEY(id_author,id_articolo),
-	FOREIGN KEY (id_articolo) REFERENCES Articolo(_id),
-	FOREIGN KEY (id_author) REFERENCES Author (_id)
+	author_id varchar(25) NOT NULL,
+	articolo_id varchar(25) NOT NULL,
+	PRIMARY KEY(author_id,articolo_id),
+	FOREIGN KEY (articolo_id) REFERENCES Articolo(_id),
+	FOREIGN KEY (author_id) REFERENCES Author (_id)
 );
 
 CREATE TABLE Autore_preferito(
-	id_author varchar(25) NOT NULL,
-	username_utente varchar(25) NOT NULL,
-	email_utente varchar(45) NOT NULL,
-	PRIMARY KEY(id_author,username_utente,email_utente),
-	FOREIGN KEY (username_utente,email_utente) REFERENCES Utente(username,email),
-	FOREIGN KEY (id_author) REFERENCES Author (_id)
+	author_id varchar(25) NOT NULL,
+	utente_id SERIAL NOT NULL,
+	PRIMARY KEY(utente_id,author_id),
+	FOREIGN KEY (utente_id) REFERENCES utente(id),
+	FOREIGN KEY (author_id) REFERENCES Author (_id)
 );
 
 CREATE TABLE Rating_autore(
-	id_author varchar(25),
-	username_utente varchar(25) NOT NULL,
-	email_utente varchar(45) NOT NULL,
+	author_id varchar(25),
+	utente_id SERIAL NOT NULL,
 	rating integer NOT NULL check(rating>0 and rating <11),
 	data_valutazione date NOT NULL,
-	PRIMARY KEY(id_author,username_utente,email_utente),
-	FOREIGN KEY (username_utente,email_utente) REFERENCES Utente(username,email),
-	FOREIGN KEY (id_author) REFERENCES Author (_id)
+	PRIMARY KEY(utente_id,author_id),
+	FOREIGN KEY (utente_id) REFERENCES utente(id),
+	FOREIGN KEY (author_id) REFERENCES Author (_id)
 );
 
 CREATE TABLE Recensione_autore(
-	id_author varchar(25),
-	username_utente varchar(25) NOT NULL,
-	email_utente varchar(45) NOT NULL,
+	author_id varchar(25),
+	utente_id SERIAL NOT NULL,
 	recensione text NOT NULL,
 	data_recensione date NOT NULL,
-	PRIMARY KEY(id_author,username_utente,email_utente),
-	FOREIGN KEY (username_utente,email_utente) REFERENCES Utente(username,email),
-	FOREIGN KEY (id_author) REFERENCES Author (_id)
+	PRIMARY KEY(author_id,utente_id),
+	FOREIGN KEY (utente_id) REFERENCES utente(id),
+	FOREIGN KEY (author_id) REFERENCES Author (_id)
 );
 
 CREATE TABLE articolo_preferito(
-	id_articolo varchar(25) NOT NULL REFERENCES articolo(_id),
-	username_utente varchar(25) NOT NULL,
-	email_utente varchar(45) NOT NULL,
-	FOREIGN KEY(username_utente,email_utente) REFERENCES utente(username,email),
-	PRIMARY KEY(id_articolo,username_utente,email_utente)
+	articolo_id varchar(25) NOT NULL REFERENCES articolo(_id),
+	utente_id SERIAL NOT NULL,
+	FOREIGN KEY(utente_id) REFERENCES utente(id),
+	PRIMARY KEY(articolo_id,utente_id)
 );
 
 CREATE TABLE rating_articolo(
-	id_articolo varchar(25) NOT NULL REFERENCES articolo(_id),
-	username_utente varchar(25) NOT NULL,
-	email_utente varchar(45) NOT NULL,
+	articolo_id varchar(25) NOT NULL REFERENCES articolo(_id),
+	utente_id SERIAL NOT NULL,
 	rating integer NOT NULL check(rating>0 and rating <11),
 	data_valutazione date NOT NULL,
-	FOREIGN KEY(username_utente,email_utente) REFERENCES utente(username,email),
-	PRIMARY KEY(id_articolo,username_utente,email_utente)
+	FOREIGN KEY(utente_id) REFERENCES utente(id),
+	PRIMARY KEY(articolo_id,utente_id)
 );
 
 CREATE TABLE Commento(
-	id_articolo varchar(25) NOT NULL REFERENCES articolo(_id),
-	username_utente varchar(25) NOT NULL,
-	email_utente varchar(45) NOT NULL,
+	articolo_id varchar(25) NOT NULL REFERENCES articolo(_id),
+	utente_id SERIAL NOT NULL,
 	testo text NOT NULL,
 	data_commento date DEFAULT CURRENT_DATE NOT NULL,
 	ora time DEFAULT CURRENT_TIME  NOT NULL,
-	FOREIGN KEY(username_utente,email_utente) REFERENCES utente(username,email),
-	PRIMARY KEY(id_articolo,username_utente,email_utente,data_commento,ora)
+	FOREIGN KEY(utente_id) REFERENCES utente(id),
+	PRIMARY KEY(articolo_id,utente_id,data_commento,ora)
 );
