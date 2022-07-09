@@ -31,12 +31,9 @@ CREATE TABLE Scritto(
 	id_author varchar(25) NOT NULL,
 	id_articolo varchar(25) NOT NULL,
 	PRIMARY KEY(id_author,id_articolo),
-	UNIQUE(id_articolo),
 	FOREIGN KEY (id_articolo) REFERENCES Articolo(_id),
 	FOREIGN KEY (id_author) REFERENCES Author (_id)
 );
-
-ALTER TABLE articolo add FOREIGN KEY(_id) REFERENCES Scritto(id_articolo);
 
 CREATE TABLE Autore_preferito(
 	id_author varchar(25) NOT NULL,
