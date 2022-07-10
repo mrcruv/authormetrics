@@ -1,0 +1,19 @@
+bin/rails generate model "Utente" username:string psw:string email:string nome:string cognome:string data_nascita:date data_iscrizione:integer
+
+bin/rails generate model "Author" _id:string nome_cognome:string interest[]:string affiliazioni:text
+
+bin/rails generate model "Rating_autore" id_author:string username_utente:string email_utente:string rating:integer data_valutazione:date
+
+bin/rails generate model "Autore_preferito" id_author:string username_utente:string email_utente:string
+
+bin/rails generate model "Recensione_autore" id_author:string username_utente:string email_utente:string recensione:text data_recensione:date
+
+bin/rails generate model "Articolo" _id:string titolo:string pubblication:text cited_by:integer anno_publlicazione:integer
+
+bin/rails generate model "Scritto" id_author:string id_articolo:string
+
+bin/rails generate model "Articolo_preferito"  id_articolo:string username_utente:string email_utente:string 
+
+bin/rails generate model "Rating_articolo"  id_articolo:string username_utente:string email_utente:string rating:integer data_valutazione:date
+
+bin/rails generate model "Commento"  id_articolo:string username_utente:string email_utente:string testo:text data_commento:date ora:time
