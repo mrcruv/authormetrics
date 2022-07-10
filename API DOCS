@@ -1,6 +1,0 @@
-google scholar API:
-1)author-api: utilizzato per reperire info sugli autori delle publicazioni
-2)artichles-api: utilizzato per reperire le informazioni sule publicazioni degli autori
-3)citation: utilizato per la raccolta delle varie citazioni delle pubblicazioni
-4)cited by: utilizzato per le info utili al calcolo degli indici per i grafici delle dashboard
-5)co-authors: utilizato per stats sulle collaborazioni tra autori delle pubblicazioni
