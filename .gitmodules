@@ -1,0 +1,3 @@
+[submodule "AuthorMetrics"]
+	path = AuthorMetrics
+	url = https://github.com/mrcruv/authormetrics/
