@@ -1,0 +1,3 @@
+class RatingAutore < ApplicationRecord
+
+end

@@ -1,0 +1,3 @@
+class Scritto < ApplicationRecord
+   
+end

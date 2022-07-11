@@ -85,7 +85,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_09_161049) do
     t.index ["username", "email"], name: "utente_username_email_key", unique: true
   end
 
-
   add_foreign_key "articolo_preferito", "articolo", primary_key: "_id", name: "articolo_preferito_articolo_id_fkey"
   add_foreign_key "articolo_preferito", "utente", name: "articolo_preferito_utente_id_fkey"
   add_foreign_key "autore_preferito", "author", primary_key: "_id", name: "autore_preferito_author_id_fkey"
