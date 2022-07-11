@@ -1,3 +1,3 @@
 class Utente < ApplicationRecord
-  
+      
 end
