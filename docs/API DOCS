@@ -4,3 +4,4 @@ google scholar API:
 3)citation: utilizato per la raccolta delle varie citazioni delle pubblicazioni
 4)cited by: utilizzato per le info utili al calcolo degli indici per i grafici delle dashboard
 5)co-authors: utilizato per stats sulle collaborazioni tra autori delle pubblicazioni
+6)google signin api: utilizzato per login con account google
