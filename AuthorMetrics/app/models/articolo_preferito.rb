@@ -1,2 +1,0 @@
-class ArticoloPreferito < ApplicationRecord
-end

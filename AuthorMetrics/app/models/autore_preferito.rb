@@ -1,3 +1,0 @@
-class AutorePreferito < ApplicationRecord
-    
-end

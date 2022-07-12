@@ -1,3 +1,0 @@
-class Commento < ApplicationRecord
-
-end

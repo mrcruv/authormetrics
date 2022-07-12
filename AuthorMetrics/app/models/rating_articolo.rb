@@ -1,3 +1,0 @@
-class RatingArticolo < ApplicationRecord
-
-end
