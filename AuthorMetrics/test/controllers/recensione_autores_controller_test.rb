@@ -2,11 +2,11 @@ require "test_helper"
 
 class RecensioneAutoresControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @recensione_autore = recensione_autores(:one)
+    @recensione_autore = recensioni_autori(:one)
   end
 
   test "should get index" do
-    get recensione_autores_url
+    get recensioni_autori_url
     assert_response :success
   end
 
@@ -17,7 +17,7 @@ class RecensioneAutoresControllerTest < ActionDispatch::IntegrationTest
 
   test "should create recensione_autore" do
     assert_difference("RecensioneAutore.count") do
-      post recensione_autores_url, params: { recensione_autore: {  } }
+      post recensioni_autori_url, params: { recensione_autore: {  } }
     end
 
     assert_redirected_to recensione_autore_url(RecensioneAutore.last)
@@ -43,6 +43,6 @@ class RecensioneAutoresControllerTest < ActionDispatch::IntegrationTest
       delete recensione_autore_url(@recensione_autore)
     end
 
-    assert_redirected_to recensione_autores_url
+    assert_redirected_to recensioni_autori_url
   end
 end

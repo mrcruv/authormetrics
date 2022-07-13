@@ -1,0 +1,2 @@
+module ArticoliPreferitiHelper
+end

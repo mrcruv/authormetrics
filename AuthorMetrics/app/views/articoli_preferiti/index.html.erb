@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Articolo preferitos</h1>
+
+<div id="articoli_preferiti">
+  <% @articoli_preferiti.each do |articolo_preferito| %>
+    <%= render articolo_preferito %>
+    <p>
+      <%= link_to "Show this articolo preferito", articolo_preferito %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New articolo preferito", new_articolo_preferito_path %>

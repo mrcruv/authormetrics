@@ -2,11 +2,11 @@ require "test_helper"
 
 class AutorePreferitosControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @autore_preferito = autore_preferitos(:one)
+    @autore_preferito = autori_preferiti(:one)
   end
 
   test "should get index" do
-    get autore_preferitos_url
+    get autori_preferiti_url
     assert_response :success
   end
 
@@ -17,7 +17,7 @@ class AutorePreferitosControllerTest < ActionDispatch::IntegrationTest
 
   test "should create autore_preferito" do
     assert_difference("AutorePreferito.count") do
-      post autore_preferitos_url, params: { autore_preferito: {  } }
+      post autori_preferiti_url, params: { autore_preferito: {  } }
     end
 
     assert_redirected_to autore_preferito_url(AutorePreferito.last)
@@ -43,6 +43,6 @@ class AutorePreferitosControllerTest < ActionDispatch::IntegrationTest
       delete autore_preferito_url(@autore_preferito)
     end
 
-    assert_redirected_to autore_preferitos_url
+    assert_redirected_to autori_preferiti_url
   end
 end

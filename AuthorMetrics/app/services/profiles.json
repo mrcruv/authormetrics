@@ -1,0 +1,234 @@
+{"profiles": [
+    {
+        "name": "Adam Lobel",
+        "link": "https://scholar.google.com/citations?hl=en&user=_xwYD2sAAAAJ",
+        "serpapi_link": "https://serpapi.com/search.json?author_id=_xwYD2sAAAAJ&engine=google_scholar_author&hl=en",
+        "author_id": "_xwYD2sAAAAJ",
+        "affiliations": "Blizzard Entertainment",
+        "email": "Verified email at AdamLobel.com",
+        "cited_by": 3274,
+        "interests": [
+            {
+                "title": "Gaming",
+                "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Agaming",
+                "link": "https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:gaming"
+            },
+            {
+                "title": "Emotion regulation",
+                "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aemotion_regulation",
+                "link": "https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:emotion_regulation"
+            }
+        ],
+        "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=_xwYD2sAAAAJ&citpid=3"
+    },
+    {
+        "name": "Daniel Blizzard",
+        "link": "https://scholar.google.com/citations?hl=en&user=dk4LWEgAAAAJ",
+        "serpapi_link": "https://serpapi.com/search.json?author_id=dk4LWEgAAAAJ&engine=google_scholar_author&hl=en",
+        "author_id": "dk4LWEgAAAAJ",
+        "affiliations": "",
+        "cited_by": 952,
+        "thumbnail": "https://scholar.google.com/citations/images/avatar_scholar_56.png"
+    },
+    {
+        "name": "Shuo Chen",
+        "link": "https://scholar.google.com/citations?hl=en&user=OBf4YnkAAAAJ",
+        "serpapi_link": "https://serpapi.com/search.json?author_id=OBf4YnkAAAAJ&engine=google_scholar_author&hl=en",
+        "author_id": "OBf4YnkAAAAJ",
+        "affiliations": "Senior Data Scientist, Blizzard Entertainment",
+        "email": "Verified email at cs.cornell.edu",
+        "cited_by": 683,
+        "interests": [
+            {
+                "title": "Machine Learning",
+                "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Amachine_learning",
+                "link": "https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:machine_learning"
+            },
+            {
+                "title": "Data Mining",
+                "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Adata_mining",
+                "link": "https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:data_mining"
+            },
+            {
+                "title": "Artificial Intelligence",
+                "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aartificial_intelligence",
+                "link": "https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:artificial_intelligence"
+            }
+        ],
+        "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=OBf4YnkAAAAJ&citpid=1"
+    },
+    {
+        "name": "Ian Livingston",
+        "link": "https://scholar.google.com/citations?hl=en&user=xBHVqNIAAAAJ",
+        "serpapi_link": "https://serpapi.com/search.json?author_id=xBHVqNIAAAAJ&engine=google_scholar_author&hl=en",
+        "author_id": "xBHVqNIAAAAJ",
+        "affiliations": "Blizzard Entertainment",
+        "email": "Verified email at usask.ca",
+        "cited_by": 635,
+        "interests": [
+            {
+                "title": "Human-computer interaction",
+                "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Ahuman_computer_interaction",
+                "link": "https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:human_computer_interaction"
+            },
+            {
+                "title": "User Experience",
+                "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Auser_experience",
+                "link": "https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:user_experience"
+            },
+            {
+                "title": "Player Experience",
+                "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aplayer_experience",
+                "link": "https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:player_experience"
+            },
+            {
+                "title": "User Research",
+                "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Auser_research",
+                "link": "https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:user_research"
+            },
+            {
+                "title": "Games",
+                "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Agames",
+                "link": "https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:games"
+            }
+        ],
+        "thumbnail": "https://scholar.google.com/citations/images/avatar_scholar_56.png"
+    },
+    {
+        "name": "Minli Xu",
+        "link": "https://scholar.google.com/citations?hl=en&user=QST5iogAAAAJ",
+        "serpapi_link": "https://serpapi.com/search.json?author_id=QST5iogAAAAJ&engine=google_scholar_author&hl=en",
+        "author_id": "QST5iogAAAAJ",
+        "affiliations": "Blizzard Entertainment",
+        "email": "Verified email at blizzard.com",
+        "cited_by": 517,
+        "interests": [
+            {
+                "title": "Game",
+                "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Agame",
+                "link": "https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:game"
+            },
+            {
+                "title": "Machine Learning",
+                "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Amachine_learning",
+                "link": "https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:machine_learning"
+            },
+            {
+                "title": "Data Science",
+                "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Adata_science",
+                "link": "https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:data_science"
+            },
+            {
+                "title": "Bioinformatics",
+                "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Abioinformatics",
+                "link": "https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:bioinformatics"
+            }
+        ],
+        "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=QST5iogAAAAJ&citpid=14"
+    },
+    {
+        "name": "Je Seok Lee",
+        "link": "https://scholar.google.com/citations?hl=en&user=vuvtlzQAAAAJ",
+        "serpapi_link": "https://serpapi.com/search.json?author_id=vuvtlzQAAAAJ&engine=google_scholar_author&hl=en",
+        "author_id": "vuvtlzQAAAAJ",
+        "affiliations": "Blizzard Entertainment",
+        "email": "Verified email at uci.edu",
+        "cited_by": 301,
+        "interests": [
+            {
+                "title": "HCI",
+                "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Ahci",
+                "link": "https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:hci"
+            },
+            {
+                "title": "Player Experience",
+                "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aplayer_experience",
+                "link": "https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:player_experience"
+            },
+            {
+                "title": "Games",
+                "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Agames",
+                "link": "https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:games"
+            },
+            {
+                "title": "Esports",
+                "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aesports",
+                "link": "https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:esports"
+            }
+        ],
+        "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=vuvtlzQAAAAJ&citpid=1"
+    },
+    {
+        "name": "Alisha Ness",
+        "link": "https://scholar.google.com/citations?hl=en&user=xQuwVfkAAAAJ",
+        "serpapi_link": "https://serpapi.com/search.json?author_id=xQuwVfkAAAAJ&engine=google_scholar_author&hl=en",
+        "author_id": "xQuwVfkAAAAJ",
+        "affiliations": "Activision Blizzard",
+        "cited_by": 285,
+        "thumbnail": "https://scholar.google.com/citations/images/avatar_scholar_56.png"
+    },
+    {
+        "name": "Xingyu (Alfred) Liu",
+        "link": "https://scholar.google.com/citations?hl=en&user=VW9ukOwAAAAJ",
+        "serpapi_link": "https://serpapi.com/search.json?author_id=VW9ukOwAAAAJ&engine=google_scholar_author&hl=en",
+        "author_id": "VW9ukOwAAAAJ",
+        "affiliations": "Blizzard Entertainment",
+        "cited_by": 227,
+        "interests": [
+            {
+                "title": "Machine Learning in Game Development",
+                "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Amachine_learning_in_game_development",
+                "link": "https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:machine_learning_in_game_development"
+            }
+        ],
+        "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=VW9ukOwAAAAJ&citpid=1"
+    },
+    {
+        "name": "Nicole \"Nikki\" Crenshaw",
+        "link": "https://scholar.google.com/citations?hl=en&user=zmRH6E0AAAAJ",
+        "serpapi_link": "https://serpapi.com/search.json?author_id=zmRH6E0AAAAJ&engine=google_scholar_author&hl=en",
+        "author_id": "zmRH6E0AAAAJ",
+        "affiliations": "Blizzard Entertainment",
+        "email": "Verified email at uci.edu",
+        "cited_by": 190,
+        "interests": [
+            {
+                "title": "MMOs",
+                "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Amm_os",
+                "link": "https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:mmos"
+            },
+            {
+                "title": "Neoliberalism",
+                "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aneoliberalism",
+                "link": "https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:neoliberalism"
+            },
+            {
+                "title": "Social Affordances",
+                "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Asocial_affordances",
+                "link": "https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:social_affordances"
+            },
+            {
+                "title": "Identity",
+                "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aidentity",
+                "link": "https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:identity"
+            },
+            {
+                "title": "Accessibility",
+                "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aaccessibility",
+                "link": "https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:accessibility"
+            }
+        ],
+        "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=zmRH6E0AAAAJ&citpid=3"
+    },
+    {
+        "name": "Ruidong Wang",
+        "link": "https://scholar.google.com/citations?hl=en&user=-8dO3oMAAAAJ",
+        "serpapi_link": "https://serpapi.com/search.json?author_id=-8dO3oMAAAAJ&engine=google_scholar_author&hl=en",
+        "author_id": "-8dO3oMAAAAJ",
+        "affiliations": "Blizzard Entertainment",
+        "email": "Verified email at math.gatech.edu",
+        "cited_by": 125,
+        "thumbnail": "https://scholar.google.com/citations/images/avatar_scholar_56.png"
+    }
+]
+}

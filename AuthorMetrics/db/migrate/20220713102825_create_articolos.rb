@@ -1,6 +1,6 @@
-class CreateArticolos < ActiveRecord::Migration[7.0]
+class Createarticoli < ActiveRecord::Migration[7.0]
   def change
-    create_table :articolos do |t|
+    create_table :articoli do |t|
 
       t.timestamps
     end

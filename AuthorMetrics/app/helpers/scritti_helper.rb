@@ -1,0 +1,2 @@
+module ScrittiHelper
+end

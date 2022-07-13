@@ -1,6 +1,6 @@
-class CreateCommentos < ActiveRecord::Migration[7.0]
+class Createcommenti < ActiveRecord::Migration[7.0]
   def change
-    create_table :commentos do |t|
+    create_table :commenti do |t|
 
       t.timestamps
     end

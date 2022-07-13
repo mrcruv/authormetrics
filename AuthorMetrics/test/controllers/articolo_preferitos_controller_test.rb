@@ -2,11 +2,11 @@ require "test_helper"
 
 class ArticoloPreferitosControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @articolo_preferito = articolo_preferitos(:one)
+    @articolo_preferito = articoli_preferiti(:one)
   end
 
   test "should get index" do
-    get articolo_preferitos_url
+    get articoli_preferiti_url
     assert_response :success
   end
 
@@ -17,7 +17,7 @@ class ArticoloPreferitosControllerTest < ActionDispatch::IntegrationTest
 
   test "should create articolo_preferito" do
     assert_difference("ArticoloPreferito.count") do
-      post articolo_preferitos_url, params: { articolo_preferito: {  } }
+      post articoli_preferiti_url, params: { articolo_preferito: {  } }
     end
 
     assert_redirected_to articolo_preferito_url(ArticoloPreferito.last)
@@ -43,6 +43,6 @@ class ArticoloPreferitosControllerTest < ActionDispatch::IntegrationTest
       delete articolo_preferito_url(@articolo_preferito)
     end
 
-    assert_redirected_to articolo_preferitos_url
+    assert_redirected_to articoli_preferiti_url
   end
 end

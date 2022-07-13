@@ -1,12 +1,12 @@
 require "test_helper"
 
-class ScrittosControllerTest < ActionDispatch::IntegrationTest
+class scrittiControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @scritto = scrittos(:one)
+    @scritto = scritti(:one)
   end
 
   test "should get index" do
-    get scrittos_url
+    get scritti_url
     assert_response :success
   end
 
@@ -17,7 +17,7 @@ class ScrittosControllerTest < ActionDispatch::IntegrationTest
 
   test "should create scritto" do
     assert_difference("Scritto.count") do
-      post scrittos_url, params: { scritto: {  } }
+      post scritti_url, params: { scritto: {  } }
     end
 
     assert_redirected_to scritto_url(Scritto.last)
@@ -43,6 +43,6 @@ class ScrittosControllerTest < ActionDispatch::IntegrationTest
       delete scritto_url(@scritto)
     end
 
-    assert_redirected_to scrittos_url
+    assert_redirected_to scritti_url
   end
 end

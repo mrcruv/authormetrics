@@ -1,12 +1,12 @@
 require "test_helper"
 
-class CommentosControllerTest < ActionDispatch::IntegrationTest
+class commentiControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @commento = commentos(:one)
+    @commento = commenti(:one)
   end
 
   test "should get index" do
-    get commentos_url
+    get commenti_url
     assert_response :success
   end
 
@@ -17,7 +17,7 @@ class CommentosControllerTest < ActionDispatch::IntegrationTest
 
   test "should create commento" do
     assert_difference("Commento.count") do
-      post commentos_url, params: { commento: {  } }
+      post commenti_url, params: { commento: {  } }
     end
 
     assert_redirected_to commento_url(Commento.last)
@@ -43,6 +43,6 @@ class CommentosControllerTest < ActionDispatch::IntegrationTest
       delete commento_url(@commento)
     end
 
-    assert_redirected_to commentos_url
+    assert_redirected_to commenti_url
   end
 end

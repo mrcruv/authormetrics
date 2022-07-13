@@ -1,0 +1,2 @@
+module ArticolisHelper
+end

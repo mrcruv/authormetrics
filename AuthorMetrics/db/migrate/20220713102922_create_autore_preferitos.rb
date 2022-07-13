@@ -1,6 +1,6 @@
 class CreateAutorePreferitos < ActiveRecord::Migration[7.0]
   def change
-    create_table :autore_preferitos do |t|
+    create_table :autori_preferiti do |t|
 
       t.timestamps
     end

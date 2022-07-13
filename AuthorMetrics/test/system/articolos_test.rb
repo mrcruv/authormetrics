@@ -1,17 +1,17 @@
 require "application_system_test_case"
 
-class ArticolosTest < ApplicationSystemTestCase
+class articoliTest < ApplicationSystemTestCase
   setup do
-    @articolo = articolos(:one)
+    @articolo = articoli(:one)
   end
 
   test "visiting the index" do
-    visit articolos_url
-    assert_selector "h1", text: "Articolos"
+    visit articoli_url
+    assert_selector "h1", text: "articoli"
   end
 
   test "should create articolo" do
-    visit articolos_url
+    visit articoli_url
     click_on "New articolo"
 
     click_on "Create Articolo"

@@ -2,16 +2,16 @@ require "application_system_test_case"
 
 class ArticoloPreferitosTest < ApplicationSystemTestCase
   setup do
-    @articolo_preferito = articolo_preferitos(:one)
+    @articolo_preferito = articoli_preferiti(:one)
   end
 
   test "visiting the index" do
-    visit articolo_preferitos_url
+    visit articoli_preferiti_url
     assert_selector "h1", text: "Articolo preferitos"
   end
 
   test "should create articolo preferito" do
-    visit articolo_preferitos_url
+    visit articoli_preferiti_url
     click_on "New articolo preferito"
 
     click_on "Create Articolo preferito"

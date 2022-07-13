@@ -1,17 +1,17 @@
 require "application_system_test_case"
 
-class CommentosTest < ApplicationSystemTestCase
+class commentiTest < ApplicationSystemTestCase
   setup do
-    @commento = commentos(:one)
+    @commento = commenti(:one)
   end
 
   test "visiting the index" do
-    visit commentos_url
-    assert_selector "h1", text: "Commentos"
+    visit commenti_url
+    assert_selector "h1", text: "commenti"
   end
 
   test "should create commento" do
-    visit commentos_url
+    visit commenti_url
     click_on "New commento"
 
     click_on "Create Commento"

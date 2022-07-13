@@ -1,0 +1,2 @@
+module RatingArticoliHelper
+end

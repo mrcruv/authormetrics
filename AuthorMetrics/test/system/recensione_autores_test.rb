@@ -2,16 +2,16 @@ require "application_system_test_case"
 
 class RecensioneAutoresTest < ApplicationSystemTestCase
   setup do
-    @recensione_autore = recensione_autores(:one)
+    @recensione_autore = recensioni_autori(:one)
   end
 
   test "visiting the index" do
-    visit recensione_autores_url
+    visit recensioni_autori_url
     assert_selector "h1", text: "Recensione autores"
   end
 
   test "should create recensione autore" do
-    visit recensione_autores_url
+    visit recensioni_autori_url
     click_on "New recensione autore"
 
     click_on "Create Recensione autore"

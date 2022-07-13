@@ -1,2 +1,0 @@
-module CommentosHelper
-end

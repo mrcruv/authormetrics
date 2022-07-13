@@ -1,12 +1,12 @@
 require "test_helper"
 
-class RatingArticolosControllerTest < ActionDispatch::IntegrationTest
+class RatingarticoliControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @rating_articolo = rating_articolos(:one)
+    @rating_articolo = rating_articoli(:one)
   end
 
   test "should get index" do
-    get rating_articolos_url
+    get rating_articoli_url
     assert_response :success
   end
 
@@ -17,7 +17,7 @@ class RatingArticolosControllerTest < ActionDispatch::IntegrationTest
 
   test "should create rating_articolo" do
     assert_difference("RatingArticolo.count") do
-      post rating_articolos_url, params: { rating_articolo: {  } }
+      post rating_articoli_url, params: { rating_articolo: {  } }
     end
 
     assert_redirected_to rating_articolo_url(RatingArticolo.last)
@@ -43,6 +43,6 @@ class RatingArticolosControllerTest < ActionDispatch::IntegrationTest
       delete rating_articolo_url(@rating_articolo)
     end
 
-    assert_redirected_to rating_articolos_url
+    assert_redirected_to rating_articoli_url
   end
 end

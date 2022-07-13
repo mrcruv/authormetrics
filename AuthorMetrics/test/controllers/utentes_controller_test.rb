@@ -1,12 +1,12 @@
 require "test_helper"
 
-class UtentesControllerTest < ActionDispatch::IntegrationTest
+class utentiControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @utente = utentes(:one)
+    @utente = utenti(:one)
   end
 
   test "should get index" do
-    get utentes_url
+    get utenti_url
     assert_response :success
   end
 
@@ -17,7 +17,7 @@ class UtentesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create utente" do
     assert_difference("Utente.count") do
-      post utentes_url, params: { utente: {  } }
+      post utenti_url, params: { utente: {  } }
     end
 
     assert_redirected_to utente_url(Utente.last)
@@ -43,6 +43,6 @@ class UtentesControllerTest < ActionDispatch::IntegrationTest
       delete utente_url(@utente)
     end
 
-    assert_redirected_to utentes_url
+    assert_redirected_to utenti_url
   end
 end

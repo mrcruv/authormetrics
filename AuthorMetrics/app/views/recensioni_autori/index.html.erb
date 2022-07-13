@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Recensione autores</h1>
+
+<div id="recensioni_autori">
+  <% @recensioni_autori.each do |recensione_autore| %>
+    <%= render recensione_autore %>
+    <p>
+      <%= link_to "Show this recensione autore", recensione_autore %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New recensione autore", new_recensione_autore_path %>
