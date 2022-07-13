@@ -1,0 +1,17 @@
+<%= form_with(model: recensione_autore) do |form| %>
+  <% if recensione_autore.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(recensione_autore.errors.count, "error") %> prohibited this recensione_autore from being saved:</h2>
+
+      <ul>
+        <% recensione_autore.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

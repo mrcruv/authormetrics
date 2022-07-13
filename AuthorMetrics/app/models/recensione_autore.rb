@@ -1,0 +1,2 @@
+class RecensioneAutore < ApplicationRecord
+end
