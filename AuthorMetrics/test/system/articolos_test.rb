@@ -1,13 +1,13 @@
 require "application_system_test_case"
 
-class articoliTest < ApplicationSystemTestCase
+class ArticoliTest < ApplicationSystemTestCase
   setup do
     @articolo = articoli(:one)
   end
 
   test "visiting the index" do
     visit articoli_url
-    assert_selector "h1", text: "articoli"
+    assert_selector "h1", text: "Articoli"
   end
 
   test "should create articolo" do

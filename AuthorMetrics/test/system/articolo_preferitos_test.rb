@@ -1,13 +1,13 @@
 require "application_system_test_case"
 
-class ArticoloPreferitosTest < ApplicationSystemTestCase
+class ArticolipreferitiTest < ApplicationSystemTestCase
   setup do
     @articolo_preferito = articoli_preferiti(:one)
   end
 
   test "visiting the index" do
     visit articoli_preferiti_url
-    assert_selector "h1", text: "Articolo preferitos"
+    assert_selector "h1", text: "Articoli preferiti"
   end
 
   test "should create articolo preferito" do

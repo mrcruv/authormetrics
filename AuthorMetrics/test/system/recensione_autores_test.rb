@@ -1,13 +1,13 @@
 require "application_system_test_case"
 
-class RecensioneAutoresTest < ApplicationSystemTestCase
+class RecensioniautoriTest < ApplicationSystemTestCase
   setup do
     @recensione_autore = recensioni_autori(:one)
   end
 
   test "visiting the index" do
     visit recensioni_autori_url
-    assert_selector "h1", text: "Recensione autores"
+    assert_selector "h1", text: "Recensione autori"
   end
 
   test "should create recensione autore" do

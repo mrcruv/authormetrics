@@ -1,13 +1,13 @@
 require "application_system_test_case"
 
-class AutorePreferitosTest < ApplicationSystemTestCase
+class AutoriPreferitiTest < ApplicationSystemTestCase
   setup do
     @autore_preferito = autori_preferiti(:one)
   end
 
   test "visiting the index" do
     visit autori_preferiti_url
-    assert_selector "h1", text: "Autore preferitos"
+    assert_selector "h1", text: "Autore preferiti"
   end
 
   test "should create autore preferito" do

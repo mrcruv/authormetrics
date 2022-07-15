@@ -1,13 +1,13 @@
 require "application_system_test_case"
 
-class commentiTest < ApplicationSystemTestCase
+class CommentiTest < ApplicationSystemTestCase
   setup do
     @commento = commenti(:one)
   end
 
   test "visiting the index" do
     visit commenti_url
-    assert_selector "h1", text: "commenti"
+    assert_selector "h1", text: "Commenti"
   end
 
   test "should create commento" do

@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @articolo_preferito %>
+
+<div>
+  <%= link_to "Edit this articolo preferito", edit_articolo_preferito_path(@articolo_preferito) %> |
+  <%= link_to "Back to articoli preferiti", articoli_preferiti_path %>
+
+  <%= button_to "Destroy this articolo preferito", @articolo_preferito, method: :delete %>
+</div>
