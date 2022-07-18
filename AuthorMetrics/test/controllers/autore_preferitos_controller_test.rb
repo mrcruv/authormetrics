@@ -1,6 +1,6 @@
 require "test_helper"
 
-class AutorePreferitosControllerTest < ActionDispatch::IntegrationTest
+class AutoriPreferitiControllerTest < ActionDispatch::IntegrationTest
   setup do
     @autore_preferito = autori_preferiti(:one)
   end

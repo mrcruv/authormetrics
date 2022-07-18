@@ -1,1 +1,1 @@
-json.array! @scritti, partial: "scritti/scritto", as: :scritto
+json.array! @scritto, partial: "scritto/scritto", as: :scritto

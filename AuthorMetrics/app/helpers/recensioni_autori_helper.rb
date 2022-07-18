@@ -1,2 +1,2 @@
-module RecensioniAutoriHelper
+module RecensioniautoriHelper
 end

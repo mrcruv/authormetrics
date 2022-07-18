@@ -1,6 +1,6 @@
 require "test_helper"
 
-class RecensioneAutoresControllerTest < ActionDispatch::IntegrationTest
+class RecensioniautoriControllerTest < ActionDispatch::IntegrationTest
   setup do
     @recensione_autore = recensioni_autori(:one)
   end

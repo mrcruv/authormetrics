@@ -1,2 +1,2 @@
-module ScrittiHelper
+module ScrittoHelper
 end

@@ -1,13 +1,13 @@
 require "application_system_test_case"
 
-class RatingAutoresTest < ApplicationSystemTestCase
+class RatingAutoriTest < ApplicationSystemTestCase
   setup do
     @rating_autore = rating_autori(:one)
   end
 
   test "visiting the index" do
     visit rating_autori_url
-    assert_selector "h1", text: "Rating autores"
+    assert_selector "h1", text: "Rating autori"
   end
 
   test "should create rating autore" do

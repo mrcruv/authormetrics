@@ -1,4 +1,4 @@
-class RatingArticoliController < ApplicationController
+class RatingarticoliController < ApplicationController
   before_action :set_rating_articolo, only: %i[ show edit update destroy ]
 
   # GET /rating_articoli or /rating_articoli.json

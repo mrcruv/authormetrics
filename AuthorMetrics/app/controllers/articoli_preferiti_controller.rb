@@ -1,4 +1,4 @@
-class ArticoliPreferitiController < ApplicationController
+class ArticolipreferitiController < ApplicationController
   before_action :set_articolo_preferito, only: %i[ show edit update destroy ]
 
   # GET /articoli_preferiti or /articoli_preferiti.json

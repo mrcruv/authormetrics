@@ -1,13 +1,13 @@
 require "application_system_test_case"
 
-class utentiTest < ApplicationSystemTestCase
+class UtentiTest < ApplicationSystemTestCase
   setup do
     @utente = utenti(:one)
   end
 
   test "visiting the index" do
     visit utenti_url
-    assert_selector "h1", text: "utenti"
+    assert_selector "h1", text: "Utenti"
   end
 
   test "should create utente" do

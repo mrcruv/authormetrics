@@ -1,2 +1,2 @@
-module RatingArticoliHelper
+module RatingarticoliHelper
 end

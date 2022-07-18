@@ -1,2 +1,2 @@
-module ArticolisHelper
+module ArticoliHelper
 end

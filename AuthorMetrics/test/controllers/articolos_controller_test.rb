@@ -1,6 +1,6 @@
 require "test_helper"
 
-class articoliControllerTest < ActionDispatch::IntegrationTest
+class ArticoliControllerTest < ActionDispatch::IntegrationTest
   setup do
     @articolo = articoli(:one)
   end

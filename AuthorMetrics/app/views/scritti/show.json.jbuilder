@@ -1,1 +1,1 @@
-json.partial! "scritti/scritto", scritto: @scritto
+json.partial! "scritto/scritto", scritto: @scritto

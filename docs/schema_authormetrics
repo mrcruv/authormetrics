@@ -9,8 +9,22 @@ CREATE TABLE utenti(
 	data_iscrizione TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
 	UNIQUE(username,email)
 );
+CREATE TABLE amministratori (
+	id serial PRIMARY KEY NOT NULL,
+	username varchar(25) NOT NULL,
+	psw varchar(30) NOT NULL
+);
+CREATE TABLE bans(
+	utenti_id serial NOT NULL,
+	amministratori_id serial NOT NULL,
+	da date not null,
+	a date not null,
+	PRIMARY KEY(utenti_id,amministratori_id),
+	FOREIGN KEY (utenti_id) REFERENCES utenti(id),
+	FOREIGN KEY (amministratori_id) REFERENCES amministratori (id)
+);
 
-CREATE TABLE authors (
+CREATE TABLE autori (
 	_id varchar(25) NOT NULL,
 	nome_cognome varchar(50) NOT NULL,
 	interest varchar(25)[],
@@ -29,39 +43,39 @@ CREATE TABLE articoli(
 );
 
 CREATE TABLE Scritti(
-	authors_id varchar(25) NOT NULL,
+	autori_id varchar(25) NOT NULL,
 	articoli_id varchar(25) NOT NULL,
-	PRIMARY KEY(authors_id,articoli_id),
+	PRIMARY KEY(autori_id,articoli_id),
 	FOREIGN KEY (articoli_id) REFERENCES articoli(_id),
-	FOREIGN KEY (authors_id) REFERENCES authors (_id)
+	FOREIGN KEY (autori_id) REFERENCES autori (_id)
 );
 
 CREATE TABLE Autori_preferiti(
-	authors_id varchar(25) NOT NULL,
+	autori_id varchar(25) NOT NULL,
 	utenti_id SERIAL NOT NULL,
-	PRIMARY KEY(utenti_id,authors_id),
+	PRIMARY KEY(utenti_id,autori_id),
 	FOREIGN KEY (utenti_id) REFERENCES utenti(id),
-	FOREIGN KEY (authors_id) REFERENCES authors (_id)
+	FOREIGN KEY (autori_id) REFERENCES autori (_id)
 );
 
 CREATE TABLE Rating_autori(
-	authors_id varchar(25),
+	autori_id varchar(25),
 	utenti_id SERIAL NOT NULL,
 	rating integer NOT NULL check(rating>0 and rating <11),
 	data_valutazione date NOT NULL,
-	PRIMARY KEY(utenti_id,authors_id),
+	PRIMARY KEY(utenti_id,autori_id),
 	FOREIGN KEY (utenti_id) REFERENCES utenti(id),
-	FOREIGN KEY (authors_id) REFERENCES authors (_id)
+	FOREIGN KEY (autori_id) REFERENCES autori (_id)
 );
 
 CREATE TABLE Recensioni_autori(
-	authors_id varchar(25),
+	autori_id varchar(25),
 	utenti_id SERIAL NOT NULL,
 	recensione text NOT NULL,
 	data_recensione date NOT NULL,
-	PRIMARY KEY(authors_id,utenti_id),
+	PRIMARY KEY(autori_id,utenti_id),
 	FOREIGN KEY (utenti_id) REFERENCES utenti(id),
-	FOREIGN KEY (authors_id) REFERENCES authors (_id)
+	FOREIGN KEY (autori_id) REFERENCES autori (_id)
 );
 
 CREATE TABLE articoli_preferiti(

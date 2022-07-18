@@ -1,6 +1,6 @@
 require "test_helper"
 
-class ArticoloPreferitosControllerTest < ActionDispatch::IntegrationTest
+class ArticolipreferitiControllerTest < ActionDispatch::IntegrationTest
   setup do
     @articolo_preferito = articoli_preferiti(:one)
   end

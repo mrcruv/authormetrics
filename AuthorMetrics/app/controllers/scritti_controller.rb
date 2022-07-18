@@ -1,25 +1,25 @@
-class ScrittiController < ApplicationController
+class ScrittoController < ApplicationController
   before_action :set_scritto, only: %i[ show edit update destroy ]
 
-  # GET /scritti or /scritti.json
+  # GET /scritto or /scritto.json
   def index
-    @scritti = Scritto.all
+    @scritto = Scritto.all
   end
 
-  # GET /scritti/1 or /scritti/1.json
+  # GET /scritto/1 or /scritto/1.json
   def show
   end
 
-  # GET /scritti/new
+  # GET /scritto/new
   def new
     @scritto = Scritto.new
   end
 
-  # GET /scritti/1/edit
+  # GET /scritto/1/edit
   def edit
   end
 
-  # POST /scritti or /scritti.json
+  # POST /scritto or /scritto.json
   def create
     @scritto = Scritto.new(scritto_params)
 
@@ -34,7 +34,7 @@ class ScrittiController < ApplicationController
     end
   end
 
-  # PATCH/PUT /scritti/1 or /scritti/1.json
+  # PATCH/PUT /scritto/1 or /scritto/1.json
   def update
     respond_to do |format|
       if @scritto.update(scritto_params)
@@ -47,12 +47,12 @@ class ScrittiController < ApplicationController
     end
   end
 
-  # DELETE /scritti/1 or /scritti/1.json
+  # DELETE /scritto/1 or /scritto/1.json
   def destroy
     @scritto.destroy
 
     respond_to do |format|
-      format.html { redirect_to scritti_url, notice: "Scritto was successfully destroyed." }
+      format.html { redirect_to scritto_url, notice: "Scritto was successfully destroyed." }
       format.json { head :no_content }
     end
   end

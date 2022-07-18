@@ -1,17 +1,17 @@
 require "application_system_test_case"
 
-class scrittiTest < ApplicationSystemTestCase
+class ScrittoTest < ApplicationSystemTestCase
   setup do
-    @scritto = scritti(:one)
+    @scritto = scritto(:one)
   end
 
   test "visiting the index" do
-    visit scritti_url
-    assert_selector "h1", text: "scritti"
+    visit scritto_url
+    assert_selector "h1", text: "Scritto"
   end
 
   test "should create scritto" do
-    visit scritti_url
+    visit scritto_url
     click_on "New scritto"
 
     click_on "Create Scritto"
