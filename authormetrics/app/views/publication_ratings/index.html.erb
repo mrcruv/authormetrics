@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Publication ratings</h1>
+
+<div id="publication_ratings">
+  <% @publication_ratings.each do |publication_rating| %>
+    <%= render publication_rating %>
+    <p>
+      <%= link_to "Show this publication rating", publication_rating %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New publication rating", new_publication_rating_path %>

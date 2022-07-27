@@ -17,7 +17,7 @@ class BansControllerTest < ActionDispatch::IntegrationTest
 
   test "should create ban" do
     assert_difference("Ban.count") do
-      post bans_url, params: { ban: {  } }
+      post bans_url, params: { ban: { admin_id: @ban.admin_id, reason: @ban.reason, user_id: @ban.user_id } }
     end
 
     assert_redirected_to ban_url(Ban.last)
@@ -34,7 +34,7 @@ class BansControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update ban" do
-    patch ban_url(@ban), params: { ban: {  } }
+    patch ban_url(@ban), params: { ban: { admin_id: @ban.admin_id, reason: @ban.reason, user_id: @ban.user_id } }
     assert_redirected_to ban_url(@ban)
   end
 

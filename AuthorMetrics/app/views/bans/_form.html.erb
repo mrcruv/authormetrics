@@ -12,6 +12,21 @@
   <% end %>
 
   <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.number_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.label :admin_id, style: "display: block" %>
+    <%= form.number_field :admin_id %>
+  </div>
+
+  <div>
+    <%= form.label :reason, style: "display: block" %>
+    <%= form.text_area :reason %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>

@@ -1,0 +1,2 @@
+class Written < ApplicationRecord
+end

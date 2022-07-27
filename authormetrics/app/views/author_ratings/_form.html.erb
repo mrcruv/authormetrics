@@ -1,0 +1,37 @@
+<%= form_with(model: author_rating) do |form| %>
+  <% if author_rating.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(author_rating.errors.count, "error") %> prohibited this author_rating from being saved:</h2>
+
+      <ul>
+        <% author_rating.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :author_id, style: "display: block" %>
+    <%= form.text_field :author_id %>
+  </div>
+
+  <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.number_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.label :rating, style: "display: block" %>
+    <%= form.number_field :rating %>
+  </div>
+
+  <div>
+    <%= form.label :rating_timestamp, style: "display: block" %>
+    <%= form.datetime_field :rating_timestamp %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

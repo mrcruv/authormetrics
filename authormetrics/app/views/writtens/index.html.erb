@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Writtens</h1>
+
+<div id="writtens">
+  <% @writtens.each do |written| %>
+    <%= render written %>
+    <p>
+      <%= link_to "Show this written", written %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New written", new_written_path %>

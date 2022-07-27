@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Favorite publications</h1>
+
+<div id="favorite_publications">
+  <% @favorite_publications.each do |favorite_publication| %>
+    <%= render favorite_publication %>
+    <p>
+      <%= link_to "Show this favorite publication", favorite_publication %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New favorite publication", new_favorite_publication_path %>

@@ -1,2 +1,0 @@
-class Scritto < ApplicationRecord
-end

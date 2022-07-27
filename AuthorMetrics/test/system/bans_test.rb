@@ -14,6 +14,9 @@ class BansTest < ApplicationSystemTestCase
     visit bans_url
     click_on "New ban"
 
+    fill_in "Admin", with: @ban.admin_id
+    fill_in "Reason", with: @ban.reason
+    fill_in "User", with: @ban.user_id
     click_on "Create Ban"
 
     assert_text "Ban was successfully created"
@@ -24,6 +27,9 @@ class BansTest < ApplicationSystemTestCase
     visit ban_url(@ban)
     click_on "Edit this ban", match: :first
 
+    fill_in "Admin", with: @ban.admin_id
+    fill_in "Reason", with: @ban.reason
+    fill_in "User", with: @ban.user_id
     click_on "Update Ban"
 
     assert_text "Ban was successfully updated"

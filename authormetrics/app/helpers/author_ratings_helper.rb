@@ -1,0 +1,2 @@
+module AuthorRatingsHelper
+end

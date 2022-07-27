@@ -1,0 +1,27 @@
+<%= form_with(model: written) do |form| %>
+  <% if written.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(written.errors.count, "error") %> prohibited this written from being saved:</h2>
+
+      <ul>
+        <% written.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :author_id, style: "display: block" %>
+    <%= form.text_field :author_id %>
+  </div>
+
+  <div>
+    <%= form.label :publication_id, style: "display: block" %>
+    <%= form.text_field :publication_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

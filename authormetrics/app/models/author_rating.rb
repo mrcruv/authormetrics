@@ -1,0 +1,2 @@
+class AuthorRating < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class FavoriteAuthor < ApplicationRecord
+end

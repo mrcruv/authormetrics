@@ -65,6 +65,6 @@ class BansController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ban_params
-      params.fetch(:ban, {})
+      params.require(:ban).permit(:user_id, :admin_id, :reason)
     end
 end

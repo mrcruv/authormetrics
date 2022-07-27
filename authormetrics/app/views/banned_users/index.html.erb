@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Banned users</h1>
+
+<div id="banned_users">
+  <% @banned_users.each do |banned_user| %>
+    <%= render banned_user %>
+    <p>
+      <%= link_to "Show this banned user", banned_user %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New banned user", new_banned_user_path %>
