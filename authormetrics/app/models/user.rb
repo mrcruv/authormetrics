@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    has_one :banned_user
+    #has_one :banned_user
     has_many :favorite_author
     has_many :favorite_publication
     has_many :comment

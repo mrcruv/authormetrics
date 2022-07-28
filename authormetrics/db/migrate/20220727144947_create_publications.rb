@@ -11,7 +11,7 @@ class CreatePublications < ActiveRecord::Migration[7.0]
       t.timestamps
     end
     add_index :publications, [:publication_id], unique: true
-    add_check_constraint :publications, 'cited_by IS NOT NULL OR cited_by >= 0', name: 'check_publications_on_cited_by'
+    add_check_constraint :publications, 'cited_by IS NULL OR cited_by >= 0', name: 'check_publications_on_cited_by'
     add_foreign_key :favorite_publications, :publications, column: 'publication_id', primary_key: 'publication_id', name: 'favorite_publications_fkey_publications' if table_exists?(:favorite_publications) and !foreign_key_exists?(:favorite_publications, column: :publication_id)
     add_foreign_key :publication_ratings, :publications, column: 'publication_id', primary_key: 'publication_id', name: 'publication_ratings_fkey_publications' if table_exists?(:publication_ratings) and !foreign_key_exists?(:publication_ratings, column: :publication_id)
     add_foreign_key :writtens, :publication, column: 'publication_id', primary_key: 'publication_id', name: 'writtens_fkey_publications' if table_exists?(:writtens) and !foreign_key_exists?(:writtens, column: :publication_id)
