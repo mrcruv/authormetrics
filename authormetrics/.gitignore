@@ -6,8 +6,7 @@
 #ignore ruby version and gemfile
 
 # Ignore bundler config.
-Gemfile*
-.ruby-version*
+
 
 # Ignore all logfiles and tempfiles.
 /log/*
