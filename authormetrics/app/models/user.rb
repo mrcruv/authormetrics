@@ -20,7 +20,7 @@ class User < ApplicationRecord
     user_id = :id
     reg_date = Date.today
 
-    validates :username, :presence=>true
+    validates :username, :presence=>true, uniqueness: { case_sensitive: true }
     validates :password, :presence=>true, length: { in: 6..20 }
     validates :name, :presence=>true
     validates :surname, :presence=>true
