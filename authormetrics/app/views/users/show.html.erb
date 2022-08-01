@@ -7,4 +7,5 @@
   <%= link_to "Back to users", users_path %>
 
   <%= button_to "Destroy this user", @user, method: :delete %>
+  <%= link_to "view your author reviews", user_reviews_url(user_id: params[:id]) %>
 </div>

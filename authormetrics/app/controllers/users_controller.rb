@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
-
+  before_action :get_user_reviews
   # GET /users or /users.json
   def index
     @users = User.all
@@ -66,5 +66,9 @@ class UsersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def user_params
       params.require(:user).permit(:id, :username, :password, :name, :surname, :birth_date, :reg_date, :email)
+    end
+
+    def get_user_reviews
+      @reviews=Review.find_by( user_id: params[:id])
     end
 end
