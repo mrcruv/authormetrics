@@ -90,12 +90,17 @@ ActiveRecord::Schema[7.0].define(version: 0) do
   create_table "users", primary_key: "user_id", id: :serial, force: :cascade do |t|
     t.string "username", limit: 255, null: false
     t.string "password", limit: 255, null: false
-    t.string "email", limit: 255, null: false
     t.string "name", limit: 255, null: false
     t.string "surname", limit: 255, null: false
     t.date "birth_date", null: false
     t.date "reg_date", default: -> { "CURRENT_DATE" }
-    t.index ["email"], name: "users_email_key", unique: true
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "users_username_key", unique: true
   end
 
