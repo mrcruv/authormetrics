@@ -1,0 +1,15 @@
+current directory: /home/tiziano/progetti/authormetrics/authormetrics/vendor/cache/ruby/3.0.0/gems/bootsnap-1.12.0/ext/bootsnap
+/usr/bin/ruby3.0 -I /usr/lib/ruby/vendor_ruby -r ./siteconf20220808-29904-405y7q.rb extconf.rb
+creating Makefile
+
+current directory: /home/tiziano/progetti/authormetrics/authormetrics/vendor/cache/ruby/3.0.0/gems/bootsnap-1.12.0/ext/bootsnap
+make DESTDIR\= clean
+
+current directory: /home/tiziano/progetti/authormetrics/authormetrics/vendor/cache/ruby/3.0.0/gems/bootsnap-1.12.0/ext/bootsnap
+make DESTDIR\=
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.so
+
+current directory: /home/tiziano/progetti/authormetrics/authormetrics/vendor/cache/ruby/3.0.0/gems/bootsnap-1.12.0/ext/bootsnap
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 bootsnap.so ./.gem.20220808-29904-u7t52w/bootsnap
