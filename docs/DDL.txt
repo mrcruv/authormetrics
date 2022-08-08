@@ -21,12 +21,21 @@ CREATE TABLE IF NOT EXISTS public.administrators
     admin_id SERIAL NOT NULL,
     username character varying(255) COLLATE pg_catalog."default" NOT NULL,
     password character varying(255) COLLATE pg_catalog."default" NOT NULL,
-    CONSTRAINT administrators_pkey PRIMARY KEY (admin_id),
-    CONSTRAINT administrators_username_key UNIQUE (username)
-);
+    CONSTRAINT administrators_pkey PRIMARY KEY (admin_id)
+)
+
+TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.administrators
     OWNER to postgres;
+-- Index: administrators_username_key
+
+-- DROP INDEX IF EXISTS public.administrators_username_key;
+
+CREATE UNIQUE INDEX IF NOT EXISTS administrators_username_key
+    ON public.administrators USING btree
+    (username COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
 
 -- Table: public.authors
 
@@ -40,10 +49,61 @@ CREATE TABLE IF NOT EXISTS public.authors
     affiliations text COLLATE pg_catalog."default",
     interests character varying(255)[] COLLATE pg_catalog."default",
     CONSTRAINT authors_pkey PRIMARY KEY (author_id)
-);
+)
+
+TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.authors
     OWNER to postgres;
+
+-- Table: public.users
+
+-- DROP TABLE IF EXISTS public.users;
+
+CREATE TABLE IF NOT EXISTS public.users
+(
+    user_id SERIAL NOT NULL,
+    username character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    name character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    surname character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    birth_date date NOT NULL,
+    reg_date date DEFAULT CURRENT_DATE,
+    email character varying COLLATE pg_catalog."default" NOT NULL DEFAULT ''::character varying,
+    encrypted_password character varying COLLATE pg_catalog."default" NOT NULL DEFAULT ''::character varying,
+    reset_password_token character varying COLLATE pg_catalog."default",
+    reset_password_sent_at timestamp(6) without time zone,
+    remember_created_at timestamp(6) without time zone,
+    CONSTRAINT users_pkey PRIMARY KEY (user_id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.users
+    OWNER to postgres;
+-- Index: index_users_on_email
+
+-- DROP INDEX IF EXISTS public.index_users_on_email;
+
+CREATE UNIQUE INDEX IF NOT EXISTS index_users_on_email
+    ON public.users USING btree
+    (email COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
+-- Index: index_users_on_reset_password_token
+
+-- DROP INDEX IF EXISTS public.index_users_on_reset_password_token;
+
+CREATE UNIQUE INDEX IF NOT EXISTS index_users_on_reset_password_token
+    ON public.users USING btree
+    (reset_password_token COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
+-- Index: users_username_key
+
+-- DROP INDEX IF EXISTS public.users_username_key;
+
+CREATE UNIQUE INDEX IF NOT EXISTS users_username_key
+    ON public.users USING btree
+    (username COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
 
 -- Table: public.publications
 
@@ -59,31 +119,11 @@ CREATE TABLE IF NOT EXISTS public.publications
     pub_year integer,
     CONSTRAINT publications_pkey PRIMARY KEY (publication_id),
     CONSTRAINT publications_cited_by_check CHECK (cited_by IS NOT NULL OR cited_by >= 0)
-);
+)
+
+TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.publications
-    OWNER to postgres;
-
--- Table: public.users
-
--- DROP TABLE IF EXISTS public.users;
-
-CREATE TABLE IF NOT EXISTS public.users
-(
-    user_id serial NOT NULL,
-    username character varying(255) COLLATE pg_catalog."default" NOT NULL,
-    password character varying(255) COLLATE pg_catalog."default" NOT NULL,
-    email character varying(255) COLLATE pg_catalog."default" NOT NULL,
-    name character varying(255) COLLATE pg_catalog."default" NOT NULL,
-    surname character varying(255) COLLATE pg_catalog."default" NOT NULL,
-    birth_date date NOT NULL,
-    reg_date date DEFAULT CURRENT_DATE,
-    CONSTRAINT users_pkey PRIMARY KEY (user_id),
-    CONSTRAINT users_email_key UNIQUE (email),
-    CONSTRAINT users_username_key UNIQUE (username)
-);
-
-ALTER TABLE IF EXISTS public.users
     OWNER to postgres;
 
 -- Table: public.author_ratings
@@ -93,7 +133,7 @@ ALTER TABLE IF EXISTS public.users
 CREATE TABLE IF NOT EXISTS public.author_ratings
 (
     author_id character varying(255) COLLATE pg_catalog."default" NOT NULL,
-    user_id serial NOT NULL,
+    user_id SERIAL NOT NULL ,
     rating integer NOT NULL,
     rating_timestamp timestamp without time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT author_ratings_pkey PRIMARY KEY (user_id, author_id),
@@ -106,7 +146,9 @@ CREATE TABLE IF NOT EXISTS public.author_ratings
         ON UPDATE NO ACTION
         ON DELETE NO ACTION,
     CONSTRAINT author_ratings_rating_check CHECK (rating >= 1 AND rating <= 10)
-);
+)
+
+TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.author_ratings
     OWNER to postgres;
@@ -117,7 +159,7 @@ ALTER TABLE IF EXISTS public.author_ratings
 
 CREATE TABLE IF NOT EXISTS public.banned_users
 (
-    user_id serial NOT NULL,
+    user_id SERIAL NOT NULL,
     start_date date DEFAULT CURRENT_DATE,
     end_date date NOT NULL,
     CONSTRAINT banned_users_pkey PRIMARY KEY (user_id),
@@ -125,7 +167,9 @@ CREATE TABLE IF NOT EXISTS public.banned_users
         REFERENCES public.users (user_id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
-);
+)
+
+TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.banned_users
     OWNER to postgres;
@@ -136,8 +180,8 @@ ALTER TABLE IF EXISTS public.banned_users
 
 CREATE TABLE IF NOT EXISTS public.bans
 (
-    user_id serial NOT NULL,
-    admin_id serial NOT NULL,
+    user_id SERIAL NOT NULL,
+    admin_id SERIAL NOT NULL,
     reason text COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT bans_admin_id_fkey FOREIGN KEY (admin_id)
         REFERENCES public.administrators (admin_id) MATCH SIMPLE
@@ -147,7 +191,9 @@ CREATE TABLE IF NOT EXISTS public.bans
         REFERENCES public.banned_users (user_id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
-);
+)
+
+TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.bans
     OWNER to postgres;
@@ -159,7 +205,7 @@ ALTER TABLE IF EXISTS public.bans
 CREATE TABLE IF NOT EXISTS public.comments
 (
     publication_id character varying(255) COLLATE pg_catalog."default" NOT NULL,
-    user_id serial NOT NULL,
+    user_id SERIAL NOT NULL,
     comment text COLLATE pg_catalog."default" NOT NULL,
     comment_timestamp timestamp without time zone NOT NULL DEFAULT CURRENT_DATE,
     CONSTRAINT comments_pkey PRIMARY KEY (publication_id, user_id, comment_timestamp),
@@ -171,7 +217,9 @@ CREATE TABLE IF NOT EXISTS public.comments
         REFERENCES public.users (user_id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
-);
+)
+
+TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.comments
     OWNER to postgres;
@@ -183,7 +231,7 @@ ALTER TABLE IF EXISTS public.comments
 CREATE TABLE IF NOT EXISTS public.favorite_authors
 (
     author_id character varying(255) COLLATE pg_catalog."default" NOT NULL,
-    user_id serial NOT NULL,
+    user_id SERIAL NOT NULL,
     CONSTRAINT favorite_authors_pkey PRIMARY KEY (user_id, author_id),
     CONSTRAINT favorite_authors_author_id_fkey FOREIGN KEY (author_id)
         REFERENCES public.authors (author_id) MATCH SIMPLE
@@ -193,7 +241,9 @@ CREATE TABLE IF NOT EXISTS public.favorite_authors
         REFERENCES public.users (user_id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
-);
+)
+
+TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.favorite_authors
     OWNER to postgres;
@@ -205,7 +255,7 @@ ALTER TABLE IF EXISTS public.favorite_authors
 CREATE TABLE IF NOT EXISTS public.favorite_publications
 (
     publication_id character varying(255) COLLATE pg_catalog."default" NOT NULL,
-    user_id serial NOT NULL,
+    user_id SERIAL NOT NULL,
     CONSTRAINT favorite_publications_pkey PRIMARY KEY (user_id, publication_id),
     CONSTRAINT favorite_publications_publication_id_fkey FOREIGN KEY (publication_id)
         REFERENCES public.publications (publication_id) MATCH SIMPLE
@@ -215,7 +265,9 @@ CREATE TABLE IF NOT EXISTS public.favorite_publications
         REFERENCES public.users (user_id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
-);
+)
+
+TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.favorite_publications
     OWNER to postgres;
@@ -227,7 +279,7 @@ ALTER TABLE IF EXISTS public.favorite_publications
 CREATE TABLE IF NOT EXISTS public.publication_ratings
 (
     publication_id character varying(255) COLLATE pg_catalog."default" NOT NULL,
-    user_id serial NOT NULL,
+    user_id SERIAL NOT NULL,
     rating integer NOT NULL,
     rating_timestamp timestamp without time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT publication_ratings_pkey PRIMARY KEY (publication_id, user_id),
@@ -244,7 +296,9 @@ CREATE TABLE IF NOT EXISTS public.publication_ratings
         ON UPDATE NO ACTION
         ON DELETE NO ACTION,
     CONSTRAINT publication_ratings_rating_check CHECK (rating >= 1 AND rating <= 10)
-);
+)
+
+TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.publication_ratings
     OWNER to postgres;
@@ -256,7 +310,7 @@ ALTER TABLE IF EXISTS public.publication_ratings
 CREATE TABLE IF NOT EXISTS public.reviews
 (
     author_id character varying(255) COLLATE pg_catalog."default" NOT NULL,
-    user_id serial NOT NULL,
+    user_id SERIAL NOT NULL,
     review text COLLATE pg_catalog."default" NOT NULL,
     review_timestamp timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT reviews_pkey PRIMARY KEY (author_id, user_id),
@@ -268,29 +322,33 @@ CREATE TABLE IF NOT EXISTS public.reviews
         REFERENCES public.users (user_id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
-);
+)
+
+TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.reviews
     OWNER to postgres;
 
--- Table: public.written
+-- Table: public.writtens
 
--- DROP TABLE IF EXISTS public.written;
+-- DROP TABLE IF EXISTS public.writtens;
 
-CREATE TABLE IF NOT EXISTS public.written
+CREATE TABLE IF NOT EXISTS public.writtens
 (
     author_id character varying(255) COLLATE pg_catalog."default" NOT NULL,
     publication_id character varying(255) COLLATE pg_catalog."default" NOT NULL,
-    CONSTRAINT written_pkey PRIMARY KEY (author_id, publication_id),
-    CONSTRAINT written_author_id_fkey FOREIGN KEY (author_id)
+    CONSTRAINT writtens_pkey PRIMARY KEY (author_id, publication_id),
+    CONSTRAINT writtens_author_id_fkey FOREIGN KEY (author_id)
         REFERENCES public.authors (author_id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION,
-    CONSTRAINT written_publication_id_fkey FOREIGN KEY (publication_id)
+    CONSTRAINT writtens_publication_id_fkey FOREIGN KEY (publication_id)
         REFERENCES public.publications (publication_id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
-);
+)
 
-ALTER TABLE IF EXISTS public.written
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.writtens
     OWNER to postgres;
