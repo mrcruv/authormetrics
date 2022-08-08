@@ -89,7 +89,6 @@ ActiveRecord::Schema[7.0].define(version: 0) do
 
   create_table "users", primary_key: "user_id", id: :serial, force: :cascade do |t|
     t.string "username", limit: 255, null: false
-    t.string "password", limit: 255, null: false
     t.string "name", limit: 255, null: false
     t.string "surname", limit: 255, null: false
     t.date "birth_date", null: false
@@ -104,7 +103,7 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.index ["username"], name: "users_username_key", unique: true
   end
 
-  create_table "written", primary_key: ["author_id", "publication_id"], force: :cascade do |t|
+  create_table "writtens", primary_key: ["author_id", "publication_id"], force: :cascade do |t|
     t.string "author_id", limit: 255, null: false
     t.string "publication_id", limit: 255, null: false
   end
@@ -125,6 +124,6 @@ ActiveRecord::Schema[7.0].define(version: 0) do
   add_foreign_key "publication_ratings", "users", primary_key: "user_id", name: "publication_ratings_user_id_fkey"
   add_foreign_key "reviews", "authors", primary_key: "author_id", name: "reviews_author_id_fkey"
   add_foreign_key "reviews", "users", primary_key: "user_id", name: "reviews_user_id_fkey"
-  add_foreign_key "written", "authors", primary_key: "author_id", name: "written_author_id_fkey"
-  add_foreign_key "written", "publications", primary_key: "publication_id", name: "written_publication_id_fkey"
+  add_foreign_key "writtens", "authors", primary_key: "author_id", name: "writtens_author_id_fkey"
+  add_foreign_key "writtens", "publications", primary_key: "publication_id", name: "writtens_publication_id_fkey"
 end
