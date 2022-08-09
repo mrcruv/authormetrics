@@ -23,6 +23,7 @@ class Operations
             a.name = p[:name]
             a.affiliations = p[:affiliations]
             a.interests = p[:interests] # parse?
+            a.cited_by =p[:cited_by]
             a.save!
             print a
         end
@@ -48,6 +49,7 @@ class Operations
         a.affiliations = author[:author][:affiliations]
         # parse?
         a.interests = author[:author][:interests]
+        a.cited_by =p[:cited_by]
         a.save!
         return true
     end
@@ -75,8 +77,18 @@ class Operations
                 p.pub_year = article[:year]
                 p.cited_by = article[:cited_by][:value]
                 p.save!
+                w=Writtens.new
+                w.author_id=author_id
+                w.publication_id=p.article[:citation_id]
+                w.save!
             end
         return true
+    end
+    
+    def self.fill_articles_by_authors(authors)
+        authors.each do |a|
+            scrape_publications_by_author_id(a)
+        end
     end
 
 

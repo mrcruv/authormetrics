@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 0) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_09_140805) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -30,9 +30,9 @@ ActiveRecord::Schema[7.0].define(version: 0) do
 
   create_table "authors", primary_key: "author_id", id: { type: :string, limit: 255 }, force: :cascade do |t|
     t.string "name", limit: 255, null: false
-    t.string "surname", limit: 255, null: false
     t.text "affiliations"
-    t.string "interests", limit: 255, array: true
+    t.text "interests"
+    t.integer "cited_by"
   end
 
   create_table "banned_users", primary_key: "user_id", id: :serial, force: :cascade do |t|
