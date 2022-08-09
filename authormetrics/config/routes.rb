@@ -1,21 +1,26 @@
 Rails.application.routes.draw do
-  devise_for :users
+ 
+  #devise_for :users
+  #devise_scope :user do
+  #  authenticated :user do
+  #    root :to => 'users#index', as: :authenticated_root
+  #  end
+  #  unauthenticated :user do
+  #    root :to => 'devise/registrations#new', as: :unauthenticated_root
+  #  end
+  #  get '/users/sign_out' => 'devise/sessions#destroy'
+  #end
+  
+  
 
-  devise_scope :user do
-    authenticated :user do
-      root :to => 'users#index', as: :authenticated_root
-    end
-    unauthenticated :user do
-      root :to => 'devise/registrations#new', as: :unauthenticated_root
-    end
-    get '/users/sign_out' => 'devise/sessions#destroy'
+
+  
+
+  resources :users do 
+   resources :favorite_publications
+   resources :favorite_authors
+   resources :reviews
   end
-
-  # resources :users do 
-  #   resources :favorite_publications
-  #   resources :favorite_authors
-  #   resources :reviews
-  # end
   resources :authors do
     resources :publications
     resources :author_ratings
@@ -31,8 +36,8 @@ Rails.application.routes.draw do
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Defines the root path route ("/")
-  get "/users", to: "users#index"
-  get "/users/:id", to: "users#show", :as => :user
+  get "/", to: "users#index"
+  get "/users/:id", to: "users#show"
 
 
 end
