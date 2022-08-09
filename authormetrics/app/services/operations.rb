@@ -4,7 +4,12 @@ require 'google_search_results'
 class Operations
     def scrape_authors_by_name(author_name)
         begin
-            params = {engine: "google_scholar_profiles",mauthors: author_name,api_key: Rails.application.credentials.api_key,q:''}
+            params = {
+            engine: "google_scholar_profiles",
+            mauthors: author_name,
+            api_key: Rails.application.credentials.api_key,
+            q:''
+            }
             #"c7e57fcc425f53cda7a150c251ce9e223313a8bd9264d3e823a27fefca1aabdf"
             search = GoogleSearch.new(params)
             profiles = search.get_hash[:profiles]
@@ -28,8 +33,9 @@ class Operations
         begin
             params = {
                 engine: "google_scholar_author",
-                q: author_id,
-                api_key: Rails.application.credentials.api_key
+                author_id: author_id,
+                api_key: Rails.application.credentials.api_key,
+                q:''
             }
             search = GoogleSearch.new(params)
             author = search.get_hash[:author]
@@ -38,10 +44,10 @@ class Operations
         end
         a = Author.new
         a.author_id = author_id
-        a.name = author['author']['name']
-        a.affiliations = author['author']['affiliations']
+        a.name = author[:author][:name]
+        a.affiliations = author[:author][:affiliations]
         # parse?
-        a.interests = author['author']['interests']
+        a.interests = author[:author][:interests]
         a.save!
         return true
     end
@@ -50,8 +56,9 @@ class Operations
         begin
             params = {
                 engine: "google_scholar_author",
-                q: author_id,
-                api_key: Rails.application.credentials.api_key
+                author_id: author_id,
+                api_key: Rails.application.credentials.api_key,
+                q:''
             }
               
               search = GoogleSearch.new(params)
@@ -61,12 +68,12 @@ class Operations
         end
             articles.each do |article|
                 p = Publication.new
-                p.publication_id = article['citation_id']
-                p.title = article['title']
-                p.published_on = article['publication']
-                p.link = article['link']
-                p.pub_year = article['year']
-                p.cited_by = article['cited_by']['value']
+                p.publication_id = article[:citation_id]
+                p.title = article[:title]
+                p.published_on = article[:publication]
+                p.link = article[:link]
+                p.pub_year = article[:year]
+                p.cited_by = article[:cited_by][:value]
                 p.save!
             end
         return true
