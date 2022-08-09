@@ -11,11 +11,6 @@ Rails.application.routes.draw do
   #  get '/users/sign_out' => 'devise/sessions#destroy'
   #end
   
-  
-
-
-  
-
   resources :users do 
    resources :favorite_publications
    resources :favorite_authors

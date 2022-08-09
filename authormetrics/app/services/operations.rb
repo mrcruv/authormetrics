@@ -2,6 +2,7 @@ require "http"
 require 'google_search_results' 
 
 class Operations
+
     def scrape_authors_by_name(author_name)
         begin
             params = {
@@ -54,11 +55,11 @@ class Operations
         return true
     end
 
-    def scrape_publications_by_author_id(author_id)
+    def scrape_publications_by_author_id(author)
         begin
             params = {
                 engine: "google_scholar_author",
-                author_id: author_id,
+                author_id: author.id,
                 api_key: Rails.application.credentials.api_key,
                 q:''
             }
@@ -77,15 +78,15 @@ class Operations
                 p.pub_year = article[:year]
                 p.cited_by = article[:cited_by][:value]
                 p.save!
-                w=Writtens.new
-                w.author_id=author_id
-                w.publication_id=p.article[:citation_id]
+                w=Written.new
+                w.author=author
+                w.publication=p
                 w.save!
             end
         return true
     end
     
-    def self.fill_articles_by_authors(authors)
+    def fill_articles_by_authors(authors)
         authors.each do |a|
             scrape_publications_by_author_id(a)
         end
