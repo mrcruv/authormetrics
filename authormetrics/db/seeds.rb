@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([ { name: "Star Wars"}, { name: "Lord of the Rings"}])
 #   Character.create(name: "Luke", movie: movies.first)
-authors=Author.create(
+authors=Author.create([
     {
        author_id: "kq0NYnMAAAAJ",                         
         name: "Mike Robb",                                 
@@ -85,7 +85,7 @@ authors=Author.create(
         "[{:title=>\"Climate Change\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aclimate_change\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:climate_change\"}, {:title=>\"Climate History\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aclimate_history\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:climate_history\"}]",
         cited_by: 53223
     }
-)
+])
 
 #per popolare con gli articles e writtens relation:{utilizza 9 chiamate api,assicurarsi di aver impostato l' api_key,usa comando che trovi su "docs/api_cmd.txt",se non encrypta, eliminare file  /config/credentials.yml.enc e riprovare }
 #successivamente inserire all' interno del file che si aprira' tmp/nnnn_credential  la propria api_key cosi formattata => api_key:"my_api_key_google_scholar" poi salva e chiudi file. 
