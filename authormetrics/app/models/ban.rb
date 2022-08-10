@@ -1,4 +1,4 @@
 class Ban < ApplicationRecord
     belongs_to :administrator
-    belongs_to :user
+    belongs_to :banned_user
 end

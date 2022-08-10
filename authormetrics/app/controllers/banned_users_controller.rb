@@ -13,6 +13,7 @@ class BannedUsersController < ApplicationController
   # GET /banned_users/new
   def new
     @banned_user = BannedUser.new
+    @ban=Ban.new
   end
 
   # GET /banned_users/1/edit

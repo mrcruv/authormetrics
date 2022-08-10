@@ -13,6 +13,8 @@ class PublicationsController < ApplicationController
   # GET /publications/new
   def new
     @publication = Publication.new
+    @written=Written.new
+    #*****
   end
 
   # GET /publications/1/edit

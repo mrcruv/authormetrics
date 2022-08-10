@@ -6,18 +6,10 @@ class User < ApplicationRecord
     #has_one :banned_user
     has_many :favorite_author, dependent: :destroy
     has_many :favorite_publication,dependent: :destroy
-    has_many :comment,dependent: :destroy
-    has_many :review,dependent: :destroy
-    has_many :author_rating,dependent: :destroy
-    has_many :publication_rating,dependent: :destroy
 
     has_many :publication, :through => :favorite_publication
-    has_many :publication, :through => :comment
-    has_many :publication, :through => :publication_rating
-
     has_many :author, :through => :favorite_author
-    has_many :author, :through => :author_rating
-    has_many :author, :through => :review
+    
 
     require 'date'
 
