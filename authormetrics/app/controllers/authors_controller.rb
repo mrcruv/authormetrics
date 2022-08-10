@@ -8,6 +8,8 @@ class AuthorsController < ApplicationController
 
   # GET /authors/1 or /authors/1.json
   def show
+    @publications=@author.publication
+    
   end
 
   # GET /authors/new
@@ -17,6 +19,7 @@ class AuthorsController < ApplicationController
 
   # GET /authors/1/edit
   def edit
+
   end
 
   # POST /authors or /authors.json
