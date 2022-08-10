@@ -1,2 +1,26 @@
 <h1>Authormetrics</h1>
-<p>Home page in fase di creazione...</p>
+
+<p>Home page in costruzione...</p>
+
+<button onclick= "searchByAuth()" id= "ByAuth" > Search by auth </button>
+
+<button onclick= "searchByPub()" id= "ByPub"> Search by pub </button>
+
+<button onclick="location.href='http://127.0.0.1:3000/users/new'" id= "LogReg"> Login/Register </button> <!--uncorrect redirect, just to try-->
+
+
+<!-- to do: <script src="path-to-javascript-file"></script> -->
+
+<script>
+    function searchByAuth(){ 
+        document.getElementById("ByAuth").style.backgroundColor = "#AEEEEE";
+        document.getElementById("ByPub").style.backgroundColor = "";
+    }
+
+    function searchByPub(){    
+        document.getElementById("ByPub").style.backgroundColor = "#AEEEEE";
+        document.getElementById("ByAuth").style.backgroundColor = "";
+    }
+
+</script>
+
