@@ -9,7 +9,8 @@ class AuthorsController < ApplicationController
   # GET /authors/1 or /authors/1.json
   def show
     @publications=@author.publication
-    
+    s=Strings.new
+    @author.interests=s.to_hash(@author.interests) 
   end
 
   # GET /authors/new
