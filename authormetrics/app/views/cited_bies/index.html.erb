@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Cited bies</h1>
+
+<div id="cited_bies">
+  <% @cited_bies.each do |cited_by| %>
+    <%= render cited_by %>
+    <p>
+      <%= link_to "Show this cited by", cited_by %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New cited by", new_cited_by_path %>

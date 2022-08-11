@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @cited_by %>
+
+<div>
+  <%= link_to "Edit this cited by", edit_cited_by_path(@cited_by) %> |
+  <%= link_to "Back to cited bies", cited_bies_path %>
+
+  <%= button_to "Destroy this cited by", @cited_by, method: :delete %>
+</div>

@@ -1,0 +1,17 @@
+<%= form_with(model: cited_by) do |form| %>
+  <% if cited_by.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(cited_by.errors.count, "error") %> prohibited this cited_by from being saved:</h2>
+
+      <ul>
+        <% cited_by.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

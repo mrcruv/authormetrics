@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_11_112843) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_11_120459) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,7 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_11_112843) do
     t.text "reason", null: false
   end
 
-  create_table "cited_by", primary_key: "cited_id", id: :serial, force: :cascade do |t|
+  create_table "cited_bies", primary_key: "cited_id", id: :serial, force: :cascade do |t|
     t.string "author_id", limit: 255, null: false
     t.integer "all_citations"
     t.integer "citations_from_2016"
@@ -126,7 +126,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_11_112843) do
   add_foreign_key "banned_users", "users", primary_key: "user_id", name: "banned_users_user_id_fkey"
   add_foreign_key "bans", "administrators", column: "admin_id", primary_key: "admin_id", name: "bans_admin_id_fkey"
   add_foreign_key "bans", "banned_users", column: "user_id", primary_key: "user_id", name: "bans_user_id_fkey"
-  add_foreign_key "cited_by", "authors", primary_key: "author_id", name: "cited_by_author_id_fkey"
+  add_foreign_key "cited_bies", "authors", primary_key: "author_id", name: "cited_by_author_id_fkey"
   add_foreign_key "comments", "publications", primary_key: "publication_id", name: "comments_publication_id_fkey"
   add_foreign_key "comments", "users", primary_key: "user_id", name: "comments_user_id_fkey"
   add_foreign_key "favorite_authors", "authors", primary_key: "author_id", name: "favorite_authors_author_id_fkey"
