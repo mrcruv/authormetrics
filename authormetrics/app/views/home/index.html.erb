@@ -1,46 +1,25 @@
-<h1>Authormetrics</h1>
+<h1>AUTHORMETRICS</h1>
+<link rel="stylesheet" href="authormetrics/app/assets/stylesheets/home.css">
 
 <p>Home page in costruzione...</p>
 
-<button onclick= "searchByAuth()" id= "ByAuth" > Search by auth </button>
+<button onclick= "searchByAuth()" id= "ByAuth" > SEARCH BY AUTH </button>
 
-<button onclick= "searchByPub()" id= "ByPub"> Search by pub </button>
+<button onclick= "searchByPub()" id= "ByPub"> SEARCH BY PUB</button>
 
-<button onclick="location.href='http://127.0.0.1:3000/users/new'" id= "LogReg"> Login/Register </button> <!--uncorrect redirect, just to try-->
+<button onclick="location.href='http://127.0.0.1:3000/users/new'" id= "LogReg"> LOGIN/REGISTER</button> <!--uncorrect redirect, just to try-->
 
 <p id="p1"> </p>
 
-<!-- to do: <script src="path-to-javascript-file"></script> -->
+<div class="footer">
+    <a href="#">CONTACT US</a>
+    <a href="#">INFO</a>
+    <a href="#">USE TERMS AND CONDITIONS</a>
+    <a href="#">PRIVACY</a>
+    <a href="#">COOKIES</a>
+</div>
 
-<script>
-    
-    function createSearchBar(placeholder){
-        var search_box= document.createElement("div");
-        search_box.setAttribute("class", "search-box"); 
-        var p1=document.getElementById("p1");
-        p1.replaceChild(search_box, p1.childNodes[0]);
-        var bar= document.createElement("input"); 
-        bar.setAttribute("type", "text"); 
-        bar.setAttribute("class", "search"); 
-        bar.setAttribute("placeholder", placeholder);
-        search_box.appendChild(bar);
-        var button= document.createElement("button"); 
-        search_box.appendChild(button);
-        var icon= document.createElement("i");
-        icon.setAttribute("class","fa-solid fa-magnifying-glass");
-        button.appendChild(icon);
-    }
+<%= javascript_include_tag "home" %>
 
-    function searchByAuth(){ 
-        document.getElementById("ByAuth").style.backgroundColor = "#AEEEEE";
-        document.getElementById("ByPub").style.backgroundColor = "";
-        createSearchBar("Search by auth...");
-    }
 
-    function searchByPub(){    
-        document.getElementById("ByPub").style.backgroundColor = "#AEEEEE";
-        document.getElementById("ByAuth").style.backgroundColor = "";
-        createSearchBar("Search by pub...");
-    }
-</script>
 
