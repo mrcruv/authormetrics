@@ -8,6 +8,20 @@
 
 <button onclick="location.href='http://127.0.0.1:3000/users/new'" id= "LogReg"> Login/Register </button> <!--uncorrect redirect, just to try-->
 
+<p id="p1"> </p>
+
+<div class= "search-box">
+<input type="text" class= "search" placeholder= "Search by auth...">
+<button> <i class="fa-solid fa-magnifying-glass"></i> </button>
+</div>
+
+<p id="p2"> </p>
+
+<div class= "search-box">
+<input type="text" class= "search" placeholder= "Search by pub...">
+<button> <i class="fa-solid fa-magnifying-glass"></i> </button>
+</div>
+
 
 <!-- to do: <script src="path-to-javascript-file"></script> -->
 
@@ -15,6 +29,9 @@
     function searchByAuth(){ 
         document.getElementById("ByAuth").style.backgroundColor = "#AEEEEE";
         document.getElementById("ByPub").style.backgroundColor = "";
+        //var search_bar= document.createElement("search-box"); 
+        //search_bar.innerHTML = "<button> </button>"; 
+        //document.getElementById("Boh").appendChild(search_bar);
     }
 
     function searchByPub(){    

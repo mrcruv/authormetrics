@@ -102,6 +102,8 @@ GEM
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
+    font-awesome-sass (6.1.2)
+      sassc (~> 2.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     google_search_results (2.2.0)
@@ -200,6 +202,8 @@ GEM
       railties (>= 5.0)
     rexml (3.2.5)
     rubyzip (2.3.2)
+    sassc (2.4.0)
+      ffi (~> 1.9)
     selenium-webdriver (4.3.0)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -253,6 +257,7 @@ DEPENDENCIES
   capybara
   debug
   devise
+  font-awesome-sass (~> 6.1.2)
   google_search_results (~> 2.2)
   http
   importmap-rails
