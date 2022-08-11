@@ -18,7 +18,9 @@ class Operations
             return false
         end
         profiles.each do |p|
-            if(Author.where(author_id: p[:author_id])== [])
+            temp=Author.new
+            temp=temp.Author.where(author_id: p[:author_id])
+            if(temp==nil)
                 a = Author.new
                 a.author_id = p[:author_id]
                 a.name = p[:name]
@@ -31,11 +33,11 @@ class Operations
         return true
     end
     #ricerca per ID,riempie tutti i campi author,articles,cited_by
-    def scrape_all_by_author_id(author_id)
+    def scrape_all_by_author_id(author)
         begin
             params = {
                 engine: "google_scholar_author",
-                author_id: author_id,
+                author_id: author.id,
                 api_key: Rails.application.credentials.api_key,
                 q:''
             }
@@ -46,7 +48,9 @@ class Operations
         rescue => exception
             return false
         end
-        if(Author.where(author_id: p[:author_id])== [])
+        temp=Author.new
+        temp=temp.where(author_id: author.id)
+        if(temp==nil || temp==[])
             a = Author.new
             a.author_id = author_id
             a.name = author[:author][:name]
@@ -56,9 +60,11 @@ class Operations
             a.cited_by =p[:cited_by]
             a.save!
         end
-        if(Cited_by.where(author_id: p[:author_id]) == [])
+        temp=CitedBy.new
+        temp=temp.where(author_id: author.id)
+        if( temp==nil || temp==[])
             b=CitedBy.new
-            b.author_id=author_id
+            b.author=author
             b.all_citations=c[:table][:citation][:all]
             b.citation_from_2016=c[:table][:citation][:depuis_2016]
             b.h_index=c[:indice_h][:all]
@@ -68,8 +74,10 @@ class Operations
             b.graph=c[:graph]
             b.save!
         end
-        if(Publication.where(publication_id: article[:citation_id])== [])
-            articles.each do |article|
+        articles.each do |article|
+            temp=Publication.new
+            temp=temp.where(publication_id: article[:citation_id])
+            if(temp==nil || temp==[])
                 p = Publication.new
                 p.publication_id = article[:citation_id]
                 p.title = article[:title]
@@ -86,12 +94,12 @@ class Operations
         end
         return true
     end
-
-    def cited_by_from_author_id(author_id)
+############################################################################
+    def scrape_cited_by_from_author_id(author)
         begin
             params = {
-            engine: "google_scholar_profiles",
-            author_id: author_id,
+            engine: "google_scholar_author",
+            author_id: author.id,
             api_key: Rails.application.credentials.api_key,
             q:''
             }
@@ -99,9 +107,12 @@ class Operations
             cited_by = search.get_hash[:cited_by]
         rescue => exception
             return false
-        if(Cited_by.where(author_id: p[:author_id]) == [])
+        end
+        #temp=CitedBy.new
+        #temp=temp.where(author_id: author.id)
+        #if(temp==nil || temp==[])
             a=CitedBy.new
-            a.author_id=author_id
+            a.author=author
             a.all_citations=c[:table][:citation][:all]
             a.citation_from_2016=c[:table][:citation][:depuis_2016]
             a.h_index=c[:indice_h][:all]
@@ -109,9 +120,10 @@ class Operations
             a.i10_index=c[:indice_i10][:all]
             a.i10_from_2016=c[:indice_i10][:depuis_2016]
             a.graph=c[:graph]
-        end
+        #end
         return true
-
+    end
+######################################################################################
 
     def scrape_publications_from_author_id(author)
         begin
@@ -122,13 +134,15 @@ class Operations
                 q:''
             }
               
-              search = GoogleSearch.new(params)
-              articles = search.get_hash[:articles]
+            search = GoogleSearch.new(params)
+            articles = search.get_hash[:articles]
         rescue => exception
             return false
         end
-        if(Publication.where(publication_id: article[:citation_id])== [])
-            articles.each do |article|
+        articles.each do |article|
+            temp=Publication.new
+            temp=temp.where(publication_id: article[:citation_id])
+            if(temp==nil || temp==[])
                 p = Publication.new
                 p.publication_id = article[:citation_id]
                 p.title = article[:title]
@@ -145,7 +159,13 @@ class Operations
         end
         return true
     end
-    def scrape_author_by_author_id(author_id)
+######################################################################################
+    def scrape_author_by_author_id(author)
+        temp=Author.new
+        temp=temp.where(author_id: author.id)
+        if(temp != nil && temp != [])
+            return false
+        end
         begin
             params = {
                 engine: "google_scholar_author",
@@ -154,28 +174,39 @@ class Operations
                 q:''
             }
               
-              search = GoogleSearch.new(params)
-              author = search.get_hash[:author]
+            search = GoogleSearch.new(params)
+            author = search.get_hash[:author]
         rescue => exception
             return false
         end
-        if(Author.where(author_id: p[:author_id])== [])
-            a = Author.new
-            a.author_id = author_id
-            a.name = author[:author][:name]
-            a.affiliations = author[:author][:affiliations]
-            # parse?
-            a.interests = author[:author][:interests]
-            a.cited_by =p[:cited_by]
-            a.save!
-        end
+        a = Author.new
+        a.author = author
+        a.name = author[:author][:name]
+        a.affiliations = author[:author][:affiliations]
+        a.interests = author[:author][:interests]
+        a.cited_by =p[:cited_by]
+        a.save!
+        return true
     end
-    
-    def fill_articles_by_authors(authors)
-        authors.each do |a|
-            scrape_publications_from_author_id(a)
+############################################################################################  
+    #FILL FUNCTIONS
+
+    def take_cited_by_from_author_ids(authors)
+        authors.each do |author|
+            scrape_cited_by_from_author_id(author)
         end
     end
 
+    def take_publications_from_author_ids(authors)
+        authors.each do |author|
+            scrape_publications_from_author_id(author)
+        end
+    end
+
+    def take_all_by_author_ids(authors)
+        authors.each do |author|
+            scrape_all_from_author_id(author)
+        end
+    end
 
 end
