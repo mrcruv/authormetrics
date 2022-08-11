@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_09_140805) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_11_112843) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,6 +44,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_09_140805) do
     t.serial "user_id", null: false
     t.serial "admin_id", null: false
     t.text "reason", null: false
+  end
+
+  create_table "cited_by", primary_key: "cited_id", id: :serial, force: :cascade do |t|
+    t.string "author_id", limit: 255, null: false
+    t.integer "all_citations"
+    t.integer "citations_from_2016"
+    t.integer "h_index"
+    t.integer "h_from_2016"
+    t.integer "i10_index"
+    t.integer "i10_from_2016"
+    t.json "graph"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "comments", primary_key: ["publication_id", "user_id", "comment_timestamp"], force: :cascade do |t|
@@ -113,6 +126,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_09_140805) do
   add_foreign_key "banned_users", "users", primary_key: "user_id", name: "banned_users_user_id_fkey"
   add_foreign_key "bans", "administrators", column: "admin_id", primary_key: "admin_id", name: "bans_admin_id_fkey"
   add_foreign_key "bans", "banned_users", column: "user_id", primary_key: "user_id", name: "bans_user_id_fkey"
+  add_foreign_key "cited_by", "authors", primary_key: "author_id", name: "cited_by_author_id_fkey"
   add_foreign_key "comments", "publications", primary_key: "publication_id", name: "comments_publication_id_fkey"
   add_foreign_key "comments", "users", primary_key: "user_id", name: "comments_user_id_fkey"
   add_foreign_key "favorite_authors", "authors", primary_key: "author_id", name: "favorite_authors_author_id_fkey"
