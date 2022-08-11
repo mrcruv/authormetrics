@@ -98,45 +98,8 @@ authors=Author.create([
 #n=Author.all
 #m.fill_articles_by_authors(n)
 
-'''
-cited_by=CitedBy.create([
-    {:table=>[
-        {:citations=>{:all=>185563, :since_2017=>58072}},
-        {:h_index=>{:all=>93, :since_2017=>39}},
-        {:i10_index=>{:all=>322, :since_2017=>166}}
-        ],
-    :graph=>[
-        {:year=>1994, :citations=>649},
-        {:year=>1995, :citations=>836},
-        {:year=>1996, :citations=>1168},
-        {:year=>1997, :citations=>1338},
-        {:year=>1998, :citations=>1556},
-        {:year=>1999, :citations=>1910},
-        {:year=>2000, :citations=>2746},
-        {:year=>2001, :citations=>3205},
-        {:year=>2002, :citations=>4066},
-        {:year=>2003, :citations=>4750},
-        {:year=>2004, :citations=>5052},
-        {:year=>2005, :citations=>5409},
-        {:year=>2006, :citations=>5800},
-        {:year=>2007, :citations=>5876},
-        {:year=>2008, :citations=>6639},
-        {:year=>2009, :citations=>6991},
-        {:year=>2010, :citations=>7257},
-        {:year=>2011, :citations=>8222},
-        {:year=>2012, :citations=>8949},
-        {:year=>2013, :citations=>9632},
-        {:year=>2014, :citations=>10511},
-        {:year=>2015, :citations=>11143},
-        {:year=>2016, :citations=>11367},
-        {:year=>2017, :citations=>11562},
-        {:year=>2018, :citations=>11668},
-        {:year=>2019, :citations=>11032},
-        {:year=>2020, :citations=>9681},
-        {:year=>2021, :citations=>8935},
-        {:year=>2022, :citations=>5193}
-    ]}
-    ])
-
-    
-'''
+#FILL AUTHOR INDEX
+# >bin/rails c
+#m=Author.all
+#o=Operations.new
+#o.take_cited_by_from_author_ids(m)
