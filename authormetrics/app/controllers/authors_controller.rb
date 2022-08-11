@@ -8,9 +8,6 @@ class AuthorsController < ApplicationController
 
   # GET /authors/1 or /authors/1.json
   def show
-    @publications=@author.publication
-    s=Strings.new
-    @author.interests=s.to_hash(@author.interests) 
   end
 
   # GET /authors/new
@@ -24,6 +21,7 @@ class AuthorsController < ApplicationController
   end
 
   # POST /authors or /authors.json
+  '''
   def create
     @author = Author.new(author_params)
 
@@ -37,8 +35,9 @@ class AuthorsController < ApplicationController
       end
     end
   end
-
+  '''
   # PATCH/PUT /authors/1 or /authors/1.json
+  '''
   def update
     respond_to do |format|
       if @author.update(author_params)
@@ -50,8 +49,9 @@ class AuthorsController < ApplicationController
       end
     end
   end
-
+  '''
   # DELETE /authors/1 or /authors/1.json
+  '''
   def destroy
     @author.destroy
 
@@ -60,11 +60,14 @@ class AuthorsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+'''
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_author
       @author = Author.find(params[:id])
+      @publications=@author.publication
+      s=Strings.new
+      @author.interests=s.to_hash(@author.interests) 
     end
 
     # Only allow a list of trusted parameters through.

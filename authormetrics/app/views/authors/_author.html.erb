@@ -10,8 +10,9 @@
     <%= author.affiliations %>
   </p>
   <p>
-    <strong>interests:</strong>
+    
     <% if author.interests != [] && author.interests!= nil %>
+    <strong>interests:</strong>
       <% JSON.parse(author.interests).each do |k|%>
         <% k.each do |kk,vv|%>
         <div>
@@ -22,7 +23,7 @@
         </p>
         </div>
         <%end%>
-        <%= "---------------"%>
+        <%="---------------"%>
       <%end%>
     <%end%>
     

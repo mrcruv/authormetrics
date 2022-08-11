@@ -4,11 +4,13 @@
 
 <div id="authors">
   <% @authors.each do |author| %>
+    <% if author.interests != nil%>
+    <% s=Strings.new %>
+    <% author.interests=s.to_hash(author.interests) %>
+    <% end %>
     <%= render author %>
     <p>
       <%= link_to "Show this author", author %>
     </p>
   <% end %>
 </div>
-
-<%= link_to "New author", new_author_path %>

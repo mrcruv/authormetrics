@@ -2,7 +2,20 @@ require "http"
 require 'google_search_results' 
 
 class Operations
-
+    def cited_by_author_id(author_id)
+        begin
+            params = {
+            engine: "google_scholar_profiles",
+            author_id: author_id,
+            api_key: Rails.application.credentials.api_key,
+            q:''
+            }
+            search = GoogleSearch.new(params)
+            cited_by = search.get_hash[:cited_by]
+        rescue => exception
+            return false
+        return true
+    
     def scrape_authors_by_name(author_name)
         begin
             params = {
@@ -14,7 +27,6 @@ class Operations
             #"c7e57fcc425f53cda7a150c251ce9e223313a8bd9264d3e823a27fefca1aabdf"
             search = GoogleSearch.new(params)
             profiles = search.get_hash[:profiles]
-            print profiles
         rescue => exception
             return false
         end
