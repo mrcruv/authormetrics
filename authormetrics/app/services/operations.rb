@@ -2,20 +2,7 @@ require "http"
 require 'google_search_results' 
 
 class Operations
-    def cited_by_author_id(author_id)
-        begin
-            params = {
-            engine: "google_scholar_profiles",
-            author_id: author_id,
-            api_key: Rails.application.credentials.api_key,
-            q:''
-            }
-            search = GoogleSearch.new(params)
-            cited_by = search.get_hash[:cited_by]
-        rescue => exception
-            return false
-        return true
-    
+    #ricerca per nome
     def scrape_authors_by_name(author_name)
         begin
             params = {
@@ -31,19 +18,20 @@ class Operations
             return false
         end
         profiles.each do |p|
-            a = Author.new
-            a.author_id = p[:author_id]
-            a.name = p[:name]
-            a.affiliations = p[:affiliations]
-            a.interests = p[:interests] # parse?
-            a.cited_by =p[:cited_by]
-            a.save!
-            print a
+            if(Author.where(author_id: p[:author_id])== [])
+                a = Author.new
+                a.author_id = p[:author_id]
+                a.name = p[:name]
+                a.affiliations = p[:affiliations]
+                a.interests = p[:interests] # parse?
+                a.cited_by =p[:cited_by]
+                a.save!
+            end
         end
         return true
     end
-
-    def scrape_author_by_id(author_id)
+    #ricerca per ID,riempie tutti i campi author,articles,cited_by
+    def scrape_all_by_author_id(author_id)
         begin
             params = {
                 engine: "google_scholar_author",
@@ -53,34 +41,34 @@ class Operations
             }
             search = GoogleSearch.new(params)
             author = search.get_hash[:author]
+            cited_by = search.get_hash[:cited_by]
+            articles = search.get_hash[:articles]
         rescue => exception
             return false
         end
-        a = Author.new
-        a.author_id = author_id
-        a.name = author[:author][:name]
-        a.affiliations = author[:author][:affiliations]
-        # parse?
-        a.interests = author[:author][:interests]
-        a.cited_by =p[:cited_by]
-        a.save!
-        return true
-    end
-
-    def scrape_publications_by_author_id(author)
-        begin
-            params = {
-                engine: "google_scholar_author",
-                author_id: author.id,
-                api_key: Rails.application.credentials.api_key,
-                q:''
-            }
-              
-              search = GoogleSearch.new(params)
-              articles = search.get_hash[:articles]
-        rescue => exception
-            return false
+        if(Author.where(author_id: p[:author_id])== [])
+            a = Author.new
+            a.author_id = author_id
+            a.name = author[:author][:name]
+            a.affiliations = author[:author][:affiliations]
+            # parse?
+            a.interests = author[:author][:interests]
+            a.cited_by =p[:cited_by]
+            a.save!
         end
+        if(Cited_by.where(author_id: p[:author_id]) == [])
+            b=CitedBy.new
+            b.author_id=author_id
+            b.all_citations=c[:table][:citation][:all]
+            b.citation_from_2016=c[:table][:citation][:depuis_2016]
+            b.h_index=c[:indice_h][:all]
+            b.h_from_2016=c[:indice_h][:depuis_2016]
+            b.i10_index=c[:indice_i10][:all]
+            b.i10_from_2016=c[:indice_i10][:depuis_2016]
+            b.graph=c[:graph]
+            b.save!
+        end
+        if(Publication.where(publication_id: article[:citation_id])== [])
             articles.each do |article|
                 p = Publication.new
                 p.publication_id = article[:citation_id]
@@ -95,12 +83,97 @@ class Operations
                 w.publication=p
                 w.save!
             end
+        end
         return true
+    end
+
+    def cited_by_from_author_id(author_id)
+        begin
+            params = {
+            engine: "google_scholar_profiles",
+            author_id: author_id,
+            api_key: Rails.application.credentials.api_key,
+            q:''
+            }
+            search = GoogleSearch.new(params)
+            cited_by = search.get_hash[:cited_by]
+        rescue => exception
+            return false
+        if(Cited_by.where(author_id: p[:author_id]) == [])
+            a=CitedBy.new
+            a.author_id=author_id
+            a.all_citations=c[:table][:citation][:all]
+            a.citation_from_2016=c[:table][:citation][:depuis_2016]
+            a.h_index=c[:indice_h][:all]
+            a.h_from_2016=c[:indice_h][:depuis_2016]
+            a.i10_index=c[:indice_i10][:all]
+            a.i10_from_2016=c[:indice_i10][:depuis_2016]
+            a.graph=c[:graph]
+        end
+        return true
+
+
+    def scrape_publications_from_author_id(author)
+        begin
+            params = {
+                engine: "google_scholar_author",
+                author_id: author.id,
+                api_key: Rails.application.credentials.api_key,
+                q:''
+            }
+              
+              search = GoogleSearch.new(params)
+              articles = search.get_hash[:articles]
+        rescue => exception
+            return false
+        end
+        if(Publication.where(publication_id: article[:citation_id])== [])
+            articles.each do |article|
+                p = Publication.new
+                p.publication_id = article[:citation_id]
+                p.title = article[:title]
+                p.published_on = article[:publication]
+                p.link = article[:link]
+                p.pub_year = article[:year]
+                p.cited_by = article[:cited_by][:value]
+                p.save!
+                w=Written.new
+                w.author=author
+                w.publication=p
+                w.save!
+            end
+        end
+        return true
+    end
+    def scrape_author_by_author_id(author_id)
+        begin
+            params = {
+                engine: "google_scholar_author",
+                author_id: author.id,
+                api_key: Rails.application.credentials.api_key,
+                q:''
+            }
+              
+              search = GoogleSearch.new(params)
+              author = search.get_hash[:author]
+        rescue => exception
+            return false
+        end
+        if(Author.where(author_id: p[:author_id])== [])
+            a = Author.new
+            a.author_id = author_id
+            a.name = author[:author][:name]
+            a.affiliations = author[:author][:affiliations]
+            # parse?
+            a.interests = author[:author][:interests]
+            a.cited_by =p[:cited_by]
+            a.save!
+        end
     end
     
     def fill_articles_by_authors(authors)
         authors.each do |a|
-            scrape_publications_by_author_id(a)
+            scrape_publications_from_author_id(a)
         end
     end
 
