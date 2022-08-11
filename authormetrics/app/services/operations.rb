@@ -65,12 +65,12 @@ class Operations
         if( temp==nil || temp==[])
             b=CitedBy.new
             b.author=author
-            b.all_citations=c[:table][:citation][:all]
-            b.citation_from_2016=c[:table][:citation][:depuis_2016]
-            b.h_index=c[:indice_h][:all]
-            b.h_from_2016=c[:indice_h][:depuis_2016]
-            b.i10_index=c[:indice_i10][:all]
-            b.i10_from_2016=c[:indice_i10][:depuis_2016]
+            b.all_citations=c[:table][0][:citation][:all]
+            b.citation_from_2016=c[:table][0][:citation][:since_2017]
+            b.h_index=c[:table][1][:h_index][:all]
+            b.h_from_2016=c[:table][1][:h_index][:since_2017]
+            b.i10_index=c[:table][2][:i10_index][:all]
+            b.i10_from_2016=c[:table][2][:i10_index][:since_2017]
             b.graph=c[:graph]
             b.save!
         end
@@ -98,29 +98,46 @@ class Operations
     def scrape_cited_by_from_author_id(author)
         begin
             params = {
-            engine: "google_scholar_author",
-            author_id: author.id,
-            api_key: Rails.application.credentials.api_key,
-            q:''
+                engine: "google_scholar_author",
+                author_id: author.id,
+                api_key: Rails.application.credentials.api_key,
+                q:''
             }
             search = GoogleSearch.new(params)
-            cited_by = search.get_hash[:cited_by]
+            c = search.get_hash[:cited_by]
+            #print(c)
         rescue => exception
+            print(exception)
             return false
         end
         #temp=CitedBy.new
         #temp=temp.where(author_id: author.id)
         #if(temp==nil || temp==[])
-            a=CitedBy.new
-            a.author=author
-            a.all_citations=c[:table][:citation][:all]
-            a.citation_from_2016=c[:table][:citation][:depuis_2016]
-            a.h_index=c[:indice_h][:all]
-            a.h_from_2016=c[:indice_h][:depuis_2016]
-            a.i10_index=c[:indice_i10][:all]
-            a.i10_from_2016=c[:indice_i10][:depuis_2016]
-            a.graph=c[:graph]
-            a.save!
+        b=CitedBy.new
+        begin
+            b.author=author
+            b.all_citations=c[:table][0][:citations][:all]
+            b.citations_from_2016=c[:table][0][:citations][:since_2017]
+            b.h_index=c[:table][1][:h_index][:all]
+            b.h_from_2016=c[:table][1][:h_index][:since_2017]
+            b.i10_index=c[:table][2][:i10_index][:all]
+            b.i10_from_2016=c[:table][2][:i10_index][:since_2017]
+            b.graph=c[:graph]
+        rescue => exception
+            b.author=author
+            b.all_citations=c[:table][0][:citations][:all]
+            b.citations_from_2016=c[:table][0][:citations][:since_2016]
+            b.h_index=c[:table][1][:h_index][:all]
+            b.h_from_2016=c[:table][1][:h_index][:since_2016]
+            b.i10_index=c[:table][2][:i10_index][:all]
+            b.i10_from_2016=c[:table][2][:i10_index][:since_2016]
+            b.graph=c[:graph]
+        end
+        a = Author.new
+        a=Author.where(author_id: author.id)
+        print(a)
+        a.update(cited_by_id: b.cited_by_id)
+        b.save!
         #end
         return true
     end
