@@ -10,34 +10,37 @@
 
 <p id="p1"> </p>
 
-<div class= "search-box">
-<input type="text" class= "search" placeholder= "Search by auth...">
-<button> <i class="fa-solid fa-magnifying-glass"></i> </button>
-</div>
-
-<p id="p2"> </p>
-
-<div class= "search-box">
-<input type="text" class= "search" placeholder= "Search by pub...">
-<button> <i class="fa-solid fa-magnifying-glass"></i> </button>
-</div>
-
-
 <!-- to do: <script src="path-to-javascript-file"></script> -->
 
 <script>
+    
+    function createSearchBar(placeholder){
+        var search_box= document.createElement("div");
+        search_box.setAttribute("class", "search-box"); 
+        var p1=document.getElementById("p1");
+        p1.replaceChild(search_box, p1.childNodes[0]);
+        var bar= document.createElement("input"); 
+        bar.setAttribute("type", "text"); 
+        bar.setAttribute("class", "search"); 
+        bar.setAttribute("placeholder", placeholder);
+        search_box.appendChild(bar);
+        var button= document.createElement("button"); 
+        search_box.appendChild(button);
+        var icon= document.createElement("i");
+        icon.setAttribute("class","fa-solid fa-magnifying-glass");
+        button.appendChild(icon);
+    }
+
     function searchByAuth(){ 
         document.getElementById("ByAuth").style.backgroundColor = "#AEEEEE";
         document.getElementById("ByPub").style.backgroundColor = "";
-        //var search_bar= document.createElement("search-box"); 
-        //search_bar.innerHTML = "<button> </button>"; 
-        //document.getElementById("Boh").appendChild(search_bar);
+        createSearchBar("Search by auth...");
     }
 
     function searchByPub(){    
         document.getElementById("ByPub").style.backgroundColor = "#AEEEEE";
         document.getElementById("ByAuth").style.backgroundColor = "";
+        createSearchBar("Search by pub...");
     }
-
 </script>
 
