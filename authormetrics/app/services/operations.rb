@@ -120,6 +120,7 @@ class Operations
             a.i10_index=c[:indice_i10][:all]
             a.i10_from_2016=c[:indice_i10][:depuis_2016]
             a.graph=c[:graph]
+            a.save!
         #end
         return true
     end

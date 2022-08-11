@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_11_141058) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_11_145503) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -33,7 +33,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_11_141058) do
     t.text "affiliations"
     t.text "interests"
     t.integer "cited_by"
-    t.integer "stats"
+    t.integer "cited_by_id"
   end
 
   create_table "banned_users", primary_key: "user_id", id: :serial, force: :cascade do |t|
@@ -124,7 +124,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_11_141058) do
 
   add_foreign_key "author_ratings", "authors", primary_key: "author_id", name: "author_ratings_author_id_fkey"
   add_foreign_key "author_ratings", "users", primary_key: "user_id", name: "author_ratings_user_id_fkey"
-  add_foreign_key "authors", "cited_bies", column: "stats", primary_key: "cited_by_id", name: "author_id_cited_by_fkey"
+  add_foreign_key "authors", "cited_bies", primary_key: "cited_by_id", name: "author_id_cited_by_fkey"
   add_foreign_key "banned_users", "users", primary_key: "user_id", name: "banned_users_user_id_fkey"
   add_foreign_key "bans", "administrators", column: "admin_id", primary_key: "admin_id", name: "bans_admin_id_fkey"
   add_foreign_key "bans", "banned_users", column: "user_id", primary_key: "user_id", name: "bans_user_id_fkey"
