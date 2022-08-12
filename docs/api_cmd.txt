@@ -1,2 +1,5 @@
 EDITOR="code --wait" bin/rails credentials:edit
 Rails.application.credentials
+
+BUNDLE_CONFIG_TIZIANO:
+BUNDLE_PATH: "vendor/cache"

@@ -1,0 +1,13 @@
+current directory: /home/tiziano/progetti/authormetrics/authormetrics/vendor/cache/ruby/3.0.0/gems/json-2.6.2/ext/json
+/usr/bin/ruby3.0 -I /usr/lib/ruby/vendor_ruby -r ./siteconf20220812-29107-4ur88t.rb extconf.rb
+creating Makefile
+
+current directory: /home/tiziano/progetti/authormetrics/authormetrics/vendor/cache/ruby/3.0.0/gems/json-2.6.2/ext/json
+make DESTDIR\= clean
+
+current directory: /home/tiziano/progetti/authormetrics/authormetrics/vendor/cache/ruby/3.0.0/gems/json-2.6.2/ext/json
+make DESTDIR\=
+make: Nessuna operazione da eseguire per «all».
+
+current directory: /home/tiziano/progetti/authormetrics/authormetrics/vendor/cache/ruby/3.0.0/gems/json-2.6.2/ext/json
+make DESTDIR\= install
