@@ -1,8 +1,9 @@
 <div id="<%= dom_id author %>">
 
   <p>
-    <strong>Name:</strong>
+    <h1>
     <%= author.name %>
+    </h1>
   </p>
 
   <p>
@@ -12,7 +13,7 @@
   <p>
     
     <% if author.interests != [] && author.interests!= nil %>
-    <strong>interests:</strong>
+    <h2>INTERESTS:</h2>
       <% JSON.parse(author.interests).each do |k|%>
         <% k.each do |kk,vv|%>
         <div>

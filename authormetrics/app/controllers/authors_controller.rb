@@ -20,6 +20,10 @@ class AuthorsController < ApplicationController
 
   end
 
+  def search
+
+  end
+
   # POST /authors or /authors.json
   '''
   def create
@@ -68,6 +72,7 @@ class AuthorsController < ApplicationController
       @publications=@author.publication
       s=Strings.new
       @author.interests=s.to_hash(@author.interests) 
+      @cited_by=CitedBy.where(author_id: @author.author_id)[0]
     end
 
     # Only allow a list of trusted parameters through.

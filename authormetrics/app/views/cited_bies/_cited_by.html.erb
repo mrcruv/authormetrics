@@ -1,2 +1,33 @@
 <div id="<%= dom_id cited_by %>">
+<p>
+    <h2>CITED BY</h2>
+    <p>
+      <strong>All citations:</strong>
+        <%= cited_by.all_citations %>
+    </p>
+    <p>
+      <strong>Citations from 2016:</strong>
+        <%= cited_by.citations_from_2016 %>
+    </p>
+    <p>
+      <strong>h-index:</strong>
+        <%= cited_by.h_index %>
+    </p>
+    <p>
+      <strong>h-index from 2016:</strong>
+        <%= cited_by.h_from_2016 %>
+    </p>
+    <p>
+      <strong>i10-index:</strong>
+        <%= cited_by.i10_index %>
+    </p>
+    <p>
+      <strong>i10-index from 2016:</strong>
+        <%= cited_by.i10_from_2016 %>
+    </p>
+    <p>
+      <strong>Graph-DATA:</strong>
+        <%= cited_by.graph%>
+    </p>
+  </p>
 </div>

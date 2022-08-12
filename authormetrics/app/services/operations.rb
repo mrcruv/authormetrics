@@ -15,8 +15,9 @@ class Operations
             search = GoogleSearch.new(params)
             profiles = search.get_hash[:profiles]
         rescue => exception
-            return false
+            return []
         end
+        result=Array.new
         profiles.each do |p|
             temp=Author.where(author_id: p[:author_id])
             if(temp.size==0)
@@ -38,7 +39,7 @@ class Operations
                     #print(c)
                 rescue => exception
                     print(exception)
-                    return false
+                    next
                 end
                 b=CitedBy.new
                 begin
@@ -61,11 +62,15 @@ class Operations
                 a.save!
                 b.author=a
                 b.save!
+                l=LinkingDependences.new
+                l.link_authors_and_cited_by
+                result.push(a)
             end
+            else
+                result.push(temp[0])
         end
-        l=LinkingDependences.new
-        l.link_authors_and_cited_by
-        return true
+        
+        return result
     end
 #######################################################################################
     #ricerca per ID,riempie tutti i campi author,articles,cited_by
