@@ -18,16 +18,50 @@ class Operations
             return false
         end
         profiles.each do |p|
-            temp=Author.new
-            temp=temp.Author.where(author_id: p[:author_id])
-            if(temp==nil)
+            temp=Author.where(author_id: p[:author_id])
+            if(temp==nil || temp==[])
                 a = Author.new
                 a.author_id = p[:author_id]
                 a.name = p[:name]
                 a.affiliations = p[:affiliations]
                 a.interests = p[:interests] # parse?
-                a.cited_by =p[:cited_by]
+                a.cited=p[:cited_by]
+                begin
+                    params = {
+                        engine: "google_scholar_author",
+                        author_id: a.author_id,
+                        api_key: Rails.application.credentials.api_key,
+                        q:''
+                    }
+                    search = GoogleSearch.new(params)
+                    c = search.get_hash[:cited_by]
+                    #print(c)
+                rescue => exception
+                    print(exception)
+                    return false
+                end
+                b=CitedBy.new
+                begin
+                    b.all_citations=c[:table][0][:citations][:all]
+                    b.citations_from_2016=c[:table][0][:citations][:since_2017]
+                    b.h_index=c[:table][1][:h_index][:all]
+                    b.h_from_2016=c[:table][1][:h_index][:since_2017]
+                    b.i10_index=c[:table][2][:i10_index][:all]
+                    b.i10_from_2016=c[:table][2][:i10_index][:since_2017]
+                    b.graph=c[:graph]
+                rescue => exception
+                    b.all_citations=c[:table][0][:citations][:all]
+                    b.citations_from_2016=c[:table][0][:citations][:since_2016]
+                    b.h_index=c[:table][1][:h_index][:all]
+                    b.h_from_2016=c[:table][1][:h_index][:since_2016]
+                    b.i10_index=c[:table][2][:i10_index][:all]
+                    b.i10_from_2016=c[:table][2][:i10_index][:since_2016]
+                    b.graph=c[:graph]
+                end
+                a.cited_by_id=b
                 a.save!
+                b.author=a
+                b.save!
             end
         end
         return true
@@ -43,13 +77,13 @@ class Operations
             }
             search = GoogleSearch.new(params)
             author = search.get_hash[:author]
-            cited_by = search.get_hash[:cited_by]
-            articles = search.get_hash[:articles]
+            c = search.get_hash[:cited_by]
+            article = search.get_hash[:articles]
         rescue => exception
             return false
         end
-        temp=Author.new
-        temp=temp.where(author_id: author.id)
+        
+        temp=Author.where(author_id: author.id)
         if(temp==nil || temp==[])
             a = Author.new
             a.author_id = author_id
@@ -57,13 +91,12 @@ class Operations
             a.affiliations = author[:author][:affiliations]
             # parse?
             a.interests = author[:author][:interests]
-            a.cited_by =p[:cited_by]
+            a.cited =p[:cited_by]
             a.save!
         end
-        temp=CitedBy.new
-        temp=temp.where(author_id: author.id)
+        
+        temp=CitedBy.where(author_id: author.id)
         if( temp==nil || temp==[])
-            b=CitedBy.new
             b.author=author
             b.all_citations=c[:table][0][:citation][:all]
             b.citation_from_2016=c[:table][0][:citation][:since_2017]
@@ -74,9 +107,9 @@ class Operations
             b.graph=c[:graph]
             b.save!
         end
+        
         articles.each do |article|
-            temp=Publication.new
-            temp=temp.where(publication_id: article[:citation_id])
+            temp=Publication.where(publication_id: article[:citation_id])
             if(temp==nil || temp==[])
                 p = Publication.new
                 p.publication_id = article[:citation_id]
@@ -135,8 +168,8 @@ class Operations
         end
         a = Author.new
         a=Author.where(author_id: author.id)
-        print(a)
         a.update(cited_by_id: b.cited_by_id)
+        a.save!
         b.save!
         #end
         return true
@@ -202,7 +235,7 @@ class Operations
         a.name = author[:author][:name]
         a.affiliations = author[:author][:affiliations]
         a.interests = author[:author][:interests]
-        a.cited_by =p[:cited_by]
+        a.cited =p[:cited_by]
         a.save!
         return true
     end
@@ -223,8 +256,11 @@ class Operations
 
     def take_all_by_author_ids(authors)
         authors.each do |author|
-            scrape_all_from_author_id(author)
+            scrape_all_by_author_id(author)
         end
+    end
+    def take_all_profiles_by_searh(search)
+        scrape_authors_by_name(search)
     end
 
 end
