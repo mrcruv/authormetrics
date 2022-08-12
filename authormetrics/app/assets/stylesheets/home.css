@@ -1,7 +1,7 @@
 .footer {
     position: fixed;
     left: 0;
-    bottom: 0;
+    bottom: 0.5%;
     width: 100%;
     font-family: Verdana, sans-serif;
     text-align: center;
@@ -11,18 +11,35 @@
     border-color: #102027;
     border-radius: 5px;
   }
-  
-  button{
-    font-family: Verdana, sans-serif;
-  }
-  
-  h1{
-    font-family: Verdana, sans-serif;
-    font-weight: lighter;
-    color: #37474f;
-  }
-  
-  a{
-    color: #37474f;
-    text-decoration: none;
-  }
+
+.left_block{
+  position: fixed;
+  left: 0%;
+  width: 50%;
+}
+
+.right_block{
+  position: fixed;
+  left:50%;
+  width: 50%;
+}
+
+.table_half_box{
+  left:0%;
+  width: 90%;
+  font-family: Verdana, sans-serif;
+  padding-bottom: 12px;
+  padding-left: 25px;
+}
+
+.search_button{
+  background-color: white;
+  border-width: 0px;
+  box-shadow: 0px 0px;
+}
+
+.search_text_input{
+  border: solid;
+  border-color: #37474f;
+  border-width: 2.5px;
+}
