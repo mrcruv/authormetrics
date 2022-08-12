@@ -19,7 +19,7 @@ class Operations
         end
         profiles.each do |p|
             temp=Author.where(author_id: p[:author_id])
-            if(temp==nil || temp==[])
+            if(temp.size==0)
                 a = Author.new
                 a.author_id = p[:author_id]
                 a.name = p[:name]
@@ -58,12 +58,13 @@ class Operations
                     b.i10_from_2016=c[:table][2][:i10_index][:since_2016]
                     b.graph=c[:graph]
                 end
-                a.cited_by_id=b
                 a.save!
                 b.author=a
                 b.save!
             end
         end
+        l=LinkingDependences.new
+        l.link_authors_and_cited_by
         return true
     end
 #######################################################################################
@@ -105,12 +106,7 @@ class Operations
             b.i10_index=c[:table][2][:i10_index][:all]
             b.i10_from_2016=c[:table][2][:i10_index][:since_2017]
             b.graph=c[:graph]
-
             t=Author.where(author_id: author[:author_id])
-            if( t.size!=0)
-                t.update(cited_by_id: b)
-            end
-            
             b.save!
         end
         articles.each do |article|
@@ -130,6 +126,8 @@ class Operations
                 w.save!
             end
         end
+        l=LinkingDependences.new
+        l.link_authors_and_cited_by
         return true
     end
 ############################################################################
@@ -148,31 +146,31 @@ class Operations
             print(exception)
             return false
         end
-
-        b=CitedBy.new
-        begin
-            b.author=author
-            b.all_citations=c[:table][0][:citations][:all]
-            b.citations_from_2016=c[:table][0][:citations][:since_2017]
-            b.h_index=c[:table][1][:h_index][:all]
-            b.h_from_2016=c[:table][1][:h_index][:since_2017]
-            b.i10_index=c[:table][2][:i10_index][:all]
-            b.i10_from_2016=c[:table][2][:i10_index][:since_2017]
-            b.graph=c[:graph]
-        rescue => exception
-            b.author=author
-            b.all_citations=c[:table][0][:citations][:all]
-            b.citations_from_2016=c[:table][0][:citations][:since_2016]
-            b.h_index=c[:table][1][:h_index][:all]
-            b.h_from_2016=c[:table][1][:h_index][:since_2016]
-            b.i10_index=c[:table][2][:i10_index][:all]
-            b.i10_from_2016=c[:table][2][:i10_index][:since_2016]
-            b.graph=c[:graph]
+        temp=CitedBy.where(author_id: auth[:author_id])
+        if( temp.size==0)
+            b=CitedBy.new
+            begin
+                b.author=author
+                b.all_citations=c[:table][0][:citations][:all]
+                b.citations_from_2016=c[:table][0][:citations][:since_2017]
+                b.h_index=c[:table][1][:h_index][:all]
+                b.h_from_2016=c[:table][1][:h_index][:since_2017]
+                b.i10_index=c[:table][2][:i10_index][:all]
+                b.i10_from_2016=c[:table][2][:i10_index][:since_2017]
+                b.graph=c[:graph]
+            rescue => exception
+                b.author=author
+                b.all_citations=c[:table][0][:citations][:all]
+                b.citations_from_2016=c[:table][0][:citations][:since_2016]
+                b.h_index=c[:table][1][:h_index][:all]
+                b.h_from_2016=c[:table][1][:h_index][:since_2016]
+                b.i10_index=c[:table][2][:i10_index][:all]
+                b.i10_from_2016=c[:table][2][:i10_index][:since_2016]
+                b.graph=c[:graph]
+            end
         end
-        a = Author.new
-        a=Author.where(author_id: author.id)
-        a.update(cited_by_id: b.cited_by_id)
-        a.save!
+        l=LinkingDependences.new
+        l.link_authors_and_cited_by
         b.save!
         #end
         return true
@@ -194,9 +192,8 @@ class Operations
             return false
         end
         articles.each do |article|
-            temp=Publication.new
-            temp=temp.where(publication_id: article[:citation_id])
-            if(temp==nil || temp==[])
+            temp=Pubblication.where(publication_id: article[:citation_id])
+            if(temp.size==0)
                 p = Publication.new
                 p.publication_id = article[:citation_id]
                 p.title = article[:title]
@@ -213,35 +210,7 @@ class Operations
         end
         return true
     end
-######################################################################################
-    def scrape_author_by_author_id(author)
-        temp=Author.new
-        temp=temp.where(author_id: author.id)
-        if(temp != nil && temp != [])
-            return false
-        end
-        begin
-            params = {
-                engine: "google_scholar_author",
-                author_id: author.id,
-                api_key: Rails.application.credentials.api_key,
-                q:''
-            }
-              
-            search = GoogleSearch.new(params)
-            author = search.get_hash[:author]
-        rescue => exception
-            return false
-        end
-        a = Author.new
-        a.author = author
-        a.name = author[:author][:name]
-        a.affiliations = author[:author][:affiliations]
-        a.interests = author[:author][:interests]
-        a.cited =p[:cited_by]
-        a.save!
-        return true
-    end
+############################################################################################
 ############################################################################################  
     #FILL FUNCTIONS
 
