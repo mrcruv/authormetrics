@@ -1,5 +1,6 @@
 <div id="<%= dom_id author %>">
 
+<div>
   <p>
     <h1>
     <%= author.name %>
@@ -13,21 +14,20 @@
   <p>
     
     <% if author.interests != [] && author.interests!= nil %>
-    <h2>INTERESTS:</h2>
+    <div>
+      <p>
+    <strong>INTERESTS:</strong>
+     
       <% JSON.parse(author.interests).each do |k|%>
         <% k.each do |kk,vv|%>
-        <div>
-        <p>   
-          <%= "\n"+kk+":" %>
-          <%= "\t"+vv+"\n" %>
           
-        </p>
-        </div>
+          <%= "\t"+vv+"," %>
+        
+        <%break%>
+        
         <%end%>
-        <%="---------------"%>
       <%end%>
-    <%end%>
-    
-  </p>
-
+      </p>
+      </div>
+    <%end%> 
 </div>

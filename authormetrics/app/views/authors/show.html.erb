@@ -1,13 +1,50 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @author %>
+<p>
+    <h1>
+    <%= @author.name %>
+    </h1>
+  </p>
+
+  <p>
+    <strong>Affiliations:</strong>
+    <%= @author.affiliations %>
+  </p>
+  <p>
+    
+    <% if @author.interests != [] && @author.interests!= nil %>
+    <h2>INTERESTS:</h2>
+      <% JSON.parse(@author.interests).each do |k|%>
+        <% k.each do |kk,vv|%>
+        <div>
+        <p>   
+          <%= "\t"+kk+":" %>
+          <%= "\t"+vv+"\n" %>
+        </p>
+        </div>
+        <%end%>
+      <p>
+      <%="------------"%>
+      </p>
+      <%end%>
+      
+    <%end%>
+    
+  </p>
 <%= render @cited_by %>
 <% if @publications != [] && @publications != nil %>
   <h1>PUBBLICAZIONI</h1>
 <%end%>
 
-  <%= render @publications %>
-
+<% @publications.each do |p| %>
+  <p>
+  <%=h p.title %>
+  </p>
+  <p>
+  <%= link_to "view this publication", publication_path(p) %>
+  </p>
+  <%= "-------------------" %>
+  <%end%>
 
 <div>
   <%= link_to "Back to authors", authors_path %>

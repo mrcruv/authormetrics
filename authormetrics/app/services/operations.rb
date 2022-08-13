@@ -11,7 +11,7 @@ class Operations
             api_key: Rails.application.credentials.api_key,
             q:''
             }
-            #"c7e57fcc425f53cda7a150c251ce9e223313a8bd9264d3e823a27fefca1aabdf"
+            #"256d140b29b5d7194af5cd625235f24e4436cf3804a1ea4a9735c32171982a3e"
             search = GoogleSearch.new(params)
             profiles = search.get_hash[:profiles]
         rescue => exception
@@ -65,13 +65,33 @@ class Operations
                 l=LinkingDependences.new
                 l.link_authors_and_cited_by
                 result.push(a)
-            end
             else
                 result.push(temp[0])
+            end 
         end
-        
         return result
     end
+        
+    
+#######################################################################################
+    def scrape_publications_by_search(s)
+        begin
+        params = {
+            engine: "google_scholar",
+            q: s,
+            api_key: Rails.application.credentials.api_key
+          }
+          
+          search = GoogleSearch.new(params)
+          o = search.get_hash[:organic_results][1][:publication_info]
+        rescue => exception
+            print exception
+            return []
+        end
+        return o
+    end
+
+
 #######################################################################################
     #ricerca per ID,riempie tutti i campi author,articles,cited_by
     def scrape_all_by_author_id(auth)
@@ -87,9 +107,9 @@ class Operations
             c = search.get_hash[:cited_by]
             articles = search.get_hash[:articles]
         rescue => exception
-            return false
+            return []
         end
-
+        result=Array.new
         temp=Author.where(author_id: auth[:author_id])
         if(temp.size==0)
             a=Author.new
@@ -97,7 +117,11 @@ class Operations
             a.name = author[:name]
             a.affiliations = author[:affiliations]
             a.interests = author[:interests]
+            result.push(a)
             a.save!
+        
+        else
+            result.push(temp[0]) 
         end
         
         temp=CitedBy.where(author_id: auth[:author_id])
@@ -133,7 +157,7 @@ class Operations
         end
         l=LinkingDependences.new
         l.link_authors_and_cited_by
-        return true
+        return result
     end
 ############################################################################
     def scrape_cited_by_from_author_id(author)

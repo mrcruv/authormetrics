@@ -1,5 +1,6 @@
 class AuthorsController < ApplicationController
-  before_action :set_author, only: %i[ show edit update destroy ]
+  before_action :set_author, only: %i[ show  ]
+  #before_action :set_search, only: %i[ search ]
 
   # GET /authors or /authors.json
   def index
@@ -14,15 +15,16 @@ class AuthorsController < ApplicationController
   def new
     @author = Author.new
   end
-
-  # GET /authors/1/edit
-  def edit
-
-  end
-
   def search
 
   end
+
+###############################################################################
+  # GET /authors/1/edit
+  '''
+  def edit
+  end
+  '''
 
   # POST /authors or /authors.json
   '''
@@ -65,15 +67,22 @@ class AuthorsController < ApplicationController
     end
   end
 '''
+#######################################################################################################
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_author
-      @author = Author.find(params[:id])
+      param=params[:id].split(":")[0]
+      @author = Author.find(param)
       @publications=@author.publication
       s=Strings.new
       @author.interests=s.to_hash(@author.interests) 
       @cited_by=CitedBy.where(author_id: @author.author_id)[0]
     end
+
+    #def set_search
+    #  o=Operations.new
+    #  @author=o.scrape_authors_by_name(s)
+    #end
 
     # Only allow a list of trusted parameters through.
     def author_params

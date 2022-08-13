@@ -6,7 +6,7 @@
 #ignore ruby version and gemfile
 
 # Ignore bundler config.
-.bundle
+.bundle/*
 
 # Ignore all logfiles and tempfiles.
 /log/*
@@ -30,6 +30,6 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-
+/config/credentials.yml.enc
 #Ingnore bundle
 .bundle

@@ -17,11 +17,10 @@ Rails.application.routes.draw do
    resources :favorite_authors,only: %i[ index new show create destroy ]
   end
   resources :authors do
-    resources :publications, only: %i[ index show ]
     resources :author_ratings
     resources :reviews
   end
-  resources :publications do
+  resources :publications, only: %i[ index show ] do
     resources :publication_ratings
     resources :comments
   end

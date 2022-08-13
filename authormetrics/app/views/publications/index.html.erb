@@ -4,11 +4,14 @@
 
 <div id="publications">
   <% @publications.each do |publication| %>
-    <%= render publication %>
+    <p>
+    <strong>Title:</strong>
+    <%= publication.title %>
+    </p>
     <p>
       <%= link_to "Show this publication", publication %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New publication", new_publication_path %>
+
