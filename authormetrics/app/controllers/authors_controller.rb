@@ -1,5 +1,5 @@
 class AuthorsController < ApplicationController
-  before_action :set_author, only: %i[ show  ]
+  before_action :set_author, only: %i[ show ]
   #before_action :set_search, only: %i[ search ]
 
   # GET /authors or /authors.json
@@ -11,23 +11,26 @@ class AuthorsController < ApplicationController
   def show
   end
 
-  # GET /authors/new
-  def new
-    @author = Author.new
-  end
+ 
   def search
 
   end
 
 ###############################################################################
+ ''' 
   # GET /authors/1/edit
-  '''
   def edit
   end
-  '''
 
+ # GET /authors/new
+  def new
+    @author = Author.new
+  end
+
+'''
+'''
   # POST /authors or /authors.json
-  '''
+  
   def create
     @author = Author.new(author_params)
 
@@ -41,9 +44,9 @@ class AuthorsController < ApplicationController
       end
     end
   end
-  '''
+'''
+''' 
   # PATCH/PUT /authors/1 or /authors/1.json
-  '''
   def update
     respond_to do |format|
       if @author.update(author_params)
@@ -55,9 +58,10 @@ class AuthorsController < ApplicationController
       end
     end
   end
+'''
+  
   '''
   # DELETE /authors/1 or /authors/1.json
-  '''
   def destroy
     @author.destroy
 

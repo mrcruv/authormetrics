@@ -16,7 +16,7 @@ Rails.application.routes.draw do
    resources :favorite_publications, only: %i[ index new show create destroy ]
    resources :favorite_authors,only: %i[ index new show create destroy ]
   end
-  resources :authors do
+  resources :authors, only: %i[ show index] do
     resources :author_ratings
     resources :reviews
   end
@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   get "/privacy", to: "home#privacy"
   get "/cookies", to: "home#cookies"
   get "/users/:id", to: "users#show"
-
+  get "/authors/search/:id", to: "authors#search"
+  get "/publications/search/:id", to: "publications#search"
 
 end

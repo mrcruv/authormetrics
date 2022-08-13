@@ -1,4 +1,5 @@
 class CitedBiesController < ApplicationController
+  '''
   before_action :set_cited_by, only: %i[ show edit update destroy ]
 
   # GET /cited_bies or /cited_bies.json
@@ -67,4 +68,5 @@ class CitedBiesController < ApplicationController
     def cited_by_params
       params.fetch(:cited_by, {})
     end
+    '''
 end

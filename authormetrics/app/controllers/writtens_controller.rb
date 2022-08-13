@@ -1,4 +1,5 @@
 class WrittensController < ApplicationController
+  '''
   before_action :set_written, only: %i[ show edit update destroy ]
 
   # GET /writtens or /writtens.json
@@ -67,4 +68,5 @@ class WrittensController < ApplicationController
     def written_params
       params.require(:written).permit(:author_id, :publication_id)
     end
+    '''
 end

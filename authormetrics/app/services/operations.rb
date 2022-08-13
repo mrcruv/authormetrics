@@ -83,12 +83,64 @@ class Operations
           }
           
           search = GoogleSearch.new(params)
-          o = search.get_hash[:organic_results][1][:publication_info]
+          o = search.get_hash[:organic_results]
         rescue => exception
             print exception
-            return []
+            return {}
         end
-        return o
+        arr=Array.new
+        o.each do |result| #per ogni risultato "organico"
+            pub_info=result[:publication_info] #prendi pub_info
+            if pub_info.has_key?(:authors)==true # vedi se hanno il campo authors nella chiave 
+                #salvo publication/written/authors/cited_by e faccio la return della publications con la ref verso author nella view
+                a=scrape_author_by_author_id(pub_info[:authors])
+                print(a[:author_id])
+                p=Publication.new
+                p[:publication_id]=result[:result_id] +":"+ pub_info[:authors][0][:author_id]
+                p[:title]=result[:title]
+                p[:link]="https://scholar.gpub_infogle.com/citations?view_op=view_citation&hl=en&user="+pub_info[:authors][0][:author_id]+"&citation_for_view="+p[:publication_id]+"bnK-pcrLprsC"
+                if(pub_info[:summary].split("-")[1].size > 8)
+                    p[:published_on]=pub_info[:summary].split("-")[1]
+                else
+                    p[:published_on]=pub_info[:summary].split("-")[2]
+                end
+                p[:cited_by]=result[:inline_links][:cited_by][:total]
+                p[:pub_year]=String(pub_info[:summary].match /[0-9]{4}/)
+                temp=Publication.where(publication_id: p[:publication_id])
+                if(temp.size==0)
+                    p.save!
+                end
+                arr.push(p)
+                temp=Written.where(publication_id: p[:publication_id])
+                if(temp.size==0)
+                    w=Written.new
+                    w.author_id=a
+                    w.publication_id=p
+                    w.save!
+                end
+                temp=CitedBy.where(author_id: a[:author_id])
+                if(temp.size==0)
+                    scrape_cited_by_from_author_id(a)
+                end
+                
+            else
+            #faccio la show di quello che ho senza salvare un author/written/publication models
+            #e senza inserire il riferimento all' author nella view
+                p=Publication.new
+                p[:title]=result[:title]
+                p[:publication_id]=result[:result_id]
+                if(pub_info[:summary].split("-")[1].size > 8)
+                    p[:published_on]=pub_info[:summary].split("-")[1]
+                else
+                    p[:published_on]=pub_info[:summary].split("-")[2]
+                end
+                p[:cited_by]=result[:inline_links][:cited_by][:total]
+                p[:pub_year]=String(pub_info[:summary].match /[0-9]{4}/)
+                p[:link]=result[:link]
+                arr.push(p)
+            end 
+        end
+        return arr
     end
 
 
@@ -240,6 +292,34 @@ class Operations
         return true
     end
 ############################################################################################
+    def scrape_author_by_author_id(author_id)
+        begin
+            params = {
+                engine: "google_scholar_author",
+                author_id: author_id,
+                api_key: Rails.application.credentials.api_key,
+                q:''
+            }
+            search = GoogleSearch.new(params)
+            c = search.get_hash[:author]
+        rescue => exception
+            print(exception)
+            return {}
+        end
+        temp=Author.where(author_id: auth[:author_id])
+        if(temp.size==0)
+            a=Author.new
+            a.author_id = auth[:author_id]
+            a.name = author[:name]
+            a.affiliations = author[:affiliations]
+            a.interests = author[:interests]
+            a.save!
+            return a
+        else
+            return temp
+        end
+    end
+
 ############################################################################################  
     #FILL FUNCTIONS
 
