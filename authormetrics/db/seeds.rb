@@ -1666,7 +1666,8 @@ cited_by=CitedBy.create([
 
 
 #per popolare con gli articles e writtens relation:{utilizza 9 chiamate api,assicurarsi di aver impostato l' api_key,usa comando che trovi su "docs/api_cmd.txt",se non encrypta, eliminare file  /config/credentials.yml.enc e riprovare }
-#successivamente inserire all' interno del file che si aprira' tmp/nnnn_credential  la propria api_key cosi formattata => api_key:"my_api_key_google_scholar" poi salva e chiudi file. 
+#successivamente inserire all' interno del file che si aprira' tmp/nnnn_credential  
+#la propria api_key cosi formattata => api_key:"my_api_key_google_scholar" poi salva e chiudi file. 
 #SUCCESSIVAMENTE APRIRE CONSOLE E DIGITARE QUESTI COMANDI
 
 # >bin/rails c
@@ -1677,3 +1678,4 @@ cited_by=CitedBy.create([
 #m.fill_articles_by_authors(n)
 
 #QUESTI COMANDI POSSONO ESTRARRE PTENZIALMENTE OLTRE 400 PUBBLICAZIONI DEGLI AUTHORS,FERMARSI DOPO 1/2 MIN PER NON BUTTARE CHIAMATE API
+

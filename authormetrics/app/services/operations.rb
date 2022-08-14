@@ -111,7 +111,6 @@ class Operations
                     p=temp
                 end
                 arr.push(p)
-                print(p[:publication_id])
                 temp=Written.where(publication_id: p[:publication_id])
                 if(temp.size==0)
                     w=Written.new

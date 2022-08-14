@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   get "/privacy", to: "home#privacy"
   get "/cookies", to: "home#cookies"
   get "/users/:id", to: "users#show"
+  
   get "/authors/search/:id", to: "authors#search"
   get "/publications/search/:id", to: "publications#search"
 

@@ -7,6 +7,7 @@ class AuthorsController < ApplicationController
     @authors = Author.all
   end
 
+  
   # GET /authors/1 or /authors/1.json
   def show
   end
