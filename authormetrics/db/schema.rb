@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_12_092711) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_14_120149) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -32,7 +32,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_12_092711) do
     t.string "name", limit: 255, null: false
     t.text "affiliations"
     t.text "interests"
-    t.integer "cited"
     t.integer "cited_by_id"
   end
 

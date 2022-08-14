@@ -12,7 +12,6 @@ authors=Author.create([
         affiliations: "Chemistry Department Imperial College",
         interests:                                         
         "[{:title=>\"Computational chemistry\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Acomputational_chemistry\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:computational_chemistry\"}, {:title=>\"Theoretical Chemistry\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Atheoretical_chemistry\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:theoretical_chemistry\"}, {:title=>\"conical intersections\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aconical_intersections\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:conical_intersections\"}, {:title=>\"non adiabatic dynamics\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Anon_adiabatic_dynamics\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:non_adiabatic_dynamics\"}]",
-        cited_by: 185489,
         cited_by_id:3
     },
     {
@@ -21,7 +20,6 @@ authors=Author.create([
         affiliations: "Founder/consultant with Data Tecnica International + Data science lead at NIH's Center for …",
         interests:
         "[{:title=>\"statistical genetics\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Astatistical_genetics\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:statistical_genetics\"}, {:title=>\"neurodegeneration\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aneurodegeneration\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:neurodegeneration\"}, {:title=>\"data science\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Adata_science\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:data_science\"}, {:title=>\"biostatistics\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Abiostatistics\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:biostatistics\"}, {:title=>\"genomics\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Agenomics\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:genomics\"}]",
-        cited_by: 135572,
         cited_by_id:4
     },
     {
@@ -30,7 +28,7 @@ authors=Author.create([
         affiliations: "imperial college",
         interests:
         "[{:title=>\"entrepreneurship\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aentrepreneurship\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:entrepreneurship\"}]",
-        cited_by: 103222,
+
         cited_by_id:30
     },
     {
@@ -39,7 +37,7 @@ authors=Author.create([
         affiliations: "Professor of Human Nutrition, University of Glasgow",
         interests:
         "[{:title=>\"Food\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Afood\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:food\"}, {:title=>\"Nutrition\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Anutrition\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:nutrition\"}, {:title=>\"Obesity\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aobesity\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:obesity\"}, {:title=>\"Diabetes\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Adiabetes\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:diabetes\"}, {:title=>\"CHD\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Achd\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:chd\"}]",
-        cited_by: 85111
+        cited_by_id: 5
     },
     {
         author_id: "iXjCKTgAAAAJ",
@@ -47,7 +45,7 @@ authors=Author.create([
         affiliations: "Radboud University Nijmegen, Microbiology, TU Delft, anammox, Netherlands",
         interests:
         "[{:title=>\"anaerobic microbiology\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aanaerobic_microbiology\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:anaerobic_microbiology\"}, {:title=>\"nitrogen cycle\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Anitrogen_cycle\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:nitrogen_cycle\"}, {:title=>\"methane archaea\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Amethane_archaea\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:methane_archaea\"}, {:title=>\"anammox\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aanammox\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:anammox\"}]",
-        cited_by: 72958,
+   
         cited_by_id:6
     },
     {
@@ -56,7 +54,7 @@ authors=Author.create([
         affiliations: "Two Sigma",
         interests:
         "[{:title=>\"machine learning\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Amachine_learning\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:machine_learning\"}, {:title=>\"neural networks\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aneural_networks\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:neural_networks\"}, {:title=>\"deep learning\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Adeep_learning\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:deep_learning\"}, {:title=>\"reinforcement learning\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Areinforcement_learning\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:reinforcement_learning\"}]",
-        cited_by: 63480,
+
         cited_by_id:7
     },
     {
@@ -65,7 +63,7 @@ authors=Author.create([
         affiliations: "Professor, Forestry and Agricultural Biotechnology Institute (FABI), University of Pretoria",
         interests:
         "[{:title=>\"forest protection\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aforest_protection\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:forest_protection\"}, {:title=>\"mycology\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Amycology\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:mycology\"}, {:title=>\"entomology\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aentomology\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:entomology\"}, {:title=>\"biotechnology\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Abiotechnology\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:biotechnology\"}]",
-        cited_by: 62845,
+     
         cited_by_id:8
     },
     {
@@ -74,7 +72,7 @@ authors=Author.create([
         affiliations: "Jindal Chair of Global Strategy, University of Texas at Dallas",
         interests:
          "[{:title=>\"International Business\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Ainternational_business\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:international_business\"}, {:title=>\"Global Strategy\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aglobal_strategy\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:global_strategy\"}, {:title=>\"Strategic Management\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Astrategic_management\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:strategic_management\"}]",
-        cited_by: 56467,
+    
         cited_by_id:9
     },
     {
@@ -91,7 +89,7 @@ authors=Author.create([
         affiliations: "Professor of Human Geography, University of Cambridge",
         interests:
         "[{:title=>\"Climate Change\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aclimate_change\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:climate_change\"}, {:title=>\"Climate History\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aclimate_history\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:climate_history\"}]",
-        cited_by: 53223,
+     
         cited_by_id:11
     },
     {
@@ -99,7 +97,7 @@ authors=Author.create([
         name: "Young Min Jhon",
         affiliations: "Korea Institute of Science and technology",
         interests: nil,
-        cited: 3729,
+     
         cited_by_id: 13
     },{
         author_id: "ls4aMEQAAAAJ",
@@ -107,7 +105,7 @@ authors=Author.create([
         affiliations: "Division of Food and Nutrition, Chonnam National University",
         interests:
         "[{:title=>\"food microbes\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Afood_microbes\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:food_microbes\"}, {:title=>\"food safety\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Afood_safety\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:food_safety\"}, {:title=>\"food enzymes\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Afood_enzymes\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:food_enzymes\"}, {:title=>\"fermented foods\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Afermented_foods\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:fermented_foods\"}]",
-        cited: 3193,
+      
         cited_by_id: 14
     },
     {
@@ -116,7 +114,7 @@ authors=Author.create([
         affiliations: "Profesor Titular, Universidad Nacional de Colombia",
         interests:
         "[{:title=>\"Ciencia e Ingenierìa de Materiales\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aciencia_e_ingenier%C3%ACa_de_materiales\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:ciencia_e_ingenier%C3%ACa_de_materiales\"}, {:title=>\"Ciencia y Tecnologìa de Superficies\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aciencia_y_tecnolog%C3%ACa_de_superficies\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:ciencia_y_tecnolog%C3%ACa_de_superficies\"}]",
-        cited: 2504,
+     
         cited_by_id: 15
     },
     {
@@ -125,7 +123,7 @@ authors=Author.create([
         affiliations: "Estudiante Informática y sistemas",
         interests:
         "[{:title=>\"Seguridad Informática\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aseguridad_inform%C3%A1tica\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:seguridad_inform%C3%A1tica\"}]",
-        cited: 2048,
+      
         cited_by_id: 16
     },
     {
@@ -134,7 +132,7 @@ authors=Author.create([
         affiliations: "Universidad Tecnológica de Pereira",
         interests:
         "[{:title=>\"Ciencias de la Educación\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aciencias_de_la_educaci%C3%B3n\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:ciencias_de_la_educaci%C3%B3n\"}, {:title=>\"Lenguaje\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Alenguaje\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:lenguaje\"}]",
-        cited: 1846,
+   
         cited_by_id: 17
     },
     {
@@ -143,7 +141,7 @@ authors=Author.create([
         affiliations: "Princeton University",
         interests:
         "[{:title=>\"unifie fieldtheory\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aunifie_fieldtheory\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:unifie_fieldtheory\"}]",
-        cited: 1840,
+     
         cited_by_id: 18
     },
     {
@@ -152,7 +150,7 @@ authors=Author.create([
         affiliations: "Full Professor of Economics, Universidad Icesi",
         interests:
         "[{:title=>\"Labor Economics\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Alabor_economics\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:labor_economics\"}, {:title=>\"Economics of Education\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aeconomics_of_education\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:economics_of_education\"}, {:title=>\"MIcroeconometrics\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Am_icroeconometrics\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:microeconometrics\"}]",
-        cited: 1782,
+    
         cited_by_id: 20
     },
     {
@@ -161,7 +159,7 @@ authors=Author.create([
         affiliations: "Universidad Industrial de Santander",
         interests:
         "[{:title=>\"Dinámica Cuántica Molecular\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Adin%C3%A1mica_cu%C3%A1ntica_molecular\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:din%C3%A1mica_cu%C3%A1ntica_molecular\"}]",
-        cited: 1532,
+     
         cited_by_id: 21
     },
     {
@@ -170,7 +168,7 @@ authors=Author.create([
         affiliations: "Professor of Pharmacology and Pathology,UCSD,School of Medicine",
         interests:
         "[{:title=>\"Molecular Biology\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Amolecular_biology\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:molecular_biology\"}, {:title=>\"Immunology\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aimmunology\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:immunology\"}, {:title=>\"Cancer Biology\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Acancer_biology\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:cancer_biology\"}, {:title=>\"Signal Transduction\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Asignal_transduction\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:signal_transduction\"}]",
-        cited: 313765,
+     
         cited_by_id: 24
     },
     {
@@ -179,7 +177,7 @@ authors=Author.create([
         affiliations: "Professor of Developmental Psychopathology, King's College London",
         interests:
         "[{:title=>\"child psychiatry\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Achild_psychiatry\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:child_psychiatry\"}, {:title=>\"psychiatric genetics\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Apsychiatric_genetics\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:psychiatric_genetics\"}, {:title=>\"developmental psychopathology\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Adevelopmental_psychopathology\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:developmental_psychopathology\"}]",
-        cited: 292187,
+      
         cited_by_id: 25
     },
     {
@@ -188,7 +186,7 @@ authors=Author.create([
         affiliations: "Universidad San Ignacio de Loyola",
         interests:
         "[{:title=>\"ingenieria\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aingenieria\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:ingenieria\"}]",
-        cited: 291430,
+      
         cited_by_id: 26
     },
     {
@@ -197,7 +195,7 @@ authors=Author.create([
         affiliations: "Northwestern University",
         interests:
         "[{:title=>\"Particle Physics\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aparticle_physics\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:particle_physics\"}, {:title=>\"Statistical Methods\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Astatistical_methods\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:statistical_methods\"}]",
-        cited: 279968,
+       
         cited_by_id: 27
     },{
         author_id: "V7AleF4AAAAJ",
@@ -205,7 +203,7 @@ authors=Author.create([
         affiliations: "Professor of Epidemiology, University College London",
         interests:
         "[{:title=>\"Social determinants of health\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Asocial_determinants_of_health\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:social_determinants_of_health\"}]",
-        cited: 267690,
+        
         cited_by_id: 28
     },
     {
@@ -213,7 +211,7 @@ authors=Author.create([
         name: "Michael J. Frisch",
         affiliations: "Gaussian, Inc.",
         interests: nil,
-        cited: 265799,
+     
         cited_by_id: 29
     },
     {
@@ -222,7 +220,7 @@ authors=Author.create([
         affiliations: "Department of Biostatistics and Epidemiology, Auckland University of Technology",
         interests:
         "[{:title=>\"data management\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Adata_management\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:data_management\"}, {:title=>\"clinical trials\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aclinical_trials\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:clinical_trials\"}, {:title=>\"neuropsychology\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aneuropsychology\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:neuropsychology\"}, {:title=>\"psychology\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Apsychology\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:psychology\"}, {:title=>\"epidemiolgy\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aepidemiolgy\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:epidemiolgy\"}]",
-        cited: 89747,
+       
         cited_by_id: 32
     },
     {
@@ -231,7 +229,7 @@ authors=Author.create([
         affiliations: "Professor, EPFL",
         interests:
         "[{:title=>\"Solar energy conversion\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Asolar_energy_conversion\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:solar_energy_conversion\"}]",
-        cited: 432623,
+     
         cited_by_id: 23
     },
     {
@@ -240,7 +238,7 @@ authors=Author.create([
         affiliations: "Carnegie Mellon University",
         interests:
         "[{:title=>\"rheology\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Arheology\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:rheology\"}, {:title=>\"tribology\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Atribology\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:tribology\"}, {:title=>\"surface\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Asurface\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:surface\"}, {:title=>\"modeling\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Amodeling\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:modeling\"}, {:title=>\"perfluoropolyether(PFPE)\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aperfluoropolyether_pfpe\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:perfluoropolyether_pfpe\"}]",
-        cited: 13642,
+      
         cited_by_id: 12
     },
     {
@@ -249,7 +247,7 @@ authors=Author.create([
         affiliations: "RISM, Shinshu University",
         interests:
         "[{:title=>\"thin films\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Athin_films\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:thin_films\"}, {:title=>\"semiconductors\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Asemiconductors\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:semiconductors\"}, {:title=>\"solar cells\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Asolar_cells\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:solar_cells\"}, {:title=>\"photocatalyst\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aphotocatalyst\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:photocatalyst\"}, {:title=>\"electrochemistry\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aelectrochemistry\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:electrochemistry\"}]",
-        cited: 1795,
+       
         cited_by_id: 19
     },
     {
@@ -258,7 +256,7 @@ authors=Author.create([
         affiliations: "Bishop William Lawrence University Professor, Harvard Business School",
         interests:
          "[{:title=>\"Competitive Strategy\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Acompetitive_strategy\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:competitive_strategy\"}, {:title=>\"Digital Transformation\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Adigital_transformation\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:digital_transformation\"}, {:title=>\"Economic Development\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aeconomic_development\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:economic_development\"}, {:title=>\"Health Care\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Ahealth_care\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:health_care\"}, {:title=>\"US Political System\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aus_political_system\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:us_political_system\"}]",
-        cited: 478465,
+    
         cited_by_id: 22 
     },
     {
@@ -267,7 +265,7 @@ authors=Author.create([
         affiliations: "Charles E. and Emma H. Morrison Professor of Chemistry, Northwestern University",
         interests:
         "[{:title=>\"Organometallic Chemistry\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aorganometallic_chemistry\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:organometallic_chemistry\"}, {:title=>\"Molecular Photonics\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Amolecular_photonics\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:molecular_photonics\"}, {:title=>\"Transparent Oxides\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Atransparent_oxides\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:transparent_oxides\"}, {:title=>\"Molecular Electronics\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Amolecular_electronics\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:molecular_electronics\"}]",
-        cited: 148657,
+      
         cited_by_id: 31
     },
     {
@@ -276,7 +274,7 @@ authors=Author.create([
         affiliations: "Open University, UK",
         interests:
         "[{:title=>\"organisation studies and management\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aorganisation_studies_and_management\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:organisation_studies_and_management\"}]",
-        cited: 41583,
+        
         cited_by_id: 34
     },
     {
@@ -285,7 +283,7 @@ authors=Author.create([
         affiliations: "Professor of Infectious Diseases",
         interests:
         "[{:title=>\"Virology\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Avirology\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:virology\"}]",
-        cited: 34817,
+        
         cited_by_id: 36
     },
     {
@@ -294,7 +292,7 @@ authors=Author.create([
         affiliations: "Professor, Henry and Emma Meyer Chair in Molecular Genetics, Baylor College of Medicine",
         interests:
         "[{:title=>\"extracellular RNA\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aextracellular_rna\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:extracellular_rna\"}, {:title=>\"intercellular communication\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aintercellular_communication\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:intercellular_communication\"}, {:title=>\"epigenomics\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aepigenomics\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:epigenomics\"}, {:title=>\"genome informatics\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Agenome_informatics\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:genome_informatics\"}, {:title=>\"bioinformatics\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Abioinformatics\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:bioinformatics\"}]",
-        cited: 34092,
+        
         cited_by_id: 37
     },
     {
@@ -302,7 +300,7 @@ authors=Author.create([
         name: "hans van goudoever",
         affiliations: "Emma Kinderziekenhuis Amsterdam",
         interests: nil,
-        cited: 28881,
+      
         cited_by_id: 38
     },
     {
@@ -311,7 +309,7 @@ authors=Author.create([
         affiliations: "Associate Professor of Bioengineering and Pathology, Stanford University",
         interests:
         "[{:title=>\"Bioimaging\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Abioimaging\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:bioimaging\"}, {:title=>\"spatial proteomics\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aspatial_proteomics\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:spatial_proteomics\"}]",
-        cited: 26811,
+       
         cited_by_id: 39
     },
     {
@@ -320,7 +318,7 @@ authors=Author.create([
         affiliations: "Professor of Dermatology and Immunology, Mount Sinai Medical Center",
         interests:
         "[{:title=>\"Atopic dermatitis\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aatopic_dermatitis\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:atopic_dermatitis\"}, {:title=>\"Alopecia Areata\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aalopecia_areata\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:alopecia_areata\"}, {:title=>\"Contact Dermatitis\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Acontact_dermatitis\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:contact_dermatitis\"}]",
-        cited: 26459,
+      
         cited_by_id: 40
     },
     {
@@ -329,7 +327,7 @@ authors=Author.create([
         affiliations: "EPFL",
         interests:
         "[{:title=>\"astrophysics\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aastrophysics\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:astrophysics\"}, {:title=>\"data science\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Adata_science\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:data_science\"}, {:title=>\"machine learning\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Amachine_learning\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:machine_learning\"}]"
-        cited: 85665,
+        
         cited_by_id: 33
     },
     {
@@ -338,7 +336,7 @@ authors=Author.create([
         affiliations: "CERN",
         interests:
         "[{:title=>\"Physics\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aphysics\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:physics\"}]",
-        cited: 194808,
+       
         cited_by_id: 41
     },
     {
@@ -347,7 +345,6 @@ authors=Author.create([
         affiliations: "Bologna University & INFN",
         interests:
         "[{:title=>\"Plasma Physics\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aplasma_physics\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:plasma_physics\"}, {:title=>\"Medical Physics\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Amedical_physics\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:medical_physics\"}, {:title=>\"Particle Physics\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aparticle_physics\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:particle_physics\"}, {:title=>\"Didactical Physics\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Adidactical_physics\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:didactical_physics\"}]",
-        cited: 182860,
         cited_by_id: 42
     }
 ])

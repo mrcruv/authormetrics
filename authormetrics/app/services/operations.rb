@@ -26,7 +26,6 @@ class Operations
                 a.name = p[:name]
                 a.affiliations = p[:affiliations]
                 a.interests = p[:interests] # parse?
-                a.cited=p[:cited_by]
                 begin
                     params = {
                         engine: "google_scholar_author",
@@ -93,8 +92,7 @@ class Operations
             pub_info=result[:publication_info] #prendi pub_info
             if pub_info.has_key?(:authors)==true # vedi se hanno il campo authors nella chiave 
                 #salvo publication/written/authors/cited_by e faccio la return della publications con la ref verso author nella view
-                a=scrape_author_by_author_id(pub_info[:authors])
-                print(a[:author_id])
+                a=scrape_author_by_author_id(pub_info[:authors][0][:author_id])
                 p=Publication.new
                 p[:publication_id]=result[:result_id] +":"+ pub_info[:authors][0][:author_id]
                 p[:title]=result[:title]
@@ -109,8 +107,11 @@ class Operations
                 temp=Publication.where(publication_id: p[:publication_id])
                 if(temp.size==0)
                     p.save!
+                else
+                    p=temp
                 end
                 arr.push(p)
+                print(p[:publication_id])
                 temp=Written.where(publication_id: p[:publication_id])
                 if(temp.size==0)
                     w=Written.new
@@ -216,7 +217,7 @@ class Operations
         begin
             params = {
                 engine: "google_scholar_author",
-                author_id: author.id,
+                author_id: author[:author_id],
                 api_key: Rails.application.credentials.api_key,
                 q:''
             }
@@ -227,7 +228,7 @@ class Operations
             print(exception)
             return false
         end
-        temp=CitedBy.where(author_id: auth[:author_id])
+        temp=CitedBy.where(author_id: author[:author_id])
         if( temp.size==0)
             b=CitedBy.new
             begin
@@ -301,18 +302,18 @@ class Operations
                 q:''
             }
             search = GoogleSearch.new(params)
-            c = search.get_hash[:author]
+            auth = search.get_hash[:author]
         rescue => exception
             print(exception)
             return {}
         end
-        temp=Author.where(author_id: auth[:author_id])
+        temp=Author.where(author_id: author_id)
         if(temp.size==0)
             a=Author.new
-            a.author_id = auth[:author_id]
-            a.name = author[:name]
-            a.affiliations = author[:affiliations]
-            a.interests = author[:interests]
+            a.author_id = author_id
+            a.name = auth[:name]
+            a.affiliations = auth[:affiliations]
+            a.interests = auth[:interests]
             a.save!
             return a
         else
