@@ -83,6 +83,7 @@ class Operations
           
           search = GoogleSearch.new(params)
           o = search.get_hash[:organic_results]
+          print o
         rescue => exception
             print exception
             return {}
@@ -92,6 +93,7 @@ class Operations
             pub_info=result[:publication_info] #prendi pub_info
             if pub_info.has_key?(:authors)==true # vedi se hanno il campo authors nella chiave 
                 #salvo publication/written/authors/cited_by e faccio la return della publications con la ref verso author nella view
+                a=Author.new
                 a=scrape_author_by_author_id(pub_info[:authors][0][:author_id])
                 p=Publication.new
                 p[:publication_id]=result[:result_id] +":"+ pub_info[:authors][0][:author_id]
@@ -108,14 +110,14 @@ class Operations
                 if(temp.size==0)
                     p.save!
                 else
-                    p=temp
+                    p=temp[0]
                 end
                 arr.push(p)
                 temp=Written.where(publication_id: p[:publication_id])
                 if(temp.size==0)
                     w=Written.new
-                    w.author_id=a
-                    w.publication_id=p
+                    w.author=(Author.where(author_id: pub_info[:authors][0][:author_id]))[0]
+                    w.publication=(Publication.where(publication_id: p[:publication_id]))[0]
                     w.save!
                 end
                 temp=CitedBy.where(author_id: a[:author_id])
@@ -250,9 +252,9 @@ class Operations
                 b.graph=c[:graph]
             end
         end
+        b.save!
         l=LinkingDependences.new
         l.link_authors_and_cited_by
-        b.save!
         #end
         return true
     end
@@ -316,7 +318,8 @@ class Operations
             a.save!
             return a
         else
-            return temp
+            a=temp[0]
+            return a
         end
     end
 
