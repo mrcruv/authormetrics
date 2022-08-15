@@ -80,7 +80,14 @@
     </div>
     <div class= "bottom_right_block">
         <h2>STANDARD GRAPHS</h2>
-        <%= pie_chart Publication.group(:pub_year).count %>
+        <div class="first_graph">
+            <%= pie_chart Publication.where(pub_year: (2010 ..)).group(:pub_year).count, title:"PUBLICATIONS SINCE 2010"%>
+        <div>
+        <div class="second_graph">
+                <%= line_chart @most_cited_authors.map { |most_cited|
+                    {name: Author.find(most_cited.author_id).name, data: most_cited.graph.chart_json}
+                },  xtitle: "years", ytitle: "citations", title:"MOST CITED AUTHORS"%>
+        </div>
     </div>
 </div>
 

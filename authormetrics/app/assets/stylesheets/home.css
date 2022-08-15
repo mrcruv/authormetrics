@@ -23,8 +23,8 @@
 
 .right_block{
   position: fixed;
-  left:50%;
-  width: 50%;
+  left:45%;
+  width: 70%;
   height: 100%;
   font-family: Verdana, sans-serif;
   font-weight: lighter;
@@ -38,6 +38,8 @@
 .bottom_right_block{
   width: 100%;
   height: 100%;
+  overflow: hidden;
+  padding-top: 20px;
 }
 
 .table_half_box{
@@ -57,4 +59,28 @@
   border: solid;
   border-color: #37474f;
   border-width: 2.5px;
+}
+
+.first_graph{
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  justify-content: space-between;
+  margin-top: 10px;
+  float: inline-start;
+  width:300px;
+  height:300px;
+}
+
+.second_graph{
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  justify-content: space-between;
+  margin-top: 10px;
+  float:inline-start;
+  width:500px; 
+  height: 300px;
 }
