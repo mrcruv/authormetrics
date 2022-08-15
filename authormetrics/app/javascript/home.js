@@ -19,14 +19,26 @@ function createSearchBar(placeholder){
 
 function searchByAuth(){ 
     document.getElementById("ByAuth").style.backgroundColor = "#90caf9";
-    document.getElementById("ByPub").style.backgroundColor = "";
+    document.getElementById("ByAuth").style.backgroundColor = "";
     createSearchBar("Search by auth...");
 }
 
 function searchByPub(){    
-    document.getElementById("ByPub").style.backgroundColor = "#90caf9";
-    document.getElementById("ByAuth").style.backgroundColor = "";
-    createSearchBar("Search by pub...");
+    const pub=document.getElementById("ByPub").style.backgroundColor = "#90caf9";
+    const auth=document.getElementById("Bypub").style.backgroundColor = "";
+    const s=createSearchBar("Search by pub...");
 }
+/*
+function provaPub(){
+
+    const searchInput = document.getElementById("ByPub");
+    const s=createSearchBar("Search by pub...");
+    // listen for user events
+    s.addEventListener("keyup", (event) => {
+        const { value } = event.target;
+        window.location.replace("'http://127.0.0.1:3000/publication/search/'");
+    });
 
 
+}
+*/
