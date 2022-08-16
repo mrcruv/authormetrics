@@ -215,22 +215,22 @@ class Operations
     end
 ############################################################################
     def scrape_cited_by_from_author_id(author)
-        begin
-            params = {
-                engine: "google_scholar_author",
-                author_id: author[:author_id],
-                api_key: Rails.application.credentials.api_key,
-                q:''
-            }
-            search = GoogleSearch.new(params)
-            c = search.get_hash[:cited_by]
-            #print(c)
-        rescue => exception
-            print(exception)
-            return false
-        end
         temp=CitedBy.where(author_id: author[:author_id])
         if( temp.size==0)
+            begin
+                params = {
+                    engine: "google_scholar_author",
+                    author_id: author[:author_id],
+                    api_key: Rails.application.credentials.api_key,
+                    q:''
+                }
+                search = GoogleSearch.new(params)
+                c = search.get_hash[:cited_by]
+                #print(c)
+            rescue => exception
+                print(exception)
+                return false
+            end
             b=CitedBy.new
             begin
                 b.author=author
@@ -251,11 +251,10 @@ class Operations
                 b.i10_from_2016=c[:table][2][:i10_index][:since_2016]
                 b.graph=c[:graph]
             end
-        end
         b.save!
         l=LinkingDependences.new
-        l.link_authors_and_cited_by
-        #end
+        l.link_authors_and_cited_by()
+        end
         return true
     end
 ######################################################################################
@@ -295,21 +294,22 @@ class Operations
     end
 ############################################################################################
     def scrape_author_by_author_id(author_id)
-        begin
-            params = {
-                engine: "google_scholar_author",
-                author_id: author_id,
-                api_key: Rails.application.credentials.api_key,
-                q:''
-            }
-            search = GoogleSearch.new(params)
-            auth = search.get_hash[:author]
-        rescue => exception
-            print(exception)
-            return {}
-        end
         temp=Author.where(author_id: author_id)
         if(temp.size==0)
+            begin
+                params = {
+                    engine: "google_scholar_author",
+                    author_id: author_id,
+                    api_key: Rails.application.credentials.api_key,
+                    q:''
+                }
+                search = GoogleSearch.new(params)
+                auth = search.get_hash[:author]
+            rescue => exception
+                print(exception)
+                return {}
+            end
+            
             a=Author.new
             a.author_id = author_id
             a.name = auth[:name]
