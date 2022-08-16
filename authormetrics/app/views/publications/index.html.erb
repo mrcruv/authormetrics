@@ -1,17 +1,22 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Publications</h1>
-<button onclick="location.href='http://127.0.0.1:3000/'" > back to home page</button> 
-<div id="publications">
-  <% @publications.each do |publication| %>
-    <p>
-    <strong>Title:</strong>
-    <%= publication.title %>
-    </p>
-    <p>
-      <%= link_to "Show this publication", publication %>
-    </p>
-  <% end %>
-</div>
 
+<div class="block">
+  <div class="table_half_box">
+    <h1>Publications</h1>
+    <button onclick= "searchByPub()" id= "ByPub2"> SEARCH BY PUB</button>
+    <button onclick="location.href='http://127.0.0.1:3000/'" > back to home page</button> 
+  </div>
+
+  <div class="table_half_box">
+    <div id="publications">
+      <% @publications.each do |publication| %>
+        <p>
+          <%= link_to publication.title, publication %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+
+</div>
 

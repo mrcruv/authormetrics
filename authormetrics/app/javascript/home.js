@@ -1,4 +1,3 @@
-
 function createSearchBar(placeholder){
     var search_box= document.createElement("div");
     search_box.setAttribute("class", "search_box"); 
@@ -28,7 +27,8 @@ function searchByPub(){
     const auth=document.getElementById("ByAuth").style.backgroundColor = "";
     const s=createSearchBar("Search by pub...");
 }
-/*
+
+    /*
 function provaPub(){
 
     const searchInput = document.getElementById("ByPub");
@@ -38,7 +38,5 @@ function provaPub(){
         const { value } = event.target;
         window.location.replace("'http://127.0.0.1:3000/publication/search/'");
     });
-
-
 }
 */
