@@ -79,14 +79,6 @@
 
     </div>
 
-    <%def hash_graph(array_graph)%>
-        <%h= {}%>
-        <%array_graph.each do |gr|%>
-            <%h[gr["year"]]=gr["citations"]%>
-        <%end%>
-        <%return h%>
-    <%end%>
-    
     <div class= "bottom_right_block">
         <h2>STANDARD GRAPHS</h2>
         <div class="first_graph">
@@ -97,7 +89,7 @@
                 <%= line_chart @most_cited_authors.map { |most_cited|
                     {
                         name: Author.find(most_cited.author_id).name,
-                        data: hash_graph(most_cited.graph)
+                        data: Graphs.new.hash_graph(most_cited.graph)
                     }
                 }, discrete: true, xtitle: "years", ytitle: "citations", title:"MOST CITED AUTHORS"%>
         </div>
