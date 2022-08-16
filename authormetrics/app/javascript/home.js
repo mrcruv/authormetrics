@@ -1,4 +1,3 @@
-
 function createSearchBar(placeholder){
     var search_box= document.createElement("div");
     search_box.setAttribute("class", "search_box"); 
@@ -25,10 +24,11 @@ function searchByAuth(){
 
 function searchByPub(){    
     document.getElementById("ByPub").style.backgroundColor = "#90caf9";
-    document.getElementById("ByAuth").style.backgroundColor = "";
+    document.getElementById("Bypub").style.backgroundColor = "";
     createSearchBar("Search by pub...");
 }
-/*
+
+    /*
 function provaPub(){
 
     const searchInput = document.getElementById("ByPub");
