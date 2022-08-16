@@ -24,9 +24,9 @@ function searchByAuth(){
 }
 
 function searchByPub(){    
-    const pub=document.getElementById("ByPub").style.backgroundColor = "#90caf9";
-    const auth=document.getElementById("Bypub").style.backgroundColor = "";
-    const s=createSearchBar("Search by pub...");
+    document.getElementById("ByPub").style.backgroundColor = "#90caf9";
+    document.getElementById("Bypub").style.backgroundColor = "";
+    createSearchBar("Search by pub...");
 }
 /*
 function provaPub(){
@@ -38,7 +38,5 @@ function provaPub(){
         const { value } = event.target;
         window.location.replace("'http://127.0.0.1:3000/publication/search/'");
     });
-
-
 }
 */
