@@ -63,6 +63,7 @@ class PublicationsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_publication
       @publication = Publication.find(params[:id])
+      @comments=Comment.where(publication_id: params[:id])
     end
 
     # Only allow a list of trusted parameters through.

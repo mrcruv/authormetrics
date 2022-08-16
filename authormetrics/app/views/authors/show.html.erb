@@ -11,7 +11,7 @@
     <%= @author.affiliations %>
   </p>
   <p>
-    
+
     <% if @author.interests != [] && @author.interests!= nil %>
     <h2>INTERESTS:</h2>
       <% JSON.parse(@author.interests).each do |k|%>
@@ -31,7 +31,20 @@
     <%end%>
     
   </p>
+
 <%= render @cited_by %>
+
+ </p>
+    <% if @reviews != [] && @reviews!= nil %>
+      <strong>REVIEWS:</strong>
+      <% reviews.each do |rev|%>
+      <% r=User.find(rev.user_id)%>
+      <%= r.username%>
+      <%= rev.review%>
+      <%end%>
+    <%end%>
+  <p>
+
 <% if @publications != [] && @publications != nil %>
   <h1>PUBBLICAZIONI</h1>
 <%end%>

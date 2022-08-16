@@ -3,6 +3,17 @@
 <%= render @publication %>
 
 <div>
+  <%if @comments != [] || @comments != nil%>
+    <% @comments.each do |com| %>
+      <% r=User.find(com.user_id)%>
+      <%= r.username %>
+      <%= com.comment %>
+      <%= "-------------------" %>
+    <%end%>
+  <%end%>
+</div>
+
+<div>
   <%= link_to "View other publications", publications_path %>
 </div>
 <%if(params[:id].count(":")>0)%>

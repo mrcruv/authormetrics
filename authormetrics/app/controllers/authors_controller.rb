@@ -82,6 +82,7 @@ class AuthorsController < ApplicationController
       s=Strings.new
       @author.interests=s.to_hash(@author.interests) 
       @cited_by=CitedBy.where(author_id: @author.author_id)[0]
+      @reviews=Review.where(author_id: param)
     end
 
     def set_search
