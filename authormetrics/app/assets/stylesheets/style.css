@@ -31,8 +31,8 @@ table {
     font-weight: lighter;
     border: #263238;
     border-width: 2px;
-    width:600px;
-    height:150px;
+    width: 100%;
+    height:100%;
     text-align: left;
     font-size: x-small;
     padding: 3px;
