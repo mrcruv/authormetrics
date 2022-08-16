@@ -19,13 +19,13 @@ function createSearchBar(placeholder){
 
 function searchByAuth(){ 
     document.getElementById("ByAuth").style.backgroundColor = "#90caf9";
-    document.getElementById("ByAuth").style.backgroundColor = "";
+    document.getElementById("ByPub").style.backgroundColor = "";
     createSearchBar("Search by auth...");
 }
 
 function searchByPub(){    
     const pub=document.getElementById("ByPub").style.backgroundColor = "#90caf9";
-    const auth=document.getElementById("Bypub").style.backgroundColor = "";
+    const auth=document.getElementById("ByAuth").style.backgroundColor = "";
     const s=createSearchBar("Search by pub...");
 }
 /*

@@ -71,31 +71,37 @@
 <div class="right_block">
     <div class= "upper_right_block">
         <button onclick= "searchByAuth()" id= "ByAuth" > SEARCH BY AUTH </button>
-        <button onclick= "provaPub()" id= "ByPub"> SEARCH BY PUB</button>
+        <button onclick= "searchByPub()" id= "ByPub"> SEARCH BY PUB</button>
         <button onclick="location.href='http://127.0.0.1:3000/authors'" > AUTHORS</button> 
         <button onclick="location.href='http://127.0.0.1:3000/publications'"> PUBLICATIONS</button>
         <button onclick="location.href='http://127.0.0.1:3000/users/new'" id= "LogReg"> LOGIN/REGISTER</button> <!--uncorrect redirect, just to try-->
         <p id="p1"> </p>
-         
+    
+    <%def hash_graph(array_graph)%>
+        <%h= {}%>
+        <%array_graph.each do |gr|%>
+            <%h[gr["year"]]=gr["citations"]%>
+        <%end%>
+        <%return h%>
+    <%end%>
+
     </div>
     <div class= "bottom_right_block">
         <h2>STANDARD GRAPHS</h2>
         <div class="first_graph">
-            <%= pie_chart Publication.where(pub_year: (2010 ..)).group(:pub_year).count, title:"PUBLICATIONS SINCE 2010"%>
+            <%= pie_chart Publication.where(pub_year: (2016 ..)).group(:pub_year).count, title:"PUBLICATIONS SINCE 2016"%>
         <div>
         <div class="second_graph">
+                <%i=0%>
                 <%= line_chart @most_cited_authors.map { |most_cited|
                     {
                         name: Author.find(most_cited.author_id).name,
-                        data:  most_cited.graph.chart_json #funzione con ciclo for sugli elementi e lo si tratta come hash
-                        
-                        }
-                },
-                  xtitle: "years", ytitle: "citations", title:"MOST CITED AUTHORS"%>
+                        data: hash_graph(most_cited.graph)
+                    }
+                }, discrete: true, xtitle: "years", ytitle: "citations", title:"MOST CITED AUTHORS"%>
         </div>
     </div>
 </div>
-
 
 <div class="footer" float:left>
     <a href="/contacts">CONTACT US</a>
@@ -110,7 +116,4 @@
 <%= javascript_include_tag "chartkick" %>
 <%= javascript_include_tag "chartjs-adapter-date-fns.bundle"%>
 <%= javascript_include_tag "application" %>
-
-
-
 
