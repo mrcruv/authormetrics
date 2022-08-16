@@ -24,7 +24,7 @@ function searchByAuth(){
 
 function searchByPub(){    
     document.getElementById("ByPub").style.backgroundColor = "#90caf9";
-    document.getElementById("Bypub").style.backgroundColor = "";
+    document.getElementById("ByAuth").style.backgroundColor = "";
     createSearchBar("Search by pub...");
 }
 
