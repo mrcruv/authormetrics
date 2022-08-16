@@ -1,20 +1,21 @@
 <p style="color: green"><%= notice %></p>
-
-<h1 style="color: red">Search Authors</h1>
-<button onclick="location.href='http://127.0.0.1:3000/'" > back to home </button> 
-
-<div id="authors">
-  <% @authors.each do |author| %>
-    <% if author.interests != nil%>
-    <% s=Strings.new %>
-    <% author.interests=s.to_hash(author.interests) %>
+<div>
+  <h1 style="color: red">Search Authors</h1>
+  <div>
+    <button onclick="location.href='http://127.0.0.1:3000/'" > back to home </button> 
+    <button onclick= "searchByauth3()" id= "ByAuth3"> SEARCH BY AUTH</button>
+    <p id="p3"> </p>
+  </div>
+  <div id="authors">
+    <% @authors.each do |author| %>
+      <% if author.interests != nil%>
+      <% s=Strings.new %>
+      <% author.interests=s.to_hash(author.interests) %>
+      <% end %>
+      <%= render author %>
+      <p>
+        <%= " ---------------------------"%>
+      </p>
     <% end %>
-    <%= render author %>
-    <p>
-      <%= link_to "Show this author", author %>
-    </p>
-    <p>
-      <%= " ---------------------------"%>
-    </p>
-  <% end %>
+  </div>
 </div>

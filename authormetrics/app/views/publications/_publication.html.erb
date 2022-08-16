@@ -1,12 +1,8 @@
 <div id="<%= dom_id publication %>">
-  <p>
-    <strong>Title:</strong>
-    <%= publication.title %>
-  </p>
 
   <p>
-    <strong>Link:</strong>
-    <%= publication.link %>
+    
+    <%= link_to publication.title, publication.link %>
   </p>
 
   <p>
