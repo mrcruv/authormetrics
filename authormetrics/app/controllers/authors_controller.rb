@@ -1,6 +1,6 @@
 class AuthorsController < ApplicationController
   before_action :set_author, only: %i[ show ]
-  #before_action :set_search, only: %i[ search ]
+  before_action :set_search, only: %i[ search ]
 
   # GET /authors or /authors.json
   def index
@@ -10,11 +10,11 @@ class AuthorsController < ApplicationController
   
   # GET /authors/1 or /authors/1.json
   def show
+
   end
 
  
   def search
-
   end
 
 ###############################################################################
@@ -84,10 +84,11 @@ class AuthorsController < ApplicationController
       @cited_by=CitedBy.where(author_id: @author.author_id)[0]
     end
 
-    #def set_search
-    #  o=Operations.new
-    #  @author=o.scrape_authors_by_name(s)
-    #end
+    def set_search
+      s=params[:search]
+      o=Operations.new
+      @authors=o.scrape_authors_by_name(s)
+    end
 
     # Only allow a list of trusted parameters through.
     def author_params
