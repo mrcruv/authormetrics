@@ -5,6 +5,43 @@
 #
 #   movies = Movie.create([ { name: "Star Wars"}, { name: "Lord of the Rings"}])
 #   Character.create(name: "Luke", movie: movies.first)
+reviews=Review.create([
+    {
+    author_id:"kq0NYnMAAAAJ",
+    user_id: 1,
+    review: "autore no"
+},
+{
+    author_id:"ZjfgPLMAAAAJ",
+    user_id: 2,
+    review: "autore si"
+},
+{
+    author_id:"RIg9DVEAAAAJ",
+    user_id: 3,
+    review: "bravo"
+},
+{
+    author_id:"R8PPdbQAAAAJ",
+    user_id: 4,
+    review: "niente di che"
+},
+{
+    author_id:"iXjCKTgAAAAJ",
+    user_id: 1,
+    review: "cosi cosi"
+},
+{
+    author_id:"wT4V7isAAAAJ",
+    user_id: 2,
+    review: "anche no"
+},
+{
+    author_id:"kq0NYnMAAAAJ",
+    user_id: 3,
+    review: "bravissimo"
+},])
+
 authors=Author.create([
     {
        author_id: "kq0NYnMAAAAJ",                         
@@ -326,7 +363,7 @@ authors=Author.create([
         name: "Emma Tolley",
         affiliations: "EPFL",
         interests:
-        "[{:title=>\"astrophysics\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aastrophysics\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:astrophysics\"}, {:title=>\"data science\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Adata_science\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:data_science\"}, {:title=>\"machine learning\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Amachine_learning\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:machine_learning\"}]"
+        "[{:title=>\"astrophysics\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aastrophysics\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:astrophysics\"}, {:title=>\"data science\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Adata_science\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:data_science\"}, {:title=>\"machine learning\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Amachine_learning\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:machine_learning\"}]",
         
         cited_by_id: 33
     },
@@ -389,8 +426,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>9681},
     {"year"=>2021, "citations"=>8935},
     {"year"=>2022, "citations"=>5193}]
-   }
- ,{
+   },
+{
   cited_by_id: 4,
   author_id: "ZjfgPLMAAAAJ",
   all_citations: 135626,
@@ -413,8 +450,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>16295},
     {"year"=>2021, "citations"=>16274},
     {"year"=>2022, "citations"=>9186}]
-   }
- ,{
+   },
+   {
   cited_by_id: 5,
   author_id: "R8PPdbQAAAAJ",
   all_citations: 85116,
@@ -1674,7 +1711,7 @@ cited_by=CitedBy.create([
 #m=Operations.new
 #n=Author.new
 #n=Author.all
-#m.fill_articles_by_authors(n)
+#m.take_all_by_author_ids(n)
 
 #QUESTI COMANDI POSSONO ESTRARRE PTENZIALMENTE OLTRE 400 PUBBLICAZIONI DEGLI AUTHORS,FERMARSI DOPO 1/2 MIN PER NON BUTTARE CHIAMATE API
 
