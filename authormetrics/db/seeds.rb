@@ -5,6 +5,43 @@
 #
 #   movies = Movie.create([ { name: "Star Wars"}, { name: "Lord of the Rings"}])
 #   Character.create(name: "Luke", movie: movies.first)
+reviews=Review.create([
+    {
+    author_id:"kq0NYnMAAAAJ",
+    user_id: 1,
+    review: "autore no"
+},
+{
+    author_id:"ZjfgPLMAAAAJ",
+    user_id: 2,
+    review: "autore si"
+},
+{
+    author_id:"RIg9DVEAAAAJ",
+    user_id: 3,
+    review: "bravo"
+},
+{
+    author_id:"R8PPdbQAAAAJ",
+    user_id: 4,
+    review: "niente di che"
+},
+{
+    author_id:"iXjCKTgAAAAJ",
+    user_id: 1,
+    review: "cosi cosi"
+},
+{
+    author_id:"wT4V7isAAAAJ",
+    user_id: 2,
+    review: "anche no"
+},
+{
+    author_id:"kq0NYnMAAAAJ",
+    user_id: 3,
+    review: "bravissimo"
+},])
+
 authors=Author.create([
     {
        author_id: "kq0NYnMAAAAJ",                         
@@ -326,7 +363,7 @@ authors=Author.create([
         name: "Emma Tolley",
         affiliations: "EPFL",
         interests:
-        "[{:title=>\"astrophysics\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aastrophysics\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:astrophysics\"}, {:title=>\"data science\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Adata_science\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:data_science\"}, {:title=>\"machine learning\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Amachine_learning\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:machine_learning\"}]"
+        "[{:title=>\"astrophysics\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aastrophysics\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:astrophysics\"}, {:title=>\"data science\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Adata_science\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:data_science\"}, {:title=>\"machine learning\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Amachine_learning\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:machine_learning\"}]",
         
         cited_by_id: 33
     },
@@ -348,7 +385,7 @@ authors=Author.create([
         cited_by_id: 42
     }
 ])
-
+=begin
 cited_by=CitedBy.create([
     {
     cited_by_id: 3,                                    
@@ -1369,7 +1406,7 @@ cited_by=CitedBy.create([
     {"year"=>2021, "citations"=>8221},
     {"year"=>2022, "citations"=>4092}]
    }
- ,{00007f75dc5dddc0
+ ,
   cited_by_id: 33,
   author_id: "KnVNU0kAAAAJ",
   all_citations: 85665,
@@ -1663,7 +1700,7 @@ cited_by=CitedBy.create([
     {"year"=>2022, "citations"=>8722}]
    }
 ])
-
+=end
 
 #per popolare con gli articles e writtens relation:{utilizza 9 chiamate api,assicurarsi di aver impostato l' api_key,usa comando che trovi su "docs/api_cmd.txt",se non encrypta, eliminare file  /config/credentials.yml.enc e riprovare }
 #successivamente inserire all' interno del file che si aprira' tmp/nnnn_credential  
