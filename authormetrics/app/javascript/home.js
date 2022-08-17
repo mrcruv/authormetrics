@@ -18,13 +18,17 @@ function createSearchBar(placeholder){
 
 function searchByAuth(){ 
     document.getElementById("ByAuth").style.backgroundColor = "#90caf9";
-    document.getElementById("ByPub").style.backgroundColor = "";
+    if (document.getElementById("ByPub")){
+        document.getElementById("ByPub").style.backgroundColor = "";
+    }
     createSearchBar("Search by auth...");
 }
 
 function searchByPub(){    
     document.getElementById("ByPub").style.backgroundColor = "#90caf9";
-    document.getElementById("ByAuth").style.backgroundColor = "";
+    if (document.getElementById("ByAuth")){
+        document.getElementById("ByAuth").style.backgroundColor = "";
+    }
     createSearchBar("Search by pub...");
 }
 
