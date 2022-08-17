@@ -652,7 +652,7 @@ cited_by=CitedBy.create([
     {"year"=>2021, "citations"=>3053},
     {"year"=>2022, "citations"=>1602}]
     }
-    ,{
+,{
     cited_by_id: 12,
   author_id: "QJ1yWLoAAAAJ",
   all_citations: 13642,
@@ -1176,7 +1176,7 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>18248},
     {"year"=>2021, "citations"=>17779},
     {"year"=>2022, "citations"=>9261}]
-}
+    }
  ,{
   cited_by_id: 28,
   author_id: "V7AleF4AAAAJ",
@@ -1369,7 +1369,7 @@ cited_by=CitedBy.create([
     {"year"=>2021, "citations"=>8221},
     {"year"=>2022, "citations"=>4092}]
    }
- ,{00007f75dc5dddc0
+ ,{
   cited_by_id: 33,
   author_id: "KnVNU0kAAAAJ",
   all_citations: 85665,
@@ -1618,9 +1618,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>16887},
     {"year"=>2021, "citations"=>17314},
     {"year"=>2022, "citations"=>9345}]
-  
-   },
- {
+   }
+ ,{
   cited_by_id: 42,
   author_id: "J-2ook4AAAAJ",
   all_citations: 182860,
