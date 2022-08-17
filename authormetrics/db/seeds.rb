@@ -385,7 +385,7 @@ authors=Author.create([
         cited_by_id: 42
     }
 ])
-=begin
+
 cited_by=CitedBy.create([
     {
     cited_by_id: 3,                                    
@@ -426,8 +426,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>9681},
     {"year"=>2021, "citations"=>8935},
     {"year"=>2022, "citations"=>5193}]
-   }
- ,{
+   },
+{
   cited_by_id: 4,
   author_id: "ZjfgPLMAAAAJ",
   all_citations: 135626,
@@ -450,8 +450,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>16295},
     {"year"=>2021, "citations"=>16274},
     {"year"=>2022, "citations"=>9186}]
-   }
- ,{
+   },
+   {
   cited_by_id: 5,
   author_id: "R8PPdbQAAAAJ",
   all_citations: 85116,
@@ -1406,7 +1406,7 @@ cited_by=CitedBy.create([
     {"year"=>2021, "citations"=>8221},
     {"year"=>2022, "citations"=>4092}]
    }
- ,
+ ,{00007f75dc5dddc0
   cited_by_id: 33,
   author_id: "KnVNU0kAAAAJ",
   all_citations: 85665,
@@ -1700,7 +1700,7 @@ cited_by=CitedBy.create([
     {"year"=>2022, "citations"=>8722}]
    }
 ])
-=end
+
 
 #per popolare con gli articles e writtens relation:{utilizza 9 chiamate api,assicurarsi di aver impostato l' api_key,usa comando che trovi su "docs/api_cmd.txt",se non encrypta, eliminare file  /config/credentials.yml.enc e riprovare }
 #successivamente inserire all' interno del file che si aprira' tmp/nnnn_credential  
@@ -1712,7 +1712,7 @@ cited_by=CitedBy.create([
 #m=Operations.new
 #n=Author.new
 #n=Author.all
-#m.fill_articles_by_authors(n)
+#m.take_all_by_author_ids(n)
 
 #QUESTI COMANDI POSSONO ESTRARRE PTENZIALMENTE OLTRE 400 PUBBLICAZIONI DEGLI AUTHORS,FERMARSI DOPO 1/2 MIN PER NON BUTTARE CHIAMATE API
 
