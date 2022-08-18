@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   get "/cookies", to: "home#cookies"
   get "/users/:id", to: "users#show"
   
-  get "/authors/search/", to: "authors#search"
+  get "/authors/search/:search", to: "authors#search"
   get "/publications/search/", to: "publications#search"
 
 end
