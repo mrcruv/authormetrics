@@ -16,7 +16,7 @@
   </p>
 
   <p>
-    <% if @author.interests != [] && @author.interests!= nil %>
+    <% if @author.interests != [] && @author.interests!= nil && @author.interests!= "" %>
     <h2>INTERESTS:</h2>
       <% JSON.parse(@author.interests).each do |k|%>
         <%i=0%>
