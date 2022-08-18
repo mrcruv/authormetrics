@@ -87,7 +87,11 @@ class AuthorsController < ApplicationController
     def set_search
       s=params[:search]
       o=Operations.new
+      begin
       @authors=o.scrape_authors_by_name(s)
+      rescue => exception 
+        puts exception
+      end 
     end
 
     # Only allow a list of trusted parameters through.
