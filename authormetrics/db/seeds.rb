@@ -1712,7 +1712,8 @@ cited_by=CitedBy.create([
 #m=Operations.new
 #n=Author.new
 #n=Author.all
-#m.take_all_by_author_ids(n)
+#m.take_publications_from_author_ids(n)
 
 #QUESTI COMANDI POSSONO ESTRARRE PTENZIALMENTE OLTRE 400 PUBBLICAZIONI DEGLI AUTHORS,FERMARSI DOPO 1/2 MIN PER NON BUTTARE CHIAMATE API
+#DOVREBBE FARA UNA CALL PER OGNI AUTHOR,QUINDI CIRCA 40 CHIAMATE!!
 
