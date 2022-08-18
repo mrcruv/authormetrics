@@ -40,6 +40,6 @@ Rails.application.routes.draw do
   get "/users/:id", to: "users#show"
   
   get "/authors/search/:search", to: "authors#search"
-  get "/publications/search/", to: "publications#search"
+  get "/publications/search/:search", to: "publications#search"
 
 end

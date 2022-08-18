@@ -274,7 +274,7 @@ class Operations
             return false
         end
         articles.each do |article|
-            temp=Pubblication.where(publication_id: article[:citation_id])
+            temp=Publication.where(publication_id: article[:citation_id])
             if(temp.size==0)
                 p = Publication.new
                 p.publication_id = article[:citation_id]

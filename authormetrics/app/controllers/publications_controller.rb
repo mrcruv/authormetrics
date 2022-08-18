@@ -1,6 +1,6 @@
 class PublicationsController < ApplicationController
   before_action :set_publication, only: %i[ show edit update destroy ]
-
+  before_action :set_search, only: %i[ search ]
   # GET /publications or /publications.json
   def index
     @publications = Publication.all
@@ -10,6 +10,10 @@ class PublicationsController < ApplicationController
   def show
   end
 
+  def search
+  end
+  
+=begin
   # GET /publications/new
   def new
     @publication = Publication.new
@@ -58,12 +62,22 @@ class PublicationsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+=end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_publication
       @publication = Publication.find(params[:id])
       @comments=Comment.where(publication_id: params[:id])
+    end
+
+    def set_search
+      s=params[:search]
+      o=Operations.new
+      begin
+      @publications=o.scrape_publications_by_search(s)
+      rescue => exception 
+        puts exception
+      end 
     end
 
     # Only allow a list of trusted parameters through.

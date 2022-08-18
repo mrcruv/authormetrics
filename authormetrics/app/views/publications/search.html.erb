@@ -1,0 +1,20 @@
+<p style="color: green"><%= notice %></p>
+<div class="block">
+  <h1 style="color: red">Publications</h1>
+  <div class="upper_block_auth_pub">
+    <button onclick="searchByPub()" id= "ByPub">NEW PUBLICATIONS SEARCH</button>
+    <button onclick="location.href='http://127.0.0.1:3000/'" > BACK TO HOME</button>
+     <p id="p1"> </p>
+  </div>
+  <div id="publications">
+    <% @publications.each do |publication| %>
+      <p>
+        <%= link_to publication.title, publication %>
+      </p>
+    <% end %>
+  </div>
+</div>
+
+<%= javascript_include_tag "home" %>
+<%= javascript_include_tag "application" %>
+

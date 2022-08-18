@@ -50,12 +50,14 @@
 <%= render @cited_by %>
 
  </p>
-    <% if @reviews != [] && @reviews!= nil %>
+    <% if @reviews != [] && @reviews!= nil || @reviews != ''%>
       <strong>REVIEWS:</strong>
-      <% reviews.each do |rev|%>
+      <% @reviews.each do |rev|%>
       <% r=User.find(rev.user_id)%>
-      <%= r.username%>
-      <%= rev.review%>
+      <div>
+      <p><Strong><%= r.username %></strong></p>
+      <p><%= rev.review%></p>
+      </div>
       <%end%>
     <%end%>
   <p>
