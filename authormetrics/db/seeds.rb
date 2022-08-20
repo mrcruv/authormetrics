@@ -136,7 +136,8 @@ authors=Author.create([
         interests: nil,
      
         cited_by_id: 13
-    },{
+    },
+    {
         author_id: "ls4aMEQAAAAJ",
         name: "Deok-Young JHON",
         affiliations: "Division of Food and Nutrition, Chonnam National University",
@@ -234,7 +235,8 @@ authors=Author.create([
         "[{:title=>\"Particle Physics\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Aparticle_physics\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:particle_physics\"}, {:title=>\"Statistical Methods\", :serpapi_link=>\"https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Astatistical_methods\", :link=>\"https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:statistical_methods\"}]",
        
         cited_by_id: 27
-    },{
+    },
+    {
         author_id: "V7AleF4AAAAJ",
         name: "Michael G. Marmot",
         affiliations: "Professor of Epidemiology, University College London",
@@ -426,7 +428,7 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>9681},
     {"year"=>2021, "citations"=>8935},
     {"year"=>2022, "citations"=>5193}]
-   },
+},
 {
   cited_by_id: 4,
   author_id: "ZjfgPLMAAAAJ",
@@ -450,8 +452,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>16295},
     {"year"=>2021, "citations"=>16274},
     {"year"=>2022, "citations"=>9186}]
-   },
-   {
+},
+{
   cited_by_id: 5,
   author_id: "R8PPdbQAAAAJ",
   all_citations: 85116,
@@ -486,8 +488,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>4396},
     {"year"=>2021, "citations"=>4393},
     {"year"=>2022, "citations"=>2491}]
-   }
- ,{
+},
+{
   cited_by_id: 6,
   author_id: "iXjCKTgAAAAJ",
   all_citations: 72977,
@@ -520,8 +522,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>5876},
     {"year"=>2021, "citations"=>6008},
     {"year"=>2022, "citations"=>3733}]
-   }
- ,{
+},
+{
   cited_by_id: 7,
   author_id: "L9lS9_AAAAAJ",
   all_citations: 63484,
@@ -539,8 +541,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>13548},
     {"year"=>2021, "citations"=>14319},
     {"year"=>2022, "citations"=>7579}]
-   }
- ,{
+},
+{
   cited_by_id: 8,
   author_id: "wT4V7isAAAAJ",
   all_citations: 62871,
@@ -576,8 +578,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>5811},
     {"year"=>2021, "citations"=>6230},
     {"year"=>2022, "citations"=>3620}]
-   }
- ,{
+},
+{
   cited_by_id: 9,
   author_id: "z1Kz8gQAAAAJ",
   all_citations: 56489,
@@ -609,8 +611,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>4679},
     {"year"=>2021, "citations"=>4804},
     {"year"=>2022, "citations"=>2961}]
-   }
- ,{
+},
+{
   cited_by_id: 10,
   author_id: "9zEuqoIAAAAJ",
   all_citations: 53896,
@@ -649,8 +651,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>3030},
     {"year"=>2021, "citations"=>3200},
     {"year"=>2022, "citations"=>1929}]
-    }
- ,{
+},
+{
   cited_by_id: 11,
   author_id: "-8IsASwAAAAJ",
   all_citations: 53229,
@@ -688,8 +690,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>2942},
     {"year"=>2021, "citations"=>3053},
     {"year"=>2022, "citations"=>1602}]
-    }
-,{
+},
+{
     cited_by_id: 12,
   author_id: "QJ1yWLoAAAAJ",
   all_citations: 13642,
@@ -731,8 +733,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>404},
     {"year"=>2021, "citations"=>370},
     {"year"=>2022, "citations"=>208}]
-   }
- ,{
+},
+{
   cited_by_id: 13,
   author_id: "wrlU53gAAAAJ",
   all_citations: 3729,
@@ -763,8 +765,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>503},
     {"year"=>2021, "citations"=>476},
     {"year"=>2022, "citations"=>351}]
-   }
- ,{
+},
+{
   cited_by_id: 14,
   author_id: "ls4aMEQAAAAJ",
   all_citations: 3193,
@@ -805,8 +807,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>101},
     {"year"=>2021, "citations"=>94},
     {"year"=>2022, "citations"=>35}]
-   }
- ,{
+},
+{
   cited_by_id: 15,
   author_id: "fipll9oAAAAJ",
   all_citations: 2504,
@@ -832,8 +834,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>292},
     {"year"=>2021, "citations"=>308},
     {"year"=>2022, "citations"=>204}]
-   }
- ,{
+},
+{
   cited_by_id: 16,
   author_id: "LFKbvaIAAAAJ",
   all_citations: 2048,
@@ -852,8 +854,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>331},
     {"year"=>2021, "citations"=>464},
     {"year"=>2022, "citations"=>353}]
-   }
- ,{
+},
+{
   cited_by_id: 17,
   author_id: "qjRUfu4AAAAJ",
   all_citations: 1846,
@@ -879,8 +881,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>274},
     {"year"=>2021, "citations"=>349},
     {"year"=>2022, "citations"=>167}]
-   }
- ,{
+},
+{
   cited_by_id: 18,
   author_id: "dHQVgmMAAAAJ",
   all_citations: 1840,
@@ -922,8 +924,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>18},
     {"year"=>2021, "citations"=>16},
     {"year"=>2022, "citations"=>6}]
-   }
- ,{
+},
+{
   cited_by_id: 19,
   author_id: "xoZ6gBUAAAAJ",
   all_citations: 1795,
@@ -943,8 +945,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>300},
     {"year"=>2021, "citations"=>464},
     {"year"=>2022, "citations"=>402}]
-   }
- ,{
+},
+{
   cited_by_id: 20,
   author_id: "gHLOPtIAAAAJ",
   all_citations: 1782,
@@ -978,8 +980,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>124},
     {"year"=>2021, "citations"=>168},
     {"year"=>2022, "citations"=>75}]
-   }
- ,{
+},
+{
   cited_by_id: 21,
   author_id: "rL3N4l4AAAAJ",
   all_citations: 1532,
@@ -1002,8 +1004,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>103},
     {"year"=>2021, "citations"=>93},
     {"year"=>2022, "citations"=>60}]
-   }
- ,{
+},
+{
   cited_by_id: 22,
   author_id: "g9WIbh0AAAAJ",
   all_citations: 478465,
@@ -1045,8 +1047,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>26795},
     {"year"=>2021, "citations"=>25500},
     {"year"=>2022, "citations"=>11979}]
-  }
- ,{
+},
+{
   cited_by_id: 24,
   author_id: "xVvyb1gAAAAJ",
   all_citations: 313765,
@@ -1092,8 +1094,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>14086},
     {"year"=>2021, "citations"=>15527},
     {"year"=>2022, "citations"=>8742}]
-   }
- ,{
+},
+{
   cited_by_id: 25,
   author_id: "AAhsht0AAAAJ",
   all_citations: 292187,
@@ -1143,8 +1145,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>11200},
     {"year"=>2021, "citations"=>12039},
     {"year"=>2022, "citations"=>6298}]
-   }
- ,{
+},
+{
   cited_by_id: 26,
   author_id: "TWTQCX8AAAAJ",
   all_citations: 291430,
@@ -1174,8 +1176,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>25515},
     {"year"=>2021, "citations"=>27322},
     {"year"=>2022, "citations"=>14750}]
-   }
- ,{
+},
+{
   cited_by_id: 27,
   author_id: "s5RXOk4AAAAJ",
   all_citations: 279968,
@@ -1213,8 +1215,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>18248},
     {"year"=>2021, "citations"=>17779},
     {"year"=>2022, "citations"=>9261}]
-    }
- ,{
+},
+{
   cited_by_id: 28,
   author_id: "V7AleF4AAAAJ",
   all_citations: 267690,
@@ -1254,8 +1256,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>19822},
     {"year"=>2021, "citations"=>19314},
     {"year"=>2022, "citations"=>10575}]
-   }
- ,{
+},
+{
   cited_by_id: 29,
   author_id: "ZNmeRNIAAAAJ",
   all_citations: 265799,
@@ -1295,8 +1297,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>14419},
     {"year"=>2021, "citations"=>13737},
     {"year"=>2022, "citations"=>8769}]
-   }
- ,{
+},
+{
   cited_by_id: 30,
   author_id: "RIg9DVEAAAAJ",
   all_citations: 103292,
@@ -1330,8 +1332,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>8833},
     {"year"=>2021, "citations"=>9802},
     {"year"=>2022, "citations"=>5816}]
-   }
- ,{
+},
+{
   cited_by_id: 31,
   author_id: "UVvGrbcAAAAJ",
   all_citations: 148657,
@@ -1381,8 +1383,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>8322},
     {"year"=>2021, "citations"=>9229},
     {"year"=>2022, "citations"=>5132}]
-   }
- ,{
+},
+{
   cited_by_id: 32,
   author_id: "U0EiqiUAAAAJ",
   all_citations: 89747,
@@ -1405,8 +1407,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>9642},
     {"year"=>2021, "citations"=>8221},
     {"year"=>2022, "citations"=>4092}]
-   }
- ,{
+},
+{
   cited_by_id: 33,
   author_id: "KnVNU0kAAAAJ",
   all_citations: 85665,
@@ -1426,8 +1428,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>12220},
     {"year"=>2021, "citations"=>12308},
     {"year"=>2022, "citations"=>6635}],
-   }
- ,{
+},
+{
   cited_by_id: 34,
   author_id: "HgoZ648AAAAJ",
   all_citations: 41583,
@@ -1455,8 +1457,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>4219},
     {"year"=>2021, "citations"=>4124},
     {"year"=>2022, "citations"=>1924}]
-   }
- ,{
+},
+{
   cited_by_id: 35,
   author_id: "lG-ENkQAAAAJ",
   all_citations: 38532,
@@ -1472,8 +1474,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>9198},
     {"year"=>2021, "citations"=>13111},
     {"year"=>2022, "citations"=>8640}]
-   }
- ,{
+},
+{
   cited_by_id: 36,
   author_id: "VGAjRmYAAAAJ",
   all_citations: 34817,
@@ -1499,8 +1501,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>1996},
     {"year"=>2021, "citations"=>8071},
     {"year"=>2022, "citations"=>7020}]
-   }
- ,{
+},
+{
   cited_by_id: 37,
   author_id: "BjncDdoAAAAJ",
   all_citations: 34092,
@@ -1529,8 +1531,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>2914},
     {"year"=>2021, "citations"=>3187},
     {"year"=>2022, "citations"=>1661}]
-   }
- ,{
+},
+{
   cited_by_id: 38,
   author_id: "AbOLnm8AAAAJ",
   all_citations: 28881,
@@ -1562,8 +1564,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>3070},
     {"year"=>2021, "citations"=>3520},
     {"year"=>2022, "citations"=>2237}]
-   }
- ,{
+},
+{
   cited_by_id: 39,
   author_id: "yHnDnvcAAAAJ",
   all_citations: 26811,
@@ -1586,8 +1588,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>4593},
     {"year"=>2021, "citations"=>5796},
     {"year"=>2022, "citations"=>3469}]
-   }
- ,{
+},
+{
   cited_by_id: 40,
   author_id: "3lTZ47QAAAAJ",
   all_citations: 26459,
@@ -1612,8 +1614,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>4037},
     {"year"=>2021, "citations"=>5541},
     {"year"=>2022, "citations"=>3692}]
-   }
- ,{
+},
+{
   cited_by_id: 41,
   author_id: "RxJ_l1QAAAAJ",
   all_citations: 194808,
@@ -1655,8 +1657,8 @@ cited_by=CitedBy.create([
     {"year"=>2020, "citations"=>16887},
     {"year"=>2021, "citations"=>17314},
     {"year"=>2022, "citations"=>9345}]
-   }
- ,{
+},
+{
   cited_by_id: 42,
   author_id: "J-2ook4AAAAJ",
   all_citations: 182860,
