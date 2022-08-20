@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Aug 18 14:53:06 2022
+# Make data base, printed on Sat Aug 20 16:38:59 2022
 
 # Variables
 
@@ -35,9 +35,9 @@ CURDIR := /home/saraatt/lavori/authormetrics
 # makefile
 SHELL = /bin/sh
 # environment
-VSCODE_NLS_CONFIG = {"locale":"it","availableLanguages":{"*":"it"},"_languagePackId":"733e63a346861b85a80ab453548d8e7a.it","_translationsConfigFile":"/home/saraatt/.vscode-server/data/clp/733e63a346861b85a80ab453548d8e7a.it/tcf.json","_cacheRoot":"/home/saraatt/.vscode-server/data/clp/733e63a346861b85a80ab453548d8e7a.it","_resolvedLanguagePackCoreLocation":"/home/saraatt/.vscode-server/data/clp/733e63a346861b85a80ab453548d8e7a.it/6d9b74a70ca9c7733b29f0456fd8195364076dda","_corruptedFile":"/home/saraatt/.vscode-server/data/clp/733e63a346861b85a80ab453548d8e7a.it/corrupted.info","_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"it","availableLanguages":{"*":"it"},"_languagePackId":"733e63a346861b85a80ab453548d8e7a.it","_translationsConfigFile":"/home/saraatt/.vscode-server/data/clp/733e63a346861b85a80ab453548d8e7a.it/tcf.json","_cacheRoot":"/home/saraatt/.vscode-server/data/clp/733e63a346861b85a80ab453548d8e7a.it","_resolvedLanguagePackCoreLocation":"/home/saraatt/.vscode-server/data/clp/733e63a346861b85a80ab453548d8e7a.it/e4503b30fc78200f846c62cf8091b76ff5547662","_corruptedFile":"/home/saraatt/.vscode-server/data/clp/733e63a346861b85a80ab453548d8e7a.it/corrupted.info","_languagePackSupport":true}
 # environment
-_ = /home/saraatt/.vscode-server/bin/6d9b74a70ca9c7733b29f0456fd8195364076dda/node
+_ = /home/saraatt/.vscode-server/bin/e4503b30fc78200f846c62cf8091b76ff5547662/node
 # makefile
 MAKEFILE_LIST := 
 # 'override' directive
@@ -51,13 +51,13 @@ VSCODE_CWD = /mnt/c/Users/Home/AppData/Local/Programs/Microsoft VS Code
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = /home/saraatt/.vscode-server/bin/6d9b74a70ca9c7733b29f0456fd8195364076dda/bin/remote-cli:/usr/share/rvm/gems/ruby-3.0.4/bin:/usr/share/rvm/gems/ruby-3.0.4@global/bin:/usr/share/rvm/rubies/ruby-3.0.4/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Python37/:/mnt/c/Python37/DLLs/:/mnt/c/Python37/Scripts/:/mnt/c/Python37/Tools/:/mnt/c/Python37/Tools/ninja/:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/windows/system32:/mnt/c/windows:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/IPT:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/IPT:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files (x86)/Calibre2/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Program Files/Kathara:/mnt/c/Users/Home/sqlite3:/mnt/c/Program Files/nodejs/:/mnt/c/Ruby27-x64/bin:/mnt/c/Users/Home/AppData/Local/Programs/Python/Python37/Scripts/:/mnt/c/Users/Home/AppData/Local/Programs/Python/Python37/:/mnt/c/Users/Home/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Home/AppData/Local/atom/bin:/mnt/c/Program Files (x86)/Nmap:/mnt/c/Users/Home/AppData/Local/Programs/MiKTeX/miktex/bin/x64/:/mnt/c/Users/Home/AppData/Roaming/npm:/mnt/c/Users/Home/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin:/usr/share/rvm/bin
+PATH = /home/saraatt/.vscode-server/bin/e4503b30fc78200f846c62cf8091b76ff5547662/bin/remote-cli:/usr/share/rvm/gems/ruby-3.0.4/bin:/usr/share/rvm/gems/ruby-3.0.4@global/bin:/usr/share/rvm/rubies/ruby-3.0.4/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Python37/:/mnt/c/Python37/DLLs/:/mnt/c/Python37/Scripts/:/mnt/c/Python37/Tools/:/mnt/c/Python37/Tools/ninja/:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/windows/system32:/mnt/c/windows:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/IPT:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/IPT:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files (x86)/Calibre2/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Program Files/Kathara:/mnt/c/Users/Home/sqlite3:/mnt/c/Program Files/nodejs/:/mnt/c/Ruby27-x64/bin:/mnt/c/Users/Home/AppData/Local/Programs/Python/Python37/Scripts/:/mnt/c/Users/Home/AppData/Local/Programs/Python/Python37/:/mnt/c/Users/Home/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Home/AppData/Local/atom/bin:/mnt/c/Program Files (x86)/Nmap:/mnt/c/Users/Home/AppData/Local/Programs/MiKTeX/miktex/bin/x64/:/mnt/c/Users/Home/AppData/Roaming/npm:/mnt/c/Users/Home/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin:/usr/share/rvm/bin
 # environment
 rvm_stored_umask = 0022
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-6fa2586a-680e-48c2-819d-8f84a098e67f.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-d5953432-9f33-433e-9f19-206ae26b33c1.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -231,6 +231,6 @@ GNUmakefile:
 # strcache performance: lookups = 17 / hit rate = 17%
 # hash-table stats:
 # Load=14/8192=0%, Rehash=0, Collisions=1/17=6%
-# Finished Make data base on Thu Aug 18 14:53:06 2022
+# Finished Make data base on Sat Aug 20 16:38:59 2022
 
  
