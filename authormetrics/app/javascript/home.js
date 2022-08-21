@@ -20,7 +20,7 @@ function createSearchBar(placeholder){
 }
 
 function searchByAuth(){ 
-    document.getElementById("ByAuth").style.backgroundColor = "#90caf9";
+    document.getElementById("ByAuth").style.backgroundColor = "#26c6da";
     if (document.getElementById("ByPub")){
         document.getElementById("ByPub").style.backgroundColor = "";
     }
@@ -28,7 +28,7 @@ function searchByAuth(){
 }
 
 function searchByPub(){    
-    document.getElementById("ByPub").style.backgroundColor = "#90caf9";
+    document.getElementById("ByPub").style.backgroundColor = "#9ccc65";
     if (document.getElementById("ByAuth")){
         document.getElementById("ByAuth").style.backgroundColor = "";
     }

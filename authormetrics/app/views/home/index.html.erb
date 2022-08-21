@@ -81,7 +81,9 @@
     <div class= "bottom_right_block">
         <h2>STANDARD GRAPHS</h2>
         <div class="first_graph">
-            <%= pie_chart Publication.where(pub_year: (2016 ..)).group(:pub_year).count, title:"PUBLICATIONS SINCE 2016"%>
+            <%= pie_chart Publication.where(pub_year: (Date.today.year - 10 ..)).group(:pub_year).order(:pub_year).count, 
+            colors: ["#ab47bc", "#7e57c2", "#5c6bc0", "#42a5f5", "#29b6f6", "#26c6da", "#26a69a", "#66bb6a","#9ccc65", "#d4e157" ], 
+            title:"LAST 10 YEARS PUBLICATIONS"%>
         <div>
         <div class="second_graph">
                 <%i=0%>
@@ -90,7 +92,11 @@
                         name: Author.find(most_cited.author_id).name,
                         data: Graphs.new.hash_graph(most_cited.graph)
                     }
-                }, discrete: true, xtitle: "years", ytitle: "citations", title:"MOST CITED AUTHORS"%>
+                }, discrete: true, 
+                   xtitle: "years", 
+                   ytitle: "citations",
+                   colors: ["#ab47bc", "#5c6bc0", "#29b6f6", "#26a69a", "#9ccc65"], 
+                   title:"MOST CITED AUTHORS"%>
         </div>
     </div>
 </div>
