@@ -1,16 +1,17 @@
 Rails.application.routes.draw do
   resources :cited_bies
  
-  #devise_for :users
-  #devise_scope :user do
-  #  authenticated :user do
-  #    root :to => 'users#index', as: :authenticated_root
-  #  end
-  #  unauthenticated :user do
-  #    root :to => 'devise/registrations#new', as: :unauthenticated_root
-  #  end
-  #  get '/users/sign_out' => 'devise/sessions#destroy'
-  #end
+  devise_for :users
+
+  devise_scope :user do
+    authenticated :user do
+      root :to => 'users#index', as: :authenticated_root
+    end
+    unauthenticated :user do
+      root :to => 'home#index', as: :unauthenticated_root
+    end
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
   
   resources :users do 
    resources :favorite_publications, only: %i[ index new show create destroy ]
