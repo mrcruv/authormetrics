@@ -1,16 +1,26 @@
 Rails.application.routes.draw do
+  devise_for :administrators
   resources :cited_bies
  
   devise_for :users
 
   devise_scope :user do
     authenticated :user do
-      root :to => 'users#index', as: :authenticated_root
+      root :to => 'users#index', as: :authenticated_user
     end
     unauthenticated :user do
-      root :to => 'home#index', as: :unauthenticated_root
+      root :to => 'home#index', as: :unauthenticated_user
     end
     get '/users/sign_out' => 'devise/sessions#destroy'
+  end
+  devise_scope :administrator do
+    authenticated :administrator do
+      root :to => 'administrators#index', as: :authenticated_admin
+    end
+    unauthenticated :administrator do
+      root :to => 'home#index', as: :unauthenticated_admin
+    end
+    get '/administrators/sign_out' => 'devise/sessions#destroy'
   end
   
   resources :users do 
