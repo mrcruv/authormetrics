@@ -129,7 +129,7 @@ class Operations
                     if(temp.size==0)
                         scrape_cited_by_from_author_id(a)
                     end
-                    
+=begin 
                 else
                 #faccio la show di quello che ho senza salvare un author/written/publication models
                 #e senza inserire il riferimento all' author nella view
@@ -145,16 +145,18 @@ class Operations
                     p[:pub_year]=String(pub_info[:summary].match /[0-9]{4}/)
                     p[:link]=result[:link]
                     arr.push(p)
+=end
                 end 
             end
 
-            if search.get_hash.has_key?(:serpapi_pagination)
+            if search.get_hash.has_key?(:serpapi_pagination) && start<60
                 start=num
                 num+=20
             else
                 break
             end
         end
+        print(arr)
         return arr
     end
 

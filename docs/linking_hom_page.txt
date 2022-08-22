@@ -1,5 +1,0 @@
-1)aggiungere un listener o "onsubmit"/"onclick" sulla icona search
-2)prendere il testo e fa la redirect
-3)redirezionare verso route 
-    authors_search      GET    /authors/search(.:format)       authors#search
-4)bisogna che il controller authors#search venga ridirezionato sulla view /authors/search
