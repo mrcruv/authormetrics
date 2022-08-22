@@ -82,6 +82,7 @@ class Operations
                 engine: "google_scholar",
                 q: s,
                 api_key: Rails.application.credentials.api_key,
+                hl: "en",
                 num:num,
                 start:start
             }
@@ -103,7 +104,7 @@ class Operations
                     p=Publication.new
                     p[:publication_id]=result[:result_id] +":"+ pub_info[:authors][0][:author_id]
                     p[:title]=result[:title]
-                    p[:link]="https://scholar.gpub_infogle.com/citations?view_op=view_citation&hl=en&user="+pub_info[:authors][0][:author_id]+"&citation_for_view="+p[:publication_id]+"bnK-pcrLprsC"
+                    p[:link]="https://scholar.gpub_infogle.com/citations?view_op=view_citation&hl=en&user="+pub_info[:authors][0][:author_id]+"&citation_for_view="+p[:publication_id]
                     if(pub_info[:summary].split("-")[1].size > 8)
                         p[:published_on]=pub_info[:summary].split("-")[1]
                     else
@@ -129,34 +130,15 @@ class Operations
                     if(temp.size==0)
                         scrape_cited_by_from_author_id(a)
                     end
-=begin 
-                else
-                #faccio la show di quello che ho senza salvare un author/written/publication models
-                #e senza inserire il riferimento all' author nella view
-                    p=Publication.new
-                    p[:title]=result[:title]
-                    p[:publication_id]=result[:result_id]
-                    if(pub_info[:summary].split("-")[1].size > 8)
-                        p[:published_on]=pub_info[:summary].split("-")[1]
-                    else
-                        p[:published_on]=pub_info[:summary].split("-")[2]
-                    end
-                    p[:cited_by]=result[:inline_links][:cited_by][:total]
-                    p[:pub_year]=String(pub_info[:summary].match /[0-9]{4}/)
-                    p[:link]=result[:link]
-                    arr.push(p)
-=end
-                end 
+                end
             end
-
-            if search.get_hash.has_key?(:serpapi_pagination) && start<60
-                start=num
-                num+=20
+            #pagination increment
+            if(start<20)
+                start+=20
             else
-                break
+                return arr
             end
         end
-        print(arr)
         return arr
     end
 

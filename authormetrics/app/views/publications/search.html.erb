@@ -8,13 +8,16 @@
   </div>
   <div id="publications">
     <% @publications.each do |publication| %>
-      <p>
-        <%= link_to publication.title, publication %>
-      </p>
+      <p> 
+      <%= render publication %> 
+    </p>
     <% end %>
   </div>
 </div>
 
 <%= javascript_include_tag "home" %>
 <%= javascript_include_tag "application" %>
+
+
+
 
