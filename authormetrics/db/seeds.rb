@@ -117,7 +117,6 @@ authors=Author.create([
         name: "Mike Tyers",
         affiliations: "Institute for Research in Immunology and Cancer, University of Montreal",
         interests: nil,
-        cited_by: 53887,
         cited_by_id:10
     },
     {
