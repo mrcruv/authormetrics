@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     get '/administrators/sign_out' => 'devise/sessions#destroy'
   end
   
-  resources :users do 
+  resources :users, only: %i[ index new show create ] do 
    resources :favorite_publications, only: %i[ index new show create destroy ]
    resources :favorite_authors,only: %i[ index new show create destroy ]
   end
