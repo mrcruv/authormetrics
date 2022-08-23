@@ -80,14 +80,35 @@
     </div>
 
     <div class= "bottom_right_block">
-        <h2>STANDARD GRAPHS</h2>
-        <div class="first_graph">
-            <%= pie_chart Publication.where(pub_year: (Date.today.year - 10 ..)).group(:pub_year).order(:pub_year).count, 
-            colors: ["#ab47bc", "#7e57c2", "#5c6bc0", "#42a5f5", "#29b6f6", "#26c6da", "#26a69a", "#66bb6a","#9ccc65", "#d4e157" ], 
-            title:"LAST 10 YEARS PUBLICATIONS"%>
-        <div>
-        <div class="second_graph">
-                <%i=0%>
+        <h2>STANDARD CHARTS</h2>
+        <div class="bottom_right_block_left">
+                <fieldset class= "chart_choise">
+                    <legend>CHOOSE A CHART:</legend>
+                    <br>
+                    <label>ON AUTHORS:</label><br>
+                    <br>
+                    <input type="radio" id="most_cited_authors_trend" name="choise" onclick="most_cited_authors_graph()" checked > <label for="most_cited_authors_trend"> Most cited authors trend</label><br> <br>
+                    <input type="radio" id="auth_ratings" name="choise" onclick="auth_ratings_graph()" > <label for="auth_ratings"> Hightest rate authors</label><br><br>
+                    <input type="radio" id="most_commented_authors" name="choise" onclick="most_commented_authors_graph()"> <label for="most_commented_authors"> Most commented authors</label><br> <br>
+                    <br>
+                    <label>ON PUBLICATIONS:</label><br>
+                    <br>
+                    <input type="radio" id="pub_per_year" name="choise" onclick="pub_per_year_graph()"> <label for="pub_per_year"> Total publications per year</label><br> <br>
+                    <input type="radio" id="pub_ratings" name="choise" onclick="pub_ratings_graph()"> <label for="pub_ratings"> Hightest rate publications</label><br><br>
+                    <input type="radio" id="most_cited_publications" name="choise" onclick="most_cited_publication_graph()"> <label for="most_cited_authors"> Most cited publication</label><br><br>
+                </fieldset>
+                <!--
+                <label for="cars">Choose a car:</label>
+                <select id="cars">
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="opel">Opel</option>
+                <option value="audi">Audi</option>
+                </select>
+                -->
+        </div>
+        <div class="bottom_right_block_right">
+        <div class="graph" id="chart1" visible>
                 <%= line_chart @most_cited_authors.sort_by{|x| -x.graph.length}.map { |most_cited|
                     {
                         name: Author.find(most_cited.author_id).name,
@@ -98,6 +119,17 @@
                    ytitle: "citations",
                    colors: ["#ab47bc", "#5c6bc0", "#29b6f6", "#26a69a", "#9ccc65"], 
                    title:"MOST CITED AUTHORS"%>
+        </div>
+        <div class="graph" id="chart2" hidden></div>
+        <div class="graph" id="chart3" hidden></div>
+        <div class="graph" id="chart4" hidden>
+            <%= column_chart Publication.where(pub_year: (Date.today.year - 10 ..)).group(:pub_year).order(:pub_year).count, 
+            colors: ["#ab47bc", "#7e57c2", "#5c6bc0", "#42a5f5", "#29b6f6", "#26c6da", "#26a69a", "#66bb6a","#9ccc65", "#d4e157" ], 
+            discrete: true, 
+            title:"LAST 10 YEARS PUBLICATIONS"%>
+        </div>
+        <div class="graph" id="chart5" hidden></div>
+        <div class="graph" id="chart6" hidden></div>
         </div>
     </div>
 </div>
@@ -110,7 +142,7 @@
     <a href="/cookies">COOKIES</a>
 </div>
 
-<%= javascript_include_tag "home" %>
+<%= javascript_include_tag "home"%>
 <%= javascript_include_tag "Chart" %>
 <%= javascript_include_tag "chartkick" %>
 <%= javascript_include_tag "chartjs-adapter-date-fns.bundle"%>

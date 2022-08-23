@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
-
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Aug 21 10:28:06 2022
+# Make data base, printed on Tue Aug 23 11:39:33 2022
 
 # Variables
 
@@ -57,7 +55,7 @@ rvm_stored_umask = 0022
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-690eb944-6cad-456e-a38f-cd461df556c5.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-3bd05bf3-e03e-4bd3-9eb2-102b82e32068.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -73,7 +71,7 @@ PWD = /home/saraatt/lavori/authormetrics
 # environment
 GEM_HOME = /usr/share/rvm/gems/ruby-3.0.4
 # environment
-WSL_INTEROP = /run/WSL/12_interop
+WSL_INTEROP = /run/WSL/20050_interop
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -173,7 +171,7 @@ MOTD_SHOWN = update-motd
 
 # Directories
 
-# . (device 2096, inode 2797): 6 files, no impossibilities.
+# . (device 2064, inode 2797): 6 files, no impossibilities.
 
 # 6 files, no impossibilities in 1 directories.
 
@@ -231,6 +229,8 @@ GNUmakefile:
 # strcache performance: lookups = 17 / hit rate = 17%
 # hash-table stats:
 # Load=14/8192=0%, Rehash=0, Collisions=1/17=6%
-# Finished Make data base on Sun Aug 21 10:28:06 2022
+# Finished Make data base on Tue Aug 23 11:39:33 2022
 
  
+make: *** No rule to make target 'all'.  Stop.
+

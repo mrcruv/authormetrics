@@ -1,3 +1,5 @@
+var actual_chart="chart1";
+
 function createSearchBar(placeholder){
     var search_box= document.createElement("div");
     search_box.setAttribute("class", "search_box"); 
@@ -45,4 +47,46 @@ function search_by_pub(){
     text= document.getElementById("search_text_input").value;
     const url="http://127.0.0.1:3000/publications/search/"+text;
     window.location.href = url;
+}
+
+function most_cited_authors_graph(){
+    document.getElementById(actual_chart).style.visibility = "hidden";
+    actual_chart= "chart1";
+    alert(actual_chart);
+    document.getElementById(actual_chart).style.visibility= "visible";
+}
+
+function auth_ratings_graph(){
+    document.getElementById(actual_chart).style.visibility = "hidden";
+    actual_chart= "chart2";
+    alert(actual_chart);
+    document.getElementById(actual_chart).style.visibility= "visible";
+}
+
+function most_commented_authors_graph(){
+    document.getElementById(actual_chart).style.visibility = "hidden";
+    actual_chart= "chart3";
+    alert(actual_chart);
+    document.getElementById(actual_chart).style.visibility= "visible";
+}
+
+function pub_per_year_graph(){
+    document.getElementById(actual_chart).style.visibility = "hidden";
+    actual_chart= "chart4";
+    alert(actual_chart);
+    document.getElementById(actual_chart).style.visibility= "visible";
+}
+
+function pub_ratings_graph(){
+    document.getElementById(actual_chart).style.visibility = "hidden";
+    actual_chart= "chart5";
+    alert(actual_chart);
+    document.getElementById(actual_chart).style.visibility= "visible";
+}
+
+function most_cited_publication_graph(){
+    document.getElementById(actual_chart).style.visibility = "hidden";
+    actual_chart= "chart6";
+    alert(actual_chart);
+    document.getElementById(actual_chart).style.visibility= "visible";
 }

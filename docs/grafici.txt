@@ -1,9 +1,22 @@
-Pubblicazioni totali per tipologia (grafico a torta) 
-Pubblicazioni totali per sorgente (grafico a torta)
-Pubblicazioni totali per anno e per tipo (istogramma cumulativo)
-Pubblicazioni totali per anno e per ranking (istogramma cumulativo)
-Citazioni totali per anno (istogramma)
-Citazioni totali per anno per singolo articolo (istogramma)
-H-index totale (distribuzione citazioni)
-H-index totale e negli ultimi x anni senza autocitazioni (distribuzione citazioni)
-H-index per anno (istogramma)
+GRAFICI PROPOSTI: 
+    -Pubblicazioni totali per tipologia (grafico a torta) 
+    -Pubblicazioni totali per sorgente (grafico a torta)
+    -Pubblicazioni totali per anno e per tipo (istogramma cumulativo)
+    -Pubblicazioni totali per anno e per ranking (istogramma cumulativo)
+    -Citazioni totali per anno (istogramma)
+    -Citazioni totali per anno per singolo articolo (istogramma)
+    -H-index totale (distribuzione citazioni)
+    -H-index totale e negli ultimi x anni senza autocitazioni (distribuzione citazioni)
+    -H-index per anno (istogramma)
+
+GRAFICI BASE: 
+    Visibili nella home:
+    -Pubblicazioni totali per anno (istogramma cumulativo) (fatto --> inserire filtro sull'intervallo di tempo)
+    -Pubblicazioni totali per rating (istogramma cumulativo) (da fare)
+    -Citazioni totali per anno (per autori più citati) (istogramma) (fatto --> inserire filtro per autori a scelta)
+    -Pubblicazioni più citate (da fare)
+    -Pubblicazioni più commentate (da fare)
+
+    -H-index totale 
+    -H-index negli ultimi 
+
