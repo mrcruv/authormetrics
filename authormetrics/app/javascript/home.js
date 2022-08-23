@@ -1,4 +1,11 @@
 var actual_chart="chart1";
+var charts= [
+    document.getElementById("chart1"),
+    document.getElementById("chart2"),
+    document.getElementById("chart3"),
+    document.getElementById("chart4"),
+    document.getElementById("chart5"),
+    document.getElementById("chart6")];
 
 function createSearchBar(placeholder){
     var search_box= document.createElement("div");

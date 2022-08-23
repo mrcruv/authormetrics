@@ -108,7 +108,7 @@
                 -->
         </div>
         <div class="bottom_right_block_right">
-        <div class="graph" id="chart1" visible>
+        <div class="graph" id="chart1" style="visibility:visible;"}>
                 <%= line_chart @most_cited_authors.sort_by{|x| -x.graph.length}.map { |most_cited|
                     {
                         name: Author.find(most_cited.author_id).name,
@@ -120,16 +120,16 @@
                    colors: ["#ab47bc", "#5c6bc0", "#29b6f6", "#26a69a", "#9ccc65"], 
                    title:"MOST CITED AUTHORS"%>
         </div>
-        <div class="graph" id="chart2" hidden></div>
-        <div class="graph" id="chart3" hidden></div>
-        <div class="graph" id="chart4" hidden>
+        <div class="graph" id="chart2" style="visibility:hidden;"></div>
+        <div class="graph" id="chart3" style="visibility:hidden;"></div>
+        <div class="graph" id="chart4" style="visibility:hidden;">
             <%= column_chart Publication.where(pub_year: (Date.today.year - 10 ..)).group(:pub_year).order(:pub_year).count, 
             colors: ["#ab47bc", "#7e57c2", "#5c6bc0", "#42a5f5", "#29b6f6", "#26c6da", "#26a69a", "#66bb6a","#9ccc65", "#d4e157" ], 
             discrete: true, 
             title:"LAST 10 YEARS PUBLICATIONS"%>
         </div>
-        <div class="graph" id="chart5" hidden></div>
-        <div class="graph" id="chart6" hidden></div>
+        <div class="graph" id="chart5" style="visibility:hidden;"></div>
+        <div class="graph" id="chart6" style="visibility:hidden;"></div>
         </div>
     </div>
 </div>
