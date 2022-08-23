@@ -16,6 +16,12 @@ class AuthorsController < ApplicationController
   def search
   end
 
+  def search_pub
+    param=params[:id].split(":")[0]
+    @author = Author.find(param)
+    @Publications=Publication.where(publication_id:param,"title ~* ?" => params[:search])
+  end
+
 ###############################################################################
  ''' 
   # GET /authors/1/edit

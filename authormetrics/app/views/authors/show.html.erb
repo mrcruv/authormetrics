@@ -7,7 +7,9 @@
   </p>
 
 <div>
+  <button onclick= "searchPubByAuth(@author.id)" id= "PubByAuth"> SEARCH PUB BY AUTHOR</button>
   <button onclick="location.href='http://127.0.0.1:3000/authors'" > BACK TO AUTHORS</button> 
+  <p id="p1"> </p>
 </div>
 
   <p>
@@ -73,3 +75,6 @@
   
   <%end%>
 
+
+<%= javascript_include_tag "home" %>
+<%= javascript_include_tag "application" %>

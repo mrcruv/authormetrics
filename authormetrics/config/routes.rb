@@ -52,5 +52,6 @@ Rails.application.routes.draw do
   
   get "/authors/search/:search", to: "authors#search"
   get "/publications/search/:search", to: "publications#search"
+  get "/authors/:id/search_pub_by_auth/:search", to: "authors#search_pub"
 
 end
