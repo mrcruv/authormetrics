@@ -1,7 +1,7 @@
 <header>
-    <h1>AUTHORMETRICS</h1>
+    <h1>WELCOME BACK, <%=@user.username%> ! </h1>
 </header>
-
+<!--
 <div class="left_block">
     <div class="table_half_box">
         <caption>LATEST PUBLICATIONS</caption>
@@ -26,7 +26,7 @@
     </div>
     
     <div class="table_half_box">
-        <caption>MOST CITED PUBLICATIONS</caption> <!--WILL BE REPLACED WITH "MOST COMMENTED PUBLICATIONS"-->
+        <caption>MOST CITED PUBLICATIONS</caption> 
         <table>
         <thead><tr><th>Author</th><th>Publication</th> <th>Citations</th></tr></thead>
         <tbody>
@@ -34,7 +34,7 @@
             <% writtens= Written.where(:publication_id => most_cited.publication_id)%>
                 <tr>
                     <td>
-                        <% writtens.each do |written|%> <!--Not sure it works for multiple authors-->
+                        <% writtens.each do |written|%> 
                             <% auth= Author.find(written.author_id)%>
                             <%=auth.name%>
                         <%end%>
@@ -48,7 +48,7 @@
     </div>
 
     <div class="table_half_box">
-        <caption>MOST CITED AUTHORS</caption> <!--WILL BE REPLACED WITH "MOST FOLLOWED AUTHORS"-->
+        <caption>MOST CITED AUTHORS</caption> 
         <table>
         <thead><tr><th>Author</th><th>Citations</th></tr></thead>
         <tbody>
@@ -97,15 +97,6 @@
                     <input type="radio" id="pub_ratings" name="choise" onclick="pub_ratings_graph()"> <label for="pub_ratings"> Hightest rate publications</label><br><br>
                     <input type="radio" id="most_cited_publications" name="choise" onclick="most_cited_publication_graph()"> <label for="most_cited_authors"> Most cited publication</label><br><br>
                 </fieldset>
-                <!--
-                <label for="cars">Choose a car:</label>
-                <select id="cars">
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="opel">Opel</option>
-                <option value="audi">Audi</option>
-                </select>
-                -->
         </div>
         <div class="bottom_right_block_right">
         <div class="graph" id="chart1" style="visibility:visible;"}>
@@ -166,4 +157,5 @@
 <%= javascript_include_tag "chartjs-adapter-date-fns.bundle"%>
 <%= javascript_include_tag "application" %>
 <script> searchByAuth();</script>
+-->
 

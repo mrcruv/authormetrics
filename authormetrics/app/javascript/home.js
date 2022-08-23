@@ -37,7 +37,7 @@ function searchByAuth(){
 }
 
 function searchByPub(){    
-    document.getElementById("ByPub").style.backgroundColor = "#9ccc65";
+    document.getElementById("ByPub").style.backgroundColor = "#26c6da";
     if (document.getElementById("ByAuth")){
         document.getElementById("ByAuth").style.backgroundColor = "";
     }

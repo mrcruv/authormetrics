@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     authenticated :user do
-      root :to => 'users#index', as: :authenticated_user
+      root :to => 'dashboard#index', as: :authenticated_user
     end
     unauthenticated :user do
       root :to => 'home#index', as: :unauthenticated_user
@@ -49,6 +49,7 @@ Rails.application.routes.draw do
   get "/privacy", to: "home#privacy"
   get "/cookies", to: "home#cookies"
   get "/users/:id", to: "users#show"
+  get "/dashboard", to: "dashboard#index"
   
   get "/authors/search/:search", to: "authors#search"
   get "/publications/search/:search", to: "publications#search"

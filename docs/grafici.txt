@@ -11,12 +11,19 @@ GRAFICI PROPOSTI:
 
 GRAFICI BASE: 
     Visibili nella home:
-    -Pubblicazioni totali per anno (istogramma cumulativo) (fatto --> inserire filtro sull'intervallo di tempo)
+    -Pubblicazioni totali per anno (istogramma cumulativo) (fatto)
     -Pubblicazioni totali per rating (istogramma cumulativo) (da fare)
-    -Citazioni totali per anno (per autori più citati) (istogramma) (fatto --> inserire filtro per autori a scelta)
-    -Pubblicazioni più citate (da fare)
+    -Citazioni totali per anno (per autori più citati) (istogramma) (fatto)
+    -Pubblicazioni più citate per anno (da fare) 
     -Pubblicazioni più commentate (da fare)
 
+GRAFICI PREMIUM:
+    -Pubblicazioni totali per anno (istogramma cumulativo) (inserire filtro sull'intervallo di tempo)
+    -Pubblicazioni totali per rating (istogramma cumulativo) (da fare)
+    -Citazioni totali per anno (per autori più citati) (istogramma) (inserire filtro per autori a scelta)
+    -Pubblicazioni più citate (da fare)  (inserire filtro per anno)
+    -Pubblicazioni più commentate (da fare)
     -H-index totale 
     -H-index negli ultimi 
+
 
