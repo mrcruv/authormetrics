@@ -12,23 +12,18 @@
   <% end %>
 
   <div>
+    <%= form.label :rating, style: "display: block" %>
+    <%= form.number_field :rating %>
+  </div>
+
+  <div>
     <%= form.label :author_id, style: "display: block" %>
     <%= form.text_field :author_id %>
   </div>
 
   <div>
     <%= form.label :user_id, style: "display: block" %>
-    <%= form.number_field :user_id %>
-  </div>
-
-  <div>
-    <%= form.label :rating, style: "display: block" %>
-    <%= form.number_field :rating %>
-  </div>
-
-  <div>
-    <%= form.label :rating_timestamp, style: "display: block" %>
-    <%= form.datetime_field :rating_timestamp %>
+    <%= form.text_field :user_id %>
   </div>
 
   <div>

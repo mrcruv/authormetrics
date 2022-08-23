@@ -5,42 +5,8 @@
 #
 #   movies = Movie.create([ { name: "Star Wars"}, { name: "Lord of the Rings"}])
 #   Character.create(name: "Luke", movie: movies.first)
-reviews=Review.create([
-    {
-    author_id:"kq0NYnMAAAAJ",
-    user_id: 1,
-    review: "autore no"
-},
-{
-    author_id:"ZjfgPLMAAAAJ",
-    user_id: 2,
-    review: "autore si"
-},
-{
-    author_id:"RIg9DVEAAAAJ",
-    user_id: 3,
-    review: "bravo"
-},
-{
-    author_id:"R8PPdbQAAAAJ",
-    user_id: 4,
-    review: "niente di che"
-},
-{
-    author_id:"iXjCKTgAAAAJ",
-    user_id: 1,
-    review: "cosi cosi"
-},
-{
-    author_id:"wT4V7isAAAAJ",
-    user_id: 2,
-    review: "anche no"
-},
-{
-    author_id:"kq0NYnMAAAAJ",
-    user_id: 3,
-    review: "bravissimo"
-},])
+
+
 
 authors=Author.create([
     {
@@ -1716,3 +1682,81 @@ cited_by=CitedBy.create([
 #QUESTI COMANDI POSSONO ESTRARRE PTENZIALMENTE OLTRE 400 PUBBLICAZIONI DEGLI AUTHORS,FERMARSI DOPO 1/2 MIN PER NON BUTTARE CHIAMATE API
 #DOVREBBE FARA UNA CALL PER OGNI AUTHOR,QUINDI CIRCA 40 CHIAMATE!!
 
+
+reviews=Review.create([
+    {
+    author_id:"kq0NYnMAAAAJ",
+    user_id: 1,
+    review: "autore no"
+},
+{
+    author_id:"ZjfgPLMAAAAJ",
+    user_id: 2,
+    review: "autore si"
+},
+{
+    author_id:"RIg9DVEAAAAJ",
+    user_id: 3,
+    review: "bravo"
+},
+{
+    author_id:"R8PPdbQAAAAJ",
+    user_id: 4,
+    review: "niente di che"
+},
+{
+    author_id:"iXjCKTgAAAAJ",
+    user_id: 1,
+    review: "cosi cosi"
+},
+{
+    author_id:"wT4V7isAAAAJ",
+    user_id: 2,
+    review: "anche no"
+},
+{
+    author_id:"kq0NYnMAAAAJ",
+    user_id: 3,
+    review: "bravissimo"
+},])
+
+#DOPO AVER INSERITO DELLE PUBLICAZIONI DECOMMENTARE I SEEDS SOTTOSTANTI RAPPRESENTANTI I COMMENTI DELLE PUBBLICAZIONI
+#se si e' gia popolato il db con authors,publications e reviews, commentare tutto il codice che sta sopra questo commento e lanciare 
+#>bin/rails db:seed
+
+comments=Comment.create([
+    {
+    publication_id:"ZjfgPLMAAAAJ:nPTYJWkExTIC",
+    user_id: 1,
+    comment: "non mi piace"
+},
+{
+    publication_id:"ZjfgPLMAAAAJ:nPTYJWkExTIC",
+    user_id: 2,
+    comment: "si mi piace"
+},
+{
+    publication_id:"ZjfgPLMAAAAJ:jgBuDB5drN8C",
+    user_id: 3,
+    comment: "niente di che"
+},
+{
+    publication_id:"ZjfgPLMAAAAJ:SpbeaW3--B0C",
+    user_id: 4,
+    comment: "niente di che"
+},
+{
+    publication_id:"ZjfgPLMAAAAJ:DXE8ND7PrJAC",
+    user_id: 1,
+    comment: "carino"
+},
+{
+    publication_id:"ZjfgPLMAAAAJ:XiVPGOgt02cC",
+    user_id: 2,
+    comment: "anche no"
+},
+{
+    publication_id:"ZjfgPLMAAAAJ:t6usbXjVLHcC",
+    user_id: 3,
+    comment: "bravissimo"
+},])

@@ -6,8 +6,10 @@
   <%if @comments != [] || @comments != nil%>
     <% @comments.each do |com| %>
       <% r=User.find(com.user_id)%>
-      <%= r.username %>
+      <p>
+      <strong><%= r.username %>:</strong>
       <%= com.comment %>
+      </p>
       <%= "-------------------" %>
     <%end%>
   <%end%>
