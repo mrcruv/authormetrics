@@ -8,11 +8,14 @@ class AuthorRatingsController < ApplicationController
 
   # GET /author_ratings/1 or /author_ratings/1.json
   def show
+
   end
 
   # GET /author_ratings/new
   def new
     @author_rating = AuthorRating.new
+    @user=User.where(user_id:current_user.id)[0]
+    @author=Author.where(author_id:params[:author_id])
   end
 
   # GET /author_ratings/1/edit
@@ -25,7 +28,7 @@ class AuthorRatingsController < ApplicationController
 
     respond_to do |format|
       if @author_rating.save
-        format.html { redirect_to author_rating_url(@author_rating), notice: "Author rating was successfully created." }
+        format.html { redirect_to author_author_rating_url(@author_rating), notice: "Author rating was successfully created." }
         format.json { render :show, status: :created, location: @author_rating }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -52,7 +55,7 @@ class AuthorRatingsController < ApplicationController
     @author_rating.destroy
 
     respond_to do |format|
-      format.html { redirect_to author_ratings_url, notice: "Author rating was successfully destroyed." }
+      format.html { redirect_to author_author_ratings_url, notice: "Author rating was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -60,11 +63,11 @@ class AuthorRatingsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_author_rating
-      @author_rating = AuthorRating.find(params[:id])
+      @author_rating = AuthorRating.new
     end
 
     # Only allow a list of trusted parameters through.
     def author_rating_params
-      params.require(:author_rating).permit(:author_id, :user_id, :rating, :rating_timestamp)
+      params.require(:author_rating).permit(:rating, :author_id, :user_id)
     end
 end
