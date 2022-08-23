@@ -52,42 +52,36 @@ function search_by_pub(){
 function most_cited_authors_graph(){
     document.getElementById(actual_chart).style.visibility = "hidden";
     actual_chart= "chart1";
-    alert(actual_chart);
     document.getElementById(actual_chart).style.visibility= "visible";
 }
 
 function auth_ratings_graph(){
     document.getElementById(actual_chart).style.visibility = "hidden";
     actual_chart= "chart2";
-    alert(actual_chart);
     document.getElementById(actual_chart).style.visibility= "visible";
 }
 
 function most_commented_authors_graph(){
     document.getElementById(actual_chart).style.visibility = "hidden";
     actual_chart= "chart3";
-    alert(actual_chart);
     document.getElementById(actual_chart).style.visibility= "visible";
 }
 
 function pub_per_year_graph(){
     document.getElementById(actual_chart).style.visibility = "hidden";
     actual_chart= "chart4";
-    alert(actual_chart);
     document.getElementById(actual_chart).style.visibility= "visible";
 }
 
 function pub_ratings_graph(){
     document.getElementById(actual_chart).style.visibility = "hidden";
     actual_chart= "chart5";
-    alert(actual_chart);
     document.getElementById(actual_chart).style.visibility= "visible";
 }
 
 function most_cited_publication_graph(){
     document.getElementById(actual_chart).style.visibility = "hidden";
     actual_chart= "chart6";
-    alert(actual_chart);
     document.getElementById(actual_chart).style.visibility= "visible";
 }
 
