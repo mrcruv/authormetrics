@@ -15,7 +15,9 @@ class AuthorRatingsController < ApplicationController
   def new
     @author_rating = AuthorRating.new
     @user=User.where(user_id:current_user.id)[0]
-    @author=Author.where(author_id:params[:author_id])
+    @author=Author.where(author_id:params[:author_id])[0]
+    @author_rating.author=@author
+    @author_rating.user=@user
   end
 
   # GET /author_ratings/1/edit
@@ -70,4 +72,5 @@ class AuthorRatingsController < ApplicationController
     def author_rating_params
       params.require(:author_rating).permit(:rating, :author_id, :user_id)
     end
+
 end

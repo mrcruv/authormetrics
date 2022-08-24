@@ -13,6 +13,7 @@ class FavoritePublicationsController < ApplicationController
   # GET /favorite_publications/new
   def new
     @favorite_publication = FavoritePublication.new
+    @favorite_publication.publication=Publication.where(publication_id: params[:id])[0]
   end
 
   # GET /favorite_publications/1/edit

@@ -1,5 +1,5 @@
 class PublicationRatingsController < ApplicationController
-  before_action :set_publication_rating, only: %i[ show edit update destroy ]
+  before_action :set_publication_rating, only: %i[ edit show update destroy ]
 
   # GET /publication_ratings or /publication_ratings.json
   def index
@@ -13,10 +13,15 @@ class PublicationRatingsController < ApplicationController
   # GET /publication_ratings/new
   def new
     @publication_rating = PublicationRating.new
+    @publication = Publication.where(publication_id:params[:publication_id])[0]
+    @publication_rating.publication_id=@publication.id
+    @user=current_user
+    @publication_rating.user_id =current_user.id
   end
 
   # GET /publication_ratings/1/edit
   def edit
+
   end
 
   # POST /publication_ratings or /publication_ratings.json
