@@ -6,7 +6,7 @@
   <% @favorite_authors.each do |favorite_author| %>
     <%= render favorite_author %>
     <p>
-      <%= link_to "Show this favorite author", favorite_author %>
+      <%= link_to "Show this favorite author", user_favorite_authors_path %>
     </p>
   <% end %>
 </div>

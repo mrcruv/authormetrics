@@ -1,5 +1,5 @@
 class FavoriteAuthorsController < ApplicationController
-  before_action :set_favorite_author, only: %i[ show edit update destroy ]
+
 
   # GET /favorite_authors or /favorite_authors.json
   def index
@@ -8,16 +8,15 @@ class FavoriteAuthorsController < ApplicationController
 
   # GET /favorite_authors/1 or /favorite_authors/1.json
   def show
+    @favorite_author = FavoriteAuthor.find(params[:id_user])
   end
 
   # GET /favorite_authors/new
   def new
+    @user = User
     @favorite_author = FavoriteAuthor.new
   end
 
-  # GET /favorite_authors/1/edit
-  def edit
-  end
 
   # POST /favorite_authors or /favorite_authors.json
   def create
@@ -34,18 +33,6 @@ class FavoriteAuthorsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /favorite_authors/1 or /favorite_authors/1.json
-  def update
-    respond_to do |format|
-      if @favorite_author.update(favorite_author_params)
-        format.html { redirect_to favorite_author_url(@favorite_author), notice: "Favorite author was successfully updated." }
-        format.json { render :show, status: :ok, location: @favorite_author }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @favorite_author.errors, status: :unprocessable_entity }
-      end
-    end
-  end
 
   # DELETE /favorite_authors/1 or /favorite_authors/1.json
   def destroy
@@ -60,7 +47,7 @@ class FavoriteAuthorsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_favorite_author
-      @favorite_author = FavoriteAuthor.find(params[:id])
+      @favorite_author = FavoriteAuthor.find(params[:user_idS])
     end
 
     # Only allow a list of trusted parameters through.

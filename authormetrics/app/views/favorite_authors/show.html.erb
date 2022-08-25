@@ -3,8 +3,5 @@
 <%= render @favorite_author %>
 
 <div>
-  <%= link_to "Edit this favorite author", edit_favorite_author_path(@favorite_author) %> |
-  <%= link_to "Back to favorite authors", favorite_authors_path %>
-
-  <%= button_to "Destroy this favorite author", @favorite_author, method: :delete %>
+  <%= link_to "Back to favorite authors", user_favorite_authors_path %>
 </div>
