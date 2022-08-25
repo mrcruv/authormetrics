@@ -8,4 +8,8 @@ class Author < ApplicationRecord
     has_many :publication, :through => :written
     has_many :user, :through => :favorite_author
 
+
+    accepts_nested_attributes_for :author_rating
+    accepts_nested_attributes_for :review
+
 end

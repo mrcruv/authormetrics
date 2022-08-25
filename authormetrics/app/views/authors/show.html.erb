@@ -64,6 +64,17 @@
     <%end%>
   <p>
 
+<h2>RATING</h2>
+<!-- fare sum con media e visualizzare la media delle recensioni-->
+<% for author_rating in @author.author_rating%>
+  <ul>
+      <li><%= author_rating.rating %></li>
+  </ul>
+<% end %>
+
+<!--if in author_ratings not exist record con current_user.id -->
+<%= link_to "add author rating", author_author_ratings_path(@author)%>
+
 <% if @publications != [] && @publications != nil %>
   <h1>PUBBLICAZIONI</h1>
 <%end%>
@@ -74,6 +85,7 @@
   </p>
   
   <%end%>
+
 
 
 <%= javascript_include_tag "home" %>

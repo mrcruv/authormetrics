@@ -6,9 +6,12 @@
   <% @author_ratings.each do |author_rating| %>
     <%= render author_rating %>
     <p>
-      <%= link_to "Show this author rating", author_rating %>
+    <%= link_to "show author",[@author] %>
+    <%= link_to "Edit author rating", edit_author_author_rating_path(author_rating.author_id,author_rating.user_id)%>
+      
+      <%= link_to 'Destroy rating', author_author_rating_path(@author,author_rating.user_id), method: :delete %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New author rating", new_author_author_rating_path %>
+<%= link_to "New author rating", new_author_author_rating_path(@author)%>

@@ -3,8 +3,7 @@
 <%= render @author_rating %>
 
 <div>
-  <%= link_to "Edit this author rating", edit_author_author_rating_url %> |
-  <%= link_to "Back to author ratings", author_author_ratings_path %>
-
-<!--ce dovrebbe sta na delete -->
+  <%= link_to "Edit this author rating", edit_author_author_rating_path(@author,@author_rating) %> |
+  <%= link_to "Back to author ratings", author_author_ratings_path(@author) %>
+  <%= link_to 'Destroy rating', author_author_rating_path(@author,author_rating.user_id), method: :delete %>
 </div>
