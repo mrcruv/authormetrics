@@ -1,0 +1,30 @@
+COME MODIFICARE LE RELAZIONI DI RISORSE NESTED PER FARLE FUNZIONARE IN RAILS:
+
+DA pgAdmin digitare
+
+TABLE tableName DROP CONSTRAINT constraint_name;
+
+constraint_name si trova dalle properties della tabella su constraint.
+
+
+poi se la migrazione di quella tabella e' gia presente fare >bin/rails db:migrate
+altrimenti fare >rails g migration NomeMigrazioneAddPK
+
+
+ESEMPIO:
+
+class AddNewPkAuthorRatings < ActiveRecord::Migration[7.0]
+  def change
+    add_column :author_ratings, :author_rating_id, :primary_key
+  end
+end
+
+
+
+MIGRAZIONI FATTE FINO AD ADESSO:
+
+1)author_ratings 
+comando:
+    alter table author_ratings drop CONSTRAINT author_ratings_pkey
+migrazione gia esistente:
+    >bin/rails db:migrate

@@ -28,7 +28,7 @@ Rails.application.routes.draw do
    resources :favorite_authors,only: %i[ index new show create destroy ]
   end
   resources :authors, only: %i[ show index] do
-    resources :author_ratings
+    resources :author_ratings,only: %i[ index edit new show create ]
     resources :reviews
   end
   resources :publications, only: %i[ index show ] do
@@ -54,7 +54,7 @@ Rails.application.routes.draw do
   get "/authors/search/:search", to: "authors#search"
   get "/publications/search/:search", to: "publications#search"
   get "/authors/:id/search_pub_by_auth/:search", to: "authors#search_pub"
-  get "/authors/:author_id/author_ratings/new", to: "author_ratings#new"
+  delete "/authors/:author_id/author_ratings/:id", to: "author_ratings#destroy", as: :destroy_author_author_rating
 
 
 end

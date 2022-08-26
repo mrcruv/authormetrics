@@ -5,5 +5,5 @@
 <div>
   <%= link_to "Edit this author rating", edit_author_author_rating_path(@author,@author_rating) %> |
   <%= link_to "Back to author ratings", author_author_ratings_path(@author) %>
-  <%= link_to 'Destroy rating', author_author_rating_path(@author,author_rating.user_id), method: :delete %>
+  <%= button_to 'Destroy',method: :delete,destroy_author_author_rating_path(@author_rating.author_id, @author_rating.author_rating_id)  %>
 </div>

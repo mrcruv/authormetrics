@@ -50,12 +50,9 @@ class AuthorRatingsController < ApplicationController
 
   # DELETE /author_ratings/1 or /author_ratings/1.json
   def destroy
-    @author_rating.destroy
 
-    respond_to do |format|
-      format.html { redirect_to author_path(@author), notice: "Author rating was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    @author_rating.destroy
+    redirect_to author_path(@author)
   end
 
   private
@@ -66,13 +63,12 @@ class AuthorRatingsController < ApplicationController
     end
     
     def set_author_rating
-      @author_rating = @author.author_rating.where(user_id: params[:id])[0]
+      @author_rating = @author.author_rating.where(user_id: current_user.id)[0]
     end
 
     # Only allow a list of trusted parameters through.
     def author_rating_params
-      params.require(:author).permit(:author_id, :name, :surname, :affiliations, :interests)
-      params.require(:author_rating).permit(:rating, :author_id, :user_id)
+      params.require(:author_rating).permit(:author_rating_id,:rating, :author_id, :user_id)
     end
 
 end

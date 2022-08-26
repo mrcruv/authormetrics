@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_22_073923) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_26_121348) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,7 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_22_073923) do
     t.index ["username"], name: "administrators_username_key", unique: true
   end
 
-  create_table "author_ratings", primary_key: ["user_id", "author_id"], force: :cascade do |t|
+  create_table "author_ratings", primary_key: "author_rating_id", force: :cascade do |t|
     t.string "author_id", limit: 255, null: false
     t.serial "user_id", null: false
     t.integer "rating", null: false
