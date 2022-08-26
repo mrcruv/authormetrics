@@ -9,7 +9,7 @@
     <%= link_to "show author",[@author] %>
     <%= link_to "Edit author rating", edit_author_author_rating_path(author_rating.author_id,author_rating.user_id)%>
       
-      <%= link_to 'Destroy rating', author_author_rating_path(@author,author_rating.user_id), method: :delete %>
+      <%= link_to 'Destroy rating', destroy_author_author_rating_path(author_rating.author_id,author_rating.user_id), method: :delete %>
     </p>
   <% end %>
 </div>

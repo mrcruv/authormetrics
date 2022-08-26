@@ -28,7 +28,7 @@ Rails.application.routes.draw do
    resources :favorite_authors,only: %i[ index new show create destroy ]
   end
   resources :authors, only: %i[ show index] do
-    resources :author_ratings,only: %i[ index edit new show create ]
+    resources :author_ratings
     resources :reviews
   end
   resources :publications, only: %i[ index show ] do
