@@ -104,7 +104,7 @@ class Operations
                     p=Publication.new
                     p[:publication_id]=result[:result_id] +":"+ pub_info[:authors][0][:author_id]
                     p[:title]=result[:title]
-                    p[:link]="https://scholar.gpub_infogle.com/citations?view_op=view_citation&hl=en&user="+pub_info[:authors][0][:author_id]+"&citation_for_view="+p[:publication_id]
+                    p[:link]=result[:link]
                     if(pub_info[:summary].split("-")[1].size > 8)
                         p[:published_on]=pub_info[:summary].split("-")[1]
                     else
