@@ -1,5 +1,5 @@
 class AuthorsController < ApplicationController
-  before_action :set_author, only: %i[ show ]
+  before_action :set_author, :avg_ratings, only: %i[ show ]
   before_action :set_search, only: %i[ search ]
 
   # GET /authors or /authors.json
@@ -103,5 +103,17 @@ class AuthorsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def author_params
       params.require(:author).permit(:author_id, :name, :surname, :affiliations, :interests)
+    end
+
+    def avg_ratings
+      ratings_sum=0
+      n= @author.author_rating.length
+      @avg_ratings=0
+      @author.author_rating.each do |rating|
+        ratings_sum += rating.rating
+      end
+      if n>0
+        @avg_ratings=ratings_sum.to_f/n
+      end
     end
 end

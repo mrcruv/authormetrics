@@ -72,6 +72,8 @@
   </ul>
 <% end %>
 
+<p>Ratings avarage: <%= @avg_ratings%></p>
+
 <!--if in author_ratings not exist record con current_user.id -->
 <%if user_signed_in?%>
 <%= link_to "add author rating", author_author_ratings_path(@author)%>

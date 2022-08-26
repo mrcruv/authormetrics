@@ -133,7 +133,9 @@
                    title:"MOST CITED AUTHORS"%>
         </div>
         <div class="graph" id="chart2" style="visibility:hidden;">
-            To be done...
+            <%= column_chart Graphs.new.authors_avg_ratings(Author.all, 10), 
+            colors: ["#97f6b0", "#80e7ad", "#69d8ab", "#55c8a7", "#41b9a3", "#2fa99d", "#1f9a96", "#0f8a8f","#037b86", "#006c7b" ], 
+            title:"HIGHEST RATE AUTHORS"%>
         </div>
         <div class="graph" id="chart3" style="visibility:hidden;">
             To be done...
