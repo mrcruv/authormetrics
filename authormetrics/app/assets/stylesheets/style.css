@@ -16,8 +16,9 @@ h1,h2{
 
 a{
     color: #37474f;
-    text-decoration: underline;
+    text-decoration: none;
     font-family: Verdana, sans-serif;
+    margin-left: 20px;
 }
 
 p,text, textarea, label {
@@ -57,3 +58,4 @@ thead, th{
     font-weight: lighter;
     padding: 3px;
 }
+
