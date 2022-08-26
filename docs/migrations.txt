@@ -19,12 +19,17 @@ class AddNewPkAuthorRatings < ActiveRecord::Migration[7.0]
   end
 end
 
+--> sarebbe nome tabella, campo_id , :primary_key
 
+dopodiche si puo' fare bin/rails db:migrate
+
+******************************************************
 
 MIGRAZIONI FATTE FINO AD ADESSO:
 
-1)author_ratings 
-comando:
-    alter table author_ratings drop CONSTRAINT author_ratings_pkey
-migrazione gia esistente:
-    >bin/rails db:migrate
+1)
+author_ratings 
+  comando:
+      alter table author_ratings drop CONSTRAINT author_ratings_pkey
+  migrazione gia esistente:
+      >bin/rails db:migrate
