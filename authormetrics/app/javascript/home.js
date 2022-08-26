@@ -29,17 +29,17 @@ function createSearchBar(placeholder){
 }
 
 function searchByAuth(){ 
-    document.getElementById("ByAuth").style.backgroundColor = "#26c6da";
+    document.getElementById("ByAuth").style.backgroundColor = "#79d1c3";
     if (document.getElementById("ByPub")){
-        document.getElementById("ByPub").style.backgroundColor = "";
+        document.getElementById("ByPub").style.backgroundColor = "#c9fdd7";
     }
     createSearchBar("Search by auth...");
 }
 
 function searchByPub(){    
-    document.getElementById("ByPub").style.backgroundColor = "#26c6da";
+    document.getElementById("ByPub").style.backgroundColor = "#79d1c3";
     if (document.getElementById("ByAuth")){
-        document.getElementById("ByAuth").style.backgroundColor = "";
+        document.getElementById("ByAuth").style.backgroundColor = "#c9fdd7";
     }
     createSearchBar("Search by pub...");
 }

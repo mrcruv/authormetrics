@@ -1,7 +1,20 @@
-<header>
-    <h1>WELCOME BACK, <%=@user.username%> ! </h1>
+<header class="upper_block">
+   <%= image_tag("Immagine2.png", size:"384.6153846x108.4615338", class: "logo")%> 
 </header>
-<!--
+
+<div class="logout">
+    <%if user_signed_in?%>
+        <text>  WELCOME BACK <%=current_user["username"]%> !</text>
+        <br></br>
+        <%= button_to "LOGOUT", destroy_user_session_path, :method => :delete %>
+    <%end%>
+    <%if administrator_signed_in?%>
+        <text style="text-align:right; padding-left:2%;"> WELCOME BACK <%current_administrator["username"]%>! </text>
+        <br></br>
+        <%= button_to "LOGOUT", destroy_administrator_session_path, :method => :delete if administrator_signed_in? %>
+    <%end%>
+</div>
+
 <div class="left_block">
     <div class="table_half_box">
         <caption>LATEST PUBLICATIONS</caption>
@@ -26,7 +39,7 @@
     </div>
     
     <div class="table_half_box">
-        <caption>MOST CITED PUBLICATIONS</caption> 
+        <caption>MOST CITED PUBLICATIONS</caption> <!--WILL BE REPLACED WITH "MOST COMMENTED PUBLICATIONS"-->
         <table>
         <thead><tr><th>Author</th><th>Publication</th> <th>Citations</th></tr></thead>
         <tbody>
@@ -34,7 +47,7 @@
             <% writtens= Written.where(:publication_id => most_cited.publication_id)%>
                 <tr>
                     <td>
-                        <% writtens.each do |written|%> 
+                        <% writtens.each do |written|%> <!--Not sure it works for multiple authors-->
                             <% auth= Author.find(written.author_id)%>
                             <%=auth.name%>
                         <%end%>
@@ -48,7 +61,7 @@
     </div>
 
     <div class="table_half_box">
-        <caption>MOST CITED AUTHORS</caption> 
+        <caption>MOST CITED AUTHORS</caption> <!--WILL BE REPLACED WITH "MOST FOLLOWED AUTHORS"-->
         <table>
         <thead><tr><th>Author</th><th>Citations</th></tr></thead>
         <tbody>
@@ -70,9 +83,9 @@
 
 <div class="right_block">
     <div class= "upper_right_block">
-        <button onclick= "searchByAuth()" id= "ByAuth" > SEARCH BY AUTH </button>
-        <button onclick= "searchByPub()" id= "ByPub"> SEARCH BY PUB</button>
-        <button onclick="location.href='http://127.0.0.1:3000/authors'" > AUTHORS</button> 
+        <button onclick= "searchByAuth()" id= "ByAuth" style="background-color:#79d1c3;" > SEARCH BY AUTH </button>
+        <button onclick= "searchByPub()" id= "ByPub" style="background-color:#c9fdd7;"> SEARCH BY PUB</button>
+        <button onclick="location.href='http://127.0.0.1:3000/authors'"> AUTHORS</button> 
         <button onclick="location.href='http://127.0.0.1:3000/publications'"> PUBLICATIONS</button>
         <button onclick="location.href='http://127.0.0.1:3000/users/sign_up'"> LOGIN/REGISTER</button>
         <button onclick="location.href='http://127.0.0.1:3000/administrators/sign_up'"> RESERVED AREA</button>
@@ -90,13 +103,21 @@
                     <input type="radio" id="most_cited_authors_trend" name="choise" onclick="most_cited_authors_graph()" checked > <label for="most_cited_authors_trend"> Most cited authors</label><br> <br>
                     <input type="radio" id="auth_ratings" name="choise" onclick="auth_ratings_graph()" > <label for="auth_ratings"> Hightest rate authors</label><br><br>
                     <input type="radio" id="most_commented_authors" name="choise" onclick="most_commented_authors_graph()"> <label for="most_commented_authors"> Most commented authors</label><br> <br>
-                    <br>
                     <label>ON PUBLICATIONS:</label><br>
                     <br>
                     <input type="radio" id="pub_per_year" name="choise" onclick="pub_per_year_graph()"> <label for="pub_per_year"> Total publications per year</label><br> <br>
                     <input type="radio" id="pub_ratings" name="choise" onclick="pub_ratings_graph()"> <label for="pub_ratings"> Hightest rate publications</label><br><br>
                     <input type="radio" id="most_cited_publications" name="choise" onclick="most_cited_publication_graph()"> <label for="most_cited_authors"> Most cited publication</label><br><br>
                 </fieldset>
+                <!--
+                <label for="cars">Choose a car:</label>
+                <select id="cars">
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="opel">Opel</option>
+                <option value="audi">Audi</option>
+                </select>
+                -->
         </div>
         <div class="bottom_right_block_right">
         <div class="graph" id="chart1" style="visibility:visible;"}>
@@ -108,7 +129,7 @@
                 }, discrete: true, 
                    xtitle: "years", 
                    ytitle: "citations",
-                   colors: ["#ab47bc", "#5c6bc0", "#29b6f6", "#26a69a", "#9ccc65"], 
+                   colors: ["#49beb7", "#6892d5", "#7c4789", "#9973e2", "#7b99fa"], 
                    title:"MOST CITED AUTHORS"%>
         </div>
         <div class="graph" id="chart2" style="visibility:hidden;">
@@ -119,7 +140,7 @@
         </div>
         <div class="graph" id="chart4" style="visibility:hidden;">
             <%= column_chart Publication.where(pub_year: (Date.today.year - 10 ..)).group(:pub_year).order(:pub_year).count, 
-            colors: ["#ab47bc", "#7e57c2", "#5c6bc0", "#42a5f5", "#29b6f6", "#26c6da", "#26a69a", "#66bb6a","#9ccc65", "#d4e157" ], 
+            colors: ["#97f6b0", "#80e7ad", "#69d8ab", "#55c8a7", "#41b9a3", "#2fa99d", "#1f9a96", "#0f8a8f","#037b86", "#006c7b" ], 
             discrete: true, 
             title:"LAST 10 YEARS PUBLICATIONS"%>
         </div>
@@ -135,7 +156,7 @@
             <%end%>
             <%end%>
             <%= column_chart data,
-            colors: ["#d4e157", "#9ccc65", "#66bb6a", "#26a69a", "#26c6da", "#29b6f6", "#42a5f5", "#5c6bc0", "#7e57c2", "#ab47bc"],
+            colors: ["#97f6b0", "#80e7ad", "#69d8ab", "#55c8a7", "#41b9a3", "#2fa99d", "#1f9a96", "#0f8a8f","#037b86", "#006c7b" ],
             discrete: true, 
             title:"MOST CITED PUBLICATIONS"%>
         </div>
@@ -157,5 +178,4 @@
 <%= javascript_include_tag "chartjs-adapter-date-fns.bundle"%>
 <%= javascript_include_tag "application" %>
 <script> searchByAuth();</script>
--->
 

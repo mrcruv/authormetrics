@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
-
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Aug 23 20:49:25 2022
+# Make data base, printed on Fri Aug 26 16:02:36 2022
 
 # Variables
 
@@ -18,7 +16,6 @@ make: *** No rule to make target 'all'.  Stop.
 RUBY_VERSION = ruby-3.0.4
 # automatic
 ?F = $(notdir $?)
- 
 # environment
 WSLENV = VSCODE_WSL_EXT_LOCATION/up
 # default
@@ -32,7 +29,6 @@ rvm_path = /usr/share/rvm
 # automatic
 @F = $(notdir $@)
 # makefile
- 
 CURDIR := /home/saraatt/lavori/authormetrics
 # makefile
 SHELL = /bin/sh
@@ -49,7 +45,6 @@ XDG_DATA_DIRS = /usr/local/share:/usr/share:/var/lib/snapd/desktop
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
- 
 VSCODE_CWD = /mnt/c/Users/Home/AppData/Local/Programs/Microsoft VS Code
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
@@ -60,7 +55,7 @@ rvm_stored_umask = 0022
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-43c0cc78-1978-48c5-aaf4-12460cb313c4.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-3c779810-530a-4ff4-afb1-94b7aeceff6c.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -75,9 +70,8 @@ PWD = /home/saraatt/lavori/authormetrics
 .LOADED := 
 # environment
 GEM_HOME = /usr/share/rvm/gems/ruby-3.0.4
- 
 # environment
-WSL_INTEROP = /run/WSL/11373_interop
+WSL_INTEROP = /run/WSL/12_interop
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -166,8 +160,10 @@ TERM = xterm-256color
 WSL_DISTRO_NAME = Ubuntu-20.04
 # environment
 MY_RUBY_HOME = /usr/share/rvm/rubies/ruby-3.0.4
+# environment
+MOTD_SHOWN = update-motd
 # variable set hash-table stats:
-# Load=75/1024=7%, Rehash=0, Collisions=5/97=5%
+# Load=76/1024=7%, Rehash=0, Collisions=5/98=5%
 
 # Pattern-specific Variable Values
 
@@ -175,7 +171,7 @@ MY_RUBY_HOME = /usr/share/rvm/rubies/ruby-3.0.4
 
 # Directories
 
-# . (device 2064, inode 2797): 6 files, no impossibilities.
+# . (device 2096, inode 2797): 6 files, no impossibilities.
 
 # 6 files, no impossibilities in 1 directories.
 
@@ -233,6 +229,8 @@ GNUmakefile:
 # strcache performance: lookups = 17 / hit rate = 17%
 # hash-table stats:
 # Load=14/8192=0%, Rehash=0, Collisions=1/17=6%
-# Finished Make data base on Tue Aug 23 20:49:25 2022
+# Finished Make data base on Fri Aug 26 16:02:36 2022
 
  
+make: *** No rule to make target 'all'.  Stop.
+
