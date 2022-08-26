@@ -115,7 +115,7 @@ function createSearchBar2(placeholder,id){
 }
 
 function searchPubByAuth(id){    
-    document.getElementById("PubByAuth").style.backgroundColor = "#9ccc65";
+    document.getElementById("PubByAuth").style.backgroundColor = "#79d1c3";
     //if (document.getElementById("ByAuth")){
     //    document.getElementById("ByAuth").style.backgroundColor = "";
     //}
