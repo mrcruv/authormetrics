@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
     require 'date'
 
-    user_id = :id
+    
     reg_date = Date.today
 
     validates :username, :presence=>true, uniqueness: { case_sensitive: true }
@@ -22,5 +22,6 @@ class User < ApplicationRecord
     validates :surname, :presence=>true,length: { in: 2..50 }
     validates :birth_date, :presence=>true, comparison:  {less_than_or_equal_to: Date.today}
     validates :email, :presence=>true, format: { with: URI::MailTo::EMAIL_REGEXP }
+
 
 end

@@ -6,5 +6,7 @@ class Publication < ApplicationRecord
 
     has_many :author, :through => :written
     has_many :user, :through => :favorite_publication
+
+    validates :title, :presence=>true, uniqueness: { case_sensitive: true }
     
 end
