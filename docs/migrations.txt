@@ -4,7 +4,7 @@ DA pgAdmin digitare
 
 TABLE tableName DROP CONSTRAINT constraint_name;
 
-constraint_name si trova dalle properties della tabella su constraint.
+constraint_name si trova dalle properties della tabella, sezione constraint.
 
 
 poi se la migrazione di quella tabella e' gia presente fare >bin/rails db:migrate

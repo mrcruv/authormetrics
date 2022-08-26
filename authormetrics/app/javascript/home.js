@@ -114,7 +114,7 @@ function createSearchBar2(placeholder,id){
     button.appendChild(icon);
 }
 
-function searchAuthByPub(id){    
+function searchPubByAuth(id){    
     document.getElementById("PubByAuth").style.backgroundColor = "#9ccc65";
     //if (document.getElementById("ByAuth")){
     //    document.getElementById("ByAuth").style.backgroundColor = "";
