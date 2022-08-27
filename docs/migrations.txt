@@ -12,7 +12,6 @@ constraint_name si trova dalle properties della tabella, sezione constraint.
 poi se la migrazione di quella tabella e' gia presente fare >bin/rails db:migrate
 altrimenti fare >rails g migration NomeMigrazioneAddPK
 
-
 ESEMPIO:
 
 class AddNewPkAuthorRatings < ActiveRecord::Migration[7.0]
@@ -32,6 +31,28 @@ MIGRAZIONI FATTE FINO AD ADESSO:
 1)
 author_ratings 
   comando:
-      alter table author_ratings drop CONSTRAINT author_ratings_pkey
+      alter table author_ratings drop CONSTRAINT author_ratings_pkey;
   migrazione gia esistente:
       >bin/rails db:migrate
+
+2) 
+publication_ratings 
+  comando:
+      alter table publication_ratings drop CONSTRAINT publication_ratings_pkey;
+  migrazione gia esistente:
+      >bin/rails db:migrate
+
+3)
+favorite_authors 
+  comando:
+      alter table favorite_authors drop CONSTRAINT favorite_authors_pkey;
+  migrazione gia esistente:
+      >bin/rails db:migrate
+
+4) 
+favorite_publications
+  comando:
+      alter table favorite_publications drop CONSTRAINT favorite_publications_pkey
+  migrazione gia esistente:
+      >bin/rails db:migrate
+
