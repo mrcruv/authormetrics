@@ -1,4 +1,4 @@
-<%= form_with(model: favorite_publication) do |form| %>
+<%= form_with(model: [@user, @favorite_publication]) do |form| %>
   <% if favorite_publication.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(favorite_publication.errors.count, "error") %> prohibited this favorite_publication from being saved:</h2>
@@ -14,11 +14,6 @@
   <div>
     <%= form.label :publication_id, style: "display: block" %>
     <%= form.text_field :publication_id %>
-  </div>
-
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.number_field :user_id %>
   </div>
 
   <div>
