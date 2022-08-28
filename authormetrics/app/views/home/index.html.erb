@@ -2,6 +2,21 @@
    <%= image_tag("Immagine2.png", size:"384.6153846x108.4615338", class: "logo")%>
 </header>
 
+<% if user_signed_in? or administrator_signed_in? %>
+<div class="logout_home">
+    <%if user_signed_in?%>
+        <text>  WELCOME BACK <%=current_user["username"]%> !</text>
+        <br></br>
+        <%= button_to "LOGOUT", destroy_user_session_path, :method => :delete %>
+    <%end%>
+    <%if administrator_signed_in?%>
+        <text> WELCOME BACK <%current_administrator["username"]%>! </text>
+        <br></br>
+        <%= button_to "LOGOUT", destroy_administrator_session_path, :method => :delete if administrator_signed_in? %>
+    <%end%>
+</div>
+<%end%>
+
 <div class="left_block">
     <div class="table_half_box">
         <caption>LATEST PUBLICATIONS</caption>
@@ -74,14 +89,20 @@
         <button onclick= "searchByPub()" id= "ByPub" style="background-color:#c9fdd7;"> SEARCH BY PUB</button>
         <button onclick="location.href='http://127.0.0.1:3000/authors'"> AUTHORS</button> 
         <button onclick="location.href='http://127.0.0.1:3000/publications'"> PUBLICATIONS</button>
-        <button onclick="location.href='http://127.0.0.1:3000/users/sign_up'"> LOGIN/REGISTER</button>
-        <button onclick="location.href='http://127.0.0.1:3000/administrators/sign_up'"> RESERVED AREA</button>
+        <% if not ( user_signed_in? or administrator_signed_in?) %>
+            <button onclick="location.href='http://127.0.0.1:3000/users/sign_up'"> LOGIN/REGISTER</button>
+            <button onclick="location.href='http://127.0.0.1:3000/administrators/sign_up'"> RESERVED AREA</button>
+        <% elsif user_signed_in? %>
+            <button onclick="location.href='http://127.0.0.1:3000/dashboard'"> MY ACCOUNT</button>
+        <%else%>
+            <button onclick="location.href='http://127.0.0.1:3000/control_panel'">CONTROL PANEL</button>
+        <%end%>
         <p id="p1"> </p>
     </div>
 
     <div class= "bottom_right_block">
-        <h2>STANDARD CHARTS</h2>
         <div class="bottom_right_block_left">
+                <h2>STANDARD CHARTS</h2>
                 <fieldset class= "chart_choise">
                     <legend>CHOOSE A CHART:</legend>
                     <br>
@@ -107,6 +128,7 @@
                 -->
         </div>
         <div class="bottom_right_block_right">
+        <br></br>
         <div class="graph" id="chart1" style="visibility:visible;"}>
                 <%= line_chart @most_cited_authors.sort_by{|x| -x.graph.length}.map { |most_cited|
                     {

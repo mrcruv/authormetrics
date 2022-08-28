@@ -2,7 +2,8 @@
    <%= image_tag("Immagine2.png", size:"384.6153846x108.4615338", class: "logo")%> 
 </header>
 
-<div class="logout">
+<% if user_signed_in? or administrator_signed_in? %>
+<div class="logout_dashboard">
     <%if user_signed_in?%>
         <text>  WELCOME BACK <%=current_user["username"]%> !</text>
         <br></br>
@@ -14,71 +15,26 @@
         <%= button_to "LOGOUT", destroy_administrator_session_path, :method => :delete if administrator_signed_in? %>
     <%end%>
 </div>
+<%end%>
 
 <div class="left_block">
-    <div class="table_half_box">
-        <caption>LATEST PUBLICATIONS</caption>
-        <table>
-        <thead><tr><th>Author</th><th>Publication</th> <th>Date</th></tr></thead>
-        <tbody>
-            <% @latest_pubs.each do |recent_pub| %>
-            <% writtens= Written.where(:publication_id => recent_pub.publication_id)%>
-                <tr>
-                    <td>
-                        <% writtens.each do |written|%> 
-                            <% auth= Author.find(written.author_id)%>
-                            <%=auth.name%>
-                        <%end%>
-                    </td>
-                    <td><%= recent_pub.title %></td>
-                    <td><%= recent_pub.pub_year %></td>
-                </tr>
-            <% end %>
-        </tbody>
-        </table>
+    <div class= "scrollable_box">
+        <div class="scrollable">
+            <text>FAVOURITE PUBLICATIONS</text>
+        </div>
     </div>
     
-    <div class="table_half_box">
-        <caption>MOST CITED PUBLICATIONS</caption> <!--WILL BE REPLACED WITH "MOST COMMENTED PUBLICATIONS"-->
-        <table>
-        <thead><tr><th>Author</th><th>Publication</th> <th>Citations</th></tr></thead>
-        <tbody>
-            <% @most_cited_pubs.each do |most_cited| %>
-            <% writtens= Written.where(:publication_id => most_cited.publication_id)%>
-                <tr>
-                    <td>
-                        <% writtens.each do |written|%> <!--Not sure it works for multiple authors-->
-                            <% auth= Author.find(written.author_id)%>
-                            <%=auth.name%>
-                        <%end%>
-                    </td>
-                    <td><%= most_cited.title %></td>
-                    <td><%= most_cited.cited_by %></td>
-                </tr>
-            <% end %>
-        </tbody>
-        </table>
+    <div class= "scrollable_box">
+        <div class="scrollable">
+            <text>FAVOURITE AUTHORS</text>
+        </div>
     </div>
 
-    <div class="table_half_box">
-        <caption>MOST CITED AUTHORS</caption> <!--WILL BE REPLACED WITH "MOST FOLLOWED AUTHORS"-->
-        <table>
-        <thead><tr><th>Author</th><th>Citations</th></tr></thead>
-        <tbody>
-            <% @most_cited_authors.each do |most_cited| %>
-                <tr>
-                    <td>                        
-                        <% auth= Author.find(most_cited.author_id)%>
-                        <%= auth.name %>
-                    </td>
-                    <td><%= most_cited.all_citations %></td>
-                </tr>
-            <% end %>   
-        </tbody>
-        </table>
+    <div class= "scrollable_box">
+        <div class="scrollable">
+            <text>LATEST PUBLICATIONS FROM YOUR FAVOURITE AUTHORS</text>
+        </div>
     </div>
-
-
 </div>
 
 <div class="right_block">
@@ -95,8 +51,8 @@
     </div>
 
     <div class= "bottom_right_block">
-        <h2>STANDARD CHARTS</h2>
         <div class="bottom_right_block_left">
+                <h2>PREMIUM CHARTS</h2>
                 <fieldset class= "chart_choise">
                     <legend>CHOOSE A CHART:</legend>
                     <br>
@@ -122,6 +78,16 @@
                 -->
         </div>
         <div class="bottom_right_block_right">
+        <div class="filters", style="padding-left:7%;">
+            <label for="filters">Chart filters:</label>
+            <select name="filters" id="filters">
+                <option value="filtro1">Filtro1</option>
+                <option value="filtro2">Filtro2</option>
+                <option value="filtro3">Filtro3</option>
+                <option value="filtro4">Filtro4</option>  
+            </select>
+        </div>
+        <br></br>
         <div class="graph" id="chart1" style="visibility:visible;"}>
                 <%= line_chart @most_cited_authors.sort_by{|x| -x.graph.length}.map { |most_cited|
                     {
