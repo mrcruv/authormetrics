@@ -4,10 +4,12 @@ class PublicationsController < ApplicationController
   # GET /publications or /publications.json
   def index
     @publications = Publication.all
+    authorize! :index, Publication, :message => "BEWARE: you are not authorized to index publications."
   end
 
   # GET /publications/1 or /publications/1.json
   def show
+    authorize! :read, @publication, :message => "BEWARE: you are not authorized to read publications."
   end
 
   def search
@@ -28,7 +30,7 @@ class PublicationsController < ApplicationController
   # POST /publications or /publications.json
   def create
     @publication = Publication.new(publication_params)
-
+    authorize! :create, @publication, :message => "BEWARE: you are not authorized to create publications."
     respond_to do |format|
       if @publication.save
         format.html { redirect_to publication_url(@publication), notice: "Publication was successfully created." }
@@ -42,6 +44,7 @@ class PublicationsController < ApplicationController
 
   # PATCH/PUT /publications/1 or /publications/1.json
   def update
+    authorize! :update, @publication, :message => "BEWARE: you are not authorized to update publications."
     respond_to do |format|
       if @publication.update(publication_params)
         format.html { redirect_to publication_url(@publication), notice: "Publication was successfully updated." }
@@ -55,6 +58,7 @@ class PublicationsController < ApplicationController
 
   # DELETE /publications/1 or /publications/1.json
   def destroy
+    authorize! :destroy, @publication, :message => "BEWARE: you are not authorized to delete publications."
     @publication.destroy
 
     respond_to do |format|

@@ -4,10 +4,12 @@ class FavoritePublicationsController < ApplicationController
   # GET /favorite_publications or /favorite_publications.json
   def index
     @favorite_publications = FavoritePublication.all
+    authorize! :index, FavoritePublication, :message => "BEWARE: you are not authorized to index favorite publications."
   end
 
   # GET /favorite_publications/1 or /favorite_publications/1.json
   def show
+    authorize! :read, @favorite_publication, :message => "BEWARE: you are not authorized to read favorite publications."
   end
 
   # GET /favorite_publications/new
@@ -23,7 +25,7 @@ class FavoritePublicationsController < ApplicationController
   # POST /favorite_publications or /favorite_publications.json
   def create
     @favorite_publication = FavoritePublication.new(favorite_publication_params)
-
+    authorize! :create, @favorite_publication, :message => "BEWARE: you are not authorized to create favorite publications."
     respond_to do |format|
       if @favorite_publication.save
         format.html { redirect_to favorite_publication_url(@favorite_publication), notice: "Favorite publication was successfully created." }
@@ -37,6 +39,7 @@ class FavoritePublicationsController < ApplicationController
 
   # PATCH/PUT /favorite_publications/1 or /favorite_publications/1.json
   def update
+    authorize! :update, @favorite_publication, :message => "BEWARE: you are not authorized to update favorite publications."
     respond_to do |format|
       if @favorite_publication.update(favorite_publication_params)
         format.html { redirect_to favorite_publication_url(@favorite_publication), notice: "Favorite publication was successfully updated." }
@@ -50,6 +53,7 @@ class FavoritePublicationsController < ApplicationController
 
   # DELETE /favorite_publications/1 or /favorite_publications/1.json
   def destroy
+    authorize! :destroy, @favorite_publication, :message => "BEWARE: you are not authorized to delete favorite publications."
     @favorite_publication.destroy
 
     respond_to do |format|

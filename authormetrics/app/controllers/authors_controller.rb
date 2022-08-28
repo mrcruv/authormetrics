@@ -5,11 +5,13 @@ class AuthorsController < ApplicationController
   # GET /authors or /authors.json
   def index
     @authors = Author.all
+    authorize! :index, Author, :message => "BEWARE: you are not authorized to index authors."
   end
 
   
   # GET /authors/1 or /authors/1.json
   def show
+    authorize! :read, @author, :message => "BEWARE: you are not authorized to read authors."
   end
 
  
@@ -22,8 +24,6 @@ class AuthorsController < ApplicationController
     @Publications=Publication.where(publication_id:param,"title ~* ?" => params[:search])
   end
 
-###############################################################################
- ''' 
   # GET /authors/1/edit
   def edit
   end
@@ -33,13 +33,13 @@ class AuthorsController < ApplicationController
     @author = Author.new
   end
 
-'''
-'''
+
+  
   # POST /authors or /authors.json
   
   def create
     @author = Author.new(author_params)
-
+    authorize! :create, @author, :message => "BEWARE: you are not authorized to create authors."
     respond_to do |format|
       if @author.save
         format.html { redirect_to author_url(@author), notice: "Author was successfully created." }
@@ -50,10 +50,11 @@ class AuthorsController < ApplicationController
       end
     end
   end
-'''
-''' 
+
+
   # PATCH/PUT /authors/1 or /authors/1.json
   def update
+    authorize! :update, @author, :message => "BEWARE: you are not authorized to update authors."
     respond_to do |format|
       if @author.update(author_params)
         format.html { redirect_to author_url(@author), notice: "Author was successfully updated." }
@@ -64,11 +65,10 @@ class AuthorsController < ApplicationController
       end
     end
   end
-'''
-  
-  '''
+
   # DELETE /authors/1 or /authors/1.json
   def destroy
+    authorize! :destroy, @author, :message => "BEWARE: you are not authorized to delete authors."
     @author.destroy
 
     respond_to do |format|
@@ -76,8 +76,7 @@ class AuthorsController < ApplicationController
       format.json { head :no_content }
     end
   end
-'''
-#######################################################################################################
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_author

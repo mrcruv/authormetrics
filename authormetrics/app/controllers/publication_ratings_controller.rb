@@ -4,10 +4,12 @@ class PublicationRatingsController < ApplicationController
   # GET /publication_ratings or /publication_ratings.json
   def index
     @publication_ratings = PublicationRating.all
+    authorize! :index, PublicationRating, :message => "BEWARE: you are not authorized to index publication ratings."
   end
 
   # GET /publication_ratings/1 or /publication_ratings/1.json
   def show
+    authorize! :read, @publication_rating, :message => "BEWARE: you are not authorized to read publication ratings."
   end
 
   # GET /publication_ratings/new
@@ -27,7 +29,7 @@ class PublicationRatingsController < ApplicationController
   # POST /publication_ratings or /publication_ratings.json
   def create
     @publication_rating = PublicationRating.new(publication_rating_params)
-
+    authorize! :create, @publication_rating, :message => "BEWARE: you are not authorized to create publication ratings."
     respond_to do |format|
       if @publication_rating.save
         format.html { redirect_to publication_rating_url(@publication_rating), notice: "Publication rating was successfully created." }
@@ -41,6 +43,7 @@ class PublicationRatingsController < ApplicationController
 
   # PATCH/PUT /publication_ratings/1 or /publication_ratings/1.json
   def update
+    authorize! :update, @publication_rating, :message => "BEWARE: you are not authorized to update publication ratings."
     respond_to do |format|
       if @publication_rating.update(publication_rating_params)
         format.html { redirect_to publication_rating_url(@publication_rating), notice: "Publication rating was successfully updated." }
@@ -54,6 +57,7 @@ class PublicationRatingsController < ApplicationController
 
   # DELETE /publication_ratings/1 or /publication_ratings/1.json
   def destroy
+    authorize! :destroy, @publication_rating, :message => "BEWARE: you are not authorized to delete publication ratings."
     @publication_rating.destroy
 
     respond_to do |format|

@@ -5,15 +5,17 @@ class AuthorRatingsController < ApplicationController
   # GET /author_ratings or /author_ratings.json
   def index
     @author_ratings = @author.author_rating
+    authorize! :index, AuthorRating, :message => "BEWARE: you are not authorized to index author ratings."
   end
 
   # GET /author_ratings/1 or /author_ratings/1.json
   def show
+    authorize! :read, @author_rating, :message => "BEWARE: you are not authorized to read author ratings."
   end
 
   # GET /author_ratings/new
   def new
-    @author_rating =@author.author_rating.build
+    @author_rating = @author.author_rating.build
     @author_rating.user=@user
     @author_rating.author=@author
   end
@@ -25,6 +27,7 @@ class AuthorRatingsController < ApplicationController
   # POST /author_ratings or /author_ratings.json
   def create
     @author_rating = @author.author_rating.build(author_rating_params)
+    authorize! :create, @author_rating, :message => "BEWARE: you are not authorized to create author ratings."
     @author_rating.user_id=current_user.id
     respond_to do |format|
       if @author_rating.save
@@ -39,6 +42,7 @@ class AuthorRatingsController < ApplicationController
 
   # PATCH/PUT /author_ratings/1 or /author_ratings/1.json
   def update
+    authorize! :update, @author_rating, :message => "BEWARE: you are not authorized to update author ratings."
     respond_to do |format|
       if @author_rating.update(author_rating_params)
         format.html { redirect_to author_author_rating_path(@author), notice: "Author rating was successfully updated." }
@@ -52,6 +56,7 @@ class AuthorRatingsController < ApplicationController
 
   # DELETE /author_ratings/1 or /author_ratings/1.json
   def destroy
+    authorize! :destroy, @author_rating, :message => "BEWARE: you are not authorized to delete author ratings."
     @author_rating.destroy
     redirect_to author_path(@author)
   end
