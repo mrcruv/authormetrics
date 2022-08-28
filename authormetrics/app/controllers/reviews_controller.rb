@@ -4,10 +4,12 @@ class ReviewsController < ApplicationController
   # GET /reviews or /reviews.json
   def index
     @reviews = Review.all
+    authorize! :index, Review, :message => "BEWARE: you are not authorized to index reviews."
   end
 
   # GET /reviews/1 or /reviews/1.json
   def show
+    authorize! :read, @review, :message => "BEWARE: you are not authorized to read reviews."
   end
 
   # GET /reviews/new
@@ -22,7 +24,7 @@ class ReviewsController < ApplicationController
   # POST /reviews or /reviews.json
   def create
     @review = Review.new(review_params)
-
+    authorize! :create, @review, :message => "BEWARE: you are not authorized to create reviews."
     respond_to do |format|
       if @review.save
         format.html { redirect_to review_url(@review), notice: "Review was successfully created." }
@@ -36,6 +38,7 @@ class ReviewsController < ApplicationController
 
   # PATCH/PUT /reviews/1 or /reviews/1.json
   def update
+    authorize! :update, @publication, :message => "BEWARE: you are not authorized to update reviews."
     respond_to do |format|
       if @review.update(review_params)
         format.html { redirect_to review_url(@review), notice: "Review was successfully updated." }
@@ -49,6 +52,7 @@ class ReviewsController < ApplicationController
 
   # DELETE /reviews/1 or /reviews/1.json
   def destroy
+    authorize! :destroy, @review, :message => "BEWARE: you are not authorized to delete reviews."
     @review.destroy
 
     respond_to do |format|

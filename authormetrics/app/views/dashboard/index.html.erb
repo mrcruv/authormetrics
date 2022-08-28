@@ -87,8 +87,10 @@
         <button onclick= "searchByPub()" id= "ByPub" style="background-color:#c9fdd7;"> SEARCH BY PUB</button>
         <button onclick="location.href='http://127.0.0.1:3000/authors'"> AUTHORS</button> 
         <button onclick="location.href='http://127.0.0.1:3000/publications'"> PUBLICATIONS</button>
-        <button onclick="location.href='http://127.0.0.1:3000/users/sign_up'"> LOGIN/REGISTER</button>
-        <button onclick="location.href='http://127.0.0.1:3000/administrators/sign_up'"> RESERVED AREA</button>
+        <% if !user_signed_in? && !administrator_signed_in? %>
+            <button onclick="location.href='http://127.0.0.1:3000/users/sign_up'"> LOGIN/REGISTER</button>
+            <button onclick="location.href='http://127.0.0.1:3000/administrators/sign_up'"> RESERVED AREA</button>
+        <% end %>
         <p id="p1"> </p>
     </div>
 

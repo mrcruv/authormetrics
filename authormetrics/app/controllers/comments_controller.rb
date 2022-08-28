@@ -4,10 +4,12 @@ class CommentsController < ApplicationController
   # GET /comments or /comments.json
   def index
     @comments = Comment.all
+    authorize! :index, Comment, :message => "BEWARE: you are not authorized to index comments."
   end
 
   # GET /comments/1 or /comments/1.json
   def show
+    authorize! :read, @comment, :message => "BEWARE: you are not authorized to read comments."
   end
 
   # GET /comments/new
@@ -22,7 +24,7 @@ class CommentsController < ApplicationController
   # POST /comments or /comments.json
   def create
     @comment = Comment.new(comment_params)
-
+    authorize! :create, @comment, :message => "BEWARE: you are not authorized to create comments."
     respond_to do |format|
       if @comment.save
         format.html { redirect_to comment_url(@comment), notice: "Comment was successfully created." }
@@ -36,6 +38,7 @@ class CommentsController < ApplicationController
 
   # PATCH/PUT /comments/1 or /comments/1.json
   def update
+    authorize! :update, @comment, :message => "BEWARE: you are not authorized to update comments."
     respond_to do |format|
       if @comment.update(comment_params)
         format.html { redirect_to comment_url(@comment), notice: "Comment was successfully updated." }
@@ -49,6 +52,7 @@ class CommentsController < ApplicationController
 
   # DELETE /comments/1 or /comments/1.json
   def destroy
+    authorize! :destroy, @comment, :message => "BEWARE: you are not authorized to delete comments."
     @comment.destroy
 
     respond_to do |format|

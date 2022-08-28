@@ -5,6 +5,7 @@ class FavoriteAuthorsController < ApplicationController
   # GET /favorite_authors or /favorite_authors.json
   def index
     @favorite_authors = @user.favorite_author
+    authorize! :index, FavoriteAuthor, :message => "BEWARE: you are not authorized to index favorite authors."
   end
 
   # GET /favorite_authors/new
@@ -18,6 +19,7 @@ class FavoriteAuthorsController < ApplicationController
   # POST /favorite_authors or /favorite_authors.json
   def create
     @favorite_author = @user.favorite_author.build(favorite_author_params)
+    authorize! :create, @favorite_author, :message => "BEWARE: you are not authorized to create favorite authors."
     @favorite_author.user_id = current_user.id
     respond_to do |format|
       if @favorite_author.save
@@ -33,6 +35,7 @@ class FavoriteAuthorsController < ApplicationController
 
   # DELETE /favorite_authors/1 or /favorite_authors/1.json
   def destroy
+    authorize! :destroy, @favorite_author, :message => "BEWARE: you are not authorized to delete favorite authors."
     @favorite_author.destroy
     redirect_to users_path #da ridefinire
   end

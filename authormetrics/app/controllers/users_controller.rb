@@ -4,10 +4,12 @@ class UsersController < ApplicationController
   # GET /users or /users.json
   def index
     @users = User.all
+    authorize! :index, User, :message => "BEWARE: you are not authorized to index users."
   end
 
   # GET /users/1 or /users/1.json
   def show
+    authorize! :read, @user, :message => "BEWARE: you are not authorized to read users."
   end
 
   # GET /users/new
@@ -22,7 +24,7 @@ class UsersController < ApplicationController
   # POST /users or /users.json
   def create
     @user = User.new(user_params)
-
+    authorize! :create, @user, :message => "BEWARE: you are not authorized to create users."
     respond_to do |format|
       if @user.save
         format.html { redirect_to user_url(@user), notice: "User was successfully created." }
@@ -36,6 +38,7 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
+    authorize! :update, @user, :message => "BEWARE: you are not authorized to update users."
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to user_url(@user), notice: "User was successfully updated." }
@@ -50,6 +53,7 @@ class UsersController < ApplicationController
   # DELETE /users/1 or /users/1.json
 '''
   def destroy
+    authorize! :destroy, @user, :message => "BEWARE: you are not authorized to delete users."
     @user.destroy
 
     respond_to do |format|
