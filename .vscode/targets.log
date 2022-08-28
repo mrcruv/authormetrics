@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Aug 26 16:02:36 2022
+# Make data base, printed on Sun Aug 28 10:41:08 2022
 
 # Variables
 
@@ -32,6 +34,7 @@ rvm_path = /usr/share/rvm
 CURDIR := /home/saraatt/lavori/authormetrics
 # makefile
 SHELL = /bin/sh
+ 
 # environment
 VSCODE_NLS_CONFIG = {"locale":"it","availableLanguages":{"*":"it"},"_languagePackId":"733e63a346861b85a80ab453548d8e7a.it","_translationsConfigFile":"/home/saraatt/.vscode-server/data/clp/733e63a346861b85a80ab453548d8e7a.it/tcf.json","_cacheRoot":"/home/saraatt/.vscode-server/data/clp/733e63a346861b85a80ab453548d8e7a.it","_resolvedLanguagePackCoreLocation":"/home/saraatt/.vscode-server/data/clp/733e63a346861b85a80ab453548d8e7a.it/e4503b30fc78200f846c62cf8091b76ff5547662","_corruptedFile":"/home/saraatt/.vscode-server/data/clp/733e63a346861b85a80ab453548d8e7a.it/corrupted.info","_languagePackSupport":true}
 # environment
@@ -55,7 +58,7 @@ rvm_stored_umask = 0022
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-3c779810-530a-4ff4-afb1-94b7aeceff6c.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-7bae9d19-882d-469d-815a-8ada015dfa3e.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -229,8 +232,6 @@ GNUmakefile:
 # strcache performance: lookups = 17 / hit rate = 17%
 # hash-table stats:
 # Load=14/8192=0%, Rehash=0, Collisions=1/17=6%
-# Finished Make data base on Fri Aug 26 16:02:36 2022
+# Finished Make data base on Sun Aug 28 10:41:08 2022
 
  
-make: *** No rule to make target 'all'.  Stop.
-

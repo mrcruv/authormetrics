@@ -4,7 +4,7 @@ DA pgAdmin digitare
 
 TABLE tableName DROP CONSTRAINT constraint_name;
 
-(da postgres su terminale --> ALTER TABLE author_ratings DROP CONTRAINT author_ratings_pkey;)
+(da postgres su terminale --> ALTER TABLE author_ratings DROP CONSTRAINT author_ratings_pkey;)
 
 constraint_name si trova dalle properties della tabella, sezione constraint.
 
