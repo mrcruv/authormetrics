@@ -1696,12 +1696,12 @@ reviews=Review.create([
 },
 {
     author_id:"RIg9DVEAAAAJ",
-    user_id: 3,
+    user_id: 1,
     review: "bravo"
 },
 {
     author_id:"R8PPdbQAAAAJ",
-    user_id: 4,
+    user_id: 1,
     review: "niente di che"
 },
 {
@@ -1711,12 +1711,12 @@ reviews=Review.create([
 },
 {
     author_id:"wT4V7isAAAAJ",
-    user_id: 2,
+    user_id: 1,
     review: "anche no"
 },
 {
     author_id:"kq0NYnMAAAAJ",
-    user_id: 3,
+    user_id: 1,
     review: "bravissimo"
 },])
 

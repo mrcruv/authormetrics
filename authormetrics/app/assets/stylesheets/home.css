@@ -165,6 +165,15 @@
 
 .upper_block_cp{
   display:inline-block;
+  position: absolute;
+  right: 1%;
+  top: 10.1%;
+  width:58.2%;
+  height: 10%;
+}
+
+.medium_block_cp{
+  display:inline-block;
   margin-top: 2%;
   margin-left: 0.5%;
   width: 100%;
@@ -189,6 +198,11 @@
   margin-bottom: 4%;
 }
 
+.half_table_cp{
+  display:inline-block;
+  width:47%;
+  margin-left: 2%;
+}
 
 
 
