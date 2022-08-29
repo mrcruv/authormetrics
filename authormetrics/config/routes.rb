@@ -61,4 +61,7 @@ Rails.application.routes.draw do
   delete "/authors/:author_id/author_ratings/:id", to: "author_ratings#destroy", as: :destroy_author_author_rating
   delete "/users/:user_id/favorite_authors/:id", to: "favorite_authors#destroy", as: :destroy_user_favorite_author
 
+  get '/404', to: 'errors#not_found'
+  get '/500', to: 'errors#internal_server_error'
+
 end
