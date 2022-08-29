@@ -24,5 +24,14 @@ class Graphs
         end 
         return authors_avg_ratings.sort_by {|k, v| -v}.first(top_n).to_h
     end
+
+    def most_reviewed_by_authors_graph(authors)
+      h={}
+      authors.each do |author|
+        author_name=Author.find(author[0]).name
+        h[author_name]=author[1]
+      end
+      return h
+    end
 end
     

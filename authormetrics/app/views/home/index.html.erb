@@ -110,14 +110,14 @@
                     <br>
                     <label>ON AUTHORS:</label><br>
                     <br>
-                    <input type="radio" id="most_cited_authors_trend" name="choise" onclick="most_cited_authors_graph()" checked > <label for="most_cited_authors_trend"> Most cited authors</label><br> <br>
+                    <input type="radio" id="most_cited_authors_trend" name="choise" onclick="most_cited_authors_graph()" checked > <label for="most_cited_authors_trend"> Most cited authors trends</label><br> <br>
                     <input type="radio" id="auth_ratings" name="choise" onclick="auth_ratings_graph()" > <label for="auth_ratings"> Highest rate authors</label><br><br>
-                    <input type="radio" id="most_commented_authors" name="choise" onclick="most_commented_authors_graph()"> <label for="most_commented_authors"> Most commented authors</label><br> <br>
+                    <input type="radio" id="most_commented_authors" name="choise" onclick="most_commented_authors_graph()"> <label for="most_commented_authors"> Most reviewed authors</label><br> <br>
                     <label>ON PUBLICATIONS:</label><br>
                     <br>
-                    <input type="radio" id="pub_per_year" name="choise" onclick="pub_per_year_graph()"> <label for="pub_per_year"> Total publications per year</label><br> <br>
+                    <input type="radio" id="pub_per_year" name="choise" onclick="pub_per_year_graph()"> <label for="pub_per_year"> Most cited publications</label><br> <br>
                     <input type="radio" id="pub_ratings" name="choise" onclick="pub_ratings_graph()"> <label for="pub_ratings"> Highest rate publications</label><br><br>
-                    <input type="radio" id="most_cited_publications" name="choise" onclick="most_cited_publication_graph()"> <label for="most_cited_authors"> Most cited publication</label><br><br>
+                    <input type="radio" id="most_cited_publications" name="choise" onclick="most_cited_publication_graph()"> <label for="most_cited_authors"> Most commented pubs</label><br><br>
                 </fieldset>
                 <!--
                 <label for="cars">Choose a car:</label>
@@ -141,7 +141,7 @@
                    xtitle: "years", 
                    ytitle: "citations",
                    colors: ["#49beb7", "#6892d5", "#7c4789", "#9973e2", "#7b99fa"], 
-                   title:"MOST CITED AUTHORS"%>
+                   title:"MOST CITED AUTHORS TRENDS"%>
         </div>
         <div class="graph" id="chart2" style="visibility:hidden;">
             <%= column_chart Graphs.new.authors_avg_ratings(Author.all, 10), 
@@ -150,8 +150,11 @@
         </div>
 
         <div class="graph" id="chart3" style="visibility:hidden;">
-            To be done...
+            <%= column_chart Graphs.new.most_reviewed_by_authors_graph(@most_reviewed_by_authors),
+            colors: ["#97f6b0", "#80e7ad", "#69d8ab", "#55c8a7", "#41b9a3", "#2fa99d", "#1f9a96", "#0f8a8f","#037b86", "#006c7b" ], 
+            title:"MOST REVIEWED AUTHORS"%>
         </div>
+
         <div class="graph" id="chart4" style="visibility:hidden;">
             <%= column_chart Publication.where(pub_year: (Date.today.year - 10 ..)).group(:pub_year).order(:pub_year).count, 
             colors: ["#97f6b0", "#80e7ad", "#69d8ab", "#55c8a7", "#41b9a3", "#2fa99d", "#1f9a96", "#0f8a8f","#037b86", "#006c7b" ], 

@@ -1765,3 +1765,5 @@ comments=Comment.create([
 #comment=Comment.new({publication_id:"ZjfgPLMAAAAJ:DXE8ND7PrJAC", user_id: 34, comment: "meraviglioso!"})
 #comment=Comment.new({publication_id:"ZjfgPLMAAAAJ:DXE8ND7PrJAC", user_id: 1, comment: "sono delusa..."})
 #comment.save
+#review=Review.new({author_id:"kq0NYnMAAAAJ", user_id:34, review:"probabile"})
+#review=Review.new({author_id:"iXjCKTgAAAAJ", user_id:34, review:"improbabile"})
