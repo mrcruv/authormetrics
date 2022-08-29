@@ -3,7 +3,7 @@
 </header>
 
 <div class="logout_control_panel">
-        <text> WELCOME BACK <%current_administrator["username"]%>! </text>
+        <text> WELCOME BACK <%=current_administrator["username"]%>! </text>
         <br></br>
         <%= button_to "LOGOUT", destroy_administrator_session_path, :method => :delete if administrator_signed_in? %>
         <button>SEND COMUNICATION</button>
