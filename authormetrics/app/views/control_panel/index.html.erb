@@ -14,7 +14,10 @@
         <%= line_chart Comment.order("DATE(comment_timestamp)").group("DATE(comment_timestamp)").count %>
     </div>
     <div class="upper_box_1">
-    ciao
+        <%= line_chart Publication.order("DATE(created_at)").group("DATE(created_at)").count, 
+            xmin: Date.today - 10, xmax: Date.today, 
+            title: "DAILY PUBLICATIONS"
+        %>
     </div>
     <div class="upper_box_1">
     ciao
