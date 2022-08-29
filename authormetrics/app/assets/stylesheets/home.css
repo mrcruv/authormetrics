@@ -2,11 +2,20 @@
   padding-top: 1%;
 }
 
-.logout_home{
+.logout_home_user{
   position: absolute;
   right: 1%;
   top: 13%;
   width:15.3%;
+  height: 10%;
+  z-index:99999;
+}
+
+.logout_home_admin{
+  position: absolute;
+  right: 1%;
+  top: 13%;
+  width:14%;
   height: 10%;
   z-index:99999;
 }
