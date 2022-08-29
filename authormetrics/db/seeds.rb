@@ -1767,3 +1767,41 @@ comments=Comment.create([
 #comment.save
 #review=Review.new({author_id:"kq0NYnMAAAAJ", user_id:34, review:"probabile"})
 #review=Review.new({author_id:"iXjCKTgAAAAJ", user_id:34, review:"improbabile"})
+
+publication_ratings=PublicationRating.create([
+{
+    publication_id:"ZjfgPLMAAAAJ:nPTYJWkExTIC",
+    user_id: 1,
+    rating: 5
+},
+{
+    publication_id:"ZjfgPLMAAAAJ:jgBuDB5drN8C",
+    user_id: 1,
+    rating: 7
+},
+{
+    publication_id:"ZjfgPLMAAAAJ:jgBuDB5drN8C",
+    user_id: 34,
+    rating: 6
+},
+{
+    publication_id:"ZjfgPLMAAAAJ:SpbeaW3--B0C",
+    user_id: 1,
+    rating: 2
+},
+{
+    publication_id:"ZjfgPLMAAAAJ:XiVPGOgt02cC",
+    user_id: 2,
+    rating:10
+},
+{
+    publication_id:"ZjfgPLMAAAAJ:XiVPGOgt02cC",
+    user_id: 34,
+    rating:9
+},
+{
+    publication_id:"ZjfgPLMAAAAJ:t6usbXjVLHcC",
+    user_id: 1,
+    rating:8
+}
+])
