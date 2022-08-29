@@ -1760,3 +1760,8 @@ comments=Comment.create([
     user_id: 3,
     comment: "bravissimo"
 },])
+
+#comment=Comment.new({publication_id:"ZjfgPLMAAAAJ:nPTYJWkExTIC", user_id: 34, comment: "ottimo"})
+#comment=Comment.new({publication_id:"ZjfgPLMAAAAJ:DXE8ND7PrJAC", user_id: 34, comment: "meraviglioso!"})
+#comment=Comment.new({publication_id:"ZjfgPLMAAAAJ:DXE8ND7PrJAC", user_id: 1, comment: "sono delusa..."})
+#comment.save

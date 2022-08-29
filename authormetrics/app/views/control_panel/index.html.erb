@@ -54,21 +54,18 @@
 
 <div class= "bottom_block_cp">
     <div class= "half_table_cp">
-    <caption>LATEST PUBLICATIONS</caption>
+    <caption>LATEST COMMENTS</caption>
         <table>
-        <thead><tr><th>Author</th><th>Publication</th> <th>Date</th></tr></thead>
+        <thead><tr><th>User</th><th>Publication</th> <th>Comment</th><th>Delete</th></tr></thead>
         <tbody>
-            <% @latest_pubs.each do |recent_pub| %>
-            <% writtens= Written.where(:publication_id => recent_pub.publication_id)%>
+            <% @latest_comments.each do |recent_comment| %>
+            <% user_name= User.find(recent_comment.user_id).name%>
+            <% pub_title= Publication.find(recent_comment.publication_id).title%>
                 <tr>
-                    <td>
-                        <% writtens.each do |written|%> 
-                            <% auth= Author.find(written.author_id)%>
-                            <%=auth.name%>
-                        <%end%>
-                    </td>
-                    <td><%= recent_pub.title %></td>
-                    <td><%= recent_pub.pub_year %></td>
+                    <td><%= user_name %></td>
+                    <td><%= pub_title %></td>
+                    <td><%= recent_comment.comment %></td>
+                    <td><button class="delete_button"><i class="fa-solid fa-trash"></i></button></td>
                 </tr>
             <% end %>
         </tbody>
@@ -76,7 +73,7 @@
     </div>
     
     <div class="half_table_cp">
-    <caption>LATEST PUBLICATIONS</caption>
+    <caption>LATEST REVIEWS</caption>
         <table>
         <thead><tr><th>Author</th><th>Publication</th> <th>Date</th></tr></thead>
         <tbody>

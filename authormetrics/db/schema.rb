@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_29_173953) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_29_200705) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -69,7 +69,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_29_173953) do
     t.string "publication_id", limit: 255, null: false
     t.serial "user_id", null: false
     t.text "comment", null: false
-    t.datetime "comment_timestamp", default: "2022-08-29 17:28:26"
+    t.datetime "comment_timestamp", default: -> { "CURRENT_TIMESTAMP" }
   end
 
   create_table "favorite_authors", primary_key: "favorite_author_id", force: :cascade do |t|

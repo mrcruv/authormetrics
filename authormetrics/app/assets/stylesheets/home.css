@@ -191,6 +191,7 @@
   margin-top: 2%;
   margin-left: 0.5%;
   width: 100%;
+  font-family: Verdana,sans-serif;
 }
 
 .control_graph{
@@ -204,6 +205,11 @@
   margin-left: 2%;
 }
 
+.delete_button{
+  border-style: none;
+  box-shadow:none;
+  background-color:transparent;
+}
 
 
 
