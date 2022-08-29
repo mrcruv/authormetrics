@@ -57,7 +57,7 @@ Rails.application.routes.draw do
   
   get "/authors/search/:search", to: "authors#search"
   get "/publications/search/:search", to: "publications#search"
-  get "/authors/:id/search_pub_by_auth/:search", to: "authors#search_pub"
+  get "/authors/:id/search_pub_by_auth/:search", to: "authors#search_pub", as: :author_search_pub
   delete "/authors/:author_id/author_ratings/:id", to: "author_ratings#destroy", as: :destroy_author_author_rating
   delete "/users/:user_id/favorite_authors/:id", to: "favorite_authors#destroy", as: :destroy_user_favorite_author
 
