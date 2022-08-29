@@ -120,6 +120,7 @@ function searchPubByAuth(id){
     //if (document.getElementById("ByAuth")){
     //    document.getElementById("ByAuth").style.backgroundColor = "";
     //}
+    alert(id);
     createSearchBar2("Search Auth by Pub...",id);
 }
 
