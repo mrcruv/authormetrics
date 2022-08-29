@@ -2,7 +2,7 @@ COME MODIFICARE LE RELAZIONI DI RISORSE NESTED PER FARLE FUNZIONARE IN RAILS:
 
 DA pgAdmin digitare
 
-TABLE tableName DROP CONSTRAINT constraint_name;
+ALTER TABLE tableName DROP CONSTRAINT constraint_name;
 
 (da postgres su terminale --> ALTER TABLE author_ratings DROP CONSTRAINT author_ratings_pkey;)
 
