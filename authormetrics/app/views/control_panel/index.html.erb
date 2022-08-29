@@ -11,7 +11,7 @@
 
 <div class="upper_block_cp">
     <div class="upper_box_1">
-    ciao
+        <%= line_chart Comment.order("DATE(comment_timestamp)").group("DATE(comment_timestamp)").count %>
     </div>
     <div class="upper_box_1">
     ciao

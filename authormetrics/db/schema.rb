@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_29_131719) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_29_154021) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -96,6 +96,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_29_131719) do
     t.text "published_on"
     t.integer "cited_by"
     t.integer "pub_year"
+    t.datetime "created_at", default: "2022-08-29 16:00:40"
     t.check_constraint "cited_by IS NOT NULL OR cited_by >= 0", name: "publications_cited_by_check"
   end
 
