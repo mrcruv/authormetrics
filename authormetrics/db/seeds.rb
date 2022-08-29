@@ -1696,12 +1696,12 @@ reviews=Review.create([
 },
 {
     author_id:"RIg9DVEAAAAJ",
-    user_id: 3,
+    user_id: 1,
     review: "bravo"
 },
 {
     author_id:"R8PPdbQAAAAJ",
-    user_id: 4,
+    user_id: 1,
     review: "niente di che"
 },
 {
@@ -1711,12 +1711,12 @@ reviews=Review.create([
 },
 {
     author_id:"wT4V7isAAAAJ",
-    user_id: 2,
+    user_id: 1,
     review: "anche no"
 },
 {
     author_id:"kq0NYnMAAAAJ",
-    user_id: 3,
+    user_id: 1,
     review: "bravissimo"
 },])
 
@@ -1760,3 +1760,8 @@ comments=Comment.create([
     user_id: 3,
     comment: "bravissimo"
 },])
+
+#comment=Comment.new({publication_id:"ZjfgPLMAAAAJ:nPTYJWkExTIC", user_id: 34, comment: "ottimo"})
+#comment=Comment.new({publication_id:"ZjfgPLMAAAAJ:DXE8ND7PrJAC", user_id: 34, comment: "meraviglioso!"})
+#comment=Comment.new({publication_id:"ZjfgPLMAAAAJ:DXE8ND7PrJAC", user_id: 1, comment: "sono delusa..."})
+#comment.save
