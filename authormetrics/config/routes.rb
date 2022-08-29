@@ -53,6 +53,7 @@ Rails.application.routes.draw do
   get "/cookies", to: "home#cookies"
   get "/users/:id", to: "users#show"
   get "/dashboard", to: "dashboard#index"
+  get "/control_panel", to: "control_panel#index"
   
   get "/authors/search/:search", to: "authors#search"
   get "/publications/search/:search", to: "publications#search"

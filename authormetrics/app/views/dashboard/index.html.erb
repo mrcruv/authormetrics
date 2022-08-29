@@ -20,19 +20,36 @@
 <div class="left_block">
     <div class= "scrollable_box">
         <div class="scrollable">
-            <text>FAVOURITE PUBLICATIONS</text>
+            <text>FAVORITE PUBLICATIONS:</text>
+            <ul>
+                <% @favorite_publications.each do |favorite_publication| %>
+                    <%author_name= Author.where(author_id:favorite_publication.author_id)[0].name %>
+                    <li>Author: <%=author_name%>, Title:<%=favorite_publication.title%>, Date: <%=favorite_publication.pub_year%></li>
+                <%end%>
+            </ul>
         </div>
     </div>
     
     <div class= "scrollable_box">
         <div class="scrollable">
-            <text>FAVOURITE AUTHORS</text>
+            <text>FAVORITE AUTHORS</text>
+            <ul>
+                <% @favorite_authors.each do |favorite_author| %>
+                    <%author= Author.where(author_id:favorite_author.author_id)[0] %>
+                    <li>Author: <%=author.name%></li> <!-- Affiliations:<%=author.affiliations%>, Interests: <%=author.interests%> -->
+                <%end%>
+            </ul>
         </div>
     </div>
 
     <div class= "scrollable_box">
         <div class="scrollable">
             <text>LATEST PUBLICATIONS FROM YOUR FAVOURITE AUTHORS</text>
+            <%  @latest_pub_fav_auth.each do |latest_pub| %>
+             <% written= Written.where(:publication_id => latest_pub.publication_id)[0]%>
+             <% author_name= Author.find(written.author_id).name%>
+             <li>Author: <%=author_name%>, Title:<%=latest_pub.title%>, Date: <%=latest_pub.pub_year%></li>
+            <%end%>
         </div>
     </div>
 </div>
@@ -46,7 +63,8 @@
         <% if !user_signed_in? && !administrator_signed_in? %>
             <button onclick="location.href='http://127.0.0.1:3000/users/sign_up'"> LOGIN/REGISTER</button>
             <button onclick="location.href='http://127.0.0.1:3000/administrators/sign_up'"> RESERVED AREA</button>
-        <% end %>
+        <% elsif user_signed_in?%>
+        <%end%>
         <p id="p1"> </p>
     </div>
 
