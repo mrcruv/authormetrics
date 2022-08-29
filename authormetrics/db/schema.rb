@@ -10,13 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_28_074806) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_29_131719) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "administrators", primary_key: "admin_id", id: :serial, force: :cascade do |t|
     t.string "username", limit: 255, null: false
-    t.string "password", limit: 255, null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

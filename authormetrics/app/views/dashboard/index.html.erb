@@ -44,7 +44,7 @@
 
     <div class= "scrollable_box">
         <div class="scrollable">
-            <text>LATEST PUBLICATIONS FROM YOUR FAVOURITE AUTHORS</text>
+            <text style="">LATEST PUBLICATIONS FROM YOUR FAVOURITE AUTHORS</text>
             <%  @latest_pub_fav_auth.each do |latest_pub| %>
              <% written= Written.where(:publication_id => latest_pub.publication_id)[0]%>
              <% author_name= Author.find(written.author_id).name%>
@@ -64,6 +64,8 @@
             <button onclick="location.href='http://127.0.0.1:3000/users/sign_up'"> LOGIN/REGISTER</button>
             <button onclick="location.href='http://127.0.0.1:3000/administrators/sign_up'"> RESERVED AREA</button>
         <% elsif user_signed_in?%>
+            <% user_show= "http://127.0.0.1:3000/users/#{current_user["user_id"]}"%>
+            <button onclick= "location.href='<%=user_show%>'"> MY DATA</button>
         <%end%>
         <p id="p1"> </p>
     </div>
@@ -85,15 +87,7 @@
                     <input type="radio" id="pub_ratings" name="choise" onclick="pub_ratings_graph()"> <label for="pub_ratings"> Hightest rate publications</label><br><br>
                     <input type="radio" id="most_cited_publications" name="choise" onclick="most_cited_publication_graph()"> <label for="most_cited_authors"> Most cited publication</label><br><br>
                 </fieldset>
-                <!--
-                <label for="cars">Choose a car:</label>
-                <select id="cars">
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="opel">Opel</option>
-                <option value="audi">Audi</option>
-                </select>
-                -->
+    
         </div>
         <div class="bottom_right_block_right">
         <div class="filters", style="padding-left:7%;">

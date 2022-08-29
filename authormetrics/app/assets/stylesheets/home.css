@@ -2,11 +2,20 @@
   padding-top: 1%;
 }
 
-.logout_home{
+.logout_home_user{
   position: absolute;
   right: 1%;
-  top: 14%;
+  top: 13%;
   width:15.3%;
+  height: 10%;
+  z-index:99999;
+}
+
+.logout_home_admin{
+  position: absolute;
+  right: 1%;
+  top: 13%;
+  width:14%;
   height: 10%;
   z-index:99999;
 }
@@ -14,7 +23,7 @@
 .logout_dashboard{
   position: absolute;
   right: 1%;
-  top: 14%;
+  top: 13%;
   width:17.3%;
   height: 10%;
   z-index:99999;
@@ -127,6 +136,7 @@
   height: 60px;
 }
 
+
 .scrollable_box{
   left:0%;
   width: 90%;
@@ -139,9 +149,9 @@
   border-style: solid;
   border-color: #102027;
   width:100%;
-  height: 150px;       /* Just for the demo          */
-  overflow-y: auto;    /* Trigger vertical scroll    */
-  overflow-x: hidden;  /* Hide the horizontal scroll */
+  height: 150px;      
+  overflow-y: auto; 
+  overflow-x: hidden;  
 }
 
 

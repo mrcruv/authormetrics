@@ -52,7 +52,7 @@ Rails.application.routes.draw do
   get "/privacy", to: "home#privacy"
   get "/cookies", to: "home#cookies"
   get "/users/:id", to: "users#show"
-  get "/dashboard", to: "dashboard#index"
+  get "/dashboard", to: "dashboard#index" 
   get "/control_panel", to: "control_panel#index"
   
   get "/authors/search/:search", to: "authors#search"
