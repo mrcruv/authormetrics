@@ -12,8 +12,6 @@ class AuthorsController < ApplicationController
   # GET /authors/1 or /authors/1.json
   def show
     authorize! :read, @author, :message => "BEWARE: you are not authorized to read authors." 
-    gon.data=params[:id]
-    #gon.push(any_object)
     
   end
 
@@ -22,8 +20,8 @@ class AuthorsController < ApplicationController
   end
 
   def search_pub
-    param=params[:id].split(":")[0]
-    @Publications=Publication.where("publication_id ~*" => param,"title ~* ?" => params[:search])
+   publications=Publication.where("publication_id ~* :regexp",:regexp => params[:id])
+   @publications=publications.where( "title ~* :reg", :reg => params[:search])
   end
 
   # GET /authors/1/edit
