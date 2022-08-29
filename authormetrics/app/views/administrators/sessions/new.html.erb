@@ -1,7 +1,10 @@
-<h2>Log in</h2>
+<div class='contenitore_1'>
+<%= image_tag("Immagine2.png", size:"384.6153846x108.4615338", class: "logo")%>
+<h2>LOG IN</h2>
 
+<div class='contenitore'>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
+  <div class="field" style="background-color=#c9fdd7;">
     <%= f.label :username %><br />
     <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
   </div>
@@ -23,4 +26,22 @@
   </div>
 <% end %>
 
+<div> 
+  <br>
+  <button onclick="location.href='http://127.0.0.1:3000/administrators/sign_up'">REGISTRATION</button> 
+  <button onclick="location.href='http://127.0.0.1:3000'">HOME</button> 
+  </br>
+  <br></br>
+</div>
+
+<div class="footer" float:left>
+    <a href="/contacts">CONTACT US</a>
+    <a href="/info">INFO</a>
+    <a href="/use_and_conditions">USE TERMS AND CONDITIONS</a>
+    <a href="/privacy">PRIVACY</a>
+    <a href="/cookies">COOKIES</a>
+</div>
+
 <%= render "administrators/shared/links" %>
+</div>
+</div>
