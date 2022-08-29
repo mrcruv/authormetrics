@@ -24,6 +24,6 @@ Canard::Abilities.for(:user) do
     can [:create, :read, :update, :destroy, :index], Review
     cannot [], Review
 
-    # can [:read], User
-    # cannot [], User
+    can [:index,:read], User
+    cannot [:create, :update, :destroy], User
 end

@@ -1,2 +1,18 @@
-<h1></h1>
-<p>Find me in app/views/control_panel/index.html.erb</p>
+<header class="upper_block">
+   <%= image_tag("Immagine2.png", size:"384.6153846x108.4615338", class: "logo")%> 
+</header>
+
+<div class="logout_control panel">
+        <text> WELCOME BACK <%current_administrator["username"]%>! </text>
+        <br></br>
+        <%= button_to "LOGOUT", destroy_administrator_session_path, :method => :delete if administrator_signed_in? %>
+</div>
+
+
+<%= javascript_include_tag "home"%>
+<%= javascript_include_tag "Chart" %>
+<%= javascript_include_tag "chartkick" %>
+<%= javascript_include_tag "chartjs-adapter-date-fns.bundle"%>
+<%= javascript_include_tag "application" %>
+
+
