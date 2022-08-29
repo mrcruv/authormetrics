@@ -1,13 +1,28 @@
 <header class="upper_block">
-   <%= image_tag("Immagine2.png", size:"384.6153846x108.4615338", class: "logo")%> 
+   <%= image_tag("Immagine2.png", size:"256,41x72,3", class: "logo")%> 
 </header>
 
-<div class="logout_control panel">
+<div class="logout_control_panel">
         <text> WELCOME BACK <%current_administrator["username"]%>! </text>
         <br></br>
         <%= button_to "LOGOUT", destroy_administrator_session_path, :method => :delete if administrator_signed_in? %>
+        <button>SEND COMUNICATION</button>
 </div>
 
+<div class="upper_block_cp">
+    <div class="upper_box_1">
+    ciao
+    </div>
+    <div class="upper_box_1">
+    ciao
+    </div>
+    <div class="upper_box_1">
+    ciao
+    </div>
+    <div class="upper_box_1">
+    ciao
+    </div>
+</div>
 
 <%= javascript_include_tag "home"%>
 <%= javascript_include_tag "Chart" %>
