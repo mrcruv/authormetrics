@@ -1,0 +1,7 @@
+comando:
+
+rails s -b 'ssl://localhost:3000?key=key.pem&cert=cert.pem'
+
+pem phrase:
+
+tizianello
