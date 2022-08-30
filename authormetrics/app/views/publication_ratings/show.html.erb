@@ -3,8 +3,7 @@
 <%= render @publication_rating %>
 
 <div>
-  <%= link_to "Edit this publication rating", edit_publication_rating_path(@publication_rating) %> |
-  <%= link_to "Back to publication ratings", publication_publication_ratings_path %>
-
-  <!-- ce dovrebbe sta na delete -->
+  <%= link_to "Edit this publication rating", edit_publication_publication_rating_path(@publication,@publication_rating) %> |
+  <%= link_to "Back to publication ratings", publication_publication_ratings_path(@publication) %>
+ <%= button_to 'Destroy rating', [@publication_rating.publication,@publication_rating], :method=>:delete %>
 </div>

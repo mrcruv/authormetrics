@@ -23,3 +23,19 @@
     <%= link_to "Go to Author", author_path%>
   </div>
 <%end%>
+
+
+<h2>RATING</h2>
+<!-- fare sum con media e visualizzare la media delle recensioni-->
+<% for publication_rating in @publication.publication_rating%>
+  <ul>
+      <li><%= publication_rating.rating %></li>
+  </ul>
+<% end %>
+
+<p>Ratings average: <%= @avg_ratings%></p>
+
+<!--if in author_ratings not exist record con current_user.id -->
+<%if user_signed_in?%>
+<%= link_to "add publication rating", publication_publication_ratings_path(@publication)%>
+<%end%>
