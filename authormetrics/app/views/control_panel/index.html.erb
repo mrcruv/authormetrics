@@ -9,10 +9,9 @@
 </div>
 
 <div class="upper_block_cp">
-    <button>SEND COMUNICATION</button>
-    <button>BUNNED USERS</button>
+    <button onclick="location.href='http://127.0.0.1:3000/banned_users'">BUNNED USERS</button>
     <button>LATEST PUBLICATIONS</button>
-    <button>LATEST COMMENTS</button>
+    <button>LATEST AUTHORS</button>
 </div>
 
 <div class="medium_block_cp">
@@ -75,27 +74,22 @@
     <div class="half_table_cp">
     <caption>LATEST REVIEWS</caption>
         <table>
-        <thead><tr><th>Author</th><th>Publication</th> <th>Date</th></tr></thead>
+        <thead><tr><th>User</th><th>Author</th> <th>Review</th><th>Delete</th></tr></thead>
         <tbody>
-            <% @latest_pubs.each do |recent_pub| %>
-            <% writtens= Written.where(:publication_id => recent_pub.publication_id)%>
+            <% @latest_reviews.each do |recent_review| %>
+            <% user_name= User.find(recent_review.user_id).name%>
+            <% auth_name= Author.find(recent_review.author_id).name%>
                 <tr>
-                    <td>
-                        <% writtens.each do |written|%> 
-                            <% auth= Author.find(written.author_id)%>
-                            <%=auth.name%>
-                        <%end%>
-                    </td>
-                    <td><%= recent_pub.title %></td>
-                    <td><%= recent_pub.pub_year %></td>
+                    <td><%= user_name %></td>
+                    <td><%= auth_name %></td>
+                    <td><%= recent_review.review %></td>
+                    <td><button class="delete_button"><i class="fa-solid fa-trash"></i></button></td>
                 </tr>
             <% end %>
         </tbody>
         </table>
-    <div>
-    
+    <div>  
 </div>
-
 
 <%= javascript_include_tag "home"%>
 <%= javascript_include_tag "Chart" %>
