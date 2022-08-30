@@ -5,12 +5,11 @@
 <div>
   <%if @comments != [] || @comments != nil%>
     <% @comments.each do |com| %>
-      <% r=User.find(com.user_id)%>
+      <h1><% r=User.find(com.user_id)%></h1>
       <p>
       <strong><%= r.username %>:</strong>
       <%= com.comment %>
       </p>
-      <%= "-------------------" %>
     <%end%>
   <%end%>
 </div>

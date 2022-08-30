@@ -2,19 +2,19 @@
 
 <h1>Author ratings</h1>
 
+<button><%= link_to "NEW AUTHOR RATING", new_author_author_rating_path(@author)%></button>
+<button><%=link_to "BACK TO AUTHOR",[@author] %></button>
+
 <div id="author_ratings">
   <% @author_ratings.each do |author_rating| %>
+  
     <%= render author_rating %>
     <p>
-    <%= link_to "show author",[@author] %>
     <%= link_to "Edit author rating", edit_author_author_rating_path(author_rating.author_id,author_rating.user_id)%>
-      
-      <%= link_to 'Destroy rating', destroy_author_author_rating_path(author_rating.author_id,author_rating.user_id), method: :delete %>
+    <%= link_to 'Destroy rating', destroy_author_author_rating_path(author_rating.author_id,author_rating.user_id), method: :delete %>
     </p>
+
   <% end %>
 </div>
 
-<%= link_to "New author rating", new_author_author_rating_path(@author)%>
-<br></br>
 
-<%=link_to "BACK TO AUTHOR",[@author] %>
