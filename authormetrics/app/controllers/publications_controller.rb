@@ -88,4 +88,6 @@ class PublicationsController < ApplicationController
     def publication_params
       params.require(:publication).permit(:publication_id, :title, :link, :published_on, :cited_by, :pub_year)
     end
+
+
 end
