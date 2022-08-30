@@ -1761,12 +1761,54 @@ comments=Comment.create([
     comment: "bravissimo"
 },])
 
-#comment=Comment.new({publication_id:"ZjfgPLMAAAAJ:nPTYJWkExTIC", user_id: 34, comment: "ottimo"})
-#comment=Comment.new({publication_id:"ZjfgPLMAAAAJ:DXE8ND7PrJAC", user_id: 34, comment: "meraviglioso!"})
-#comment=Comment.new({publication_id:"ZjfgPLMAAAAJ:DXE8ND7PrJAC", user_id: 1, comment: "sono delusa..."})
-#comment.save
-#review=Review.new({author_id:"kq0NYnMAAAAJ", user_id:34, review:"probabile"})
-#review=Review.new({author_id:"iXjCKTgAAAAJ", user_id:34, review:"improbabile"})
+#ALTRI SEED UTILI DA COPIARE E INCOLLARE SU /bin/rail c... RICORDARSI DI CAMBIARE GLI ID E DI SALVARE LE ENTRIES CREATE
+
+=begin
+comments=Comment.create([
+{   
+    publication_id:"ZjfgPLMAAAAJ:nPTYJWkExTIC", 
+    user_id: 35, 
+    comment: "ottimo"
+}, 
+{   
+    publication_id:"ZjfgPLMAAAAJ:nPTYJWkExTIC", 
+    user_id: 36, 
+    comment: "non so che dire"
+}, 
+{   
+    publication_id:"ZjfgPLMAAAAJ:DXE8ND7PrJAC", 
+    user_id: 35, 
+    comment: "mi piace questo sito"
+}, 
+{   
+    publication_id:"ZjfgPLMAAAAJ:DXE8ND7PrJAC", 
+    user_id: 36, 
+    comment: "non ci ho capito nulla :("
+}
+])
+
+reviews=Review.create([
+{
+    author_id:"kq0NYnMAAAAJ",
+    user_id:35, 
+    review: "mi piace"
+}, 
+{
+    author_id:"iXjCKTgAAAAJ", 
+    user_id:35, 
+    review:"è simpatico"
+},
+{   
+    author_id:"iXjCKTgAAAAJ", 
+    user_id:36, 
+    review:"buuuuuu"
+},
+{
+    author_id:"kq0NYnMAAAAJ",
+    user_id:36, 
+    review: "non lo sopporto proprio"
+} 
+])
 
 publication_ratings=PublicationRating.create([
 {
@@ -1805,3 +1847,36 @@ publication_ratings=PublicationRating.create([
     rating:8
 }
 ])
+
+publication_ratings=PublicationRating.create([
+{
+    publication_id:"ZjfgPLMAAAAJ:nPTYJWkExTIC",
+    user_id: 35,
+    rating: 7
+},
+{
+    publication_id:"ZjfgPLMAAAAJ:jgBuDB5drN8C",
+    user_id: 35,
+    rating: 8
+},
+{
+    publication_id:"ZjfgPLMAAAAJ:jgBuDB5drN8C",
+    user_id: 36,
+    rating: 1
+},
+{
+    publication_id:"ZjfgPLMAAAAJ:SpbeaW3--B0C",
+    user_id: 34,
+    rating: 4
+},
+{
+    publication_id:"ZjfgPLMAAAAJ:XiVPGOgt02cC",
+    user_id: 35,
+    rating:10
+},
+{
+    publication_id:"ZjfgPLMAAAAJ:XiVPGOgt02cC",
+    user_id: 36,
+    rating:6
+}])
+=end

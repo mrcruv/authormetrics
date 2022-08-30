@@ -199,7 +199,12 @@
   margin-bottom: 4%;
 }
 
-.half_table_cp{
+.half_table_cp_1{
+  display:inline-block;
+  width:47%;
+}
+
+.half_table_cp_2{
   display:inline-block;
   width:47%;
   margin-left: 2%;
