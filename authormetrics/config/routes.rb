@@ -34,7 +34,7 @@ Rails.application.routes.draw do
     resources :author_ratings
     resources :reviews
   end
-  resources :publications, only: %i[ index show ] do
+  resources :publications, only: %i[show index] do
     resources :publication_ratings
     resources :comments
   end

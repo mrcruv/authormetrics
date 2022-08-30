@@ -89,15 +89,15 @@
     <div class= "upper_right_block">
         <button onclick= "searchByAuth()" id= "ByAuth" style="background-color:#79d1c3;" > SEARCH BY AUTH </button>
         <button onclick= "searchByPub()" id= "ByPub" style="background-color:#c9fdd7;"> SEARCH BY PUB</button>
-        <button onclick="location.href='http://127.0.0.1:3000/authors'"> AUTHORS</button> 
-        <button onclick="location.href='http://127.0.0.1:3000/publications'"> PUBLICATIONS</button>
+        <button onclick="location.href='https://127.0.0.1:3000/authors'"> AUTHORS</button> 
+        <button onclick="location.href='https://127.0.0.1:3000/publications'"> PUBLICATIONS</button>
         <% if not ( user_signed_in? or administrator_signed_in?) %>
-            <button onclick="location.href='http://127.0.0.1:3000/users/sign_up'"> LOGIN/REGISTER</button>
-            <button onclick="location.href='http://127.0.0.1:3000/administrators/sign_up'"> RESERVED AREA</button>
+            <button onclick="location.href='https://127.0.0.1:3000/users/sign_up'"> LOGIN/REGISTER</button>
+            <button onclick="location.href='https://127.0.0.1:3000/administrators/sign_up'"> RESERVED AREA</button>
         <% elsif user_signed_in? %>
-            <button onclick="location.href='http://127.0.0.1:3000/dashboard'"> MY ACCOUNT</button>
+            <button onclick="location.href='https://127.0.0.1:3000/dashboard'"> MY ACCOUNT</button>
         <%else%>
-            <button onclick="location.href='http://127.0.0.1:3000/control_panel'">CONTROL PANEL</button>
+            <button onclick="location.href='https://127.0.0.1:3000/control_panel'">CONTROL PANEL</button>
         <%end%>
         <p id="p1"> </p>
     </div>
