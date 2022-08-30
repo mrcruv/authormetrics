@@ -79,7 +79,7 @@
                     <br>
                     <label>ON AUTHORS:</label><br>
                     <br>
-                    <input type="radio" id="most_cited_authors_trend" name="choise" onclick="most_cited_authors_graph()" checked > <label for="most_cited_authors_trend"> Most cited authors</label><br> <br>
+                    <input type="radio" id="favorite_authors_trend" name="choise" onclick="favorite_authors_graph()" checked > <label for="favorite_authors_trend"> Favorite authors trend</label><br> <br>
                     <input type="radio" id="auth_ratings" name="choise" onclick="auth_ratings_graph()" > <label for="auth_ratings"> Hightest rate authors</label><br><br>
                     <input type="radio" id="most_commented_authors" name="choise" onclick="most_commented_authors_graph()"> <label for="most_commented_authors"> Most commented authors</label><br> <br>
                     <label>ON PUBLICATIONS:</label><br>
@@ -95,6 +95,20 @@
         <br></br>
 
         <div class="graph" id="chart1" style="visibility:visible;"}>
+                Need to fix some problems...
+                <!--
+                <div class="filters", style="padding-left:7%;">
+                <label for="filters">YUOR FAVORITE AUTHORS:</label> 
+                <select name="filters" id="favorite_auth" >
+                    <%@favorite_authors.each do |author|%>
+                        <% name= Author.find(author.author_id).name%>
+                        <option value='<%=author.author_id%>'><%name%></option>
+                    <%end%>
+                    </select>
+                </div>
+                <br></br> 
+                <div id="most_cited_pubs_per_year_chart" style="width:500px; height:300px;">
+                </div>
                 <%= line_chart @most_cited_authors.sort_by{|x| -x.graph.length}.map { |most_cited|
                     {
                         name: Author.find(most_cited.author_id).name,
@@ -104,7 +118,7 @@
                    xtitle: "years", 
                    ytitle: "citations",
                    colors: ["#49beb7", "#6892d5", "#7c4789", "#9973e2", "#7b99fa"], 
-                   title:"MOST CITED AUTHORS TRENDS"%>
+                   title:"MOST CITED AUTHORS TRENDS"%>-->
         </div>
 
 
