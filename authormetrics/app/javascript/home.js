@@ -92,6 +92,7 @@ function most_cited_publication_graph(){
     document.getElementById(actual_chart).style.visibility= "visible";
 }
 
+
 //////////////////////////////////////////////////////////////////////////
 
 function createSearchBar2(placeholder,id){

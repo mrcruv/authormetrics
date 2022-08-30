@@ -1,0 +1,87 @@
+
+function initializeCharts(){
+
+    <!-- CHART 4-->
+    <%most_cited_pubs_per_year_data= []%>
+
+    <%for year in (Date.today.year - 10.. Date.today.year )%>
+    <%most_cited=Publication.distinct.order(cited_by: :desc).where(pub_year:year).first()%>
+        <%if (most_cited != nil)%>
+            <%most_cited_pubs_per_year_data << [ year.to_s + ": "+  most_cited.title, most_cited.cited_by]%>
+        <%end%>
+    <%end%>
+    var chart= new Chartkick.ColumnChart("most_cited_pubs_per_year_chart",<%=most_cited_pubs_per_year_data%>,
+    {colors: ["#97f6b0", "#80e7ad", "#69d8ab", "#55c8a7", "#41b9a3", "#2fa99d", "#1f9a96", "#0f8a8f","#037b86", "#006c7b" ], 
+            title:"LAST 10 YEARS TOTAL PUBLICATIONS"});
+    <!--END CHART 4-->
+}
+
+function changeChart4(){
+    var n= document.getElementById("last_n").value;
+    if (n==5) changeChart4_5();
+    else if (n==10) changeChart4_10();
+    else if (n==15) changeChart4_15()
+    else changeChart4_20()
+}
+
+function changeChart4_5(){
+    <%most_cited_pubs_per_year_data= []%>
+
+    <%for year in (Date.today.year - 5.. Date.today.year )%>
+    <%most_cited=Publication.distinct.order(cited_by: :desc).where(pub_year:year).first()%>
+        <%if (most_cited != nil)%>
+            <%most_cited_pubs_per_year_data << [ year.to_s + ": "+  most_cited.title, most_cited.cited_by]%>
+        <%end%>
+    <%end%>
+
+    var chart= new Chartkick.ColumnChart("most_cited_pubs_per_year_chart",<%=most_cited_pubs_per_year_data%>,
+    {colors: ["#97f6b0", "#80e7ad", "#69d8ab", "#55c8a7", "#41b9a3", "#2fa99d", "#1f9a96", "#0f8a8f","#037b86", "#006c7b" ], 
+            title:"LAST 5 YEARS TOTAL PUBLICATIONS"});
+}
+
+function changeChart4_10(){
+    <%most_cited_pubs_per_year_data= []%>
+
+    <%for year in (Date.today.year - 10.. Date.today.year )%>
+    <%most_cited=Publication.distinct.order(cited_by: :desc).where(pub_year:year).first()%>
+        <%if (most_cited != nil)%>
+            <%most_cited_pubs_per_year_data << [ year.to_s + ": "+  most_cited.title, most_cited.cited_by]%>
+        <%end%>
+    <%end%>
+
+    var chart= new Chartkick.ColumnChart("most_cited_pubs_per_year_chart",<%=most_cited_pubs_per_year_data%>,
+    {colors: ["#97f6b0", "#80e7ad", "#69d8ab", "#55c8a7", "#41b9a3", "#2fa99d", "#1f9a96", "#0f8a8f","#037b86", "#006c7b" ], 
+            title:"LAST 10 YEARS TOTAL PUBLICATIONS"});
+}
+
+function changeChart4_15(){
+    <%most_cited_pubs_per_year_data= []%>
+
+    <%for year in (Date.today.year - 15.. Date.today.year )%>
+    <%most_cited=Publication.distinct.order(cited_by: :desc).where(pub_year:year).first()%>
+        <%if (most_cited != nil)%>
+            <%most_cited_pubs_per_year_data << [ year.to_s + ": "+  most_cited.title, most_cited.cited_by]%>
+        <%end%>
+    <%end%>
+
+    var chart= new Chartkick.ColumnChart("most_cited_pubs_per_year_chart",<%=most_cited_pubs_per_year_data%>,
+    {colors: ["#97f6b0", "#80e7ad", "#69d8ab", "#55c8a7", "#41b9a3", "#2fa99d", "#1f9a96", "#0f8a8f","#037b86", "#006c7b" ], 
+            title:"LAST 15 YEARS TOTAL PUBLICATIONS"});
+}
+
+function changeChart4_20(){
+    <%most_cited_pubs_per_year_data= []%>
+
+    <%for year in (Date.today.year - 20.. Date.today.year )%>
+    <%most_cited=Publication.distinct.order(cited_by: :desc).where(pub_year:year).first()%>
+        <%if (most_cited != nil)%>
+            <%most_cited_pubs_per_year_data << [ year.to_s + ": "+  most_cited.title, most_cited.cited_by]%>
+        <%end%>
+    <%end%>
+
+    var chart= new Chartkick.ColumnChart("most_cited_pubs_per_year_chart",<%=most_cited_pubs_per_year_data%>,
+    {colors: ["#97f6b0", "#80e7ad", "#69d8ab", "#55c8a7", "#41b9a3", "#2fa99d", "#1f9a96", "#0f8a8f","#037b86", "#006c7b" ], 
+            title:"LAST 20 YEARS TOTAL PUBLICATIONS"});
+}
+
+

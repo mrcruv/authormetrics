@@ -26,7 +26,7 @@ a{
     margin-left: 20px;
 }
 
-p,text, textarea, label, ul{
+p,text, textarea, label, ul, option{
     font-family: Verdana,sans-serif;
 }
 
