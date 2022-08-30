@@ -58,13 +58,13 @@
     <div class= "upper_right_block">
         <button onclick= "searchByAuth()" id= "ByAuth" style="background-color:#79d1c3;" > SEARCH BY AUTH </button>
         <button onclick= "searchByPub()" id= "ByPub" style="background-color:#c9fdd7;"> SEARCH BY PUB</button>
-        <button onclick="location.href='http://127.0.0.1:3000/authors'"> AUTHORS</button> 
-        <button onclick="location.href='http://127.0.0.1:3000/publications'"> PUBLICATIONS</button>
+        <button onclick="location.href='https://127.0.0.1:3000/authors'"> AUTHORS</button> 
+        <button onclick="location.href='https://127.0.0.1:3000/publications'"> PUBLICATIONS</button>
         <% if !user_signed_in? && !administrator_signed_in? %>
-            <button onclick="location.href='http://127.0.0.1:3000/users/sign_up'"> LOGIN/REGISTER</button>
-            <button onclick="location.href='http://127.0.0.1:3000/administrators/sign_up'"> RESERVED AREA</button>
+            <button onclick="location.href='https://127.0.0.1:3000/users/sign_up'"> LOGIN/REGISTER</button>
+            <button onclick="location.href='https://127.0.0.1:3000/administrators/sign_up'"> RESERVED AREA</button>
         <% elsif user_signed_in?%>
-            <% user_show= "http://127.0.0.1:3000/users/#{current_user["user_id"]}"%>
+            <% user_show= "https://127.0.0.1:3000/users/#{current_user["user_id"]}"%>
             <button onclick= "location.href='<%=user_show%>'"> MY DATA</button>
         <%end%>
         <p id="p1"> </p>
