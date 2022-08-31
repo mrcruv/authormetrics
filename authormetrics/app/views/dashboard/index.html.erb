@@ -19,37 +19,46 @@
 
 <div class="left_block">
     <div class= "scrollable_box">
-        <div class="scrollable">
-            <text>FAVORITE PUBLICATIONS:</text>
-            <ul>
+            <div class="filters", style="padding-left:7%;">
+            <label for="filters">YOUR FAVORITE PUBLICATIONS:</label>
+            <select name="filters" id="favorite_auth" onclick="">
                 <% @favorite_publications.each do |favorite_publication| %>
-                    <%author_name= Author.where(author_id:favorite_publication.author_id)[0].name %>
-                    <li>Author: <%=author_name%>, Title:<%=favorite_publication.title%>, Date: <%=favorite_publication.pub_year%></li>
-                <%end%>
-            </ul>
-        </div>
+                    <% title= Publication.find(favorite_publication.publication_id).title%>
+                    <option value='<%favorite_publication.publication_id%>'><%=title%></option>
+                <%end%> 
+                </select> 
+            </div> 
     </div>
-    
+
     <div class= "scrollable_box">
-        <div class="scrollable">
-            <text>FAVORITE AUTHORS</text>
-            <ul>
-                <% @favorite_authors.each do |favorite_author| %>
-                    <%author= Author.where(author_id:favorite_author.author_id)[0] %>
-                    <li>Author: <%=author.name%></li> <!-- Affiliations:<%=author.affiliations%>, Interests: <%=author.interests%> -->
-                <%end%>
-            </ul>
-        </div>
+             <div class="filters", style="padding-left:7%;">
+                <label for="filters">YOUR FAVORITE AUTHORS:</label>
+                <select name="filters" id="favorite_auth" onclick="">
+                    <%@favorite_authors.each do |author|%>
+                        <% name= Author.find(author.author_id).name%>
+                        <option value='<%author.author_id%>'><%=name%></option>
+                    <%end%> 
+                    </select> 
+                </div> 
     </div>
 
     <div class= "scrollable_box">
         <div class="scrollable">
-            <text style="">LATEST PUBLICATIONS FROM YOUR FAVOURITE AUTHORS</text>
-            <%  @latest_pub_fav_auth.each do |latest_pub| %>
-             <% written= Written.where(:publication_id => latest_pub.publication_id)[0]%>
-             <% author_name= Author.find(written.author_id).name%>
-             <li>Author: <%=author_name%>, Title:<%=latest_pub.title%>, Date: <%=latest_pub.pub_year%></li>
-            <%end%>
+            <caption>LATEST PUBLICATIONS FROM YOUR FAVOURITE AUTHORS</caption>
+            <table>
+            <thead><tr><th>Author</th><th>Publication</th> <th>Date</th></tr></thead>
+            <tbody>
+                <% @latest_pub_fav_auth.each do |latest_pub| %>
+                <% written= Written.where(:publication_id => latest_pub.publication_id)[0]%>
+                <% author_name= Author.find(written.author_id).name%>
+                    <tr>
+                        <td><%=author_name%></td>
+                        <td><%=link_to latest_pub.title, polymorphic_path(latest_pub)%></td>
+                        <td><%=latest_pub.pub_year%></td>
+                    </tr>
+                <% end %>
+            </tbody>
+            </table>  
         </div>
     </div>
 </div>
@@ -108,7 +117,7 @@
 
         <div class="graph" id="chart2" style="visibility:hidden;">
             <%= area_chart AuthorRating.where(user_id:@user).order("DATE(rating_timestamp)").group("DATE(rating_timestamp)").count, 
-            colors: ["#97f6b0", "#80e7ad", "#69d8ab", "#55c8a7", "#41b9a3", "#2fa99d", "#1f9a96", "#0f8a8f","#037b86", "#006c7b" ],
+            colors: [ "#80e7ad" ],
             xmin: Date.today - 30, xmax: Date.today,
             title:"YOUR MONTHLY AUTHORS' RATINGS"%>
         </div>
@@ -116,7 +125,7 @@
 
         <div class="graph" id="chart3" style="visibility:hidden;">
             <%= area_chart Comment.where(user_id:@user).order("DATE(comment_timestamp)").group("DATE(comment_timestamp)").count, 
-            colors: ["#97f6b0", "#80e7ad", "#69d8ab", "#55c8a7", "#41b9a3", "#2fa99d", "#1f9a96", "#0f8a8f","#037b86", "#006c7b" ],
+            colors: ["#55c8a7"],
             xmin: Date.today - 30, xmax: Date.today,
             title:"YOUR MONTHLY COMMENTS"%>
         </div>
@@ -140,7 +149,7 @@
 
         <div class="graph" id="chart5" style="visibility:hidden;">
             <%= area_chart PublicationRating.where(user_id:@user).order("DATE(rating_timestamp)").group("DATE(rating_timestamp)").count, 
-            colors: ["#97f6b0", "#80e7ad", "#69d8ab", "#55c8a7", "#41b9a3", "#2fa99d", "#1f9a96", "#0f8a8f","#037b86", "#006c7b" ],
+            colors: ["#2fa99d" ],
             xmin: Date.today - 30, xmax: Date.today,
             title:"YOUR MONTHLY PUBLICATIONS' RATINGS"%>
         </div>
@@ -148,9 +157,9 @@
 
         <div class="graph" id="chart6" style="visibility:hidden;">
             <%= area_chart Review.where(user_id:@user).order("DATE(review_timestamp)").group("DATE(review_timestamp)").count, 
-            colors: ["#97f6b0", "#80e7ad", "#69d8ab", "#55c8a7", "#41b9a3", "#2fa99d", "#1f9a96", "#0f8a8f","#037b86", "#006c7b" ],
+            colors: ["#037b86"],
             xmin: Date.today - 30, xmax: Date.today,
-            title:"YOUR MONTHLY COMMENTS"%>
+            title:"YOUR MONTHLY REVIEWS"%>
         </div>
         </div>
     </div>

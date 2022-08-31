@@ -26,23 +26,22 @@ class DashboardController < ApplicationController
         end
 
         @favorite_authors_citedby=[]
-        favorite_auths_pubs=[]
+        favorite_auths_pubs_ids=[]
 
         @favorite_authors.each do |favorite_auth|
             @favorite_authors_citedby<< CitedBy.find(Author.find(favorite_auth.author_id).cited_by_id)
-            #favorite_auths_pubs <<Written.where(author_id: favorite_auth.author_id) 
+            favorite_auths_pubs=Written.where(author_id: favorite_auth.author_id)
+            favorite_auths_pubs.each do |fav_auth_pub|
+                favorite_auths_pubs_ids << fav_auth_pub.publication_id
+            end
         end
-
-        @favorite_authors_citedby= @favorite_authors_citedby.sort_by{|x| -x.graph.length}
         
         @latest_pub_fav_auth=[]
-        if (favorite_auths_pubs !=nil)
-            favorite_auths_pub_ids=[]
-            favorite_auths_pubs.each do |favorite_auth_pub|
-                favorite_auths_pub_ids<<favorite_auth_pub.publication_id
-            end
-            @latest_pub_fav_auth=Publication.distinct.order(pub_year: :desc).where.not(pub_year:nil).where(favorite_auths_pub_ids.include? :publication_id).first(10)
+        favorite_auths_pubs_ids.each do |pub_id|
+            @latest_pub_fav_auth << Publication.find(pub_id)
         end
+
+        @latest_pub_fav_auth=@latest_pub_fav_auth.sort_by{|x| -x.pub_year}.first(10)
 
         @most_cited_pubs_per_year_data= []
 
