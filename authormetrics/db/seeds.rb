@@ -1682,7 +1682,7 @@ cited_by=CitedBy.create([
 #QUESTI COMANDI POSSONO ESTRARRE PTENZIALMENTE OLTRE 400 PUBBLICAZIONI DEGLI AUTHORS,FERMARSI DOPO 1/2 MIN PER NON BUTTARE CHIAMATE API
 #DOVREBBE FARA UNA CALL PER OGNI AUTHOR,QUINDI CIRCA 40 CHIAMATE!!
 
-
+=begin
 reviews=Review.create([
     {
     author_id:"kq0NYnMAAAAJ",
@@ -1763,7 +1763,7 @@ comments=Comment.create([
 
 #ALTRI SEED UTILI DA COPIARE E INCOLLARE SU /bin/rail c... RICORDARSI DI CAMBIARE GLI ID E DI SALVARE LE ENTRIES CREATE
 
-=begin
+
 comments=Comment.create([
 {   
     publication_id:"ZjfgPLMAAAAJ:nPTYJWkExTIC", 
@@ -1879,4 +1879,30 @@ publication_ratings=PublicationRating.create([
     user_id: 36,
     rating:6
 }])
+
+
+favorite_pubs=FavoritePublication.create(
+    [
+        {
+            favorite_publication_id: 1,
+            publication_id: "-8IsASwAAAAJ:-7ulzOJl1JYC",
+            user_id: 34
+        },
+        {
+            favorite_publication_id: 2,
+            publication_id: "-8IsASwAAAAJ:-_dYPAW6P2MC",
+            user_id: 34
+        },
+        {
+            favorite_publication_id: 3, 
+            publication_id: "-8IsASwAAAAJ:1qzjygNMrQYC",
+            user_id: 34
+        },
+        {
+            favorite_publication_id: 4,
+            publication_id: "-8IsASwAAAAJ:2l5NCbZemmgC",
+            user_id: 34
+        }
+    ]
+)
 =end

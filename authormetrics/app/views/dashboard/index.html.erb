@@ -18,28 +18,36 @@
 <%end%>
 
 <div class="left_block">
-    <div class= "scrollable_box">
-            <div class="filters", style="padding-left:7%;">
-            <label for="filters">YOUR FAVORITE PUBLICATIONS:</label>
-            <select name="filters" id="favorite_auth" onclick="">
-                <% @favorite_publications.each do |favorite_publication| %>
-                    <% title= Publication.find(favorite_publication.publication_id).title%>
-                    <option value='<%favorite_publication.publication_id%>'><%=title%></option>
-                <%end%> 
-                </select> 
-            </div> 
-    </div>
-
-    <div class= "scrollable_box">
-             <div class="filters", style="padding-left:7%;">
-                <label for="filters">YOUR FAVORITE AUTHORS:</label>
-                <select name="filters" id="favorite_auth" onclick="">
-                    <%@favorite_authors.each do |author|%>
-                        <% name= Author.find(author.author_id).name%>
-                        <option value='<%author.author_id%>'><%=name%></option>
+    <div class="upper_left_box" style="display:inline-block;">
+        <div class= "fav_box" style="width:45%;">
+                <div class="filters", style="padding-left:7%;">
+                <label for="filters">YOUR FAVORITE PUBLICATIONS:</label>
+                <select name="filters" id="favorite_pub" style="width:90%;">
+                    <% @favorite_publications.each do |favorite_publication| %>
+                        <% title= Publication.find(favorite_publication.publication_id).title%>
+                        <option value='<%=favorite_publication.publication_id%>'><%=title%></option>
                     <%end%> 
                     </select> 
+                <br></br>
+                <button onclick="showFavPub();">SHOW FAV PUB</button>
+                <button>DELETE FAV PUB</button>
                 </div> 
+        </div>
+
+        <div class= "fav_box" style="width:45%;">
+                <div class="filters", style="padding-left:7%;">
+                    <label for="filters">YOUR FAVORITE AUTHORS:</label>
+                    <select name="filters" id="favorite_auth" style="width:90%;">
+                        <%@favorite_authors.each do |author|%>
+                            <% name= Author.find(author.author_id).name%>
+                            <option value='<%=author.author_id%>'><%=name%></option>
+                        <%end%> 
+                        </select> 
+                <br></br>
+                <button onclick="showFavAuth();">SHOW FAV AUTH</button>
+                <button>DELETE FAV AUTH</button>
+                </div> 
+        </div>
     </div>
 
     <div class= "scrollable_box">

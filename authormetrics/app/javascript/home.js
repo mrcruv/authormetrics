@@ -46,13 +46,13 @@ function searchByPub(){
 
 function search_by_auth(){
     text= document.getElementById("search_text_input").value;
-    const url="http://127.0.0.1:3000/authors/search/"+text;
+    const url="https://127.0.0.1:3000/authors/search/"+text;
     window.location.href = url;
 }
 
 function search_by_pub(){
     text= document.getElementById("search_text_input").value;
-    const url="http://127.0.0.1:3000/publications/search/"+text;
+    const url="https://127.0.0.1:3000/publications/search/"+text;
     window.location.href = url;
 }
 
@@ -126,6 +126,6 @@ function searchPubByAuth(id){
 
 function search_pub_by_auth(id){
     text= document.getElementById("search_text_input").value;
-    const url="http://127.0.0.1:3000/authors/"+id+"/search_pub_by_auth/"+text;
+    const url="https://127.0.0.1:3000/authors/"+id+"/search_pub_by_auth/"+text;
     window.location.href = url;
 }

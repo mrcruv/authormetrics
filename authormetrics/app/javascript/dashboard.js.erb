@@ -128,4 +128,16 @@ function changeChart4_20(){
             title:"LAST 20 YEARS TOTAL PUBLICATIONS"});
 }
 
+function showFavPub(){
+    var pub= document.getElementById('favorite_pub').value;
+    const url="https://127.0.0.1:3000/publications/"+pub;
+    window.location.href = url;
+}
+
+function showFavAuth(){
+    var auth= document.getElementById('favorite_auth').value;
+    const url="https://127.0.0.1:3000/authors/"+auth;
+    window.location.href = url;
+}
+
 
