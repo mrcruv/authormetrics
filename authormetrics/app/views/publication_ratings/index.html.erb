@@ -1,19 +1,20 @@
 <p style="color: green"><%= notice %></p>
 
+<div style='margin-left:30px; margin-top:30px;'>
 <h1>Publication ratings</h1>
+<p>
+<button><%= link_to "NEW PUBLICATION RATING", new_publication_publication_rating_path(@publication)%> </button>
+<button><%= link_to "BACK TO PUBLICATION",[@publication] %></button>
+</p>
 
-<%= link_to "NEW PUBLICATION RATING", new_publication_publication_rating_path(@publication)%> 
-<br>
-<br>
-<%= link_to "BACK TO PUBLICATION",[@publication] %>
-
-
-<div id="publication_ratings">
-  <% @publication_ratings.each do |publication_rating| %>
-  <br>
-    <%= publication_rating.user_id%>: <%= publication_rating.rating  %>
-    <%= link_to "Edit", edit_publication_publication_rating_path(publication_rating.publication_id,publication_rating.user_id)%>
-    <%= link_to 'Destroy', destroy_publication_publication_rating_path(publication_rating.publication_id,publication_rating.user_id), method: :delete %>
-  <% end %>
+ <% if @publication_ratings != [] && @publication_ratings!= nil && @publication_ratings != ''%>
+      <% @publication_ratings.each do |publication_rating|%>
+      <% r=User.find(publication_rating.user_id)%>
+      <div>
+      <Strong><%= r.username %>: </strong><%= publication_rating.rating%>
+      <%= link_to "Edit", edit_publication_publication_rating_path(publication_rating.publication_id,publication_rating.user_id)%>
+      <%= link_to 'Destroy', destroy_publication_publication_rating_path(publication_rating.publication_id,publication_rating.user_id), method: :delete %>
+      </div>
+      <%end%>
+    <%end%>
 </div>
-
