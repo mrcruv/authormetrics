@@ -1,9 +1,8 @@
+<body>
+<div class='margine'>
 <p style="color: green"><%= notice %></p>
 
-<div class='margine'>
-<h1><%= @publication.title %><h1>
-<h2>RATING: da controllare</h2><%= @avg_ratings_2%>
-
+<%= render @publication %>
 <div>
   <button><%= link_to "VIEW OTHER PUBLICATION", publications_path %></button>
 <%if(params[:id].count(":")>0)%>
@@ -11,11 +10,7 @@
 <%end%>
 </div>
 
-<p><%= @publication.link %></p>
-<p><%= @publication.published_on %></p>
-<p><%= @publication.cited_by %></p>
-<p><%= @publication.pub_year %></p>
-
+<h2>RATING:</h2><%= @avg_ratings_2%>
 
 <div>
   <%if @comments != [] || @comments != nil%>
@@ -30,11 +25,9 @@
 </div>
 
 
-
-
-<!--if in author_ratings not exist record con current_user.id -->
 <%if user_signed_in?%>
 <button><%= link_to "ADD PUBLICATION RATING", publication_publication_ratings_path(@publication)%></button>
 <%end%>
 
 </div>
+</body>
