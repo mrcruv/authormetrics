@@ -94,16 +94,14 @@
         <div class="bottom_right_block_right">
         <br></br>
 
-        <div class="graph" id="chart1" style="visibility:visible;"}>
-                <%= line_chart @favorite_authors_citedby.sort_by{|x| -x[0].graph.length}.map { |fav_authors|
-                    {
-                        name: Author.find(fav_authors[0].author_id).name,
-                        data: Graphs.new.hash_graph(fav_authors[0].graph)
-                    }
-                }, discrete: true, 
-                   legend:false,
+        <div class="graph" id="chart1" style="visibility:visible; width:500px; height:300px;">
+                <%= line_chart @favorite_authors_citedby.sort_by{|x| -x.graph.length}.map { |fav_authors| 
+                {name: Author.find(fav_authors.author_id).name,
+                 data: Graphs.new.hash_graph(fav_authors.graph)}},
+                   discrete: true, 
                    xtitle: "years", 
                    ytitle: "citations",
+                   colors: ["#49beb7", "#6892d5", "#7c4789", "#9973e2", "#7b99fa"], 
                    title:"FAVORITE AUTHORS TRENDS"%>
         </div>
 
