@@ -77,16 +77,16 @@
                 <fieldset class= "chart_choise">
                     <legend>CHOOSE A CHART:</legend>
                     <br>
-                    <label>ON AUTHORS:</label><br>
+                    <label>FILTERED CHARTS:</label><br>
                     <br>
                     <input type="radio" id="favorite_authors_trend" name="choise" onclick="favorite_authors_graph()" checked > <label for="favorite_authors_trend"> Favorite authors trends</label><br> <br>
-                    <input type="radio" id="auth_ratings" name="choise" onclick="auth_ratings_graph()" > <label for="auth_ratings"> Hightest rate authors</label><br><br>
-                    <input type="radio" id="most_commented_authors" name="choise" onclick="most_commented_authors_graph()"> <label for="most_commented_authors"> Most commented authors</label><br> <br>
-                    <label>ON PUBLICATIONS:</label><br>
-                    <br>
                     <input type="radio" id="pub_per_year" name="choise" onclick="pub_per_year_graph()"> <label for="pub_per_year"> Total publications per year</label><br> <br>
-                    <input type="radio" id="pub_ratings" name="choise" onclick="pub_ratings_graph()"> <label for="pub_ratings"> Hightest rate publications</label><br><br>
-                    <input type="radio" id="most_cited_publications" name="choise" onclick="most_cited_publication_graph()"> <label for="most_cited_authors"> Most cited publication</label><br><br>
+                    <label>YOUR ACTIVITY RATE:</label><br>
+                    <br>
+                    <input type="radio" id="auth_ratings" name="choise" onclick="auth_ratings_graph_rate()" > <label for="auth_ratings"> Authors' rating</label><br><br>
+                    <input type="radio" id="comments" name="choise" onclick="comments_graph_rate()"> <label for="comments"> Comments</label><br> <br>
+                    <input type="radio" id="pub_ratings" name="choise" onclick="pub_ratings_graph_rate()"> <label for="pub_ratings"> Publications' ratings</label><br><br>
+                    <input type="radio" id="reviews" name="choise" onclick="reviews_graph()"> <label for="reviews"> Reviews</label><br><br>
                 </fieldset>
     
         </div>
@@ -107,16 +107,18 @@
 
 
         <div class="graph" id="chart2" style="visibility:hidden;">
-            <%= column_chart Graphs.new.authors_avg_ratings(Author.all, 10), 
-            colors: ["#97f6b0", "#80e7ad", "#69d8ab", "#55c8a7", "#41b9a3", "#2fa99d", "#1f9a96", "#0f8a8f","#037b86", "#006c7b" ], 
-            title:"HIGHEST RATE AUTHORS"%>
+            <%= area_chart AuthorRating.where(user_id:@user).order("DATE(rating_timestamp)").group("DATE(rating_timestamp)").count, 
+            colors: ["#97f6b0", "#80e7ad", "#69d8ab", "#55c8a7", "#41b9a3", "#2fa99d", "#1f9a96", "#0f8a8f","#037b86", "#006c7b" ],
+            xmin: Date.today - 30, xmax: Date.today,
+            title:"YOUR MONTHLY AUTHORS' RATINGS"%>
         </div>
 
 
         <div class="graph" id="chart3" style="visibility:hidden;">
-            <%= column_chart Graphs.new.most_reviewed_by_authors_graph(@most_reviewed_by_authors),
-            colors: ["#97f6b0", "#80e7ad", "#69d8ab", "#55c8a7", "#41b9a3", "#2fa99d", "#1f9a96", "#0f8a8f","#037b86", "#006c7b" ], 
-            title:"MOST REVIEWED AUTHORS"%>
+            <%= area_chart Comment.where(user_id:@user).order("DATE(comment_timestamp)").group("DATE(comment_timestamp)").count, 
+            colors: ["#97f6b0", "#80e7ad", "#69d8ab", "#55c8a7", "#41b9a3", "#2fa99d", "#1f9a96", "#0f8a8f","#037b86", "#006c7b" ],
+            xmin: Date.today - 30, xmax: Date.today,
+            title:"YOUR MONTHLY COMMENTS"%>
         </div>
 
 
@@ -137,16 +139,18 @@
 
 
         <div class="graph" id="chart5" style="visibility:hidden;">
-            <%= column_chart Graphs.new.pubs_avg_ratings(Publication.all, 10), 
-            colors: ["#97f6b0", "#80e7ad", "#69d8ab", "#55c8a7", "#41b9a3", "#2fa99d", "#1f9a96", "#0f8a8f","#037b86", "#006c7b" ], 
-            title:"HIGHEST RATE PUBLICATIONS"%>
+            <%= area_chart PublicationRating.where(user_id:@user).order("DATE(rating_timestamp)").group("DATE(rating_timestamp)").count, 
+            colors: ["#97f6b0", "#80e7ad", "#69d8ab", "#55c8a7", "#41b9a3", "#2fa99d", "#1f9a96", "#0f8a8f","#037b86", "#006c7b" ],
+            xmin: Date.today - 30, xmax: Date.today,
+            title:"YOUR MONTHLY PUBLICATIONS' RATINGS"%>
         </div>
 
 
         <div class="graph" id="chart6" style="visibility:hidden;">
-            <%= column_chart Graphs.new.most_commented_pubs_graph(@most_commented_pubs),
-            colors: ["#97f6b0", "#80e7ad", "#69d8ab", "#55c8a7", "#41b9a3", "#2fa99d", "#1f9a96", "#0f8a8f","#037b86", "#006c7b" ], 
-            title:"MOST REVIEWED AUTHORS"%>
+            <%= area_chart Review.where(user_id:@user).order("DATE(review_timestamp)").group("DATE(review_timestamp)").count, 
+            colors: ["#97f6b0", "#80e7ad", "#69d8ab", "#55c8a7", "#41b9a3", "#2fa99d", "#1f9a96", "#0f8a8f","#037b86", "#006c7b" ],
+            xmin: Date.today - 30, xmax: Date.today,
+            title:"YOUR MONTHLY COMMENTS"%>
         </div>
         </div>
     </div>
