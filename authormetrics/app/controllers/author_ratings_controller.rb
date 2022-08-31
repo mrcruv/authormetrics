@@ -67,6 +67,7 @@ class AuthorRatingsController < ApplicationController
     def get_author_user
       @author=Author.find(params[:author_id])
       @user=User.find(current_user.id)
+      
     end
     
     def set_author_rating
