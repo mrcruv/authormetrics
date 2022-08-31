@@ -89,5 +89,16 @@ class PublicationsController < ApplicationController
       params.require(:publication).permit(:publication_id, :title, :link, :published_on, :cited_by, :pub_year)
     end
 
+    def avg_ratings_2
+      ratings_sum=0
+      n = @publication.publication_rating.length
+      @avg_ratings_2=0
+      @publication.publication_rating.each do |rating|
+        ratings_sum += rating.rating
+      end
+      if n>0
+        @avg_ratings_2 = ratings_sum.to_f/n
+      end
+    end
 
 end

@@ -1,10 +1,11 @@
 <p style="color: green"><%= notice %></p>
-<div class="block">
-  <h1 style="color: #37474f;">AUTHOR</h1>
+
+<div class='margine'>
+  <h1>AUTHOR</h1>
   <div class="upper_block_auth_pub">
     <button onclick= "searchByAuth()" id= "ByAuth"> SEARCH BY AUTH</button>
     <button onclick="location.href='https://127.0.0.1:3000/'" > BACK TO HOME </button> 
-    <p id="p1"> </p>
+
   </div>
   <div id="authors">
     <% @authors.each do |author| %>
@@ -18,6 +19,7 @@
       </p>
     <% end %>
   </div>
+</div>
 </div>
 
 <%= javascript_include_tag "home" %>
