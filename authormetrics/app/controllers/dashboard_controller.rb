@@ -29,9 +29,11 @@ class DashboardController < ApplicationController
         favorite_auths_pubs=[]
 
         @favorite_authors.each do |favorite_auth|
-            @favorite_authors_citedby<< CitedBy.where(author_id: favorite_auth.author_id)
-            favorite_auths_pubs=Written.where(author_id: favorite_auth.author_id) 
+            @favorite_authors_citedby<< CitedBy.find(Author.find(favorite_auth.author_id).cited_by_id)
+            #favorite_auths_pubs <<Written.where(author_id: favorite_auth.author_id) 
         end
+
+        @favorite_authors_citedby= @favorite_authors_citedby.sort_by{|x| -x.graph.length}
         
         @latest_pub_fav_auth=[]
         if (favorite_auths_pubs !=nil)

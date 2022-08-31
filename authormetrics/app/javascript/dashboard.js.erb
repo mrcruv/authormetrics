@@ -13,6 +13,23 @@ function favorite_authors_graph(){
     document.getElementById(actual_chart).style.visibility= "visible";
 }
 
+function auth_ratings_graph_rate(){
+    document.getElementById(actual_chart).style.visibility = "hidden";
+    actual_chart= "chart2";
+    document.getElementById(actual_chart).style.visibility= "visible";
+}
+
+function comments_graph_rate(){
+    document.getElementById(actual_chart).style.visibility = "hidden";
+    actual_chart= "chart3";
+    document.getElementById(actual_chart).style.visibility= "visible";
+}
+
+function pub_ratings_graph_rate(){
+    document.getElementById(actual_chart).style.visibility = "hidden";
+    actual_chart= "chart5";
+    document.getElementById(actual_chart).style.visibility= "visible";
+}
 
 function initializeCharts(){
     <!-- CHART 1-->
