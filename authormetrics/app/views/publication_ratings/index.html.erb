@@ -2,19 +2,18 @@
 
 <h1>Publication ratings</h1>
 
+<%= link_to "NEW PUBLICATION RATING", new_publication_publication_rating_path(@publication)%> 
+<br>
+<br>
+<%= link_to "BACK TO PUBLICATION",[@publication] %>
+
+
 <div id="publication_ratings">
   <% @publication_ratings.each do |publication_rating| %>
-    <%= render publication_rating %>
-    <p>
-    <%= link_to "show publication",[@publication] %>
-    <%= link_to "Edit publication rating", edit_publication_publication_rating_path(publication_rating.publication_id,publication_rating.user_id)%>
-      
-      <%= link_to 'Destroy rating', destroy_publication_publication_rating_path(publication_rating.publication_id,publication_rating.user_id), method: :delete %>
-    </p>
+  <br>
+    <%= publication_rating.user_id%>: <%= publication_rating.rating  %>
+    <%= link_to "Edit", edit_publication_publication_rating_path(publication_rating.publication_id,publication_rating.user_id)%>
+    <%= link_to 'Destroy', destroy_publication_publication_rating_path(publication_rating.publication_id,publication_rating.user_id), method: :delete %>
   <% end %>
 </div>
 
-<%= link_to "New publication rating", new_publication_publication_rating_path(@publication)%>
-<br>
-
-<%=link_to "BACK TO PUBLICATION",[@publication] %>
