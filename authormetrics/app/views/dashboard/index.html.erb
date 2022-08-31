@@ -5,14 +5,7 @@
 <% if user_signed_in? or administrator_signed_in? %>
 <div class="logout_dashboard">
     <%if user_signed_in?%>
-        <text>  WELCOME BACK <%=current_user["username"]%> !</text>
-        <br></br>
         <%= button_to "LOGOUT", destroy_user_session_path, :method => :delete %>
-    <%end%>
-    <%if administrator_signed_in?%>
-        <text> WELCOME BACK <%current_administrator["username"]%>! </text>
-        <br></br>
-        <%= button_to "LOGOUT", destroy_administrator_session_path, :method => :delete if administrator_signed_in? %>
     <%end%>
 </div>
 <%end%>
@@ -25,12 +18,12 @@
                 <select name="filters" id="favorite_pub" style="width:90%;">
                     <% @favorite_publications.each do |favorite_publication| %>
                         <% title= Publication.find(favorite_publication.publication_id).title%>
-                        <option value='<%=favorite_publication.publication_id%>'><%=title%></option>
+                        <option value='<%=favorite_publication.publication_id%>' id='<%=favorite_publication.publication_id%>'><%=title%></option>
                     <%end%> 
                     </select> 
                 <br></br>
                 <button onclick="showFavPub();">SHOW FAV PUB</button>
-                <button>DELETE FAV PUB</button>
+                <button onclick="editFavPub('<%=@user.id%>');">MODIFY FAV PUBS</button>
                 </div> 
         </div>
 
@@ -40,12 +33,12 @@
                     <select name="filters" id="favorite_auth" style="width:90%;">
                         <%@favorite_authors.each do |author|%>
                             <% name= Author.find(author.author_id).name%>
-                            <option value='<%=author.author_id%>'><%=name%></option>
+                            <option value='<%=author.author_id%>' id='<%=author.author_id%>'><%=name%></option>
                         <%end%> 
                         </select> 
                 <br></br>
                 <button onclick="showFavAuth();">SHOW FAV AUTH</button>
-                <button>DELETE FAV AUTH</button>
+                <button onclick="editFavAuth('<%=@user.id%>');">MODIFY FAV AUTHS</button>
                 </div> 
         </div>
     </div>

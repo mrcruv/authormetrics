@@ -2,14 +2,19 @@
 
 <div class='margine'>
   <h1>AUTHOR</h1>
-  <div class="upper_block_auth_pub">
+  <div style='position: absolute; top: 7%; left: 65%; display:inline-block;'>
+   <label for="orders">ORDER BY:</label> 
+        <select name="orders" id="orders" onchange="">
+          <option value="Alphabetical" selected="selected"> Alphabetical</option>
+          <option value= "Reverse alphabetical">Reverse alphabetical</option>
+          <option value="Highest rate">Highest rate</option>
+          <option value="Highest citations">Highest citations</option>  
+        </select>
     <button onclick= "searchByAuth()" id= "ByAuth"> SEARCH BY AUTH</button>
     <button onclick="location.href='https://127.0.0.1:3000/'" > BACK TO HOME </button> 
-    <%if user_signed_in?%>
-      <button onclick="location.href='https://127.0.0.1:3000/dashboard'" > BACK TO ACCOUNT </button> 
-    <%end%>
-
+    <p id="p1"> </p>
   </div>
+
   <div id="authors">
     <% @authors.each do |author| %>
       <% if author.interests != nil%>

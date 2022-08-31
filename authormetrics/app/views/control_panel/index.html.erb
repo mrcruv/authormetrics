@@ -3,15 +3,14 @@
 </header>
 
 <div class="logout_control_panel">
-        <text> WELCOME BACK <%=current_administrator["username"]%>! </text>
-        <br></br>
         <%= button_to "LOGOUT", destroy_administrator_session_path, :method => :delete if administrator_signed_in? %>
 </div>
 
 <div class="upper_block_cp">
     <button onclick="location.href='https://127.0.0.1:3000/banned_users'">BUNNED USERS</button>
-    <button>LATEST PUBLICATIONS</button>
-    <button>LATEST AUTHORS</button>
+    <button onclick="location.href='https://127.0.0.1:3000/publications'">PUBLICATIONS</button>
+    <button onclick="location.href='https://127.0.0.1:3000/authors'">AUTHORS</button>
+    <button onclick="location.href='https://127.0.0.1:3000/'">HOME</button>
 </div>
 
 <div class="medium_block_cp">
@@ -55,7 +54,7 @@
     <div class= "half_table_cp_1">
     <caption>LATEST COMMENTS</caption>
         <table>
-        <thead><tr><th>User</th><th>Publication</th> <th>Comment</th><th>Delete</th></tr></thead>
+        <thead><tr><th>User</th><th>Publication</th> <th>Comment</th><th style="width:3%;">Delete</th></tr></thead>
         <tbody>
             <% @latest_comments.each do |recent_comment| %>
             <% user_name= User.find(recent_comment.user_id).name%>
@@ -74,7 +73,7 @@
     <div class="half_table_cp_2">
     <caption>LATEST REVIEWS</caption>
         <table>
-        <thead><tr><th>User</th><th>Author</th> <th>Review</th><th>Delete</th></tr></thead>
+        <thead><tr><th>User</th><th>Author</th> <th>Review</th><th style="width:3%;">Delete</th></tr></thead>
         <tbody>
             <% @latest_reviews.each do |recent_review| %>
             <% user_name= User.find(recent_review.user_id).name%>
@@ -90,6 +89,7 @@
         </table>
     <div>  
 </div>
+
 
 <%= javascript_include_tag "home"%>
 <%= javascript_include_tag "Chart" %>

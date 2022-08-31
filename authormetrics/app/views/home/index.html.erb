@@ -5,15 +5,11 @@
 <% if user_signed_in? or administrator_signed_in? %>
     <%if user_signed_in?%>
         <div class="logout_home_user">
-            <text>  WELCOME BACK <%=current_user["username"]%> !</text>
-            <br></br>
             <%= button_to "LOGOUT", destroy_user_session_path, :method => :delete %>
         </div>
     <%end%>
     <%if administrator_signed_in?%>
         <div class="logout_home_admin">
-            <text> WELCOME BACK <%=current_administrator["username"]%>! </text>
-            <br></br>
             <%= button_to "LOGOUT", destroy_administrator_session_path, :method => :delete if administrator_signed_in? %>
         </div>
     <%end%>
