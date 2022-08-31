@@ -37,7 +37,7 @@ class FavoriteAuthorsController < ApplicationController
   def destroy
     authorize! :destroy, @favorite_author, :message => "BEWARE: you are not authorized to delete favorite authors."
     @favorite_author.destroy
-    redirect_to users_path #da ridefinire
+    redirect_to   user_favorite_authors_path
   end
 
   private

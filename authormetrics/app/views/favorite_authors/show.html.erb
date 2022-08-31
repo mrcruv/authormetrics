@@ -1,7 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @favorite_author %>
 
 <div>
-  <%= link_to "Back to favorite authors", user_favorite_authors_path %>
+
+ <%= button_to 'Destroy', [@favorite_author.author_id,@favorite_author], :method=>:delete %>
 </div>
