@@ -16,7 +16,7 @@ class DashboardController < ApplicationController
             end
         end
 
-        @favorite_authors=FavoriteAuthor.distinct.where(user_id:@user.id) #non capisco perché non me li prende distinti
+        @favorite_authors=FavoriteAuthor.distinct.where(user_id:@user.id) 
 
         if (@favorite_authors != nil)
             favorite_auths_ids=[]
@@ -25,7 +25,13 @@ class DashboardController < ApplicationController
             end
         end
 
-        favorite_auths_pubs=Written.where(favorite_auths_ids.include? :author_id)
+        @favorite_authors_citedby=[]
+        favorite_auths_pubs=[]
+
+        @favorite_authors.each do |favorite_auth|
+            @favorite_authors_citedby<< CitedBy.where(author_id: favorite_auth.author_id)
+            favorite_auths_pubs=Written.where(author_id: favorite_auth.author_id) 
+        end
         
         @latest_pub_fav_auth=[]
         if (favorite_auths_pubs !=nil)
