@@ -4,9 +4,8 @@ class AuthorsController < ApplicationController
 
   # GET /authors or /authors.json
   def index
-    @authors = Author.all
+    @authors = Author.all.sort_by{|x| x.name}
     if (params[:order] == "1")
-      @authors= @authors.sort_by{|x| x.name}
     elsif (params[:order] == "2")
       @authors= @authors.sort_by{|x| x.name}.reverse
     elsif (params[:order]== "3")

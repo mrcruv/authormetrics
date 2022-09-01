@@ -3,7 +3,13 @@ class PublicationsController < ApplicationController
   before_action :set_search, only: %i[ search ]
   # GET /publications or /publications.json
   def index
-    @publications = Publication.all
+    @publications = Publication.all.sort_by{|x| x.title}
+    if (params[:order] == "1")
+    elsif (params[:order] == "2")
+      @publications= @publications.reverse
+    elsif (params[:order]== "3")
+        @publications = Publication.order(cited_by: :desc).where.not(cited_by:nil)
+    end   
     authorize! :index, Publication, :message => "BEWARE: you are not authorized to index publications."
   end
 
