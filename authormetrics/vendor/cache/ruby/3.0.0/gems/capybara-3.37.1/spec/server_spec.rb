@@ -27,12 +27,12 @@ RSpec.describe Capybara::Server do
 
       Capybara.server_host = '127.0.0.1'
       server = described_class.new(app).boot
-      res = Net::HTTP.get(URI("http://127.0.0.1:#{server.port}"))
+      res = Net::HTTP.get(URI("https://127.0.0.1:#{server.port}"))
       expect(res).to eq('Hello Server!')
 
       Capybara.server_host = '0.0.0.0'
       server = described_class.new(app).boot
-      res = Net::HTTP.get(URI("http://127.0.0.1:#{server.port}"))
+      res = Net::HTTP.get(URI("https://127.0.0.1:#{server.port}"))
       expect(res).to eq('Hello Server!')
     ensure
       Capybara.server_host = nil
