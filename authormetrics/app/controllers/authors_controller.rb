@@ -5,6 +5,17 @@ class AuthorsController < ApplicationController
   # GET /authors or /authors.json
   def index
     @authors = Author.all
+    if (params[:order] == "1")
+      @authors= @authors.sort_by{|x| x.name}
+    elsif (params[:order] == "2")
+      @authors= @authors.sort_by{|x| x.name}.reverse
+    elsif (params[:order]== "3")
+      most_cited_authors= CitedBy.order(all_citations: :desc).where.not(all_citations:nil)
+      @authors=[]
+      most_cited_authors.each do |most_cited|
+        @authors << Author.where(cited_by_id: most_cited.cited_by_id).first
+      end
+    end   
     authorize! :index, Author, :message => "BEWARE: you are not authorized to index authors."
   end
 
