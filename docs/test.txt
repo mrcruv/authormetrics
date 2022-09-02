@@ -1,0 +1,28 @@
+TEST FILE
+
+PREMESSA: 
+    GUARDARE (15 minuti) LEZIONE  12/5/2022 - TDD postata 24 maggioi dal minuto 48 a 1h 2 min circa,
+    spiega in maniera "semplice" i test dei controller!
+
+2 test principali -> Models, Controller (e view)
+
+test cartella spec
+modelli su spec/models
+controller spec/requests
+
+necessario fare {require "file"} del file.rb della quale si vuole eseguire i test che sia model o controller
+
+comando run test:
+
+>bundle exec rspec
+
+PREPARARE DB DI TEST:
+
+
+rake db:test:clone	     (DEPRECATED)               Recreate the test database from the current environment’s database schema
+***rake db:test:load	                    Recreate the test database from the current schema.rb
+rake db:test:clone_structure (DEPRECATED)	        Recreate the test databases from the development structure
+
+rake db:test:prepare	                Check for pending migrations and load the test schema
+rake db:test:purge	                    Empty the test database.
+
