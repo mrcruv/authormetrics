@@ -11,7 +11,7 @@ class AuthorRatingsController < ApplicationController
   # TEST GET authors/:author_id/author_ratings
   def index_tmdb
     @author_ratings = @author.author_rating
-    authorize! :index, AuthorRating, :message => "BEWARE: you are not authorized to index author ratings."
+    #authorize! :index, AuthorRating, :message => "BEWARE: you are not authorized to index author ratings."
   end
 
   # GET /author_ratings/1 or /author_ratings/1.json
@@ -48,8 +48,9 @@ class AuthorRatingsController < ApplicationController
 
   # TEST POST  authors/:id_author/author_ratings/:id
   def create_tmdb
+    @author=Author.find_by(params[:author_id])
+    @user=User.find_by(params[:user_id])
     @author_rating = @author.author_rating.build(author_rating_params)
-    authorize! :create, @author_rating, :message => "BEWARE: you are not authorized to create author ratings."
     @author_rating.user_id=current_user.id
     respond_to do |format|
       if @author_rating.save

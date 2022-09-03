@@ -1,9 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
 <h1 style="color: red">Search Authors</h1>
+
+<div class= "upper_right_block">
 <button onclick= "searchByAuth()" id= "ByAuth" > NEW AUTH SEARCH</button>
 <button onclick="location.href='https://127.0.0.1:3000/'" > back to home </button> 
-
+<p id= "p1" ></p>
+</div>
 <div id="authors">
   <% @authors.each do |author| %>
     <% if author.interests != nil%>

@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-
+=begin
   rescue_from ActiveRecord::RecordNotFound do |e|
     respond(:record_not_found, 404, e.to_s)
   end
@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_path, :alert => exception.message
     end
-
+=end
   # protect_from_forgery prepend: true
   before_action :configure_permitted_parameters, if: :devise_controller?
 
