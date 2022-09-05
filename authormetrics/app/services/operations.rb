@@ -293,7 +293,8 @@ class Operations
             end
             articles.each do |article|
                 temp=Publication.where(publication_id: article[:citation_id])
-                if(temp.size==0)
+                temp1=Publication.where(title: article[:title])
+                if(temp.size==0 && temp1.size==0)
                     p = Publication.new
                     p.publication_id = article[:citation_id]
                     p.title = article[:title]
