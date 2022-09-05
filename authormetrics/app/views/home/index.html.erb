@@ -72,16 +72,16 @@
     <div class= "upper_right_block">
         <button onclick= "searchByAuth()" id= "ByAuth" style="background-color:#79d1c3;" > SEARCH BY AUTH </button>
         <button onclick= "searchByPub()" id= "ByPub" style="background-color:#c9fdd7;"> SEARCH BY PUB</button>
-        <button onclick="location.href='https://127.0.0.1:3000/authors'"> AUTHORS</button> 
-        <button onclick="location.href='https://127.0.0.1:3000/publications'"> PUBLICATIONS</button>
+        <%= button_to "AUTHORS", authors_path, method: :get %>
+        <%= button_to "PUBLICATIONS", publications_path, method: :get %>
         <% if not ( user_signed_in? or administrator_signed_in?) %>
-            <button onclick="location.href='https://127.0.0.1:3000/users/sign_up'"> LOGIN/REGISTER</button>
-            <button onclick="location.href='https://127.0.0.1:3000/administrators/sign_up'"> RESERVED AREA</button>
+            <%= button_to "LOGIN/REGISTER", new_user_registration_path, method: :get %>
+            <%= button_to "RESERVED AREA", new_administrator_registration_path, method: :get %>
         <% elsif user_signed_in? %>
-            <button onclick="location.href='https://127.0.0.1:3000/dashboard'"> MY ACCOUNT</button>
+            <%= button_to "MY ACCOUNT", dashboard_path, method: :get %>
             <%= button_to "LOGOUT", destroy_user_session_path, :method => :delete %>
         <%else%>
-            <button onclick="location.href='https://127.0.0.1:3000/control_panel'">CONTROL PANEL</button>
+            <%= button_to "CONTROL PANEL", control_panel_path, method: :get %>
             <%= button_to "LOGOUT", destroy_administrator_session_path, :method => :delete if administrator_signed_in?%>
         <%end%>
         <p id="p1"> </p>

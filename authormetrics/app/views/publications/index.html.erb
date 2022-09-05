@@ -10,7 +10,7 @@
         <%=select_tag("order",options_for_select([['Alphabetical', "1"], ['Reverse alphabetical', "2"], ['Highest citations', "3"]], params[:order]),
         :onchange => "location.href='https://127.0.0.1:3000/publications?order='+ document.getElementById('order').value;")%>
     <button onclick="searchByPub()" id= "ByPub">SEARCH BY PUB</button>
-    <button onclick="location.href='https://127.0.0.1:3000/'">BACK TO HOME</button>
+    <%= button_to "HOME", home_path, method: :get %>
     <p id="p1"> </p>
   </div>
 

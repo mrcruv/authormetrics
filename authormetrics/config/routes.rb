@@ -46,13 +46,13 @@ Rails.application.routes.draw do
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Defines the root path route ("/")
-  get "/", to: "home#index"
+  get "/", to: "home#index", as: :home
   get "/contacts",to:"home#contacts"
   get "/info", to: "home#info"
   get "/use_and_conditions", to:"home#use_and_conditions"
   get "/privacy", to: "home#privacy"
   get "/cookies", to: "home#cookies"
-  get "/users/:id", to: "users#show"
+  get "/users/:id", to: "users#show" 
   get "/dashboard", to: "dashboard#index" 
   get "/control_panel", to: "control_panel#index"
   

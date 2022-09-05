@@ -3,7 +3,7 @@
   <h1 style="color: red">Publications</h1>
   <div class="">
     <button onclick="searchByPub()" id= "ByPub">NEW PUBLICATIONS SEARCH</button>
-    <button onclick="location.href='https://127.0.0.1:3000/'" > BACK TO HOME</button>
+    <%= button_to "HOME", home_path, method: :get %>
      <p id="p1"> </p>
   </div>
   <div id="publications">
