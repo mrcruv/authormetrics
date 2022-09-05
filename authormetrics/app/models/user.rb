@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: %i[facebook]
+         :omniauthable, :omniauth_providers => [:facebook]
     #has_one :banned_user
     has_many :favorite_author, dependent: :destroy
     has_many :favorite_publication,dependent: :destroy
@@ -25,9 +25,19 @@ class User < ApplicationRecord
     validates :email, :presence=>true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
     def self.from_omniauth(auth)
+        link_tokens = auth.info.link.split("/")
         name_split = auth.info.name.split(" ")
         user = User.where(email: auth.info.email).first
-        user ||= User.create!(provider: auth.provider, uid: auth.uid, last_name: name_split[0], first_name: name_split[1], email: auth.info.email, password: Devise.friendly_token[0, 20])
-          user
+        user = User.create!(provider: auth.provider, uid: auth.uid, name: name_split[0], surname: name_split[1], email: auth.info.email, password: Devise.friendly_token[0, 20],
+        birth_date: auth.info.birthday, username: link_tokens[link_tokens.length-1])
+        user
+    end
+
+    def self.new_with_session(params, session)
+      super.tap do |user|
+        if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+          user.email = data["email"] if user.email.blank?
+        end
       end
+    end
 end
