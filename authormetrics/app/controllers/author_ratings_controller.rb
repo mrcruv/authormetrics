@@ -13,10 +13,6 @@ class AuthorRatingsController < ApplicationController
     authorize! :read, @author_rating, :message => "BEWARE: you are not authorized to read author ratings."
   end
 
-  def show_tmdb
-    #render show.html 
-  end
-
   # GET /author_ratings/new
   def new
     @author_rating = @author.author_rating.build
@@ -44,22 +40,6 @@ class AuthorRatingsController < ApplicationController
     end
   end
 
-  # TEST POST  authors/:id_author/author_ratings/
-  def create_tmdb
-    @author=Author.find_by(params[:author_id])
-    @user=User.find_by(params[:user_id])
-    @author_rating = @author.author_rating.build(author_rating_params)
-    @author_rating.user_id=current_user.id
-    respond_to do |format|
-      if @author_rating.save
-        format.html { redirect_to author_author_ratings_path(@author), notice: "Author rating was successfully created." }
-        format.json { render :show, status: :created, location: @author_rating }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @author_rating.errors, status: :unprocessable_entity }
-      end
-    end
-  end
 
   # PATCH/PUT /author_ratings/1 or /author_ratings/1.json
   def update
