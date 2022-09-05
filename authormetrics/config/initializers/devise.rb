@@ -310,5 +310,6 @@ Devise.setup do |config|
   # config.sign_in_after_change_password = true
 
   require "omniauth-facebook"
-  config.omniauth :facebook, '765896214655538', 'e2cf8a8ea4e70ca13595f1803fb50df0'
+  config.omniauth :facebook, Rails.application.credentials.facebook[:APP_ID], Rails.application.credentials.facebook[:APP_SECRET],
+    {scope: 'email, user_link, public_profile, user_birthday', info_fields: 'email, link, name, birthday', token_params: { parse: :json }}
 end
