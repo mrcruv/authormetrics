@@ -71,3 +71,7 @@ thead, th{
 .margine{
     margin: 3% 3% 3% 3%;
 }
+
+.button_to{
+    display: inline-block;
+}

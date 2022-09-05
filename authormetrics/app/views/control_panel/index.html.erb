@@ -2,15 +2,12 @@
    <%= image_tag("Immagine2.png", size:"256,41x72,3", class: "logo")%> 
 </header>
 
-<div class="logout_control_panel">
-        <%= button_to "LOGOUT", destroy_administrator_session_path, :method => :delete if administrator_signed_in? %>
-</div>
-
 <div class="upper_block_cp">
     <button onclick="location.href='https://127.0.0.1:3000/banned_users'">BUNNED USERS</button>
     <button onclick="location.href='https://127.0.0.1:3000/publications'">PUBLICATIONS</button>
     <button onclick="location.href='https://127.0.0.1:3000/authors'">AUTHORS</button>
     <button onclick="location.href='https://127.0.0.1:3000/'">HOME</button>
+    <%= button_to "LOGOUT", destroy_administrator_session_path, :method => :delete if administrator_signed_in? %>
 </div>
 
 <div class="medium_block_cp">

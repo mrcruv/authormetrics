@@ -2,19 +2,6 @@
    <%= image_tag("Immagine2.png", size:"384.6153846x108.4615338", class: "logo")%>
 </header>
 
-<% if user_signed_in? or administrator_signed_in? %>
-    <%if user_signed_in?%>
-        <div class="logout_home_user">
-            <%= button_to "LOGOUT", destroy_user_session_path, :method => :delete %>
-        </div>
-    <%end%>
-    <%if administrator_signed_in?%>
-        <div class="logout_home_admin">
-            <%= button_to "LOGOUT", destroy_administrator_session_path, :method => :delete if administrator_signed_in? %>
-        </div>
-    <%end%>
-<%end%>
-
 <div class="left_block">
     <div class="table_half_box">
         <caption>LATEST PUBLICATIONS</caption>
@@ -92,8 +79,10 @@
             <button onclick="location.href='https://127.0.0.1:3000/administrators/sign_up'"> RESERVED AREA</button>
         <% elsif user_signed_in? %>
             <button onclick="location.href='https://127.0.0.1:3000/dashboard'"> MY ACCOUNT</button>
+            <%= button_to "LOGOUT", destroy_user_session_path, :method => :delete %>
         <%else%>
             <button onclick="location.href='https://127.0.0.1:3000/control_panel'">CONTROL PANEL</button>
+            <%= button_to "LOGOUT", destroy_administrator_session_path, :method => :delete if administrator_signed_in?%>
         <%end%>
         <p id="p1"> </p>
     </div>

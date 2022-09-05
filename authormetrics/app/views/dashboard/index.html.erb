@@ -2,14 +2,6 @@
    <%= image_tag("Immagine2.png", size:"384.6153846x108.4615338", class: "logo")%> 
 </header>
 
-<% if user_signed_in? or administrator_signed_in? %>
-<div class="logout_dashboard">
-    <%if user_signed_in?%>
-        <%= button_to "LOGOUT", destroy_user_session_path, :method => :delete %>
-    <%end%>
-</div>
-<%end%>
-
 <div class="left_block">
     <div class="upper_left_box" style="display:inline-block;">
         <div class= "fav_box" style="width:45%;">
@@ -77,6 +69,7 @@
             <% user_show= "https://127.0.0.1:3000/users/#{current_user["user_id"]}"%>
             <button onclick= "location.href='<%=user_show%>'"> MY DATA</button>
             <button onclick="location.href='https://127.0.0.1:3000/'">HOME</button>
+            <%= button_to "LOGOUT", destroy_user_session_path, :method => :delete %>
         <%end%>
         <p id="p1"> </p>
     </div>
@@ -185,15 +178,3 @@
     searchByAuth();
     initializeCharts();
 </script>
-
-<!--
-    <div class="filters", style="padding-left:7%;">
-                <label for="filters">YUOR FAVORITE AUTHORS:</label>
-                <select name="filters" id="favorite_auth" onclick="changeChart1()">
-                    <%@favorite_authors.each do |author|%>
-                        <% name= Author.find(author.author_id).name%>
-                        <option value='<%author.author_id%>'><%=name%></option>
-                    <%end%> 
-                    </select> 
-                </div> 
--->

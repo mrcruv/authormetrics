@@ -2,42 +2,6 @@
   padding-top: 1%;
 }
 
-.logout_home_user{
-  position: absolute;
-  right: 1%;
-  top: 136px;
-  width:15.3%;
-  height: 10%;
-  z-index:99999;
-}
-
-.logout_home_admin{
-  position: absolute;
-  right: 1%;
-  top: 136px;
-  width:14%;
-  height: 10%;
-  z-index:99999;
-}
-
-.logout_dashboard{
-  position: absolute;
-  right: 1%;
-  top: 136.5px;
-  width:205px;
-  height: 15px;
-  z-index:99999;
-}
-
-.logout_control_panel{
-  position: absolute;
-  right: 1%;
-  top: 76px;
-  width:182px;
-  height: 15px;
-  z-index:99999;
-}
-
 .upper_block{
   width: 100%;
 }
@@ -79,16 +43,17 @@
 }
 
 .upper_right_block{
+  display:inline-block;
   margin-top: 0%;
   width: 100%;
-  height: 60px;
+  height: 10%;
 }
 
 .bottom_right_block{
   width: 100%;
   height: 100%;
   overflow: hidden;
-  padding-bottom: 10px;
+  padding-bottom: 7%;
 }
 
 .bottom_right_block_left{
@@ -124,8 +89,8 @@
 .table_half_box{
   left:0%;
   width: 90%;
-  padding-bottom: 20px;
-  padding-left: 25px;
+  padding-bottom: 3%;
+  padding-left: 3%;
 }
 
 .search_button{
@@ -142,15 +107,15 @@
 
 .upper_block_auth_pub{
   width: 100%;
-  height: 60px;
+  height: 10%;
 }
 
 
 .scrollable_box{
   left:0%;
   width: 90%;
-  padding-bottom: 20px;
-  padding-left: 25px;
+  padding-bottom: 5%;
+  padding-left: 3%;
 }
 
 .scrollable{
