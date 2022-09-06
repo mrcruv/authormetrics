@@ -6,17 +6,17 @@ Canard::Abilities.for(:administrator) do
   can [:read, :index], Author
   cannot [:create, :update, :destroy], Author
 
-  can [], FavoritePublication
-  cannot [:create, :destroy, :index], FavoritePublication
+  can [:index], FavoritePublication
+  cannot [:create, :destroy], FavoritePublication
 
-  can [], FavoriteAuthor
-  cannot [:create, :destroy, :index], FavoriteAuthor
+  can [:index], FavoriteAuthor
+  cannot [:create, :destroy], FavoriteAuthor
 
-  can [], PublicationRating
-  cannot [:create, :read, :update, :destroy, :index], PublicationRating
+  can [:read, :index], PublicationRating
+  cannot [:create, :update, :destroy], PublicationRating
 
-  can [], AuthorRating
-  cannot [:create, :read, :update, :destroy, :index], AuthorRating
+  can [:read, :index], AuthorRating
+  cannot [:create, :update, :destroy], AuthorRating
 
   can [:read, :update, :destroy, :index], Comment
   cannot [:create], Comment
@@ -24,8 +24,8 @@ Canard::Abilities.for(:administrator) do
   can [:read, :update, :destroy, :index], Review
   cannot [:create], Review
 
-  # can [:read, :update, :index], User
-  # cannot [], User
+  can [:read, :update, :index], User
+  cannot [:create, :destroy], User
 
   # + BAN / SBAN USERS
 end
