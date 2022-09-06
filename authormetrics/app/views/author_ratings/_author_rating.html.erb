@@ -2,5 +2,10 @@
   <p>
     <strong>Rating:</strong>
     <%= author_rating.rating %>
+  <br>
+    <% a=User.find(author_rating.user_id)%>
+    <strong>User:</strong>
+    <%= link_to a.username, user_path(a) %>
+    
   </p>
 </div>

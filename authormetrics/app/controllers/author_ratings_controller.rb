@@ -1,5 +1,5 @@
 class AuthorRatingsController < ApplicationController
-  before_action :get_author_user
+  before_action :get_author_user#,only: %i[new create edit update destroy ]
   before_action :set_author_rating, only: %i[ show edit update destroy ]
 
   # GET /author_ratings or /author_ratings.json
@@ -9,10 +9,11 @@ class AuthorRatingsController < ApplicationController
   end
 
   # GET /author_ratings/1 or /author_ratings/1.json
+=begin
   def show
     authorize! :read, @author_rating, :message => "BEWARE: you are not authorized to read author ratings."
   end
-
+=end
   # GET /author_ratings/new
   def new
     @author_rating = @author.author_rating.build
@@ -67,7 +68,9 @@ class AuthorRatingsController < ApplicationController
     
     def get_author_user
       @author=Author.find(params[:author_id])
-      @user=User.find(current_user.id)
+      if current_user!=nil
+        @user=User.find(current_user.id)
+      end
       
     end
     
