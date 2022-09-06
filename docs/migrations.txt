@@ -52,7 +52,7 @@ favorite_authors
 4) 
 favorite_publications
   comando:
-      alter table favorite_publications drop CONSTRAINT favorite_publications_pkey
+      alter table favorite_publications drop CONSTRAINT favorite_publications_pkey;
   migrazione gia esistente:
       >bin/rails db:migrate
 
