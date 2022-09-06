@@ -41,14 +41,16 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       end
     end
 
+    def failure
+    #     # redirect_to root_path
+      redirect_to info_path # per non intasare il terminale con messaggi esecuzione query homepage e vedere messaggio di errore
+    end
+    
     private
 
     def auth
       @auth ||= request.env['omniauth.auth']
     end
 
-    def failure
-    #     # redirect_to root_path
-      redirect_to info_path # per non intasare il terminale con messaggi esecuzione query homepage e vedere messaggio di errore
-    end
+    
 end
