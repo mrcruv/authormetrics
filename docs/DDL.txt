@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS public.administrators
     username character varying(255) COLLATE pg_catalog."default" NOT NULL,
     password character varying(255) COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT administrators_pkey PRIMARY KEY (admin_id)
-)
+);
 
 TABLESPACE pg_default;
 
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS public.authors
     affiliations text COLLATE pg_catalog."default",
     interests character varying(255)[] COLLATE pg_catalog."default",
     CONSTRAINT authors_pkey PRIMARY KEY (author_id)
-)
+);
 
 TABLESPACE pg_default;
 
@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS public.users
     reset_password_sent_at timestamp(6) without time zone,
     remember_created_at timestamp(6) without time zone,
     CONSTRAINT users_pkey PRIMARY KEY (user_id)
-)
+);
 
 TABLESPACE pg_default;
 
@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS public.publications
     pub_year integer,
     CONSTRAINT publications_pkey PRIMARY KEY (publication_id),
     CONSTRAINT publications_cited_by_check CHECK (cited_by IS NOT NULL OR cited_by >= 0)
-)
+);
 
 TABLESPACE pg_default;
 
@@ -146,7 +146,7 @@ CREATE TABLE IF NOT EXISTS public.author_ratings
         ON UPDATE NO ACTION
         ON DELETE NO ACTION,
     CONSTRAINT author_ratings_rating_check CHECK (rating >= 1 AND rating <= 10)
-)
+);
 
 TABLESPACE pg_default;
 
@@ -167,7 +167,7 @@ CREATE TABLE IF NOT EXISTS public.banned_users
         REFERENCES public.users (user_id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
-)
+);
 
 TABLESPACE pg_default;
 
@@ -191,7 +191,7 @@ CREATE TABLE IF NOT EXISTS public.bans
         REFERENCES public.banned_users (user_id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
-)
+);
 
 TABLESPACE pg_default;
 
@@ -217,7 +217,7 @@ CREATE TABLE IF NOT EXISTS public.comments
         REFERENCES public.users (user_id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
-)
+);
 
 TABLESPACE pg_default;
 
@@ -241,7 +241,7 @@ CREATE TABLE IF NOT EXISTS public.favorite_authors
         REFERENCES public.users (user_id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
-)
+);
 
 TABLESPACE pg_default;
 
@@ -265,7 +265,7 @@ CREATE TABLE IF NOT EXISTS public.favorite_publications
         REFERENCES public.users (user_id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
-)
+);
 
 TABLESPACE pg_default;
 
@@ -296,7 +296,7 @@ CREATE TABLE IF NOT EXISTS public.publication_ratings
         ON UPDATE NO ACTION
         ON DELETE NO ACTION,
     CONSTRAINT publication_ratings_rating_check CHECK (rating >= 1 AND rating <= 10)
-)
+);
 
 TABLESPACE pg_default;
 
@@ -322,7 +322,7 @@ CREATE TABLE IF NOT EXISTS public.reviews
         REFERENCES public.users (user_id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
-)
+);
 
 TABLESPACE pg_default;
 
@@ -346,7 +346,7 @@ CREATE TABLE IF NOT EXISTS public.writtens
         REFERENCES public.publications (publication_id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
-)
+);
 
 TABLESPACE pg_default;
 
