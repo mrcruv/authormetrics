@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   resources :cited_bies
  
   # devise_for :users
-  devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
-  get "auth/facebook/callback", to: "omniauth_callbacks#facebook"
+  devise_for :users, :controllers => {registrations: "users/registrations", sessions: "users/sessions",
+    :omniauth_callbacks => "users/omniauth_callbacks"}
+  # get "auth/facebook/callback", to: "omniauth_callbacks#facebook"
 
   devise_scope :user do
     authenticated :user do
