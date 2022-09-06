@@ -121,8 +121,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_061534) do
     t.string "provider"
     t.string "uid"
     t.integer "roles_mask"
-    t.string "avatar_url"
-    t.string "full_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "users_username_key", unique: true
