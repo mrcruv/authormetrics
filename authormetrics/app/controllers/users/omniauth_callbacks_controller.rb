@@ -30,25 +30,27 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     def google_oauth2
       @user = User.from_omniauth(auth)
 
-      if @user.present?
+      if @user.persisted?
         sign_out_all_scopes
         flash[:success] = t 'devise.omniauth_callbacks.success', kind: 'Google'
         sign_in_and_redirect @user, event: :authentication
       else
-        flash[:alert] =
-          t 'devise.omniauth_callbacks.failure', kind: 'Google', reason: "#{auth.info.email} is not authorized."
-        redirect_to_new_user_session_path
+        # flash[:alert] =
+        #   t 'devise.omniauth_callbacks.failure', kind: 'Google', reason: "#{auth.info.email} is not authorized."
+        # redirect_to new_user_session_path
+        session['devise.google_data'] = request.env['omniauth.auth'].except('extra')
+        redirect_to new_user_registration_url, alert: @user.errors.full_messages.join('\n')
       end
+    end
+
+    def failure
+      #     # redirect_to root_path
+        redirect_to info_path # per non intasare il terminale con messaggi esecuzione query homepage e vedere messaggio di errore
     end
 
     private
 
     def auth
       @auth ||= request.env['omniauth.auth']
-    end
-
-    def failure
-    #     # redirect_to root_path
-      redirect_to info_path # per non intasare il terminale con messaggi esecuzione query homepage e vedere messaggio di errore
     end
 end
