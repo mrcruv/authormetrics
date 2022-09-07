@@ -19,7 +19,7 @@ RSpec.describe AuthorRatingsController, type: :controller do
   describe "TEST 1.1  AuthorRating: method NEW" do
     include Devise::Test::ControllerHelpers 
     
-    it "correct new author_rating" do
+    it "correct new author_rating for logged user" do
       #initialize example
       @author=Author.find("wT4V7isAAAAJ")
       @user=User.find(2)
@@ -30,6 +30,10 @@ RSpec.describe AuthorRatingsController, type: :controller do
       expect(response.body).to render_template("new")
       expect(response.body).to render_template("application")
     end
+    it "not allowed to new author ratings" do
+      @author=Author.find("wT4V7isAAAAJ")
+      expect{get :new, params:{:author_id=>@author.author_id}}.to raise_error(CanCan::AccessDenied)
+    end
 
   end
 
@@ -37,20 +41,16 @@ RSpec.describe AuthorRatingsController, type: :controller do
   describe "TEST 1.2  AuthorRating: method CREATE" do
     include Devise::Test::ControllerHelpers
     
-    it "create valid author rating istance" do
+    it "unauthenticate user not allowed to create ratings" do
       #crea istanze di prova
       @author=Author.find("wT4V7isAAAAJ")
-      @user=User.find(2)
-      sign_in @user
-      @author_rating=AuthorRating.create({:author_rating_id=>3,:author_id=>"wT4V7isAAAAJ",:user_id=>2,:rating=>6})
-      expect(@author_rating).to be_an_instance_of AuthorRating
+      expect{post :create,params:{:author_id=>@author.author_id}}.to raise_error(CanCan::AccessDenied)
     end
-    it "invalid author rating istance (author_id=nil)" do
+    it "authenticate user allowed to create ratings" do
       @author=Author.find("wT4V7isAAAAJ")
       @user=User.find(2)
       sign_in @user
-      @author_rating=AuthorRating.create({:author_rating_id=>2,:user_id=>2,:rating=>6})
-      expect(@author_rating.valid?).to_not be_an_instance_of AuthorRating
+      expect{post :create,params:{:author_id=>@author.author_id,author_rating=>{:author_rating_id=>2,:author_id=>"wT4V7isAAAAJ",:user_id=>2,:rating=>6}}}.not_to raise_error(CanCan::AccessDenied)
     end
   end
   
@@ -59,13 +59,13 @@ RSpec.describe AuthorRatingsController, type: :controller do
     it "correct function Index for utente_loggato" do
       @user=User.find(2)
       sign_in @user
-      get :index, params: {:author_id=>"wT4V7isAAAAJ"}
+      expect{get :index, params: {:author_id=>"wT4V7isAAAAJ"}}.to_not raise_error
       expect(response.status).to eq(200)
       expect(response.body).to render_template("index")
       expect(response.body).to render_template("application")
     end
     it "correct function Index for utente_non_loggato" do
-      get :index, params: {:author_id=>"wT4V7isAAAAJ"}
+      expect{get :index, params: {:author_id=>"wT4V7isAAAAJ"}}.to_not raise_error
       expect(response.status).to eq(200)
       expect(response.body).to render_template("index")
       expect(response.body).to render_template("application")

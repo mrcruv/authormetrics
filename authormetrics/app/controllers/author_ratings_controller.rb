@@ -28,8 +28,8 @@ class AuthorRatingsController < ApplicationController
 
   # POST authors/:id_author/author_ratings/
   def create
+    authorize! :create, @author_rating,:message => "BEWARE: you are not authorized to create author ratings."
     @author_rating = @author.author_rating.build(author_rating_params)
-    authorize! :create, @author_rating, :message => "BEWARE: you are not authorized to create author ratings."
     @author_rating.user_id=current_user.id
     respond_to do |format|
       if @author_rating.save
@@ -72,7 +72,6 @@ class AuthorRatingsController < ApplicationController
       if current_user!=nil
         @user=User.find(current_user.id)
       end
-      @user=nil
       
     end
     
