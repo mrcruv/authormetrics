@@ -4,8 +4,8 @@ class AuthorRatingsController < ApplicationController
 
   # GET /author_ratings or /author_ratings.json
   def index
-    @author_ratings = @author.author_rating
     authorize! :index, AuthorRating, :message => "BEWARE: you are not authorized to index author ratings."
+    @author_ratings=@author.author_rating
   end
 
   # GET /author_ratings/1 or /author_ratings/1.json
@@ -72,6 +72,7 @@ class AuthorRatingsController < ApplicationController
       if current_user!=nil
         @user=User.find(current_user.id)
       end
+      @user=nil
       
     end
     

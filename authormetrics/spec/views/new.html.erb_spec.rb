@@ -35,7 +35,7 @@ RSpec.describe "author_ratings/new", type: :view do
         sign_in @user
         @author=Author.find("wT4V7isAAAAJ")
         @author_rating=AuthorRating.new
-        render :template=> "author_ratings/new",:author_id=>"wT4V7isAAAAJ"
+        render :template=>"author_ratings/new",:author_id=>"wT4V7isAAAAJ"
         expect(rendered).to render_template(:partial=> "_form")
     end
 end

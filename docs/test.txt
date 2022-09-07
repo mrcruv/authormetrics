@@ -1,5 +1,8 @@
 TEST FILE
 
+refs:
+https://github.com/teamcapybara/capybara
+
 PREMESSA: 
     GUARDARE (15 minuti) LEZIONE  12/5/2022 - TDD postata 24 maggioi dal minuto 48 a 1h 2 min circa,
     spiega in maniera "semplice" i test dei controller!

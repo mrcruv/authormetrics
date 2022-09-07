@@ -85,10 +85,10 @@
 
 <%if user_signed_in?%>
 <%= button_to "ADD TO YOUR FAVORITES", user_favorite_authors_path(@author), method: :get %>
-<%= button_to "ADD AUTHOR RATING", author_author_ratings_path(@author), method: :get %>
-<%= button_to "ADD REVIEWS", author_reviews_path(@author), method: :get %>
-<%end%>
 
+<%end%>
+<%= button_to "AUTHOR RATING", author_author_ratings_path(@author), method: :get %>
+<%= button_to "REVIEWS", author_reviews_path(@author), method: :get %>
 <br>
 <br>
 <br>

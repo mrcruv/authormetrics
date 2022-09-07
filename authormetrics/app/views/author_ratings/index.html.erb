@@ -2,25 +2,25 @@
 
 <h1>Author ratings</h1>
 
-
-<% if AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==[] || AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==nil%>
+<%if(@user!=nil)%>
+<% if (AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==[] || AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==nil)%>
 <button><%= link_to "NEW AUTHOR RATING", new_author_author_rating_path(@author)%></button>
 <%end%>
-
+<%end%>
 <button><%=link_to "BACK TO AUTHOR",[@author] %></button>
 
 <div id="author_ratings">
   <% @author_ratings.each do |author_rating| %>
   
     <%= render author_rating %>
-
+    <%if(@user!=nil)%>
     <%if @user.user_id==author_rating.user_id%>
     <p>
     <%= link_to "Edit author rating", edit_author_author_rating_path(author_rating.author_id,author_rating.user_id)%>
     <%= link_to 'Destroy rating', destroy_author_author_rating_path(author_rating.author_id,author_rating.user_id), method: :delete %>
     </p>
     <%end%>
-
+    <%end%>
   <% end %>
 </div>
 
