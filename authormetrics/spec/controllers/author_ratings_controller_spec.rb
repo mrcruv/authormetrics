@@ -11,8 +11,7 @@ RSpec.describe AuthorRatingsController, type: :controller do
     )
     author.save!
     user.save!
-    author_rating=AuthorRating.create({:author_rating_id=>2,:author_id=>"wT4V7isAAAAJ",:user_id=>2,:rating=>6})
-    author_rating.save!
+
   end
   #TEST 1  NEW/CREATE/SHOW 
 
@@ -26,7 +25,7 @@ RSpec.describe AuthorRatingsController, type: :controller do
       @user=User.find(2)
       sign_in @user
       #test new method
-      get  :new,params:{:author_id=>@author.author_id}
+      get :new, params:{:author_id=>@author.author_id}
       expect(response.status).to eq(200)
       expect(response.body).to render_template("new")
       expect(response.body).to render_template("application")

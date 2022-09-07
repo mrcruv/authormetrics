@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_06_061534) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_07_115226) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -31,6 +31,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_061534) do
     t.serial "user_id", null: false
     t.integer "rating", null: false
     t.datetime "rating_timestamp", precision: nil, default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.index ["author_id", "user_id"], name: "index_author_ratings_on_author_id_and_user_id", unique: true
     t.check_constraint "rating >= 1 AND rating <= 10", name: "author_ratings_rating_check"
   end
 
@@ -70,16 +71,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_061534) do
     t.serial "user_id", null: false
     t.text "comment", null: false
     t.datetime "comment_timestamp", default: -> { "CURRENT_TIMESTAMP" }
+    t.index ["publication_id", "user_id"], name: "index_comments_on_publication_id_and_user_id", unique: true
   end
 
   create_table "favorite_authors", primary_key: "favorite_author_id", force: :cascade do |t|
     t.string "author_id", limit: 255, null: false
     t.serial "user_id", null: false
+    t.index ["author_id", "user_id"], name: "index_favorite_authors_on_author_id_and_user_id", unique: true
   end
 
   create_table "favorite_publications", primary_key: "favorite_publication_id", force: :cascade do |t|
     t.string "publication_id", limit: 255, null: false
     t.serial "user_id", null: false
+    t.index ["publication_id", "user_id"], name: "index_favorite_publications_on_publication_id_and_user_id", unique: true
   end
 
   create_table "publication_ratings", primary_key: "publication_rating_id", force: :cascade do |t|
@@ -87,6 +91,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_061534) do
     t.serial "user_id", null: false
     t.integer "rating", null: false
     t.datetime "rating_timestamp", precision: nil, default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.index ["publication_id", "user_id"], name: "index_publication_ratings_on_publication_id_and_user_id", unique: true
     t.check_constraint "rating >= 1 AND rating <= 10", name: "publication_ratings_rating_check"
   end
 
@@ -105,6 +110,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_061534) do
     t.serial "user_id", null: false
     t.text "review", null: false
     t.datetime "review_timestamp", precision: nil, default: -> { "CURRENT_TIMESTAMP" }
+    t.index ["author_id", "user_id"], name: "index_reviews_on_author_id_and_user_id", unique: true
   end
 
   create_table "users", primary_key: "user_id", id: :serial, force: :cascade do |t|

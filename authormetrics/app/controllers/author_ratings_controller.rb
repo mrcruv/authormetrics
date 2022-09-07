@@ -17,6 +17,7 @@ class AuthorRatingsController < ApplicationController
   # GET /author_ratings/new
   def new
     @author_rating = @author.author_rating.build
+    authorize! :create, @author_rating, :message => "BEWARE: you are not authorized to create author ratings."
     @author_rating.user=@user
     @author_rating.author=@author
   end
