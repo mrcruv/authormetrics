@@ -4,12 +4,12 @@ require 'rails_helper'
 require 'author_rating'
 
 RSpec.describe AuthorRating, type: :model do
+  #factory model(double)
   fixtures :users
-  #factory seed
   let(:user1) { users(:one) }
   let(:user2) { users(:two) }
   fixtures :authors
-  let(:author1) {authors(:one)}
+  let(:author) {authors(:one)}
   fixtures :author_ratings
   let(:author_rating) { author_ratings(:one) }
 
