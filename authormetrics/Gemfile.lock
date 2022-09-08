@@ -148,6 +148,13 @@ GEM
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.11.0)
+    factory_bot (6.2.1)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
+    faker (2.23.0)
+      i18n (>= 1.8.11, < 2)
     faraday (2.5.2)
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
@@ -168,7 +175,6 @@ GEM
       http-cookie (~> 1.0)
       http-form_data (~> 2.2)
       llhttp-ffi (~> 0.4.0)
-    http-accept (1.7.0)
     http-cookie (1.0.5)
       domain_name (~> 0.5)
     http-form_data (2.3.0)
@@ -218,7 +224,6 @@ GEM
       digest
       net-protocol
       timeout
-    netrc (0.11.0)
     nio4r (2.5.8)
     nokogiri (1.13.8-x64-mingw32)
       racc (~> 1.4)
@@ -298,17 +303,6 @@ GEM
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
-    rest-client (2.1.0)
-      http-accept (>= 1.7.0, < 2.0)
-      http-cookie (>= 1.0.2, < 2.0)
-      mime-types (>= 1.16, < 4.0)
-      netrc (~> 0.8)
-    rest-client (2.1.0-x64-mingw32)
-      ffi (~> 1.9)
-      http-accept (>= 1.7.0, < 2.0)
-      http-cookie (>= 1.0.2, < 2.0)
-      mime-types (>= 1.16, < 4.0)
-      netrc (~> 0.8)
     rexml (3.2.5)
     role_model (0.8.2)
     rspec-core (3.11.0)
@@ -399,6 +393,8 @@ DEPENDENCIES
   database_cleaner
   debug
   devise
+  factory_bot_rails
+  faker
   font-awesome-sass (~> 6.1.2)
   google_search_results (~> 2.2)
   http
@@ -413,7 +409,6 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (~> 7.0.3, >= 7.0.3.1)
   rails-controller-testing
-  rest-client
   rspec-core
   rspec-rails
   selenium-webdriver

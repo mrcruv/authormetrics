@@ -1,0 +1,16 @@
+one:
+  user_id: 2,
+  name: "marco"
+  username: "mrcrvl"
+  surname: "ruvolo"
+  birth_date: "2000-05-02"
+  email: "mrccrvl@gmail.com"
+  encrypted_password: "aaaaaaaaaaaa"
+two:
+  user_id: 3
+  name: "tiz"
+  username: "tznfnz"
+  surname: "fnz"
+  birth_date: "2000-05-02"
+  email: "tznfnz@gmail.com"
+  encrypted_password: "aaaaaaaaaaaa"

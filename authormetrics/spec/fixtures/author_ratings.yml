@@ -1,0 +1,10 @@
+one:
+  author_rating_id: 2
+  author_id: "wT4V7isAAAAJ"
+  user_id: 2
+  rating: 6
+two:
+  author_rating_id: 3
+  author_id: "wT4V7isAAAAJ"
+  user_id: 3
+  rating: 6
