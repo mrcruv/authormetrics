@@ -2,6 +2,7 @@ require 'rails_helper'
 require 'author_ratings_controller'
 
 RSpec.describe AuthorRatingsController, type: :controller do
+  #TEST SEED
   before :each do
     user=User.create(:user_id=>2,:name=>"marco",:username=>"mrcrvl",:surname=>"ruvolo",:birth_date=>"2000-05-02",:email=>"mrccrvl@gmail.com",:password=>"aaaaaaaaaaaa")
     author=Author.create(author_id: "wT4V7isAAAAJ",                                         

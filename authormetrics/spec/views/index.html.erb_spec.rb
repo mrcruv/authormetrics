@@ -2,6 +2,7 @@ require "rails_helper"
 
 RSpec.describe "base_authors/:author_id/author_ratings/index.html.erb", type: :view do
     include Rails.application.routes.url_helpers
+    #TEST SEED
     before :each do
         user1=User.create(:user_id=>2,:name=>"marco",:username=>"mrcrvl",:surname=>"ruvolo",:birth_date=>"2000-05-02",:email=>"mrccrvl@gmail.com",:password=>"aaaaaaaaaaaa")
         user2=User.create(:user_id=>3,:name=>"tiz",:username=>"tznfnz",:surname=>"fnz",:birth_date=>"2000-05-02",:email=>"tznfnz@gmail.com",:password=>"aaaaaaaaaaaa")

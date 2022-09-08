@@ -57,4 +57,31 @@ end
 # The :transaction strategy is faster, but might give you threading problems.
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
+=begin
+require 'selenium/webdriver'
+require 'capybara/cucumber'
+require_relative 'tunnel'
 
+username = 'finizzi.1915610@studenti.uniroma1.it'.sub( '@' , '%40' )
+authkey = 'MME7FJRNyZCg0s2N490XOGRkdtLbil5r'
+url = "http://#{username}:#{authkey}@hub.crossbrowsertesting.com/wd/hub"
+
+start_tunnel(username,authkey)
+
+Capybara.register_driver 'selenium_remote_cctest'.to_sym do |app|
+  caps = Selenium::WebDriver::Remote::Capabilities.new
+  caps['name'] = 'Selenium Test Example'
+  caps['build'] = '1.0'
+  caps['browserName'] = 'Chrome'
+  caps['platform'] = 'Ubuntu 22.04'
+  caps['record_video'] = 'true'
+  caps['record_network'] = 'false'
+
+  Capybara::Selenium::Driver.new(app,:browser => :remote,:url => url,:desired_capabilities => caps)                                                            
+end
+
+Capybara.default_driver = 'selenium_remote_cctest'.to_sym
+Capybara.app_host = "http://127.0.0.1:3000"
+Capybara.run_server = false
+
+=end
