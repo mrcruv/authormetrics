@@ -141,12 +141,14 @@ function showFavAuth(){
 }
 
 function editFavPub(user_id){
-    const url="https://127.0.0.1:3000/users/"+ user_id+ "/favorite_publications";
+    var pub= document.getElementById('favorite_pub').value;
+    const url="https://127.0.0.1:3000/users/"+ user_id+ "/favorite_publications/" + pub;
     window.location.href = url;
 } 
 
 function editFavAuth(user_id){
-    const url="https://127.0.0.1:3000/users/"+ user_id+ "/favorite_authors";
+    var auth= document.getElementById('favorite_auth').value;
+    const url="https://127.0.0.1:3000/users/"+ user_id+ "/favorite_authors" + auth;
     window.location.href = url;
 } 
 

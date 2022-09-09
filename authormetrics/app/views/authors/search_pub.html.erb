@@ -1,8 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
-
-
-<h1>Search Results</h1>
+<h1>SEARCH RESULTS</h1>
 <% @publications.each do |p| %>
   <p>
   <%=h link_to p.title, publication_path(p) %>

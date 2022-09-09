@@ -38,7 +38,10 @@ class DashboardController < ApplicationController
         
         @latest_pub_fav_auth=[]
         favorite_auths_pubs_ids.each do |pub_id|
-            @latest_pub_fav_auth << Publication.find(pub_id)
+            publication = Publication.find(pub_id)
+            if publication.pub_year != nil
+                @latest_pub_fav_auth << Publication.find(pub_id)
+            end
         end
 
         @latest_pub_fav_auth=@latest_pub_fav_auth.sort_by{|x| -x.pub_year}.first(10)

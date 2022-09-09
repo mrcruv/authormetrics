@@ -6,14 +6,14 @@
     <% if @authors!=[] || @authors!=nil %>
    <label for="orders">ORDER BY:</label> 
         <%=select_tag("order",options_for_select([['Alphabetical', "1"], ['Reverse alphabetical', "2"], ['Highest citations', "3"]], params[:order]),
-        :onchange => "location.href='https://127.0.0.1:3000/authors?order='+ document.getElementById('order').value;")%>
-    <button onclick= "searchByAuth()" id= "ByAuth"> SEARCH BY AUTH</button>
+        :onchange => "location.href='https://127.0.0.1:3000/authors?order='+document.getElementById('order').value;")%>
+    <button onclick="searchByAuth()" id="ByAuth">SEARCH AUTHOR</button>
     <%end%>
     <%= button_to "HOME", home_path, method: :get %> 
     <p id="p1"> </p>
   </div>
 
-  <br></br>
+  <br>
   
   <div id="authors">
     <% @authors.each do |author| %>
@@ -23,7 +23,7 @@
       <% end %>
       <%= render author %>
       <p>
-        <%= " ---------------------------"%>
+        <%= "---------------------------" %>
       </p>
     <% end %>
   </div>

@@ -1,13 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
     <h1>
-    <%= @author.name %>
+    <%= 'AUTHOR:' + @author.name %>
     </h1>
     <h2>RATING:<%= @avg_ratings%></h2>
 
 <div class="upper_block_auth_pub">
-  <button onclick= "searchPubByAuth('<%=@author.id%>')" id= "PubByAuth"> SEARCH PUB BY AUTHOR</button>
+  <button onclick= "searchPubByAuth('<%=@author.id%>')" id= "PubByAuth">SEARCH PUB BY AUTHOR</button>
   <%= button_to "AUTHORS", authors_path, method: :get %>
+  <%= button_to "HOME", home_path, method: :get %>  
   <p id="p1"> </p>
 </div>
   <p>
@@ -62,13 +63,8 @@
     <%end%>
   <p>
 
-
-
-
-
-
 <% if @publications != [] && @publications != nil %>
-  <h1>PUBBLICAZIONI</h1>
+  <h1>PUBLICATIONS</h1>
 <%end%>
 
 <% @publications.each do |p| %>
@@ -78,8 +74,6 @@
   
   <%end%>
 
-
-
 <%= javascript_include_tag "home" %>
 <%= javascript_include_tag "application" %>
 
@@ -87,7 +81,7 @@
 <%= button_to "ADD TO YOUR FAVORITES", user_favorite_authors_path(@author), method: :get %>
 
 <%end%>
-<%= button_to "AUTHOR RATING", author_author_ratings_path(@author), method: :get %>
+<%= button_to "AUTHOR RATINGS", author_author_ratings_path(@author), method: :get %>
 <%= button_to "REVIEWS", author_reviews_path(@author), method: :get %>
 <br>
 <br>

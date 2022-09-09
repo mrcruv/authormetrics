@@ -63,7 +63,9 @@ class PublicationRatingsController < ApplicationController
     
     def get_publication_user
       @publication=Publication.find(params[:publication_id])
-      @user=User.find(current_user.id)
+      if current_user!=nil
+        @user=User.find(current_user.id)
+      end
     end
     
     def set_publication_rating

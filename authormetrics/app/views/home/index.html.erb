@@ -70,8 +70,8 @@
 
 <div class="right_block">
     <div class= "upper_right_block">
-        <button onclick= "searchByAuth()" id= "ByAuth" style="background-color:#79d1c3;" > SEARCH BY AUTH </button>
-        <button onclick= "searchByPub()" id= "ByPub" style="background-color:#c9fdd7;"> SEARCH BY PUB</button>
+        <button onclick= "searchByAuth()" id= "ByAuth" style="background-color:#79d1c3;" > SEARCH AUTH </button>
+        <button onclick= "searchByPub()" id= "ByPub" style="background-color:#c9fdd7;"> SEARCH PUB</button>
         <%= button_to "AUTHORS", authors_path, method: :get %>
         <%= button_to "PUBLICATIONS", publications_path, method: :get %>
         <% if not ( user_signed_in? or administrator_signed_in?) %>
@@ -102,7 +102,7 @@
                     <br>
                     <input type="radio" id="pub_per_year" name="choise" onclick="pub_per_year_graph()"> <label for="pub_per_year"> Most cited publications</label><br> <br>
                     <input type="radio" id="pub_ratings" name="choise" onclick="pub_ratings_graph()"> <label for="pub_ratings"> Highest rate publications</label><br><br>
-                    <input type="radio" id="most_cited_publications" name="choise" onclick="most_cited_publication_graph()"> <label for="most_cited_authors"> Most commented pubs</label><br><br>
+                    <input type="radio" id="most_cited_publications" name="choise" onclick="most_cited_publication_graph()"> <label for="most_cited_authors"> Most commented publications</label><br><br>
                 </fieldset>
                 <!--
                 <label for="cars">Choose a car:</label>

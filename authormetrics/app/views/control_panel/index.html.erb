@@ -13,7 +13,11 @@
 <div class="medium_block_cp">
     <div class="upper_box_1">
         <div class="control_graph">
-        <%=line_chart Comment.order("DATE(comment_timestamp)").group("DATE(comment_timestamp)").count, 
+        <%data= Comment.order("DATE(comment_timestamp)").group("DATE(comment_timestamp)").count %>
+        <%if data=={}%>
+            <%data={(Date.today)=>nil}%>
+        <%end%>
+        <%=line_chart data, 
             colors: ["#037b86"],
             xmin: Date.today - 10, xmax: Date.today,
             title: "DAILY PUBLISHED COMMENTS"%>
@@ -21,7 +25,11 @@
     </div>
     <div class="upper_box_1">
         <div class="control_graph">
-        <%=line_chart Review.order("DATE(review_timestamp)").group("DATE(review_timestamp)").count, 
+        <%data= Review.order("DATE(review_timestamp)").group("DATE(review_timestamp)").count %>
+        <%if data=={}%>
+            <%data={(Date.today)=>nil}%>
+        <%end%>
+        <%=line_chart data, 
             colors: ["#55c8a7"],
             xmin: Date.today - 10, xmax: Date.today,
             title: "DAILY PUBLISHED REVIEWS"%>
@@ -29,7 +37,11 @@
     </div>
     <div class="upper_box_1">
         <div class="control_graph">
-        <%= line_chart Publication.order("DATE(created_at)").group("DATE(created_at)").count, 
+        <%data= Publication.order("DATE(created_at)").group("DATE(created_at)").count %>
+        <%if data=={}%>
+            <%data={(Date.today)=>nil}%>
+        <%end%>
+        <%= line_chart data, 
             xmin: Date.today - 10, xmax: Date.today, 
             title: "DAILY PUBLICATIONS", 
             colors: ["#97f6b0", "#80e7ad", "#69d8ab", "#55c8a7", "#41b9a3", "#2fa99d", "#1f9a96", "#0f8a8f","#037b86", "#006c7b" ]
@@ -38,6 +50,10 @@
     </div>
     <div class="upper_box_1">
         <div class="control_graph">
+        <%data= User.order(:reg_date).group(:reg_date).count %>
+        <%if data=={}%>
+            <%data={(Date.today)=>nil}%>
+        <%end%>
         <%= column_chart User.order(:reg_date).group(:reg_date).count, 
             xmin: Date.today - 10, xmax: Date.today, 
             title: "NEWLY REGISTERED USERS", 

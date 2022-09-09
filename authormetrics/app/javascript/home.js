@@ -20,7 +20,7 @@ function createSearchBar(placeholder){
     search_box.appendChild(bar);
     var button= document.createElement("button");
     button.setAttribute("class", "search_button");
-    if (placeholder=="Search by auth..."){button.addEventListener("click",function(){search_by_auth();});}
+    if (placeholder=="Search author..."){button.addEventListener("click",function(){search_by_auth();});}
     else {button.addEventListener("click", function(){ search_by_pub();}); }
     search_box.appendChild(button);
     var icon= document.createElement("i");
@@ -33,7 +33,7 @@ function searchByAuth(){
     if (document.getElementById("ByPub")){
         document.getElementById("ByPub").style.backgroundColor = "#c9fdd7";
     }
-    createSearchBar("Search by auth...");
+    createSearchBar("Search author...");
 }
 
 function searchByPub(){    
@@ -41,7 +41,7 @@ function searchByPub(){
     if (document.getElementById("ByAuth")){
         document.getElementById("ByAuth").style.backgroundColor = "#c9fdd7";
     }
-    createSearchBar("Search by pub...");
+    createSearchBar("Search publication...");
 }
 
 function search_by_auth(){
@@ -121,7 +121,7 @@ function searchPubByAuth(id){
     //if (document.getElementById("ByAuth")){
     //    document.getElementById("ByAuth").style.backgroundColor = "";
     //}
-    createSearchBar2("Search Auth by Pub...",id);
+    createSearchBar2("Search pub by author...",id);
 }
 
 function search_pub_by_auth(id){
