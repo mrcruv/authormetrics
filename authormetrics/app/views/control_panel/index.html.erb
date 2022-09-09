@@ -66,17 +66,18 @@
 <div class= "bottom_block_cp">
     <div class= "half_table_cp_1">
     <caption>LATEST COMMENTS</caption>
-        <table>
+        <table id="latest_comments">
         <thead><tr><th>User</th><th>Publication</th> <th>Comment</th><th style="width:3%;">Delete</th></tr></thead>
         <tbody>
             <% @latest_comments.each do |recent_comment| %>
             <% user_name= User.find(recent_comment.user_id).name%>
             <% pub_title= Publication.find(recent_comment.publication_id).title%>
-                <tr>
+                <%id= recent_comment.user_id.to_s + " " + recent_comment.publication_id %>
+                <tr id='<%=id%>'>
                     <td><%= user_name %></td>
                     <td><%= pub_title %></td>
                     <td><%= recent_comment.comment %></td>
-                    <td><button class="delete_button"><i class="fa-solid fa-trash"></i></button></td>
+                    <td><button class="delete_button" onclick="deleteComment('<%=id%>','<%=recent_comment.user_id%>', '<%=recent_comment.publication_id%>');"><i class="fa-solid fa-trash"></i></button></td>
                 </tr>
             <% end %>
         </tbody>
@@ -91,11 +92,12 @@
             <% @latest_reviews.each do |recent_review| %>
             <% user_name= User.find(recent_review.user_id).name%>
             <% auth_name= Author.find(recent_review.author_id).name%>
-                <tr>
+                <%id= recent_review.user_id.to_s + " " + recent_review.author_id %>
+                <tr id='<%=id%>'>
                     <td><%= user_name %></td>
                     <td><%= auth_name %></td>
                     <td><%= recent_review.review %></td>
-                    <td><button class="delete_button"><i class="fa-solid fa-trash"></i></button></td>
+                    <td><button class="delete_button" onclick="deleteReview('<%=id%>','<%=recent_review.user_id%>', '<%=recent_review.author_id%>');"><i class="fa-solid fa-trash"></i></button></td>
                 </tr>
             <% end %>
         </tbody>
@@ -105,6 +107,7 @@
 
 
 <%= javascript_include_tag "home"%>
+<%= javascript_include_tag "control_panel"%>
 <%= javascript_include_tag "Chart" %>
 <%= javascript_include_tag "chartkick" %>
 <%= javascript_include_tag "chartjs-adapter-date-fns.bundle"%>

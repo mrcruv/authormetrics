@@ -1777,12 +1777,12 @@ comments=Comment.create([
 }, 
 {   
     publication_id:"ZjfgPLMAAAAJ:DXE8ND7PrJAC", 
-    user_id: 35, 
+    user_id: 34, 
     comment: "mi piace questo sito"
 }, 
 {   
     publication_id:"ZjfgPLMAAAAJ:DXE8ND7PrJAC", 
-    user_id: 36, 
+    user_id: 1, 
     comment: "non ci ho capito nulla :("
 }
 ])
