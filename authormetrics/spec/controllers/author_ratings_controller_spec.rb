@@ -1,6 +1,6 @@
 require 'rails_helper'
 require 'author_ratings_controller'
-
+require_relative "../support/devise"
 RSpec.describe AuthorRatingsController, type: :controller do
   #TEST 1  NEW/CREATE/SHOW 
 
@@ -45,8 +45,7 @@ RSpec.describe AuthorRatingsController, type: :controller do
       expect{post :create,params:{:author_id=>author.author_id,:author_rating=>author_rating}}.to raise_error(CanCan::AccessDenied)
     end
     it "authenticate user allowed to create ratings" do
-      @user=user1
-      login_as(@user, scope: :users)
+
       expect{post :create,params:{:author_id=>author.author_id,:author_rating=>author_rating}}.to_not raise_error(CanCan::AccessDenied)
     end
   end
