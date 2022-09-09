@@ -28,9 +28,10 @@ class AuthorRatingsController < ApplicationController
 
   # POST authors/:id_author/author_ratings/
   def create
-    @author_rating = @author.author_rating.build(author_rating_params)
     authorize! :create, @author_rating,:message => "BEWARE: you are not authorized to create author ratings."
+    @author_rating = @author.author_rating.build(author_rating_params)
     @author_rating.user_id=current_user.id
+    
     respond_to do |format|
       if @author_rating.save
         format.html { redirect_to author_author_ratings_path(@author), notice: "Author rating was successfully created." }

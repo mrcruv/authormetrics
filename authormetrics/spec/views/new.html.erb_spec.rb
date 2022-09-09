@@ -9,8 +9,6 @@ RSpec.describe "author_ratings/new", type: :view do
     let(:user) { users(:one) }
     fixtures :authors
     let(:author) {authors(:one)}
-   
-    
 
     it "correct render new template and button goBack" do
         @user=user

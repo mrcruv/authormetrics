@@ -13,6 +13,7 @@ class FavoriteAuthorsController < ApplicationController
     @favorite_author = @user.favorite_author.build
     @favorite_author.user = @user
     @favorite_author.author = @author
+    authorize! :create, @favorite_author, :message => "BEWARE: you are not authorized to create favorite authors."
   end
 
 
