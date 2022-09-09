@@ -148,6 +148,13 @@ GEM
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.11.0)
+    factory_bot (6.2.1)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
+    faker (2.23.0)
+      i18n (>= 1.8.11, < 2)
     faraday (2.5.2)
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
@@ -386,6 +393,8 @@ DEPENDENCIES
   database_cleaner
   debug
   devise
+  factory_bot_rails
+  faker
   font-awesome-sass (~> 6.1.2)
   google_search_results (~> 2.2)
   http

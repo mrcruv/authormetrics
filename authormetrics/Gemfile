@@ -75,6 +75,9 @@ group :development, :test do
   gem "selenium-webdriver"
   gem "webdrivers"
   gem 'cucumber-rails', require: false
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'rails-controller-testing'
   
 end
 
