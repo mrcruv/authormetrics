@@ -75,3 +75,7 @@ thead, th{
 .button_to{
     display: inline-block;
 }
+
+.rating{
+    font-family: Verdana,sans-serif;
+}

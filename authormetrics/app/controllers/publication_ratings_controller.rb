@@ -4,17 +4,13 @@ class PublicationRatingsController < ApplicationController
 
   
   def index
-    @publication_ratings = @publication.publication_rating
     authorize! :index, PublicationRating, :message => "BEWARE: you are not authorized to index publication ratings."
+    @publication_ratings = @publication.publication_rating
   end
-
-  def show
-    authorize! :read, @publication_rating, :message => "BEWARE: you are not authorized to read publication ratings."
-  end
-
 
   def new
     @publication_rating = @publication.publication_rating.build
+    authorize! :create, @publication_rating, :message => "BEWARE: you are not authorized to create publication ratings."
     @publication_rating.user=@user
     @publication_rating.publication=@publication
   end
@@ -55,7 +51,7 @@ class PublicationRatingsController < ApplicationController
   def destroy
     authorize! :destroy, @publication_rating, :message => "BEWARE: you are not authorized to delete publication ratings."
     @publication_rating.destroy
-    redirect_to publication_path(@publication)
+    redirect_to publication_publication_ratings_path(@publication)
   end
 
   private

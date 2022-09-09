@@ -1,9 +1,12 @@
+<div style='margin-left:30px; margin-top:30px;'>
 <h1>New comment</h1>
 
 <%= render "form", comment: @comment %>
 
 <br>
 
-<div>
-  <%= link_to "Back to comments", comments_path %>
+
+<button><%= link_to "BACK TO COMMENTS", publication_comments_path(@publication) %></button>
+</div>
+
 </div>

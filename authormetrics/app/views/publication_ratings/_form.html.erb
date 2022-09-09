@@ -1,7 +1,7 @@
- <%= form_with(model: [@publication, @publication_rating]) do |form| %>
- <% if publication_rating.errors.any? %>
+<%= form_with(model: [@publication, @publication_rating]) do |form| %>
+  <% if publication_rating.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(publication_rating.errors.count, "error") %> prohibited this publication_rating from being saved:</h2>
+      <h2><%= pluralize(publication_rating.errors.count, "error") %> prohibited this publication rating from being saved:</h2>
 
       <ul>
         <% publication_rating.errors.each do |error| %>
@@ -10,7 +10,6 @@
       </ul>
     </div>
   <% end %>
-
 
   <div>
     <%= form.label :rating, style: "display: block" %>
