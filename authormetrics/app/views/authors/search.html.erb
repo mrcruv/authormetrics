@@ -1,11 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
-<h1 style="color: red">Search Authors</h1>
+<h1 style="color: red">SEARCH RESULTS</h1>
 
 <div class= "upper_right_block">
-<button onclick= "searchByAuth()" id= "ByAuth" > NEW AUTH SEARCH</button>
-<button onclick="location.href='https://127.0.0.1:3000/'" > back to home </button> 
-<p id= "p1" ></p>
+<button onclick="searchByAuth()" id="ByAuth">SEARCH AUTHOR</button>
+<%= button_to "HOME", home_path, method: :get %> 
+<p id="p1"></p>
 </div>
 <div id="authors">
   <% @authors.each do |author| %>
@@ -15,7 +15,7 @@
     <% end %>
     <%= render author %>
     <p>
-      <%= " ---------------------------"%>
+      <%= "---------------------------" %>
     </p>
   <% end %>
 </div>
