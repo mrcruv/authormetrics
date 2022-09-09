@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
+    authorize! :create, @user, :message => "BEWARE: you are not authorized to create users."
     @user = User.new
   end
 
