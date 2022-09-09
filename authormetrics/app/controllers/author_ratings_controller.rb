@@ -77,7 +77,7 @@ class AuthorRatingsController < ApplicationController
     end
     
     def set_author_rating
-      @author_rating = @author.author_rating.where(user_id: params[:author_id])[0]
+      @author_rating = @author.author_rating.where(user_id: current_user.id)[0]
     end
 
     # Only allow a list of trusted parameters through.
