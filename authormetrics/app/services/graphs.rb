@@ -18,8 +18,8 @@ class Graphs
           end
           if n>0
             authors_avg_ratings[author.name]= ratings_sum.to_f/n
-          else
-            authors_avg_ratings[author.name]= 0
+          #else
+            #authors_avg_ratings[author.name]= 0
           end
         end 
         return authors_avg_ratings.sort_by {|k, v| -v}.first(top_n).to_h
@@ -35,8 +35,8 @@ class Graphs
         end
         if n>0
           pubs_avg_ratings[pub.title]= ratings_sum.to_f/n
-        else
-          pubs_avg_ratings[pub.title]= 0
+        #else
+          #pubs_avg_ratings[pub.title]= 0
         end
       end 
       return pubs_avg_ratings.sort_by {|k, v| -v}.first(top_n).to_h
