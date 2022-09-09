@@ -102,7 +102,7 @@
                     <br>
                     <input type="radio" id="pub_per_year" name="choise" onclick="pub_per_year_graph()"> <label for="pub_per_year"> Most cited publications</label><br> <br>
                     <input type="radio" id="pub_ratings" name="choise" onclick="pub_ratings_graph()"> <label for="pub_ratings"> Highest rate publications</label><br><br>
-                    <input type="radio" id="most_cited_publications" name="choise" onclick="most_cited_publication_graph()"> <label for="most_cited_authors"> Most commented pubs</label><br><br>
+                    <input type="radio" id="most_cited_publications" name="choise" onclick="most_cited_publication_graph()"> <label for="most_cited_authors"> Most commented publications</label><br><br>
                 </fieldset>
                 <!--
                 <label for="cars">Choose a car:</label>
@@ -118,7 +118,17 @@
         <br></br>
 
         <div class="graph" id="chart1" style="visibility:visible;"}>
-                <%= line_chart @most_cited_authors.sort_by{|x| -x.graph.length}.map { |most_cited|
+                <%data= @most_cited_authors.sort_by{|x| -x.graph.length}%>
+                <%if data=={}%>
+                    <%data={nil=>nil}%>
+                    <%= line_chart data, 
+                            discrete: true, 
+                            xtitle: "years", 
+                            ytitle: "citations",
+                            colors: ["#49beb7", "#6892d5", "#7c4789", "#9973e2", "#7b99fa"], 
+                            title:"FAVORITE AUTHORS TRENDS"%>
+                <%end%>
+                <%= line_chart data.map { |most_cited|
                     {
                         name: Author.find(most_cited.author_id).name,
                         data: Graphs.new.hash_graph(most_cited.graph)
@@ -132,14 +142,22 @@
 
 
         <div class="graph" id="chart2" style="visibility:hidden;">
-            <%= column_chart Graphs.new.authors_avg_ratings(Author.all, 10), 
+            <%data=Graphs.new.authors_avg_ratings(Author.all, 10)%>
+            <%if data=={}%>
+                <%data={ nil=>nil}%>
+            <%end%>
+            <%= column_chart data,
             colors: ["#97f6b0", "#80e7ad", "#69d8ab", "#55c8a7", "#41b9a3", "#2fa99d", "#1f9a96", "#0f8a8f","#037b86", "#006c7b" ], 
             title:"HIGHEST RATE AUTHORS"%>
         </div>
 
 
         <div class="graph" id="chart3" style="visibility:hidden;">
-            <%= column_chart Graphs.new.most_reviewed_by_authors_graph(@most_reviewed_by_authors),
+            <%data=Graphs.new.most_reviewed_by_authors_graph(@most_reviewed_by_authors)%>
+            <%if data=={}%>
+                <%data={ nil=>nil}%>
+            <%end%>
+            <%= column_chart data,
             colors: ["#97f6b0", "#80e7ad", "#69d8ab", "#55c8a7", "#41b9a3", "#2fa99d", "#1f9a96", "#0f8a8f","#037b86", "#006c7b" ], 
             title:"MOST REVIEWED AUTHORS"%>
         </div>
@@ -161,14 +179,22 @@
 
 
         <div class="graph" id="chart5" style="visibility:hidden;">
-            <%= column_chart Graphs.new.pubs_avg_ratings(Publication.all, 10), 
+            <%data=Graphs.new.pubs_avg_ratings(Publication.all, 10)%>
+            <%if data=={}%>
+                <%data={ nil=>nil}%>
+            <%end%>
+            <%= column_chart data, 
             colors: ["#97f6b0", "#80e7ad", "#69d8ab", "#55c8a7", "#41b9a3", "#2fa99d", "#1f9a96", "#0f8a8f","#037b86", "#006c7b" ], 
             title:"HIGHEST RATE PUBLICATIONS"%>
         </div>
 
 
         <div class="graph" id="chart6" style="visibility:hidden;">
-            <%= column_chart Graphs.new.most_commented_pubs_graph(@most_commented_pubs),
+            <%data=Graphs.new.most_commented_pubs_graph(@most_commented_pubs)%>
+            <%if data=={}%>
+                <%data={ nil=>nil}%>
+            <%end%>
+            <%= column_chart data,
             colors: ["#97f6b0", "#80e7ad", "#69d8ab", "#55c8a7", "#41b9a3", "#2fa99d", "#1f9a96", "#0f8a8f","#037b86", "#006c7b" ], 
             title:"MOST REVIEWED AUTHORS"%>
         </div>
