@@ -93,7 +93,17 @@
         <br></br>
 
         <div class="graph" id="chart1" style="visibility:visible; width:500px; height:300px;">
-                <%= line_chart @favorite_authors_citedby.sort_by{|x| -x.graph.length}.map { |fav_authors| 
+                <%data= @favorite_authors_citedby.sort_by{|x| -x.graph.length}%>
+                <%if data=={}%>
+                    <%data={nil=>nil}%>
+                    <%= line_chart data, 
+                            discrete: true, 
+                            xtitle: "years", 
+                            ytitle: "citations",
+                            colors: ["#49beb7", "#6892d5", "#7c4789", "#9973e2", "#7b99fa"], 
+                            title:"FAVORITE AUTHORS TRENDS"%>
+                <%else%>
+                <%= line_chart data.map { |fav_authors| 
                 {name: Author.find(fav_authors.author_id).name,
                  data: Graphs.new.hash_graph(fav_authors.graph)}},
                    discrete: true, 
@@ -101,11 +111,16 @@
                    ytitle: "citations",
                    colors: ["#49beb7", "#6892d5", "#7c4789", "#9973e2", "#7b99fa"], 
                    title:"FAVORITE AUTHORS TRENDS"%>
+                <%end%>
         </div>
 
 
         <div class="graph" id="chart2" style="visibility:hidden;">
-            <%= area_chart AuthorRating.where(user_id:@user).order("DATE(rating_timestamp)").group("DATE(rating_timestamp)").count, 
+            <%data=AuthorRating.where(user_id:@user).order("DATE(rating_timestamp)").group("DATE(rating_timestamp)").count%>
+            <%if data=={}%>
+                <%data={(Date.today)=>nil}%>
+            <%end%>
+            <%= area_chart data, 
             colors: [ "#80e7ad" ],
             xmin: Date.today - 30, xmax: Date.today,
             title:"YOUR MONTHLY AUTHORS' RATINGS"%>
@@ -113,7 +128,11 @@
 
 
         <div class="graph" id="chart3" style="visibility:hidden;">
-            <%= area_chart Comment.where(user_id:@user).order("DATE(comment_timestamp)").group("DATE(comment_timestamp)").count, 
+            <%data=Comment.where(user_id:@user).order("DATE(comment_timestamp)").group("DATE(comment_timestamp)").count%>
+            <%if data=={}%>
+                <%data={(Date.today)=>nil}%>
+            <%end%>
+            <%= area_chart data, 
             colors: ["#55c8a7"],
             xmin: Date.today - 30, xmax: Date.today,
             title:"YOUR MONTHLY COMMENTS"%>
@@ -137,7 +156,11 @@
 
 
         <div class="graph" id="chart5" style="visibility:hidden;">
-            <%= area_chart PublicationRating.where(user_id:@user).order("DATE(rating_timestamp)").group("DATE(rating_timestamp)").count, 
+            <%data=PublicationRating.where(user_id:@user).order("DATE(rating_timestamp)").group("DATE(rating_timestamp)").count%>
+            <%if data=={}%>
+                <%data={(Date.today)=>nil}%>
+            <%end%>
+            <%= area_chart data, 
             colors: ["#2fa99d" ],
             xmin: Date.today - 30, xmax: Date.today,
             title:"YOUR MONTHLY PUBLICATIONS' RATINGS"%>
@@ -145,7 +168,11 @@
 
 
         <div class="graph" id="chart6" style="visibility:hidden;">
-            <%= area_chart Review.where(user_id:@user).order("DATE(review_timestamp)").group("DATE(review_timestamp)").count, 
+            <%data=Review.where(user_id:@user).order("DATE(review_timestamp)").group("DATE(review_timestamp)").count%>
+            <%if data=={}%>
+                <%data={(Date.today)=>nil}%>
+            <%end%>
+            <%= area_chart data, 
             colors: ["#037b86"],
             xmin: Date.today - 30, xmax: Date.today,
             title:"YOUR MONTHLY REVIEWS"%>
