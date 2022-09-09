@@ -43,11 +43,13 @@ RSpec.describe AuthorRatingsController, type: :controller do
 
     it "unauthenticate user not allowed to create ratings" do
       #crea istanze di prova
-      expect{post :create,params:{:author_id=>author.author_id}}.to raise_error(CanCan::AccessDenied)
+      expect{post :create,params:{:author_id=>author.author_id,:author_rating=>author_rating}}.to raise_error(CanCan::AccessDenied)
     end
     it "authenticate user allowed to create ratings" do
-      sign_in user1
-      expect{post :create,params:{:author_id=>author.author_id,:author_rating=>auhtor_rating}}.not_to raise_error(CanCan::AccessDenied)
+      @user=user1
+      #sign_in @user
+      login_as(@user, scope: :user)
+      expect{post :create,params:{:author_id=>author.author_id,:author_rating=>author_rating}}.not_to raise_error(CanCan::AccessDenied)
     end
   end
   
