@@ -1,4 +1,6 @@
 class DashboardController < ApplicationController
+    before_action :check_authorization, only: %i[ index ]
+
     def index
         @user= User.where(user_id:current_user.id)[0]
         @latest_pubs= Publication.distinct.order(pub_year: :desc).where.not(pub_year:nil).first(5)
@@ -54,6 +56,11 @@ class DashboardController < ApplicationController
                 @most_cited_pubs_per_year_data << [ year.to_s + ": "+  most_cited.title, most_cited.cited_by]
             end
         end
+    end
 
+    def check_authorization()
+        if not user_signed_in?
+            redirect_to "/"
+        end
     end
 end
