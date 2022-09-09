@@ -2,15 +2,20 @@
 <div class='margine'>
 <p style="color: green"><%= notice %></p>
 
-<%= render @publication %>
+  <h1>
+    PUBLICATION: <%= link_to @publication.title, @publication.link %>
+  </h1>
+  <h2>RATING:</h2><%= @avg_ratings_2%>
+
 <div>
-  <button><%= link_to "VIEW OTHER PUBLICATION", publications_path %></button>
+  <%= button_to "PUBLICATIONS", publications_path, method: :get %>
 <%if(params[:id].count(":")>0)%>
-  <button><%= link_to "GO TO AUTHOR", author_path%></button>
+  <%= button_to "GO BACK TO AUTHOR", author_path, method: :get %>
 <%end%>
+  <%= button_to "HOME", home_path, method: :get %>  
 </div>
 
-<h2>RATING:</h2><%= @avg_ratings_2%>
+<%= render @publication %>
 
 <div>
   <%if @comments != [] || @comments != nil%>
@@ -26,8 +31,10 @@
 
 
 <%if user_signed_in?%>
-<button><%= link_to "ADD PUBLICATION RATING", publication_publication_ratings_path(@publication)%></button>
+<%= button_to "ADD TO YOUR FAVORITES", user_favorite_publications_path(@publication), method: :get %>
 <%end%>
 
+<%= button_to "PUBLICATION RATINGS", publication_publication_ratings_path(@publication), method: :get %>
+<%= button_to "COMMENTS", publication_comments_path(@publication), method: :get %>
 </div>
 </body>
