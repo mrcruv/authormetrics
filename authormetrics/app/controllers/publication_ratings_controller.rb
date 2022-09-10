@@ -39,7 +39,7 @@ class PublicationRatingsController < ApplicationController
     authorize! :update, @publication_rating, :message => "BEWARE: you are not authorized to update publication ratings."
     respond_to do |format|
       if @publication_rating.update(publication_rating_params)
-        format.html { redirect_to publication_publication_rating_path(@publication), notice: "Publication rating was successfully updated." }
+        format.html { redirect_to publication_publication_ratings_path(@publication), notice: "Publication rating was successfully updated." }
         format.json { render :show, status: :ok, location: @publication_rating }
       else
         format.html { render :edit, status: :unprocessable_entity }

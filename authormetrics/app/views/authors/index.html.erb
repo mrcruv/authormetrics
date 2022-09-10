@@ -1,34 +1,32 @@
+<body>
+<div class="margine">
 <p style="color: green"><%= notice %></p>
+<h1>AUTHORS</h1>
 
-<div class='margine'>
-  <h1>AUTHORS</h1>
-  <div style='position: absolute; top: 7%; left: 65%; display:inline-block;'>
-    <% if @authors!=[] || @authors!=nil %>
-   <label for="orders">ORDER BY:</label> 
-        <%=select_tag("order",options_for_select([['Alphabetical', "1"], ['Reverse alphabetical', "2"], ['Highest citations', "3"]], params[:order]),
-        :onchange => "location.href='https://127.0.0.1:3000/authors?order='+document.getElementById('order').value;")%>
+<div class='destra'>
+  <% if @authors!=[] || @authors!=nil %>
+    <label for="orders">ORDER BY:</label> 
+    <%=select_tag("order",options_for_select([['Alphabetical', "1"], ['Reverse alphabetical', "2"], ['Highest citations', "3"]], params[:order]),
+    :onchange => "location.href='https://127.0.0.1:3000/authors?order='+document.getElementById('order').value;")%>
     <button onclick="searchByAuth()" id="ByAuth">SEARCH AUTHOR</button>
     <%end%>
     <%= button_to "HOME", home_path, method: :get %> 
-    <p id="p1"> </p>
-  </div>
+</div>
 
-  <br>
-  
-  <div id="authors">
     <% @authors.each do |author| %>
       <% if author.interests != nil%>
       <% s=Strings.new %>
       <% author.interests=s.to_hash(author.interests) %>
       <% end %>
       <%= render author %>
-      <p>
-        <%= "---------------------------" %>
-      </p>
+      <br>
     <% end %>
-  </div>
-</div>
-</div>
+
+
+
 
 <%= javascript_include_tag "home" %>
 <%= javascript_include_tag "application" %>
+
+</div>
+</body>

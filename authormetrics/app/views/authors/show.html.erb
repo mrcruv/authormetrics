@@ -1,24 +1,23 @@
+<body>
+<div class='margine'>
 <p style="color: green"><%= notice %></p>
 
-    <h1>
-    <%= 'AUTHOR:' + @author.name %>
-    </h1>
-    <h2>RATING:<%= @avg_ratings%></h2>
+<h1><%= 'AUTHOR:' + @author.name %></h1>
+<h2>RATING:<%= @avg_ratings%></h2>
 
 <div class="upper_block_auth_pub">
   <button onclick= "searchPubByAuth('<%=@author.id%>')" id= "PubByAuth">SEARCH PUB BY AUTHOR</button>
   <%= button_to "AUTHORS", authors_path, method: :get %>
   <%= button_to "HOME", home_path, method: :get %>  
-  <p id="p1"> </p>
 </div>
-  <p>
-    <strong>Affiliations:</strong>
-    <%= @author.affiliations %>
-  </p>
 
-  <p>
-    <% if @author.interests != [] && @author.interests!= nil && @author.interests!= "" %>
-    <h2>INTERESTS:</h2>
+<p>
+  <strong>Affiliations:</strong><%= @author.affiliations %>
+</p>
+
+<p>
+  <% if @author.interests != [] && @author.interests!= nil && @author.interests!= "" %>
+    <h2>INTERESTS</h2>
       <% JSON.parse(@author.interests).each do |k|%>
         <%i=0%>
         <%arg=''%>
@@ -40,50 +39,39 @@
           <%end%>
           </div>
         <%end%>
-        
       <%end%> 
     <%end%>
-    <p>
-      <%="------------"%>
-    </p>
-  </p>
+</p>
 
-  <%= render @cited_by %>
+<%= render @cited_by %>
 
- </p>
+</p>
     <% if @reviews != [] && @reviews!= nil && @reviews != ''%>
-      <h2>REVIEWS:</h2>
+      <h2>REVIEWS</h2>
       <% @reviews.each do |rev|%>
       <% r=User.find(rev.user_id)%>
-      <p>
-      <Strong><%= r.username %>:</strong>
-      <%= rev.review%>
-      </p>
-      </div>
+      <p><Strong><%= r.username %>:</strong><%= rev.review%></p>
       <%end%>
     <%end%>
-  <p>
+<p>
 
 <% if @publications != [] && @publications != nil %>
   <h1>PUBLICATIONS</h1>
 <%end%>
 
 <% @publications.each do |p| %>
-  <p>
-  <%=h link_to p.title, publication_path(p) %>
-  </p>
-  
-  <%end%>
+  <p><li><%=h link_to p.title, publication_path(p) %></p>
+<%end%>
 
-<%= javascript_include_tag "home" %>
-<%= javascript_include_tag "application" %>
-
+<br>
 <%if user_signed_in?%>
 <%= button_to "ADD TO YOUR FAVORITES", user_favorite_authors_path(@author), method: :get %>
 <%= button_to "ADD REVIEWS", author_reviews_path(@author), method: :get %>
 <%= button_to "ADD AUTHOR RATINGS", author_author_ratings_path(@author), method: :get %>
 <%end%>
 
-<br>
-<br>
-<br>
+</div>
+</body>
+
+<%= javascript_include_tag "home" %>
+<%= javascript_include_tag "application" %>
