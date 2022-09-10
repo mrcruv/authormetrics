@@ -36,6 +36,7 @@ RSpec.describe "create rating process", type: :feature do
       visit author_path(author)
       expect(page).to have_content "AUTHOR RATINGS"
       click_button "AUTHOR RATINGS"
+      print(page.body)
       expect(page).to have_content "NEW AUTHOR RATING"
       click_link "NEW AUTHOR RATING"
       #CREATE PHASE

@@ -7,9 +7,10 @@
 <button><%= link_to "NEW AUTHOR RATING", new_author_author_rating_path(@author)%></button>
 <%end%>
 <%end%>
-<button><%=link_to "BACK TO AUTHOR",[@author] %></button>
+<button><%=link_to "BACK TO AUTHOR",@author %></button>
 
 <div id="author_ratings">
+  <%if @author_ratings!=nil%>
   <% @author_ratings.each do |author_rating| %>
   
     <%= render author_rating %>
@@ -22,6 +23,7 @@
     <%end%>
     <%end%>
   <% end %>
+  <%end%>
 </div>
 
 
