@@ -33,7 +33,7 @@ class CommentsController < ApplicationController
     authorize! :create, @comment, :message => "BEWARE: you are not authorized to create comments."
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to publication_comment_path(@publication, @user), notice: "Comments was successfully created." }
+        format.html { redirect_to publication_comments_path(@publication), notice: "Comments was successfully created." }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -47,7 +47,7 @@ class CommentsController < ApplicationController
     authorize! :update, @comment, :message => "BEWARE: you are not authorized to update comments."
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to comment_url(@comment), notice: "Comment was successfully updated." }
+        format.html { redirect_to publication_comments_path(@publication), notice: "Comments was successfully updated." }
         format.json { render :show, status: :ok, location: @comment }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -60,7 +60,7 @@ class CommentsController < ApplicationController
   def destroy
     authorize! :destroy, @comment, :message => "BEWARE: you are not authorized to delete comments."
     @comment.destroy
-    redirect_to root_path
+    redirect_to publication_comments_path(@publication)
   end
 
   private

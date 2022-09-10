@@ -1,9 +1,6 @@
+<div style='margin-left:30px; margin-top:30px;'>
 <h1>New review</h1>
-
 <%= render "form", review: @review %>
-
 <br>
-
-<div>
-  <%= link_to "Back to reviews", user_reviews_path %>
+<%= button_to "BACK TO REVIEWS", author_reviews_path(@author), method: :get %>
 </div>

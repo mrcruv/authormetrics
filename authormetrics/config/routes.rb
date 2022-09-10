@@ -64,7 +64,7 @@ Rails.application.routes.draw do
   delete "/users/:user_id/favorite_authors/:id", to: "favorite_authors#destroy", as: :destroy_favorite_author
   delete "/publications/:publication_id/publication_ratings/:id", to: "publication_ratings#destroy", as: :destroy_publication_publication_rating
   
-  delete "/publications/:publication_id/comments_id/:id", to: "comments#destroy", as: :destroy_publication_comment
+  delete "/publications/:publication_id/comments/:id", to: "comments#destroy", as: :destroy_publication_comment
   
   get '/404', to: 'errors#not_found'
   get '/500', to: 'errors#internal_server_error'

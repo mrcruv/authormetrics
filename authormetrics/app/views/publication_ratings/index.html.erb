@@ -1,32 +1,33 @@
+<body>
+<div class='margine'>
 <p style="color: green"><%= notice %></p>
-
-<div style='margin-left:30px; margin-top:30px;'>
 
 <h1>Publication ratings</h1>
 
 <%if(@user!=nil)%>
-<% if (PublicationRating.where(publication_id:@publication.publication_id,user_id:@user.user_id)==[] ||PublicationRating.where(publication_id:@publication.publication_id,user_id:@user.user_id)==nil)%>
-<%= button_to "NEW PUBLICATION RATING", new_publication_publication_rating_path(@publication), method: :get %>
+  <% if (PublicationRating.where(publication_id:@publication.publication_id,user_id:@user.user_id)==[] ||PublicationRating.where(publication_id:@publication.publication_id,user_id:@user.user_id)==nil)%>
+    <%= button_to "NEW PUBLICATION RATING", new_publication_publication_rating_path(@publication), method: :get %>
+  <%end%>
 <%end%>
-<%end%>
+
 <%= button_to "BACK TO PUBLICATION", publication_path(@publication), method: :get %>
+
 <br>
 <br>
 
 <div class="rating">
-<div id="author_publicationS">
   <% @publication_ratings.each do |publication_rating| %>
-  
     <%= render publication_rating %>
     <%if(@user!=nil)%>
     <%if @user.user_id==publication_rating.user_id%>
     <%= link_to "Edit rating", edit_publication_publication_rating_path(publication_rating.publication_id,publication_rating.user_id)%>
-    <%= link_to 'Destroy rating', destroy_publication_publication_rating_path(publication_rating.publication_id,publication_rating.user_id), method: :delete %>
+    <%= button_to 'Destroy rating', [publication_rating.publication,publication_rating], :method=>:delete, style: 'background-color:#f8fcfb; border:none; box-shadow:2px 3px #f8fcfb; font-family: Verdana, sans-serif;' %>
     <%end%>
     <%end%>
     <br>
   <% end %>
 </div>
 
+
 </div>
-</div>
+</body>

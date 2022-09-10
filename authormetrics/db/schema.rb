@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_07_115226) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_09_232127) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -105,7 +105,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_115226) do
     t.check_constraint "cited_by IS NOT NULL OR cited_by >= 0", name: "publications_cited_by_check"
   end
 
-  create_table "reviews", primary_key: ["author_id", "user_id"], force: :cascade do |t|
+  create_table "reviews", primary_key: "review_id", force: :cascade do |t|
     t.string "author_id", limit: 255, null: false
     t.serial "user_id", null: false
     t.text "review", null: false

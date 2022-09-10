@@ -56,3 +56,10 @@ favorite_publications
   migrazione gia esistente:
       >bin/rails db:migrate
 
+5)
+reviews
+ comando:
+      alter table reviews drop CONSTRAINT reviews_pkey;
+  migrazione gia esistente:
+      >bin/rails db:migrate
+
