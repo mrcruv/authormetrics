@@ -17,21 +17,21 @@ class AuthorRatingsController < ApplicationController
   # GET /author_ratings/new
   def new
     @author_rating = @author.author_rating.build
-    authorize! :create, @author_rating, :message => "BEWARE: you are not authorized to create author ratings."
     @author_rating.user=@user
     @author_rating.author=@author
+    authorize! :create, @author_rating, :message => "BEWARE: you are not authorized to create author ratings."
   end
 
   # GET /author_ratings/1/edit
   def edit
+    authorize! :update, @author_rating, :message => "BEWARE: you are not authorized to update author ratings."
   end
 
   # POST authors/:id_author/author_ratings/
   def create
-    authorize! :create, @author_rating,:message => "BEWARE: you are not authorized to create author ratings."
     @author_rating = @author.author_rating.build(author_rating_params)
     @author_rating.user_id=current_user.id
-    
+    authorize! :create, @author_rating,:message => "BEWARE: you are not authorized to create author ratings."
     respond_to do |format|
       if @author_rating.save
         format.html { redirect_to author_author_ratings_path(@author), notice: "Author rating was successfully created." }

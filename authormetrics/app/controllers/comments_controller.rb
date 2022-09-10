@@ -16,20 +16,21 @@ class CommentsController < ApplicationController
   # GET /comments/new
   def new
     @comment = @publication.comment.build
-    authorize! :create, @comment, :message => "BEWARE: you are not authorized to create comments."
     @comment.user=@user
     @comment.publication=@publication
+    authorize! :create, @comment, :message => "BEWARE: you are not authorized to create comments."
   end
 
   # GET /comments/1/edit
   def edit
+    authorize! :update, @comment, :message => "BEWARE: you are not authorized to update comments."
   end
 
   # POST /comments or /comments.json
   def create
     @comment = @publication.comment.build(comment_params)
-    authorize! :create, @comment, :message => "BEWARE: you are not authorized to create comments."
     @comment.user_id=current_user.id
+    authorize! :create, @comment, :message => "BEWARE: you are not authorized to create comments."
     respond_to do |format|
       if @comment.save
         format.html { redirect_to publication_comment_path(@publication, @user), notice: "Comments was successfully created." }

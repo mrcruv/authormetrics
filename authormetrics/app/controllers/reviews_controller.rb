@@ -5,42 +5,58 @@ class ReviewsController < ApplicationController
  
   def index
     authorize! :index, Review, :message => "BEWARE: you are not authorized to index reviews."
-    @reviews=@author.riview
+    @reviews=@author.review
   end
 
   def new
-    @author_rating = @author.author_rating.build
-    authorize! :create, @author_rating, :message => "BEWARE: you are not authorized to create author ratings."
-    @author_rating.user=@user
-    @author_rating.author=@author
+    # SCRIVERE LA NEW PER @review
+    @author_rating = @author.author_rating.build # ELIMINARE
+    @author_rating.user=@user # ELIMINARE
+    @author_rating.author=@author # ELIMINARE
+    authorize! :create, @review, :message => "BEWARE: you are not authorized to create reviews."
   end
 
   
   def edit
+    authorize! :update, @review,:message => "BEWARE: you are not authorized to update reviews."
   end
 
   def create
-    @author_rating = @author.author_rating.build(author_rating_params)
-    authorize! :create, @author_rating,:message => "BEWARE: you are not authorized to create author ratings."
-    @author_rating.user_id=current_user.id
+    # SCRIVERE LA CREATE PER @review
+    @author_rating = @author.author_rating.build(author_rating_params) # ELIMINARE
+    @author_rating.user_id=current_user.id # ELIMINARE
+    authorize! :create, @review, :message => "BEWARE: you are not authorized to create reviews."
     respond_to do |format|
       if @author_rating.save
-        format.html { redirect_to author_author_ratings_path(@author), notice: "Author rating was successfully created." }
-        format.json { render :show, status: :created, location: @author_rating }
+        # redirect to ???
+        format.html { redirect_to ???_path(@review), notice: "Author rating was successfully created." }
+        format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @author_rating.errors, status: :unprocessable_entity }
+        format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def update
+    # COMPLETARE UPDATE PER @review
+    authorize! :update, @review, :message => "BEWARE: you are not authorized to update reviews."
+    respond_to do |format|
+      if @review.update(review_params)
+        # redirect to ???
+        format.html { redirect_to ???_url(@review), notice: "User was successfully updated." }
+        format.json { render :show, status: :ok, location: @review }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @review.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
-    authorize! :destroy, @author_rating, :message => "BEWARE: you are not authorized to delete author ratings."
-    @author_rating.destroy
-    redirect_to author_path(@author)
+    authorize! :destroy, @review, :message => "BEWARE: you are not authorized to delete reviews."
+    @review.destroy
+    redirect_to ???_path(@review) # DA SETTARE ADEGUATAMENTE
   end
 
   private

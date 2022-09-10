@@ -10,18 +10,19 @@ class PublicationRatingsController < ApplicationController
 
   def new
     @publication_rating = @publication.publication_rating.build
-    authorize! :create, @publication_rating, :message => "BEWARE: you are not authorized to create publication ratings."
     @publication_rating.user=@user
     @publication_rating.publication=@publication
+    authorize! :create, @publication_rating, :message => "BEWARE: you are not authorized to create publication ratings."
   end
 
   def edit
+    authorize! :update, @publication_rating, :message => "BEWARE: you are not authorized to update publication ratings."
   end
 
   def create
     @publication_rating = @publication.publication_rating.build(publication_rating_params)
-    authorize! :create, @publication_rating, :message => "BEWARE: you are not authorized to create publication ratings."
     @publication_rating.user_id=current_user.id
+    authorize! :create, @publication_rating, :message => "BEWARE: you are not authorized to create publication ratings."
     respond_to do |format|
       if @publication_rating.save
         format.html { redirect_to publication_publication_ratings_path(@publication), notice: "Publication rating was successfully created." }

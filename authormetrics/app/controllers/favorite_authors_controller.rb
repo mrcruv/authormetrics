@@ -4,8 +4,8 @@ class FavoriteAuthorsController < ApplicationController
 
   # GET /favorite_authors or /favorite_authors.json
   def index
-    @favorite_authors = @user.favorite_author
     authorize! :index, FavoriteAuthor, :message => "BEWARE: you are not authorized to index favorite authors."
+    @favorite_authors = @user.favorite_author
   end
 
   # GET /favorite_authors/new
@@ -20,8 +20,8 @@ class FavoriteAuthorsController < ApplicationController
   # POST /favorite_authors or /favorite_authors.json
   def create
     @favorite_author = @user.favorite_author.build(favorite_author_params)
-    authorize! :create, @favorite_author, :message => "BEWARE: you are not authorized to create favorite authors."
     @favorite_author.user_id = current_user.id
+    authorize! :create, @favorite_author, :message => "BEWARE: you are not authorized to create favorite authors."
     respond_to do |format|
       if @favorite_author.save
         format.html { redirect_to user_favorite_authors_path(@favorite_author), notice: "Favorite author was successfully created." }
