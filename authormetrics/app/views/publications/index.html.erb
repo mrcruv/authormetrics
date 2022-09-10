@@ -2,9 +2,13 @@
 <div class=margine > 
 <p style="color: green"><%= notice %></p>
 
-<h1>PUBLICATIONS</h1>
+<div class='intestazione'>
 
-<div class='destra'>
+<div class='left'>
+  <h1>PUBLICATIONS</h1>
+</div>
+
+<div class='right'>
   <label for="orders">ORDER BY:</label> 
   <%=select_tag("order",options_for_select([['Alphabetical', "1"], ['Reverse alphabetical', "2"], ['Highest citations', "3"]], params[:order]),
   :onchange => "location.href='https://127.0.0.1:3000/publications?order='+ document.getElementById('order').value;")%>
@@ -12,6 +16,7 @@
   <%= button_to "HOME", home_path, method: :get %>
 </div>
 
+</div>
 
 <% @publications.each do |publication| %>
   <p>
