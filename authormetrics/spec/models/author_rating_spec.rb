@@ -23,7 +23,8 @@ RSpec.describe AuthorRating, type: :model do
   end
 
   it "empty object not a valid object" do
-    expect(AuthorRating.new).to_not be_valid                                                                                                      
+    u=FactoryBot.build(:author_rating)
+    expect(u).to_not be_valid                                                                                                      
   end     
 
   it "out of range rating 1" do

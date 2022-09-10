@@ -3,6 +3,7 @@ class PublicationsController < ApplicationController
   before_action :set_search, only: %i[ search ]
   # GET /publications or /publications.json
   def index
+    authorize! :index, Publication, :message => "BEWARE: you are not authorized to index publications."
     @publications = Publication.all.sort_by{|x| x.title}
     if (params[:order] == "1")
     elsif (params[:order] == "2")
@@ -10,7 +11,6 @@ class PublicationsController < ApplicationController
     elsif (params[:order]== "3")
         @publications = Publication.order(cited_by: :desc).where.not(cited_by:nil)
     end   
-    authorize! :index, Publication, :message => "BEWARE: you are not authorized to index publications."
   end
 
   # GET /publications/1 or /publications/1.json
@@ -73,6 +73,7 @@ class PublicationsController < ApplicationController
     end
   end
 =end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_publication

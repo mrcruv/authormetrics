@@ -23,6 +23,7 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/1/edit
   def edit
+    authorize! :update, @review,:message => "BEWARE: you are not authorized to update reviews."
   end
 
   # POST /reviews or /reviews.json

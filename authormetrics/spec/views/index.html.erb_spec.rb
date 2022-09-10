@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "base_authors/:author_id/author_ratings/index.html.erb", type: :view do
     include Rails.application.routes.url_helpers
-    #stub models
+
     #factory seed
     fixtures :users
     let(:user1) { users(:one) }
@@ -16,6 +16,7 @@ RSpec.describe "base_authors/:author_id/author_ratings/index.html.erb", type: :v
         @user=nil
         @author=author
         @author_ratings=[author_rating1,author_rating2]
+        stub_template "author_ratings/index.html.erb" => "<p style='color: green'><%= notice %></p><h1>Author ratings</h1><%if(@user!=nil)%><% if (AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==[] || AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==nil)%><button><%= link_to 'NEW AUTHOR RATING', new_author_author_rating_path(@author)%></button><%end%>       <%end%><button><%=link_to 'BACK TO AUTHOR',[@author] %></button><div id='author_ratings'><% @author_ratings.each do |author_rating| %><%= render author_rating %><%if(@user!=nil)%><%if @user.user_id==author_rating.user_id%><p><%= link_to 'Edit author rating', edit_author_author_rating_path(author_rating.author_id,author_rating.user_id)%><%= link_to 'Destroy rating', destroy_author_author_rating_path(author_rating.author_id,author_rating.user_id), method: :delete %></p><%end%><%end%><% end %></div>"
         render :template => "author_ratings/index",:author_id=>@author.author_id,:author_ratings=>@author_ratings
         expect(rendered).to match /tznfnz/
         expect(rendered).to match /mrcrvl/
@@ -24,6 +25,7 @@ RSpec.describe "base_authors/:author_id/author_ratings/index.html.erb", type: :v
         @user=nil
         @author=author
         @author_ratings=[]
+        stub_template "author_ratings/index.html.erb" => "<p style='color: green'><%= notice %></p><h1>Author ratings</h1><%if(@user!=nil)%><% if (AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==[] || AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==nil)%><button><%= link_to 'NEW AUTHOR RATING', new_author_author_rating_path(@author)%></button><%end%>       <%end%><button><%=link_to 'BACK TO AUTHOR',[@author] %></button><div id='author_ratings'><% @author_ratings.each do |author_rating| %><%= render author_rating %><%if(@user!=nil)%><%if @user.user_id==author_rating.user_id%><p><%= link_to 'Edit author rating', edit_author_author_rating_path(author_rating.author_id,author_rating.user_id)%><%= link_to 'Destroy rating', destroy_author_author_rating_path(author_rating.author_id,author_rating.user_id), method: :delete %></p><%end%><%end%><% end %></div>"
         render :template => "author_ratings/index",:author_id=>@author.author_id,:author_ratings=>@author_ratings
         expect(rendered).to_not match /tznfnz/
         expect(rendered).to_not match /mrcrvl/
@@ -33,6 +35,7 @@ RSpec.describe "base_authors/:author_id/author_ratings/index.html.erb", type: :v
         @user=nil
         @author=author
         @author_ratings=[author_rating1,author_rating2]
+        stub_template "author_ratings/index.html.erb" => "<p style='color: green'><%= notice %></p><h1>Author ratings</h1><%if(@user!=nil)%><% if (AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==[] || AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==nil)%><button><%= link_to 'NEW AUTHOR RATING', new_author_author_rating_path(@author)%></button><%end%>       <%end%><button><%=link_to 'BACK TO AUTHOR',[@author] %></button><div id='author_ratings'><% @author_ratings.each do |author_rating| %><%= render author_rating %><%if(@user!=nil)%><%if @user.user_id==author_rating.user_id%><p><%= link_to 'Edit author rating', edit_author_author_rating_path(author_rating.author_id,author_rating.user_id)%><%= link_to 'Destroy rating', destroy_author_author_rating_path(author_rating.author_id,author_rating.user_id), method: :delete %></p><%end%><%end%><% end %></div>"
         render :template => "author_ratings/index",:author_id=>@author.author_id,:author_ratings=>@author_ratings
         expect(rendered).to match /BACK TO AUTHOR/
     end
@@ -44,6 +47,7 @@ RSpec.describe "base_authors/:author_id/author_ratings/index.html.erb", type: :v
             sign_in @user
             @author=author
             @author_ratings=[author_rating1,author_rating2]
+            stub_template "author_ratings/index.html.erb" => "<p style='color: green'><%= notice %></p><h1>Author ratings</h1><%if(@user!=nil)%><% if (AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==[] || AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==nil)%><button><%= link_to 'NEW AUTHOR RATING', new_author_author_rating_path(@author)%></button><%end%>       <%end%><button><%=link_to 'BACK TO AUTHOR',[@author] %></button><div id='author_ratings'><% @author_ratings.each do |author_rating| %><%= render author_rating %><%if(@user!=nil)%><%if @user.user_id==author_rating.user_id%><p><%= link_to 'Edit author rating', edit_author_author_rating_path(author_rating.author_id,author_rating.user_id)%><%= link_to 'Destroy rating', destroy_author_author_rating_path(author_rating.author_id,author_rating.user_id), method: :delete %></p><%end%><%end%><% end %></div>"
             render :template => "author_ratings/index",:author_id=>@author.author_id,:author_ratings=>@author_ratings
             expect(rendered).to_not match /NEW AUTHOR RATING/
 
@@ -52,6 +56,7 @@ RSpec.describe "base_authors/:author_id/author_ratings/index.html.erb", type: :v
         it "dont show [new] button if you not auth" do
             @author=author
             @author_ratings=[author_rating1,author_rating2]
+            stub_template "author_ratings/index.html.erb" => "<p style='color: green'><%= notice %></p><h1>Author ratings</h1><%if(@user!=nil)%><% if (AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==[] || AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==nil)%><button><%= link_to 'NEW AUTHOR RATING', new_author_author_rating_path(@author)%></button><%end%>       <%end%><button><%=link_to 'BACK TO AUTHOR',[@author] %></button><div id='author_ratings'><% @author_ratings.each do |author_rating| %><%= render author_rating %><%if(@user!=nil)%><%if @user.user_id==author_rating.user_id%><p><%= link_to 'Edit author rating', edit_author_author_rating_path(author_rating.author_id,author_rating.user_id)%><%= link_to 'Destroy rating', destroy_author_author_rating_path(author_rating.author_id,author_rating.user_id), method: :delete %></p><%end%><%end%><% end %></div>"
             render :template => "author_ratings/index",:author_id=>@author.author_id,:author_ratings=>@author_ratings
             expect(rendered).to_not match /NEW AUTHOR RATING/
         end
@@ -61,6 +66,7 @@ RSpec.describe "base_authors/:author_id/author_ratings/index.html.erb", type: :v
             sign_in @user
             @author=author
             @author_ratings=[author_rating1,author_rating2]
+            stub_template "author_ratings/index.html.erb" => "<p style='color: green'><%= notice %></p><h1>Author ratings</h1><%if(@user!=nil)%><% if (AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==[] || AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==nil)%><button><%= link_to 'NEW AUTHOR RATING', new_author_author_rating_path(@author)%></button><%end%>       <%end%><button><%=link_to 'BACK TO AUTHOR',[@author] %></button><div id='author_ratings'><% @author_ratings.each do |author_rating| %><%= render author_rating %><%if(@user!=nil)%><%if @user.user_id==author_rating.user_id%><p><%= link_to 'Edit author rating', edit_author_author_rating_path(author_rating.author_id,author_rating.user_id)%><%= link_to 'Destroy rating', destroy_author_author_rating_path(author_rating.author_id,author_rating.user_id), method: :delete %></p><%end%><%end%><% end %></div>"
             render :template => "author_ratings/index",:author_id=>@author.author_id,:author_ratings=>@author_ratings
             expect(rendered).to match /Edit author rating/
         end
@@ -68,6 +74,7 @@ RSpec.describe "base_authors/:author_id/author_ratings/index.html.erb", type: :v
         it "dont show edit if you dont auth" do
             @author=author
             @author_ratings=[author_rating1,author_rating2]
+            stub_template "author_ratings/index.html.erb" => "<p style='color: green'><%= notice %></p><h1>Author ratings</h1><%if(@user!=nil)%><% if (AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==[] || AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==nil)%><button><%= link_to 'NEW AUTHOR RATING', new_author_author_rating_path(@author)%></button><%end%>       <%end%><button><%=link_to 'BACK TO AUTHOR',[@author] %></button><div id='author_ratings'><% @author_ratings.each do |author_rating| %><%= render author_rating %><%if(@user!=nil)%><%if @user.user_id==author_rating.user_id%><p><%= link_to 'Edit author rating', edit_author_author_rating_path(author_rating.author_id,author_rating.user_id)%><%= link_to 'Destroy rating', destroy_author_author_rating_path(author_rating.author_id,author_rating.user_id), method: :delete %></p><%end%><%end%><% end %></div>"
             render :template => "author_ratings/index",:author_id=>@author.author_id,:author_ratings=>@author_ratings
             expect(rendered).to_not match /Edit author rating/
         end
@@ -77,6 +84,7 @@ RSpec.describe "base_authors/:author_id/author_ratings/index.html.erb", type: :v
             sign_in @user
             @author=author
             @author_ratings=[author_rating1,author_rating2]
+            stub_template "author_ratings/index.html.erb" => "<p style='color: green'><%= notice %></p><h1>Author ratings</h1><%if(@user!=nil)%><% if (AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==[] || AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==nil)%><button><%= link_to 'NEW AUTHOR RATING', new_author_author_rating_path(@author)%></button><%end%>       <%end%><button><%=link_to 'BACK TO AUTHOR',[@author] %></button><div id='author_ratings'><% @author_ratings.each do |author_rating| %><%= render author_rating %><%if(@user!=nil)%><%if @user.user_id==author_rating.user_id%><p><%= link_to 'Edit author rating', edit_author_author_rating_path(author_rating.author_id,author_rating.user_id)%><%= link_to 'Destroy rating', destroy_author_author_rating_path(author_rating.author_id,author_rating.user_id), method: :delete %></p><%end%><%end%><% end %></div>"
             render :template => "author_ratings/index",:author_id=>"wT4V7isAAAAJ",:author_ratings=>@author_ratings
             expect(rendered).to match /Destroy rating/
         end
@@ -84,6 +92,7 @@ RSpec.describe "base_authors/:author_id/author_ratings/index.html.erb", type: :v
         it "dont show destroy if you dont auth" do
             @author=author
             @author_ratings=[author_rating1,author_rating2]
+            stub_template "author_ratings/index.html.erb" => "<p style='color: green'><%= notice %></p><h1>Author ratings</h1><%if(@user!=nil)%><% if (AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==[] || AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==nil)%><button><%= link_to 'NEW AUTHOR RATING', new_author_author_rating_path(@author)%></button><%end%>       <%end%><button><%=link_to 'BACK TO AUTHOR',[@author] %></button><div id='author_ratings'><% @author_ratings.each do |author_rating| %><%= render author_rating %><%if(@user!=nil)%><%if @user.user_id==author_rating.user_id%><p><%= link_to 'Edit author rating', edit_author_author_rating_path(author_rating.author_id,author_rating.user_id)%><%= link_to 'Destroy rating', destroy_author_author_rating_path(author_rating.author_id,author_rating.user_id), method: :delete %></p><%end%><%end%><% end %></div>"
             render :template => "author_ratings/index",:author_id=>"wT4V7isAAAAJ",:author_ratings=>@author_ratings
             expect(rendered).to_not match /Destroy rating/
         end
@@ -120,6 +129,7 @@ RSpec.describe "advanced_authors/:author_id/author_ratings/index.html.erb", type
             sign_in @user
             @author=author
             @author_ratings=[author_rating1,author_rating2]
+            stub_template "author_ratings/index.html.erb" => "<p style='color: green'><%= notice %></p><h1>Author ratings</h1><%if(@user!=nil)%><% if (AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==[] || AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==nil)%><button><%= link_to 'NEW AUTHOR RATING', new_author_author_rating_path(@author)%></button><%end%>       <%end%><button><%=link_to 'BACK TO AUTHOR',[@author] %></button><div id='author_ratings'><% @author_ratings.each do |author_rating| %><%= render author_rating %><%if(@user!=nil)%><%if @user.user_id==author_rating.user_id%><p><%= link_to 'Edit author rating', edit_author_author_rating_path(author_rating.author_id,author_rating.user_id)%><%= link_to 'Destroy rating', destroy_author_author_rating_path(author_rating.author_id,author_rating.user_id), method: :delete %></p><%end%><%end%><% end %></div>"
             render :template => "author_ratings/index",:author_id=>@author.author_id,:author_ratings=>@author_ratings
             expect(rendered).to_not match /NEW AUTHOR RATING/
 
@@ -128,6 +138,7 @@ RSpec.describe "advanced_authors/:author_id/author_ratings/index.html.erb", type
         it "dont show [new] button if you not auth" do
             @author=author
             @author_ratings=[author_rating1,author_rating2]
+            stub_template "author_ratings/index.html.erb" => "<p style='color: green'><%= notice %></p><h1>Author ratings</h1><%if(@user!=nil)%><% if (AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==[] || AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==nil)%><button><%= link_to 'NEW AUTHOR RATING', new_author_author_rating_path(@author)%></button><%end%>       <%end%><button><%=link_to 'BACK TO AUTHOR',[@author] %></button><div id='author_ratings'><% @author_ratings.each do |author_rating| %><%= render author_rating %><%if(@user!=nil)%><%if @user.user_id==author_rating.user_id%><p><%= link_to 'Edit author rating', edit_author_author_rating_path(author_rating.author_id,author_rating.user_id)%><%= link_to 'Destroy rating', destroy_author_author_rating_path(author_rating.author_id,author_rating.user_id), method: :delete %></p><%end%><%end%><% end %></div>"
             render :template => "author_ratings/index",:author_id=>@author.author_id,:author_ratings=>@author_ratings
             expect(rendered).to_not match /NEW AUTHOR RATING/
         end
@@ -137,6 +148,7 @@ RSpec.describe "advanced_authors/:author_id/author_ratings/index.html.erb", type
             sign_in @user
             @author=author
             @author_ratings=[author_rating1,author_rating2]
+            stub_template "author_ratings/index.html.erb" => "<p style='color: green'><%= notice %></p><h1>Author ratings</h1><%if(@user!=nil)%><% if (AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==[] || AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==nil)%><button><%= link_to 'NEW AUTHOR RATING', new_author_author_rating_path(@author)%></button><%end%>       <%end%><button><%=link_to 'BACK TO AUTHOR',[@author] %></button><div id='author_ratings'><% @author_ratings.each do |author_rating| %><%= render author_rating %><%if(@user!=nil)%><%if @user.user_id==author_rating.user_id%><p><%= link_to 'Edit author rating', edit_author_author_rating_path(author_rating.author_id,author_rating.user_id)%><%= link_to 'Destroy rating', destroy_author_author_rating_path(author_rating.author_id,author_rating.user_id), method: :delete %></p><%end%><%end%><% end %></div>"
             render :template => "author_ratings/index",:author_id=>@author.author_id,:author_ratings=>@author_ratings
             expect(rendered).to match /Edit author rating/
         end
@@ -144,6 +156,7 @@ RSpec.describe "advanced_authors/:author_id/author_ratings/index.html.erb", type
         it "dont show edit if you dont auth" do
             @author=author
             @author_ratings=[author_rating1,author_rating2]
+            stub_template "author_ratings/index.html.erb" => "<p style='color: green'><%= notice %></p><h1>Author ratings</h1><%if(@user!=nil)%><% if (AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==[] || AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==nil)%><button><%= link_to 'NEW AUTHOR RATING', new_author_author_rating_path(@author)%></button><%end%>       <%end%><button><%=link_to 'BACK TO AUTHOR',[@author] %></button><div id='author_ratings'><% @author_ratings.each do |author_rating| %><%= render author_rating %><%if(@user!=nil)%><%if @user.user_id==author_rating.user_id%><p><%= link_to 'Edit author rating', edit_author_author_rating_path(author_rating.author_id,author_rating.user_id)%><%= link_to 'Destroy rating', destroy_author_author_rating_path(author_rating.author_id,author_rating.user_id), method: :delete %></p><%end%><%end%><% end %></div>"
             render :template => "author_ratings/index",:author_id=>@author.author_id,:author_ratings=>@author_ratings
             expect(rendered).to_not match /Edit author rating/
         end
@@ -153,13 +166,15 @@ RSpec.describe "advanced_authors/:author_id/author_ratings/index.html.erb", type
             sign_in @user
             @author=author
             @author_ratings=[author_rating1,author_rating2]
-            render :template => "author_ratings/index",:author_id=>"wT4V7isAAAAJ",:author_ratings=>@author_ratings
+            stub_template "author_ratings/index.html.erb" => "<p style='color: green'><%= notice %></p><h1>Author ratings</h1><%if(@user!=nil)%><% if (AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==[] || AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==nil)%><button><%= link_to 'NEW AUTHOR RATING', new_author_author_rating_path(@author)%></button><%end%>       <%end%><button><%=link_to 'BACK TO AUTHOR',[@author] %></button><div id='author_ratings'><% @author_ratings.each do |author_rating| %><%= render author_rating %><%if(@user!=nil)%><%if @user.user_id==author_rating.user_id%><p><%= link_to 'Edit author rating', edit_author_author_rating_path(author_rating.author_id,author_rating.user_id)%><%= link_to 'Destroy rating', destroy_author_author_rating_path(author_rating.author_id,author_rating.user_id), method: :delete %></p><%end%><%end%><% end %></div>"
+            render :template => "author_ratings/index",:author_id=>@author.author_id,:author_ratings=>@author_ratings
             expect(rendered).to match /Destroy rating/
         end
         
         it "dont show destroy if you dont auth" do
             @author=author
             @author_ratings=[author_rating1,author_rating2]
+            stub_template "author_ratings/index.html.erb" => "<p style='color: green'><%= notice %></p><h1>Author ratings</h1><%if(@user!=nil)%><% if (AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==[] || AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==nil)%><button><%= link_to 'NEW AUTHOR RATING', new_author_author_rating_path(@author)%></button><%end%>       <%end%><button><%=link_to 'BACK TO AUTHOR',[@author] %></button><div id='author_ratings'><% @author_ratings.each do |author_rating| %><%= render author_rating %><%if(@user!=nil)%><%if @user.user_id==author_rating.user_id%><p><%= link_to 'Edit author rating', edit_author_author_rating_path(author_rating.author_id,author_rating.user_id)%><%= link_to 'Destroy rating', destroy_author_author_rating_path(author_rating.author_id,author_rating.user_id), method: :delete %></p><%end%><%end%><% end %></div>"
             render :template => "author_ratings/index",:author_id=>"wT4V7isAAAAJ",:author_ratings=>@author_ratings
             expect(rendered).to_not match /Destroy rating/
         end
@@ -188,6 +203,7 @@ RSpec.describe "Advanced Correct render selector", type: :view do
         sign_in @user
         @author=author
         @author_ratings=[author_rating2]
+        stub_template "author_ratings/index.html.erb" => "<p style='color: green'><%= notice %></p><h1>Author ratings</h1><%if(@user!=nil)%><% if (AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==[] || AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==nil)%><button><%= link_to 'NEW AUTHOR RATING', new_author_author_rating_path(@author)%></button><%end%>       <%end%><button><%=link_to 'BACK TO AUTHOR',[@author] %></button><div id='author_ratings'><% @author_ratings.each do |author_rating| %><%= render author_rating %><%if(@user!=nil)%><%if @user.user_id==author_rating.user_id%><p><%= link_to 'Edit author rating', edit_author_author_rating_path(author_rating.author_id,author_rating.user_id)%><%= link_to 'Destroy rating', destroy_author_author_rating_path(author_rating.author_id,author_rating.user_id), method: :delete %></p><%end%><%end%><% end %></div>"
         render :template => "author_ratings/index",:author_id=>@author.author_id,:author_ratings=>@author_ratings
         expect(rendered).to match /NEW AUTHOR RATING/
     end 
@@ -197,6 +213,7 @@ RSpec.describe "Advanced Correct render selector", type: :view do
         sign_in @user
         @author=author
         @author_ratings=[author_rating2]
+        stub_template "author_ratings/index.html.erb" => "<p style='color: green'><%= notice %></p><h1>Author ratings</h1><%if(@user!=nil)%><% if (AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==[] || AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==nil)%><button><%= link_to 'NEW AUTHOR RATING', new_author_author_rating_path(@author)%></button><%end%>       <%end%><button><%=link_to 'BACK TO AUTHOR',[@author] %></button><div id='author_ratings'><% @author_ratings.each do |author_rating| %><%= render author_rating %><%if(@user!=nil)%><%if @user.user_id==author_rating.user_id%><p><%= link_to 'Edit author rating', edit_author_author_rating_path(author_rating.author_id,author_rating.user_id)%><%= link_to 'Destroy rating', destroy_author_author_rating_path(author_rating.author_id,author_rating.user_id), method: :delete %></p><%end%><%end%><% end %></div>"
         render :template => "author_ratings/index",:author_id=>@author.author_id,:author_ratings=>@author_ratings
         expect(rendered).to_not match /Edit author rating/
     end
@@ -206,7 +223,8 @@ RSpec.describe "Advanced Correct render selector", type: :view do
         sign_in @user
         @author=author
         @author_ratings=[author_rating2]
-        render :template => "author_ratings/index",:author_id=>"wT4V7isAAAAJ",:author_ratings=>@author_ratings
+        stub_template "author_ratings/index.html.erb" => "<p style='color: green'><%= notice %></p><h1>Author ratings</h1><%if(@user!=nil)%><% if (AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==[] || AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==nil)%><button><%= link_to 'NEW AUTHOR RATING', new_author_author_rating_path(@author)%></button><%end%>       <%end%><button><%=link_to 'BACK TO AUTHOR',[@author] %></button><div id='author_ratings'><% @author_ratings.each do |author_rating| %><%= render author_rating %><%if(@user!=nil)%><%if @user.user_id==author_rating.user_id%><p><%= link_to 'Edit author rating', edit_author_author_rating_path(author_rating.author_id,author_rating.user_id)%><%= link_to 'Destroy rating', destroy_author_author_rating_path(author_rating.author_id,author_rating.user_id), method: :delete %></p><%end%><%end%><% end %></div>"
+        render :template => "author_ratings/index",:author_id=>@author.author_id,:author_ratings=>@author_ratings
         expect(rendered).to_not match /Destroy rating/
     end
 end
