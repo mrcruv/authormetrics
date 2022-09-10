@@ -1,27 +1,29 @@
+</body>
+<div class="margine">
+
 <p style="color: green"><%= notice %></p>
-<div style='margin-left:30px; margin-top:30px;'>
-<h1>Reviews</h1>
+
+<h1>REVIEWS</h1>
 
 <%if(@user!=nil)%>
-<% if (Review.where(author_id:@author.author_id,user_id:@user.user_id)==[] ||Review.where(author_id:@author.author_id,user_id:@user.user_id)==nil)%>
-<%= button_to "NEW REVIEW", new_author_review_path(@author), method: :get %>
-<%end%>
+  <% if (Review.where(author_id:@author.author_id,user_id:@user.user_id)==[] ||Review.where(author_id:@author.author_id,user_id:@user.user_id)==nil)%>
+    <%= button_to "NEW REVIEW", new_author_review_path(@author), method: :get %>
+  <%end%>
 <%end%>
 <%= button_to "BACK TO AUTHOR", author_path(@author), method: :get %>
+
 <br>
 <br>
-<div id="review">
-  <% @reviews.each do |review| %>
-  
-    <%= render review %>
-    <%if(@user!=nil)%>
+
+<% @reviews.each do |review| %>
+  <%= render review %>
+  <%if(@user!=nil)%>
     <%if @user.user_id==review.user_id%>
-    <%= link_to "Edit review", edit_author_review_path(review.author_id,review.user_id)%>
-    <%= link_to 'Destroy review', destroy_author_review_path(review.author_id,review.user_id), method: :delete %>
+      <%= link_to "Edit review", edit_author_review_path(review.author_id,review.user_id)%>
+      <%= button_to "Destroy review", [review.author,review], :method=>:delete %>
     <%end%>
-    <%end%>
-    <br>
-  <% end %>
-</div>
+  <%end%>
+<% end %>
 
 </div>
+</body>

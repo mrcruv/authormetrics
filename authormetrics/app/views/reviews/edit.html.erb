@@ -1,9 +1,14 @@
-<h1>Editing review</h1>
-
+<body>
+<div class='margine'>
+<div class='contenitore' style='width:355px; padding-top:0;'>
+<h2>EDITING REVIEW</h2>
 <%= render "form", review: @review %>
-
+</div>
 <br>
 
 <div>
   <%= button_to "BACK TO COMMENTS", author_reviews_path(@author), method: :get %>
 </div>
+
+</div>
+</body>

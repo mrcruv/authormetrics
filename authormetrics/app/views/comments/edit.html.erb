@@ -1,9 +1,16 @@
-<h1>Editing comment</h1>
+<body>
+<div class='margine'>
+<div class='contenitore' style='width:355px; padding-top:0;'>
+<h2>EDITING COMMENT</h2>
 
 <%= render "form", comment: @comment %>
+</div>
 
 <br>
 
-<div>|
+<div>
   <%= button_to "BACK TO COMMENTS", publication_comments_path(@publication), method: :get %>
 </div>
+
+</div>
+</body>

@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :get_review
-  before_action :set_review, only: %i[ show  destroy ]
+  before_action :set_review, only: %i[show edit update destroy ]
 
   # GET /reviews or /reviews.json
   def index
@@ -28,10 +28,9 @@ class ReviewsController < ApplicationController
 
   # POST /reviews or /reviews.json
   def create
-    authorize! :create, @review,:message => "BEWARE: you are not authorized to create reviews."
     @review = @author.review.build(review_params)
     @review.user_id=current_user.id
-    
+    authorize! :create, @review, :message => "BEWARE: you are not authorized to create reviews."
     respond_to do |format|
       if @review.save
         format.html { redirect_to author_reviews_path(@author), notice: "Reviews was successfully created." }
@@ -48,7 +47,7 @@ class ReviewsController < ApplicationController
     authorize! :update, @review, :message => "BEWARE: you are not authorized to update reviews."
     respond_to do |format|
       if @review.update(review_params)
-        format.html { redirect_to author_review_path(@author), notice: "Review was successfully updated." }
+        format.html { redirect_to author_reviews_path(@author), notice: "Review was successfully updated." }
         format.json { render :show, status: :ok, location: @review }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -61,7 +60,7 @@ class ReviewsController < ApplicationController
   def destroy
     authorize! :destroy, @review, :message => "BEWARE: you are not authorized to delete reviews."
     @review.destroy
-    redirect_to author_review_path(@author)
+    redirect_to author_reviews_path(@author)
   end
 
   private
@@ -73,7 +72,7 @@ class ReviewsController < ApplicationController
       end
     end
 
-    def set_author_rating
+    def set_review
       @review = @author.review.where(user_id: current_user.id)[0]
     end
 
