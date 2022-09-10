@@ -52,12 +52,13 @@
 
  </p>
     <% if @reviews != [] && @reviews!= nil && @reviews != ''%>
-      <strong>REVIEWS:</strong>
+      <h2>REVIEWS:</h2>
       <% @reviews.each do |rev|%>
       <% r=User.find(rev.user_id)%>
-      <div>
-      <p><Strong><%= r.username %></strong></p>
-      <p><%= rev.review%></p>
+      <p>
+      <Strong><%= r.username %>:</strong>
+      <%= rev.review%>
+      </p>
       </div>
       <%end%>
     <%end%>

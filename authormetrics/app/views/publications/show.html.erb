@@ -17,10 +17,12 @@
 
 <%= render @publication %>
 
+
 <div>
   <%if @comments != [] || @comments != nil%>
+    <h2>COMMENTS</h2>
     <% @comments.each do |com| %>
-      <h1><% r=User.find(com.user_id)%></h1>
+      <% r=User.find(com.user_id)%>
       <p>
       <strong><%= r.username %>:</strong>
       <%= com.comment %>

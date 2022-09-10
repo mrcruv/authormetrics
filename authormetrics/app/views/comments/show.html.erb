@@ -1,10 +1,11 @@
 <p style="color: green"><%= notice %></p>
-
+<div style='margin-left:30px; margin-top:30px;'>
 <%= render @comment %>
 
 <div>
-  <%= link_to "Edit this comment", edit_comment_path(@comment) %> |
-  <%= link_to "Back to comments", comments_path %>
+  <%= button_to "EDIT THIS COMMENTS", edit_publication_comment_path(@publication), method: :get %> 
+  <%= button_to "BACK TO COMMENTS", publication_comments_path(@publication), method: :get %>
+  <%= button_to "DESTROY COMMENTRS", [@comment.publication,@comment], :method=>:delete %>
+</div>
 
-  <%= button_to "Destroy this comment", @comment, method: :delete %>
 </div>

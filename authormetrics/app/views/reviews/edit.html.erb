@@ -5,6 +5,5 @@
 <br>
 
 <div>
-  <%= link_to "Show this review", @review %> |
-  <%= link_to "Back to reviews", user_reviews_path %>
+  <%= button_to "BACK TO COMMENTS", author_reviews_path(@author), method: :get %>
 </div>
