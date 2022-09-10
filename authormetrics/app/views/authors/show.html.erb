@@ -41,7 +41,6 @@
         <%end%>
       <%end%> 
     <%end%>
-<<<<<<< HEAD
     <p>
       <%="------------"%>
     </p>
@@ -50,13 +49,6 @@
   <%= render @cited_by %>
   <%end%>
  </p>
-=======
-</p>
-
-<%= render @cited_by %>
-
-</p>
->>>>>>> 4abb56f48636e8c8b6f3fe05c405accba530c090
     <% if @reviews != [] && @reviews!= nil && @reviews != ''%>
       <h2>REVIEWS</h2>
       <% @reviews.each do |rev|%>
@@ -78,17 +70,14 @@
 <%if user_signed_in?%>
 <%= button_to "ADD TO YOUR FAVORITES", user_favorite_authors_path(@author), method: :get %>
 <%end%>
-<<<<<<< HEAD
 <%= button_to "REVIEWS", author_reviews_path(@author), method: :get %>
 <%= button_to "AUTHOR RATINGS", author_author_ratings_path(@author), method: :get %>
 <br>
 <br>
 <br>
-=======
 
 </div>
 </body>
 
 <%= javascript_include_tag "home" %>
 <%= javascript_include_tag "application" %>
->>>>>>> 4abb56f48636e8c8b6f3fe05c405accba530c090
