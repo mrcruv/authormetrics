@@ -66,7 +66,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_09_232127) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "comments", primary_key: "comment_id", force: :cascade do |t|
+  create_table "comments", id: false, force: :cascade do |t|
     t.string "publication_id", limit: 255, null: false
     t.serial "user_id", null: false
     t.text "comment", null: false

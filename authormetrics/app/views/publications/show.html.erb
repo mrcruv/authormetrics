@@ -34,9 +34,8 @@
 
 <%if user_signed_in?%>
 <%= button_to "ADD TO YOUR FAVORITES", user_favorite_publications_path(@publication), method: :get %>
-<%= button_to "ADD COMMENTS", publication_comments_path(@publication), method: :get %>
-<%= button_to "ADD PUBLICATION RATINGS", publication_publication_ratings_path(@publication), method: :get %>
 <%end%>
-
+<%= button_to "COMMENTS", publication_comments_path(@publication), method: :get %>
+<%= button_to "PUBLICATION RATINGS", publication_publication_ratings_path(@publication), method: :get %>
 </div>
 </body>
