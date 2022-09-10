@@ -36,13 +36,40 @@ RSpec.describe "create rating process", type: :feature do
       visit author_path(author)
       expect(page).to have_content "AUTHOR RATINGS"
       click_button "AUTHOR RATINGS"
-      print(page.body)
       expect(page).to have_content "NEW AUTHOR RATING"
       click_link "NEW AUTHOR RATING"
       #CREATE PHASE
       fill_in "author_rating_rating", with: 6
       click_button "create rating"
       #CHECK
+      expect(page).to have_content "Edit author rating"
+      expect(page).to have_content "Destroy rating"
+    end
+  end
+  describe "not insert new author rating if you already insert it" do
+    #TEST SEED
+    fixtures :users
+    fixtures :authors
+    fixtures :author_ratings
+    #assign stub models
+    let(:user) { users(:one) }
+    let(:author) {authors(:one)}
+    let(:rating1){author_ratings(:one)}
+
+    it "Logging in and add author rating" do
+      include Rails.application.routes.url_helpers
+      #LOGIN
+      @user=user
+      login_as @user, scope: :user
+      #NEW RATING
+      visit "/"
+      expect(page).to have_content "AUTHORS"
+      click_button "AUTHORS"
+      visit author_path(author)
+      expect(page).to have_content "AUTHOR RATINGS"
+      click_button "AUTHOR RATINGS"
+      #CHECK
+      expect(page).to_not have_content "NEW AUTHOR RATING"
       expect(page).to have_content "Edit author rating"
       expect(page).to have_content "Destroy rating"
     end
