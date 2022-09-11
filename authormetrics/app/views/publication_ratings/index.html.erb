@@ -2,7 +2,7 @@
 <div class='margine'>
 <p style="color: green"><%= notice %></p>
 
-<h1>Publication ratings</h1>
+<h1>PUBLICATION RATINGS</h1>
 
 <%if(@user!=nil)%>
   <% if (PublicationRating.where(publication_id:@publication.publication_id,user_id:@user.user_id)==[] ||PublicationRating.where(publication_id:@publication.publication_id,user_id:@user.user_id)==nil)%>

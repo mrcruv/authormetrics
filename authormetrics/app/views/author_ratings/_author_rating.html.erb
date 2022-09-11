@@ -1,11 +1,8 @@
 <div id="<%= dom_id author_rating %>">
-  <p>
-    <strong>Rating:</strong>
-    <%= author_rating.rating %>
-  <br>
-    <% a=User.find(author_rating.user_id)%>
+
+    <% r=User.find(author_rating.user_id)%>
     <strong>User:</strong>
-    <%= link_to a.username, user_path(a) %>
+    <%= r.username %>
     
-  </p>
-</div>
+    <strong style= "margin-left: 20px;">Rating:</strong>
+    <%= author_rating.rating %>

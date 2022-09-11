@@ -2,25 +2,21 @@
 <div class=margine > 
 <p style="color: green"><%= notice %></p>
 
-<div class='intestazione'>
 
-<div class='left'>
-  <h1>PUBLICATIONS</h1>
-</div>
+<h1>PUBLICATIONS</h1>
 
-<div class='right'>
+<div class='destra'>
   <label for="orders">ORDER BY:</label> 
   <%=select_tag("order",options_for_select([['Alphabetical', "1"], ['Reverse alphabetical', "2"], ['Highest citations', "3"]], params[:order]),
   :onchange => "location.href='https://127.0.0.1:3000/publications?order='+ document.getElementById('order').value;")%>
   <button onclick="searchByPub()" id= "ByPub">SEARCH PUB</button>
   <%= button_to "HOME", home_path, method: :get %>
 </div>
-
-</div>
+<br>
 
 <% @publications.each do |publication| %>
   <p>
-    <li style='color: #3365a3;'><%= link_to publication.title, publication %>
+    <li style='color: #3365a3'><%= link_to publication.title, publication %>
   </p>
 <% end %>
 
