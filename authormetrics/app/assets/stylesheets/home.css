@@ -57,15 +57,15 @@
 }
 
 .bottom_right_block_left{
-  width: 25%; 
+  width: 28%; 
   height: 57%;
   position: absolute; 
 }
 
 .bottom_right_block_right{
-  width: 60%;  
+  width: 55%;  
   height: 60%;
-  margin-left: 25%; 
+  margin-left: 28%; 
   margin-top: 5%;
   position: absolute; 
 }
