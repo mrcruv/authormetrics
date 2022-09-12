@@ -49,7 +49,7 @@ class AuthorRatingsController < ApplicationController
     authorize! :update, @author_rating, :message => "BEWARE: you are not authorized to update author ratings."
     respond_to do |format|
       if @author_rating.update(author_rating_params)
-        format.html { redirect_to author_author_rating_path(@author), notice: "Author rating was successfully updated." }
+        format.html { redirect_to author_author_ratings_path(@author), notice: "Author rating was successfully updated." }
         format.json { render :show, status: :ok, location: @author_rating }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -62,7 +62,7 @@ class AuthorRatingsController < ApplicationController
   def destroy
     authorize! :destroy, @author_rating, :message => "BEWARE: you are not authorized to delete author ratings."
     @author_rating.destroy
-    redirect_to author_path(@author)
+    redirect_to author_author_ratings_path(@author)
   end
 
   private
