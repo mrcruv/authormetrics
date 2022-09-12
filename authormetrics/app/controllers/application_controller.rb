@@ -18,11 +18,8 @@ class ApplicationController < ActionController::Base
   end
   rescue_from StandardError do |e|
     respond(:standard_error, 500, e.to_s)
+    #get /500
   end
-
-  rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_path, :alert => exception.message
-    end
 =end
   # protect_from_forgery prepend: true
   before_action :configure_permitted_parameters, if: :devise_controller?
