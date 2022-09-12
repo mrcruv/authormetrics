@@ -3,8 +3,8 @@ class FavoritePublicationsController < ApplicationController
 
   # GET /favorite_publications or /favorite_publications.json
   def index
-    @favorite_publications = FavoritePublication.all
     authorize! :index, FavoritePublication, :message => "BEWARE: you are not authorized to index favorite publications."
+    @favorite_publications = FavoritePublication.all
   end
 
   # GET /favorite_publications/1 or /favorite_publications/1.json
@@ -16,10 +16,12 @@ class FavoritePublicationsController < ApplicationController
   def new
     @favorite_publication = FavoritePublication.new
     @favorite_publication.publication=Publication.where(publication_id: params[:id])[0]
+    authorize! :create, FavoritePublication, :message => "BEWARE: you are not authorized to create favorite publications."
   end
 
   # GET /favorite_publications/1/edit
   def edit
+    authorize! :update, FavoritePublication, :message => "BEWARE: you are not authorized to index favorite publications."
   end
 
   # POST /favorite_publications or /favorite_publications.json
@@ -55,7 +57,6 @@ class FavoritePublicationsController < ApplicationController
   def destroy
     authorize! :destroy, @favorite_publication, :message => "BEWARE: you are not authorized to delete favorite publications."
     @favorite_publication.destroy
-
     respond_to do |format|
       format.html { redirect_to favorite_publications_url, notice: "Favorite publication was successfully destroyed." }
       format.json { head :no_content }

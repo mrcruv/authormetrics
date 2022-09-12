@@ -13,25 +13,66 @@ RSpec.describe "create rating process", type: :feature do
   include Capybara::DSL
   include Capybara::RSpecMatchers
 
-  #TEST SEED
-  fixtures :users
-  fixtures :authors
-  #assign stub models
-  let(:user) { users(:one) }
-  let(:author) {authors(:one)}
+  describe "correct insert new author rating" do
+    #TEST SEED
+    fixtures :users
+    fixtures :authors
+    fixtures :author_ratings
+    #assign stub models
+    let(:user) { users(:one) }
+    let(:author) {authors(:one)}
+    let(:rating1){author_ratings(:one)}
 
-  it "Logging in and add author rating" do
-    include Rails.application.routes.url_helpers
-
-    visit '/users/sign_in'
-    
-    within("#new_user") do
-      fill_in 'user_username', with: user.username
-      fill_in 'user_password', with: user.encrypted_password
+    it "Logging in and add author rating" do
+      include Rails.application.routes.url_helpers
+      rating1.destroy!
+      #LOGIN
+      @user=user
+      login_as @user, scope: :user
+      #NEW RATING
+      visit "/"
+      expect(page).to have_content "AUTHORS"
+      click_button "AUTHORS"
+      visit author_path(author)
+      expect(page).to have_content "AUTHOR RATINGS"
+      click_button "AUTHOR RATINGS"
+      expect(page).to have_content "NEW AUTHOR RATING"
+      click_link "NEW AUTHOR RATING"
+      #CREATE PHASE
+      fill_in "author_rating_rating", with: 6
+      click_button "create rating"
+      #CHECK
+      expect(page).to have_content "Edit author rating"
+      expect(page).to have_content "Destroy rating"
     end
-   
-    #page.find('input',:exact_text=>"login").click
-    #print(page.body)
+  end
+  describe "not insert new author rating if you already insert it" do
+    #TEST SEED
+    fixtures :users
+    fixtures :authors
+    fixtures :author_ratings
+    #assign stub models
+    let(:user) { users(:one) }
+    let(:author) {authors(:one)}
+    let(:rating1){author_ratings(:one)}
+
+    it "Logging in and add author rating" do
+      include Rails.application.routes.url_helpers
+      #LOGIN
+      @user=user
+      login_as @user, scope: :user
+      #NEW RATING
+      visit "/"
+      expect(page).to have_content "AUTHORS"
+      click_button "AUTHORS"
+      visit author_path(author)
+      expect(page).to have_content "AUTHOR RATINGS"
+      click_button "AUTHOR RATINGS"
+      #CHECK
+      expect(page).to_not have_content "NEW AUTHOR RATING"
+      expect(page).to have_content "Edit author rating"
+      expect(page).to have_content "Destroy rating"
+    end
   end
   
 end

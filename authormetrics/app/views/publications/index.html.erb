@@ -1,35 +1,29 @@
 <body>
+<div class=margine > 
 <p style="color: green"><%= notice %></p>
 
-<div class=margine > 
-  
-    <h1>PUBLICATIONS</h1>
 
-  <div style='position: absolute; top: 7%; left: 65%; display:inline-block;'>
+<h1>PUBLICATIONS</h1>
+
+<div class='destra'>
   <label for="orders">ORDER BY:</label> 
-        <%=select_tag("order",options_for_select([['Alphabetical', "1"], ['Reverse alphabetical', "2"], ['Highest citations', "3"]], params[:order]),
-        :onchange => "location.href='https://127.0.0.1:3000/publications?order='+ document.getElementById('order').value;")%>
-    <button onclick="searchByPub()" id= "ByPub">SEARCH PUB</button>
-    <%= button_to "HOME", home_path, method: :get %>
-    <p id="p1"> </p>
-  </div>
-
-  <br></br>
-  
-  <ul>
-  <div id="publications">
-    <% @publications.each do |publication| %>
-      <p>
-        <li><%= link_to publication.title, publication %>
-      </p>
-    <% end %>
-  </div>
-  <ul>
-
+  <%=select_tag("order",options_for_select([['Alphabetical', "1"], ['Reverse alphabetical', "2"], ['Highest citations', "3"]], params[:order]),
+  :onchange => "location.href='https://127.0.0.1:3000/publications?order='+ document.getElementById('order').value;")%>
+  <button onclick="searchByPub()" id= "ByPub">SEARCH PUB</button>
+  <%= button_to "HOME", home_path, method: :get %>
 </div>
+<br>
+
+<% @publications.each do |publication| %>
+  <p>
+    <li style='color: #3365a3'><%= link_to publication.title, publication %>
+  </p>
+<% end %>
 
 <%= javascript_include_tag "home" %>
 <%= javascript_include_tag "application" %>
+
+</div>
 </body>
 
 

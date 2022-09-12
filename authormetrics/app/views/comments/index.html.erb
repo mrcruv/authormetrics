@@ -1,14 +1,34 @@
+<body>
+<div class="margine">
 <p style="color: green"><%= notice %></p>
 
-<h1>Comments</h1>
+<h1>COMMENTS</h1>
 
-<div id="comments">
+<%if(@user!=nil)%>
+  <% if (Comment.where(publication_id:@publication.publication_id,user_id:@user.user_id)==[] ||Comment.where(publication_id:@publication.publication_id,user_id:@user.user_id)==nil)%>
+    <%= button_to "NEW COMMENT", new_publication_comment_path(@publication), method: :get %>
+  <%end%>
+<%end%>
+
+<%= button_to "BACK TO PUBLICATION", publication_path(@publication), method: :get %>
+
+<br>
+<br>
+
+
   <% @comments.each do |comment| %>
     <%= render comment %>
-    <p>
-      <%= link_to "Show this comment", comment %>
-    </p>
+    <%if(@user!=nil)%>
+      <%if @user.user_id==comment.user_id%>
+        <%= link_to "Edit comment", edit_publication_comment_path(comment.publication_id,comment.user_id)%>
+        <%= button_to "Destroy comment", [comment.publication,comment], :method=>:delete %>
+      <%end%>
+    <%end%>
+    <br>
+    <br>
   <% end %>
-</div>
 
-<%= link_to "New comment", new_comment_path %>
+
+</div>
+</body>
+

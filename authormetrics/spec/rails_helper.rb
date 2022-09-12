@@ -77,5 +77,5 @@ RSpec.configure do |config|
   
 
   config.filter_rails_from_backtrace!
-  
+  config.raise_errors_for_deprecations!
 end

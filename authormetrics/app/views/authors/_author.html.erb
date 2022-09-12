@@ -1,33 +1,22 @@
 <div id="<%= dom_id author %>">
 
-<div>
-  <p>
-    <h3>
-    <%= link_to author.name, author %>
-    </h3>
-  </p>
+<h2><li><%= link_to author.name, author %></h2>
+  
+<p>
+  <strong style='margin-left: 50px;'>Affiliations:</strong> <%= author.affiliations %>
+</p>
 
+<% if author.interests != [] && author.interests!= nil %>
   <p>
-    <strong>Affiliations:</strong>
-    <%= author.affiliations %>
-  </p>
-  <p>
-    
-    <% if author.interests != [] && author.interests!= nil %>
-    <div>
-      <p>
-    <strong>INTERESTS:</strong>
-     
-      <% JSON.parse(author.interests).each do |k|%>
+    <strong style='margin-left: 50px;'>Interests:</strong>
+     <% JSON.parse(author.interests).each do |k|%>
         <% k.each do |kk,vv|%>
-          
           <%= "\t"+vv+"," %>
-        
-        <%break%>
-        
+          <%break%>
         <%end%>
       <%end%>
-      </p>
-      </div>
-    <%end%> 
+  </p>
+<%end%> 
+
 </div>
+

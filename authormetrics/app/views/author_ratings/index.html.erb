@@ -1,27 +1,31 @@
+<body>
+<div class='margine'>
 <p style="color: green"><%= notice %></p>
 
-<h1>Author ratings</h1>
+<h1>AUTHOR RATINGS</h1>
 
 <%if(@user!=nil)%>
-<% if (AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==[] || AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==nil)%>
-<button><%= link_to "NEW AUTHOR RATING", new_author_author_rating_path(@author)%></button>
+  <% if (AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==[] || AuthorRating.where(author_id:@author.author_id,user_id:@user.user_id)==nil)%>
+    <%= button_to "NEW AUTHOR RATING", new_author_author_rating_path(@author), method: :get%>
+  <%end%>
 <%end%>
-<%end%>
-<button><%=link_to "BACK TO AUTHOR",[@author] %></button>
+<%=button_to "BACK TO AUTHOR", author_path(@author), method: :get %>
 
-<div id="author_ratings">
+<br>
+<br>
+
+<div class="rating">
   <% @author_ratings.each do |author_rating| %>
-  
     <%= render author_rating %>
-    <%if(@user!=nil)%>
-    <%if @user.user_id==author_rating.user_id%>
-    <p>
-    <%= link_to "Edit author rating", edit_author_author_rating_path(author_rating.author_id,author_rating.user_id)%>
-    <%= link_to 'Destroy rating', destroy_author_author_rating_path(author_rating.author_id,author_rating.user_id), method: :delete %>
-    </p>
-    <%end%>
+      <%if(@user!=nil)%>
+        <%if @user.user_id==author_rating.user_id%>
+          <%= link_to "Edit rating", edit_author_author_rating_path(author_rating.author_id,author_rating.user_id) %>
+          <%= button_to 'Destroy rating', [author_rating.author,author_rating], :method=>:delete, style: 'background-color:#f8fcfb; border:none; box-shadow:2px 3px #f8fcfb; font-family: Verdana, sans-serif;' %>
+        <%end%>
     <%end%>
   <% end %>
 </div>
 
 
+</div>
+</body>

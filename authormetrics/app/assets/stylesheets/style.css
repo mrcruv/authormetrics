@@ -75,3 +75,54 @@ thead, th{
 .button_to{
     display: inline-block;
 }
+
+.rating{
+    font-family: Verdana,sans-serif;
+}
+
+.destra{
+    position: absolute; 
+    top: 7%; 
+    left: 65%; 
+    display:inline-block;
+}
+
+.contenitore{
+    border: 2px  solid #37474f;
+    width: 90%;
+    padding: 15px;
+    border-radius: 10px 10px 10px 10px;
+}
+
+body{
+    height: 100%;
+    overflow-x: hidden;
+
+}
+
+.contenitore_1{
+    width: 34%;
+    padding:15px;
+    margin-top: 5%;
+    margin-left: 33%;
+}
+
+
+
+.flex-container {
+    display: flex;
+    background-color: DodgerBlue;
+}
+
+.flex-container > div {
+    background-color: #f1f1f1;
+    margin: 10px;
+  }
+
+  .right {
+    position: absolute;
+    right: 0px;
+    width: 300px;
+    border: 3px solid #73AD21;
+    padding: 10px;
+  }

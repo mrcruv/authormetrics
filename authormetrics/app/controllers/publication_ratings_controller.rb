@@ -4,28 +4,25 @@ class PublicationRatingsController < ApplicationController
 
   
   def index
-    @publication_ratings = @publication.publication_rating
     authorize! :index, PublicationRating, :message => "BEWARE: you are not authorized to index publication ratings."
+    @publication_ratings = @publication.publication_rating
   end
-
-  def show
-    authorize! :read, @publication_rating, :message => "BEWARE: you are not authorized to read publication ratings."
-  end
-
 
   def new
     @publication_rating = @publication.publication_rating.build
     @publication_rating.user=@user
     @publication_rating.publication=@publication
+    authorize! :create, @publication_rating, :message => "BEWARE: you are not authorized to create publication ratings."
   end
 
   def edit
+    authorize! :update, @publication_rating, :message => "BEWARE: you are not authorized to update publication ratings."
   end
 
   def create
     @publication_rating = @publication.publication_rating.build(publication_rating_params)
-    authorize! :create, @publication_rating, :message => "BEWARE: you are not authorized to create publication ratings."
     @publication_rating.user_id=current_user.id
+    authorize! :create, @publication_rating, :message => "BEWARE: you are not authorized to create publication ratings."
     respond_to do |format|
       if @publication_rating.save
         format.html { redirect_to publication_publication_ratings_path(@publication), notice: "Publication rating was successfully created." }
@@ -42,7 +39,7 @@ class PublicationRatingsController < ApplicationController
     authorize! :update, @publication_rating, :message => "BEWARE: you are not authorized to update publication ratings."
     respond_to do |format|
       if @publication_rating.update(publication_rating_params)
-        format.html { redirect_to publication_publication_rating_path(@publication), notice: "Publication rating was successfully updated." }
+        format.html { redirect_to publication_publication_ratings_path(@publication), notice: "Publication rating was successfully updated." }
         format.json { render :show, status: :ok, location: @publication_rating }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -55,7 +52,7 @@ class PublicationRatingsController < ApplicationController
   def destroy
     authorize! :destroy, @publication_rating, :message => "BEWARE: you are not authorized to delete publication ratings."
     @publication_rating.destroy
-    redirect_to publication_path(@publication)
+    redirect_to publication_publication_ratings_path(@publication)
   end
 
   private

@@ -1,7 +1,14 @@
-<h1>Editing publication rating</h1>
+<body>
+<div class='margine'>
+<h1>EDITING PUBLICATION RATING</h1>
 
 <%= render "form", publication: @publication, publication_rating: @publication_rating %>
 
+<br>
+
 <div>
-  <%= link_to "Back", publication_publication_ratings_path(@publication) %>
+   <%= button_to "BACK TO PUBLICATION RATINGS", publication_publication_ratings_path(@publication), method: :get %>
 </div>
+
+</div>
+</body>

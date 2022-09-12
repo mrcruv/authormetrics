@@ -1,18 +1,10 @@
 <div id="<%= dom_id publication_rating %>">
-  <p>
-    <strong>Publication:</strong>
-    <%= publication_rating.publication_id %>
-  </p>
-
-  <p>
+    
+    <% r=User.find(publication_rating.user_id)%>
     <strong>User:</strong>
-    <%= publication_rating.user_id %>
-  </p>
+    <%= r.username %>
+    
+    <strong style= "margin-left: 20px;">Rating:</strong>
+    <%=publication_rating.rating %>
+    
 
-  <p>
-    <strong>Rating:</strong>
-    <%= publication_rating.rating %>
-  </p>
-
-
-</div>

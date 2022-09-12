@@ -1,9 +1,12 @@
-<h1>New review</h1>
+<body>
+<div class='margine'>
 
+<div class='contenitore' style='width:355px; padding-top:0;'>
+<h2>NEW REVIEW</h2>
 <%= render "form", review: @review %>
-
-<br>
-
-<div>
-  <%= link_to "Back to reviews", user_reviews_path %>
 </div>
+<br>
+<%= button_to "BACK TO REVIEWS", author_reviews_path(@author), method: :get %>
+
+</div>
+</body>

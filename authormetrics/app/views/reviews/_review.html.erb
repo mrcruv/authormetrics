@@ -1,22 +1,10 @@
 <div id="<%= dom_id review %>">
   <p>
-    <strong>Author:</strong>
-    <%= review.author_id %>
-  </p>
-
-  <p>
+    <% r=User.find(review.user_id)%>
     <strong>User:</strong>
-    <%= review.user_id %>
-  </p>
-
-  <p>
+    <%= r.username %>
+    <br>
     <strong>Review:</strong>
     <%= review.review %>
   </p>
-
-  <p>
-    <strong>Review timestamp:</strong>
-    <%= review.review_timestamp %>
-  </p>
-
 </div>

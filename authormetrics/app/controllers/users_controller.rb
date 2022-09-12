@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
   before_action :get_user_reviews
+  
   # GET /users or /users.json
   def index
-    @users = User.all
     authorize! :index, User, :message => "BEWARE: you are not authorized to index users."
+    @users = User.all
   end
 
   # GET /users/1 or /users/1.json
@@ -14,12 +15,13 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    authorize! :create, @user, :message => "BEWARE: you are not authorized to create users."
     @user = User.new
+    authorize! :create, @user, :message => "BEWARE: you are not authorized to create users."
   end
 
   # GET /users/1/edit
   def edit
+    authorize! :update, @user, :message => "BEWARE: you are not authorized to update other users."
   end
 
   # POST /users or /users.json
@@ -39,7 +41,7 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
-    authorize! :update, @user, :message => "BEWARE: you are not authorized to update users."
+    authorize! :update, @user, :message => "BEWARE: you are not authorized to update other users."
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to user_url(@user), notice: "User was successfully updated." }
@@ -52,17 +54,15 @@ class UsersController < ApplicationController
   end
 
   # DELETE /users/1 or /users/1.json
-'''
   def destroy
     authorize! :destroy, @user, :message => "BEWARE: you are not authorized to delete users."
     @user.destroy
-
     respond_to do |format|
       format.html { redirect_to users_url, notice: "User was successfully destroyed." }
       format.json { head :no_content }
     end
   end
-'''
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

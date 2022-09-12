@@ -18,8 +18,10 @@
     border-style: solid;
     border-color: #102027;
     background-color: #ecfbf0;
-    border-radius: 5px;
-  }
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+}
 
 .left_block{
   position: fixed;

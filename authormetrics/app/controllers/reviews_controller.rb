@@ -1,10 +1,11 @@
 class ReviewsController < ApplicationController
+  before_action :get_review
   before_action :set_review, only: %i[show edit update destroy ]
-  before_action :set_user
+
   # GET /reviews or /reviews.json
   def index
-    @reviews = Review.all
     authorize! :index, Review, :message => "BEWARE: you are not authorized to index reviews."
+    @reviews=@author.review
   end
 
   # GET /reviews/1 or /reviews/1.json
@@ -14,20 +15,25 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/new
   def new
-    @review = Review.new
+    @review = @author.review.build
+    authorize! :create, @review, :message => "BEWARE: you are not authorized to create reviews."
+    @review.user=@user
+    @review.author=@author
   end
 
   # GET /reviews/1/edit
   def edit
+    authorize! :update, @review,:message => "BEWARE: you are not authorized to update reviews."
   end
 
   # POST /reviews or /reviews.json
   def create
-    @review = Review.new(review_params)
+    @review = @author.review.build(review_params)
+    @review.user_id=current_user.id
     authorize! :create, @review, :message => "BEWARE: you are not authorized to create reviews."
     respond_to do |format|
       if @review.save
-        format.html { redirect_to review_url(@review), notice: "Review was successfully created." }
+        format.html { redirect_to author_reviews_path(@author), notice: "Reviews was successfully created." }
         format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,10 +44,10 @@ class ReviewsController < ApplicationController
 
   # PATCH/PUT /reviews/1 or /reviews/1.json
   def update
-    authorize! :update, @publication, :message => "BEWARE: you are not authorized to update reviews."
+    authorize! :update, @review, :message => "BEWARE: you are not authorized to update reviews."
     respond_to do |format|
       if @review.update(review_params)
-        format.html { redirect_to review_url(@review), notice: "Review was successfully updated." }
+        format.html { redirect_to author_reviews_path(@author), notice: "Review was successfully updated." }
         format.json { render :show, status: :ok, location: @review }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,24 +60,25 @@ class ReviewsController < ApplicationController
   def destroy
     authorize! :destroy, @review, :message => "BEWARE: you are not authorized to delete reviews."
     @review.destroy
-
-    respond_to do |format|
-      format.html { redirect_to reviews_url, notice: "Review was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to author_reviews_path(@author)
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def get_review
+      @author=Author.find(params[:author_id])
+      if current_user!=nil
+        @user=User.find(current_user.id)
+      end
+    end
+
     def set_review
-      @review = Review.find(params[:id])
+      @review = @author.review.where(user_id: current_user.id)[0]
     end
 
     # Only allow a list of trusted parameters through.
     def review_params
-      params.require(:review).permit(:author_id, :user_id, :review, :review_timestamp)
+      params.require(:review).permit(:review_id, :author_id, :user_id, :review, :review_timestamp)
     end
-    def set_user
-      @user=@review.user_id
-    end
+   
 end

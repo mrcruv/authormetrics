@@ -4,6 +4,7 @@ class AuthorsController < ApplicationController
 
   # GET /authors or /authors.json
   def index
+    authorize! :index, Author, :message => "BEWARE: you are not authorized to index authors."
     @authors = Author.all.sort_by{|x| x.name}
     if (params[:order] == "1")
     elsif (params[:order] == "2")
@@ -15,14 +16,12 @@ class AuthorsController < ApplicationController
         @authors << Author.where(cited_by_id: most_cited.cited_by_id).first
       end
     end   
-    authorize! :index, Author, :message => "BEWARE: you are not authorized to index authors."
   end
 
   
   # GET /authors/1 or /authors/1.json
   def show
     authorize! :read, @author, :message => "BEWARE: you are not authorized to read authors." 
-    
   end
 
  
@@ -36,14 +35,14 @@ class AuthorsController < ApplicationController
 
   # GET /authors/1/edit
   def edit
+    authorize! :update, @author, :message => "BEWARE: you are not authorized to update authors."
   end
 
  # GET /authors/new
   def new
     @author = Author.new
+    authorize! :create, @author, :message => "BEWARE: you are not authorized to create authors."
   end
-
-
   
   # POST /authors or /authors.json
   
@@ -80,7 +79,6 @@ class AuthorsController < ApplicationController
   def destroy
     authorize! :destroy, @author, :message => "BEWARE: you are not authorized to delete authors."
     @author.destroy
-
     respond_to do |format|
       format.html { redirect_to authors_url, notice: "Author was successfully destroyed." }
       format.json { head :no_content }

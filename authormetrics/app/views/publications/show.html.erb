@@ -3,9 +3,9 @@
 <p style="color: green"><%= notice %></p>
 
   <h1>
-    PUBLICATION: <%= link_to @publication.title, @publication.link %>
+    PUBLICATION:<%= link_to @publication.title, @publication.link %>
   </h1>
-  <h2>RATING:</h2><%= @avg_ratings_2%>
+  <h2>RATING:<%= @avg_ratings%></h2>
 
 <div>
   <%= button_to "PUBLICATIONS", publications_path, method: :get %>
@@ -17,10 +17,12 @@
 
 <%= render @publication %>
 
+
 <div>
   <%if @comments != [] || @comments != nil%>
+    <h2>COMMENTS</h2>
     <% @comments.each do |com| %>
-      <h1><% r=User.find(com.user_id)%></h1>
+      <% r=User.find(com.user_id)%>
       <p>
       <strong><%= r.username %>:</strong>
       <%= com.comment %>
@@ -33,8 +35,7 @@
 <%if user_signed_in?%>
 <%= button_to "ADD TO YOUR FAVORITES", user_favorite_publications_path(@publication), method: :get %>
 <%end%>
-
-<%= button_to "PUBLICATION RATINGS", publication_publication_ratings_path(@publication), method: :get %>
 <%= button_to "COMMENTS", publication_comments_path(@publication), method: :get %>
+<%= button_to "PUBLICATION RATINGS", publication_publication_ratings_path(@publication), method: :get %>
 </div>
 </body>

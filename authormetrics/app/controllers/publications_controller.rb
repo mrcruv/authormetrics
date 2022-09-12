@@ -3,6 +3,7 @@ class PublicationsController < ApplicationController
   before_action :set_search, only: %i[ search ]
   # GET /publications or /publications.json
   def index
+    authorize! :index, Publication, :message => "BEWARE: you are not authorized to index publications."
     @publications = Publication.all.sort_by{|x| x.title}
     if (params[:order] == "1")
     elsif (params[:order] == "2")
@@ -10,7 +11,6 @@ class PublicationsController < ApplicationController
     elsif (params[:order]== "3")
         @publications = Publication.order(cited_by: :desc).where.not(cited_by:nil)
     end   
-    authorize! :index, Publication, :message => "BEWARE: you are not authorized to index publications."
   end
 
   # GET /publications/1 or /publications/1.json
@@ -73,6 +73,7 @@ class PublicationsController < ApplicationController
     end
   end
 =end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_publication
@@ -95,15 +96,15 @@ class PublicationsController < ApplicationController
       params.require(:publication).permit(:publication_id, :title, :link, :published_on, :cited_by, :pub_year)
     end
 
-    def avg_ratings_2
+    def avg_ratings
       ratings_sum=0
       n = @publication.publication_rating.length
-      @avg_ratings_2=0
+      @avg_ratings=0
       @publication.publication_rating.each do |rating|
         ratings_sum += rating.rating
       end
       if n>0
-        @avg_ratings_2 = ratings_sum.to_f/n
+        @avg_ratings=ratings_sum.to_f/n
       end
     end
 
