@@ -11,7 +11,6 @@ class Operations
             api_key: Rails.application.credentials.api_key,
             q:''
             }
-            #"256d140b29b5d7194af5cd625235f24e4436cf3804a1ea4a9735c32171982a3e"
             search = GoogleSearch.new(params)
             profiles = search.get_hash[:profiles]
         rescue => exception

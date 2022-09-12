@@ -42,13 +42,14 @@ RSpec.describe "index navigation", type: :feature do
     #TEST SEED
     fixtures :users
     fixtures :authors
+    
     fixtures :author_ratings
     #assign stub models
     let(:user) { users(:one) }
     let(:author) {authors(:one)}
     let(:rating1){author_ratings(:one)}
 
-    it "index author rating with edit destroy create" do
+    it "index author rating with edit destroy " do
         include Rails.application.routes.url_helpers
         #LOGIN
         @user=user
@@ -62,10 +63,10 @@ RSpec.describe "index navigation", type: :feature do
         click_button "AUTHOR RATINGS"
         #CHECK
         expect(page).to_not have_content "NEW AUTHOR RATING"
-        expect(page).to have_content "Edit author rating"
+        expect(page).to have_content "Edit rating"
         expect(page).to have_content "Destroy rating"
     end
-    it "index author rating with edit destroy create" do
+    it "index author rating with create" do
         include Rails.application.routes.url_helpers
         rating1.destroy!
         #LOGIN
@@ -80,7 +81,7 @@ RSpec.describe "index navigation", type: :feature do
         click_button "AUTHOR RATINGS"
         #CHECK
         expect(page).to have_content "NEW AUTHOR RATING"
-        expect(page).to_not have_content "Edit author rating"
+        expect(page).to_not have_content "Edit rating"
         expect(page).to_not have_content "Destroy rating"
     end
   end
