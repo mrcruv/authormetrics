@@ -50,11 +50,6 @@ class FavoriteAuthorsController < ApplicationController
       @favorite_author = FavoriteAuthor.where(user_id: current_user.id, author_id: params[:user_id])[0]
     end 
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_favorite_author
-      
-    end
-
     # Only allow a list of trusted parameters through.
     def favorite_author_params
       params.require(:favorite_author).permit(:favorite_author_id, :author_id, :user_id)

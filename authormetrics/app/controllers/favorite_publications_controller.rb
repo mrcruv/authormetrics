@@ -1,5 +1,6 @@
 class FavoritePublicationsController < ApplicationController
-  before_action :set_favorite_publication, only: %i[ show edit update destroy ]
+  before_action :set_favorite_publication, only: %i[ index new create ]
+
 
   # GET /favorite_publications or /favorite_publications.json
   def index
@@ -8,10 +9,12 @@ class FavoritePublicationsController < ApplicationController
   end
 
   # GET /favorite_publications/1 or /favorite_publications/1.json
+=begin
   def show
+    @favorite_publication = FavoritePublication.where(user_id:current_user.id,publication_id:params[:id])[0]
     authorize! :read, @favorite_publication, :message => "BEWARE: you are not authorized to read favorite publications."
   end
-
+=end
   # GET /favorite_publications/new
   def new
     @favorite_publication = FavoritePublication.new
@@ -27,10 +30,11 @@ class FavoritePublicationsController < ApplicationController
   # POST /favorite_publications or /favorite_publications.json
   def create
     @favorite_publication = FavoritePublication.new(favorite_publication_params)
+    @favorite_publication.user=@user
     authorize! :create, @favorite_publication, :message => "BEWARE: you are not authorized to create favorite publications."
     respond_to do |format|
       if @favorite_publication.save
-        format.html { redirect_to favorite_publication_url(@favorite_publication), notice: "Favorite publication was successfully created." }
+        format.html { redirect_to user_favorite_publications_url(@favorite_publication), notice: "Favorite publication was successfully created." }
         format.json { render :show, status: :created, location: @favorite_publication }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -55,18 +59,19 @@ class FavoritePublicationsController < ApplicationController
 
   # DELETE /favorite_publications/1 or /favorite_publications/1.json
   def destroy
+    @user = User.find(current_user.id)
+    @favorite_publication = FavoritePublication.find(params[:id])
     authorize! :destroy, @favorite_publication, :message => "BEWARE: you are not authorized to delete favorite publications."
-    @favorite_publication.destroy
-    respond_to do |format|
-      format.html { redirect_to favorite_publications_url, notice: "Favorite publication was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    @favorite_publication.destroy!
+    redirect_to user_favorite_publications_path
+  
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_favorite_publication
-      @favorite_publication = FavoritePublication.find(params[:id])
+      @user = User.find(current_user.id)
+      @favorite_publication = FavoritePublication.where(user_id:current_user.id,publication_id:params[:user_id])
     end
 
     # Only allow a list of trusted parameters through.
