@@ -15,6 +15,7 @@ class PublicationsController < ApplicationController
 
   # GET /publications/1 or /publications/1.json
   def show
+    avg_ratings
     authorize! :read, @publication, :message => "BEWARE: you are not authorized to read publications."
   end
 

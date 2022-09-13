@@ -45,6 +45,6 @@ Canard::Abilities.for(:guest) do
   can [:read, :index], Review
   cannot [:create, :update, :destroy], Review
 
-  can [:index], User
-  cannot [:create, :read, :update, :destroy], User
+  can [:index, :read], User
+  cannot [:create, :update, :destroy], User
 end

@@ -4,8 +4,9 @@ class UsersController < ApplicationController
   
   # GET /users or /users.json
   def index
-    authorize! :index, User, :message => "BEWARE: you are not authorized to index users."
     @users = User.all
+    #authorize! :index, User, :message => "BEWARE: you are not authorized to index users."
+
   end
 
   # GET /users/1 or /users/1.json

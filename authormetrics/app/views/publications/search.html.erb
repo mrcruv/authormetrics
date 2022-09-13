@@ -8,9 +8,9 @@
   </div>
   <div id="publications">
     <% @publications.each do |publication| %>
-      <p> 
-      <%= render publication %> 
-    </p>
+      <p>
+    <li style='color: #3365a3'><%= link_to publication.title, publication %>
+  </p>
     <% end %>
   </div>
 </div>
