@@ -12,6 +12,6 @@ class Author < ApplicationRecord
     accepts_nested_attributes_for :author_rating
     accepts_nested_attributes_for :review
 
-    validates :name, :presence=>true, uniqueness: { case_sensitive: true }
-
+    validates :name, :presence=>true, uniqueness: { case_sensitive: true }, format: { :without => /[0-9]/}
+    validates :author_id, :presence=>true, format: { :with => /\w/}
 end

@@ -77,7 +77,7 @@
                     <td><%= user_name %></td>
                     <td><%= pub_title %></td>
                     <td><%= recent_comment.comment %></td>
-                    <td><%= button_to "Destroy", destroy_publication_comment_path(recent_comment.publication_id,recent_comment.user_id)%></td>
+                    <td><%#button_to 'Destroy', [recent_comment.publication, recent_comment], method: :delete %></td>
                 </tr>
             <% end %>
         </tbody>
@@ -97,7 +97,7 @@
                     <td><%= user_name %></td>
                     <td><%= auth_name %></td>
                     <td><%= recent_review.review %></td>
-                    <td><%= button_to 'Edit', [recent_review.author, recent_review], method: :delete %></td>
+                    <td><%= button_to 'Destroy', [recent_review.author, recent_review], method: :delete %></td>
                 </tr>
             <% end %>
         </tbody>

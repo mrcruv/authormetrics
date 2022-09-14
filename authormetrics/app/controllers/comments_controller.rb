@@ -60,7 +60,11 @@ class CommentsController < ApplicationController
   def destroy
     authorize! :destroy, @comment, :message => "BEWARE: you are not authorized to delete comments."
     @comment.destroy
+    if (user_signed_in?)
     redirect_to publication_comments_path(@publication)
+    elsif (administrator_signed_in?)
+      redirect_to control_panel_path
+    end
   end
 
   private
@@ -76,7 +80,7 @@ class CommentsController < ApplicationController
       if user_signed_in?
         @comment = @publication.comment.where(user_id: current_user.id)[0]
       elsif administrator_signed_in?
-        @comment = @publication.comment.where(user_id: :user_id)[0]
+        @comment = @publication.comment.find(params[:id])
       end
     end
 

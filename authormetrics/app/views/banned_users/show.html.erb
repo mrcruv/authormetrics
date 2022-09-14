@@ -1,10 +1,12 @@
 <p style="color: green"><%= notice %></p>
+<div class='margine1'>
+<%= image_tag("Immagine2.png", size:"256,41x72,3", class: "logo")%> 
 
 <%= render @banned_user %>
 
 <div>
-  <%= link_to "Edit this banned user", edit_banned_user_path(@banned_user) %> |
-  <%= link_to "Back to banned users", banned_users_path %>
-
+  <%= button_to "Edit this banned user", edit_banned_user_path(@banned_user), :method=>:get %> 
   <%= button_to "Destroy this banned user", @banned_user, method: :delete %>
+  <%= button_to "Back to banned users", banned_users_path, :method=>:get%>
+</div>
 </div>
