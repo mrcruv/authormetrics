@@ -1,12 +1,13 @@
 <p style="color: green"><%= notice %></p>
+<div class='margine1'>
+<%= image_tag("Immagine2.png", size:"256,41x72,3", class: "logo")%>
+<h2>SEARCH RESULTS</h2>
 
-<h1 style="color: red">SEARCH RESULTS</h1>
-
-<div class= "upper_right_block">
-<button onclick="searchByAuth()" id="ByAuth">SEARCH AUTHOR</button>
-<%= button_to "HOME", home_path, method: :get %> 
-<p id="p1"></p>
+<div class= "destra">
+  <%= button_to "BACK TO AUTHORS", authors_path, :method=>:get%>
+  <%= button_to "HOME", home_path,:method=>:get %> 
 </div>
+
 <div id="authors">
   <% @authors.each do |author| %>
     <% if author.interests != nil%>
@@ -14,9 +15,7 @@
     <% author.interests=s.to_hash(author.interests) %>
     <% end %>
     <%= render author %>
-    <p>
-      <%= "---------------------------" %>
-    </p>
   <% end %>
+</div>
 </div>
 
