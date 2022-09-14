@@ -12,11 +12,11 @@ Canard::Abilities.for(:guest) do
   can [], FavoriteAuthor
   cannot [:create, :destroy, :index], FavoriteAuthor
 
-  can [:index], PublicationRating
-  cannot [:create, :read, :update, :destroy], PublicationRating
+  can [:read, :index], PublicationRating
+  cannot [:create, :update, :destroy], PublicationRating
 
-  can [:read,:index], AuthorRating
-  cannot [:create,  :update, :destroy], AuthorRating
+  can [:read, :index], AuthorRating
+  cannot [:create, :update, :destroy], AuthorRating
 
   can [:index], Comment
   cannot [:create, :read, :update, :destroy], Comment
