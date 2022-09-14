@@ -1,10 +1,10 @@
 <p style="color: green"><%= notice %></p>
 <div class="block">
   <h1 style="color: red">Publications</h1>
-  <div class="">
+  <div class="destra">
     <button onclick="searchByPub()" id= "ByPub">NEW PUBLICATIONS SEARCH</button>
     <%= button_to "HOME", home_path, method: :get %>
-     <p id="p1"> </p>
+     <p id="p1"> </p> <!--NON TOCCARE!-->
   </div>
   <div id="publications">
     <% @publications.each do |publication| %>

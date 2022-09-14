@@ -11,8 +11,9 @@
   :onchange => "location.href='https://127.0.0.1:3000/publications?order='+ document.getElementById('order').value;")%>
   <button onclick="searchByPub()" id= "ByPub">SEARCH PUB</button>
   <%= button_to "HOME", home_path, method: :get %>
+  <p id="p1"> </p> <!--NON TOCCARE!-->
 </div>
-<br>
+<br><br>
 
 <% @publications.each do |publication| %>
   <p>

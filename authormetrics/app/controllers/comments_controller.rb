@@ -73,7 +73,11 @@ class CommentsController < ApplicationController
 
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
-      @comment = @publication.comment.where(user_id: current_user.id)[0]
+      if user_signed_in?
+        @comment = @publication.comment.where(user_id: current_user.id)[0]
+      elsif administrator_signed_in?
+        @comment = @publication.comment.where(user_id: :user_id)[0]
+      end
     end
 
     # Only allow a list of trusted parameters through.
