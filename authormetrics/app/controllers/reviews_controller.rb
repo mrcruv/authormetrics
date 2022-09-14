@@ -58,7 +58,7 @@ class ReviewsController < ApplicationController
 
   # DELETE /reviews/1 or /reviews/1.json
   def destroy
-    authorize! :destroy, @review, :message => "BEWARE: you are not authorized to delete reviews."
+    #authorize! :destroy, @review, :message => "BEWARE: you are not authorized to delete reviews."
     @review.destroy
     redirect_to author_reviews_path(@author)
   end
@@ -73,7 +73,11 @@ class ReviewsController < ApplicationController
     end
 
     def set_review
-      @review = @author.review.where(user_id: current_user.id)[0]
+      if user_signed_in?
+        @review = @author.review.where(user_id: current_user.id)[0]
+      elsif administrator_signed_in?
+        @review = @author.review.where(user_id: params[:user_id])[0]
+      end
     end
 
     # Only allow a list of trusted parameters through.

@@ -5,10 +5,11 @@
 <h1><%= 'AUTHOR:' + @author.name %></h1>
 <h2>RATING:<%= @avg_ratings%></h2>
 
-<div class="upper_block_auth_pub">
+<div class="destra">
   <button onclick= "searchPubByAuth('<%=@author.id%>')" id= "PubByAuth">SEARCH PUB BY AUTHOR</button>
   <%= button_to "AUTHORS", authors_path, method: :get %>
-  <%= button_to "HOME", home_path, method: :get %>  
+  <%= button_to "HOME", home_path, method: :get %>
+  <p id="p1"> </p> <!--NON TOCCARE!-->
 </div>
 
 <p>
