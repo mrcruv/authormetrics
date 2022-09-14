@@ -14,11 +14,11 @@ Canard::Abilities.for(:user) do
   can [:destroy], FavoriteAuthor, user_id: user.user_id
   cannot [], FavoriteAuthor
   
-  can [:create, :index], PublicationRating
+  can [:create, :read, :index], PublicationRating
   can [:update, :destroy], PublicationRating, user_id: user.user_id
   cannot [], PublicationRating
   
-  can [:create, :index], AuthorRating
+  can [:create, :read, :index], AuthorRating
   can [:update, :destroy], AuthorRating, user_id: user.user_id
   cannot [], AuthorRating
   
