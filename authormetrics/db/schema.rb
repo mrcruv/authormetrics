@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_09_232127) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_14_074731) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_09_232127) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.integer "roles_mask"
     t.index ["email"], name: "index_administrators_on_email", unique: true
     t.index ["reset_password_token"], name: "index_administrators_on_reset_password_token", unique: true
     t.index ["username"], name: "administrators_username_key", unique: true
@@ -45,12 +46,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_09_232127) do
   create_table "banned_users", primary_key: "user_id", id: :serial, force: :cascade do |t|
     t.date "start_date", default: -> { "CURRENT_DATE" }
     t.date "end_date", null: false
-  end
-
-  create_table "bans", id: false, force: :cascade do |t|
-    t.serial "user_id", null: false
-    t.serial "admin_id", null: false
-    t.text "reason", null: false
+    t.text "reason"
+    t.integer "admin_id", null: false
   end
 
   create_table "cited_bies", primary_key: "cited_by_id", id: :serial, force: :cascade do |t|
@@ -140,9 +137,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_09_232127) do
   add_foreign_key "author_ratings", "authors", primary_key: "author_id", name: "author_ratings_author_id_fkey"
   add_foreign_key "author_ratings", "users", primary_key: "user_id", name: "author_ratings_user_id_fkey"
   add_foreign_key "authors", "cited_bies", primary_key: "cited_by_id", name: "author_id_cited_by_fkey"
+  add_foreign_key "banned_users", "administrators", column: "admin_id", primary_key: "admin_id"
   add_foreign_key "banned_users", "users", primary_key: "user_id", name: "banned_users_user_id_fkey"
-  add_foreign_key "bans", "administrators", column: "admin_id", primary_key: "admin_id", name: "bans_admin_id_fkey"
-  add_foreign_key "bans", "banned_users", column: "user_id", primary_key: "user_id", name: "bans_user_id_fkey"
   add_foreign_key "cited_bies", "authors", primary_key: "author_id", name: "cited_by_author_id_fkey"
   add_foreign_key "comments", "publications", primary_key: "publication_id", name: "comments_publication_id_fkey"
   add_foreign_key "comments", "users", primary_key: "user_id", name: "comments_user_id_fkey"

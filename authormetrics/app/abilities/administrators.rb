@@ -27,5 +27,9 @@ Canard::Abilities.for(:administrator) do
   can [:read, :update, :index], User
   cannot [:create, :destroy], User
 
-  # + BAN / SBAN USERS
+  can [:index], Administrator
+  cannot [:create, :read, :update, :destroy], Administrator
+
+  can [:create, :read, :update, :destroy, :index], BannedUser
+  cannot [], BannedUser
 end

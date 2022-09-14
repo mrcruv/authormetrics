@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :configure_permitted_parameters, if: :devise_controller?
 =begin
   rescue_from ActiveRecord::RecordNotFound do |e|
     respond(:record_not_found, 404, e.to_s)
@@ -22,7 +23,15 @@ class ApplicationController < ActionController::Base
   end
 =end
   # protect_from_forgery prepend: true
-  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  def current_ability
+    if administrator_signed_in?
+      @current_ability ||= Ability.new(current_administrator)
+    else
+      @current_ability ||= Ability.new(current_user)
+    end
+  end
+  
 
     protected
     def configure_permitted_parameters

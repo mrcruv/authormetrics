@@ -4,9 +4,8 @@ class UsersController < ApplicationController
   
   # GET /users or /users.json
   def index
+    authorize! :index, User, :message => "BEWARE: you are not authorized to index users."
     @users = User.all
-    #authorize! :index, User, :message => "BEWARE: you are not authorized to index users."
-
   end
 
   # GET /users/1 or /users/1.json
@@ -78,4 +77,5 @@ class UsersController < ApplicationController
     def get_user_reviews
       @reviews=Review.find_by( user_id: params[:id])
     end
+    
 end
