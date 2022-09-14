@@ -1,5 +1,5 @@
 class FavoriteAuthorsController < ApplicationController
-  before_action :get_user_author
+  before_action :get_user_author, only: %i[index new create ]
 
 
   # GET /favorite_authors or /favorite_authors.json
@@ -36,6 +36,9 @@ class FavoriteAuthorsController < ApplicationController
 
   # DELETE /favorite_authors/1 or /favorite_authors/1.json
   def destroy
+    @user = User.find(current_user.id)
+    @favorite_author = FavoriteAuthor.find(params[:id])
+   
     authorize! :destroy, @favorite_author, :message => "BEWARE: you are not authorized to delete favorite authors."
     @favorite_author.destroy
     redirect_to   user_favorite_authors_path
@@ -44,12 +47,8 @@ class FavoriteAuthorsController < ApplicationController
   private
     def get_user_author
       @user = User.find(current_user.id)
+      @favorite_author = FavoriteAuthor.where(user_id: current_user.id, author_id: params[:user_id])[0]
     end 
-
-    # Use callbacks to share common setup or constraints between actions.
-    def set_favorite_author
-      @favorite_author = @author.favorite_author.where(user_id: current_user.id)[0]
-    end
 
     # Only allow a list of trusted parameters through.
     def favorite_author_params

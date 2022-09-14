@@ -1,12 +1,14 @@
 <div id="<%= dom_id favorite_publication %>">
   <p>
     <strong>Publication:</strong>
-    <%= favorite_publication.publication_id %>
+    <%a=Publication.find(favorite_publication.publication_id)%>
+    <%= link_to a.title, publication_path(a) %>
   </p>
 
   <p>
     <strong>User:</strong>
-    <%= favorite_publication.user_id %>
+    <%b=User.find(favorite_publication.user_id)%>
+    <%= b.username %>
   </p>
 
 </div>

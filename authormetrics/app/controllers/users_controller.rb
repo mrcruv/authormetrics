@@ -77,4 +77,5 @@ class UsersController < ApplicationController
     def get_user_reviews
       @reviews=Review.find_by( user_id: params[:id])
     end
+    
 end

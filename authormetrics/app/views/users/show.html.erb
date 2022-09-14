@@ -2,7 +2,9 @@
 
 <%= render @user %>
 
+<% if current_user!=nil && current_user.id==@user.id %>
 <div>
   <%= link_to "go to favourite authors", user_favorite_authors_path(@user) %>
   <%= link_to "go to favourite publications", user_favorite_publications_path(@user) %>
 </div>
+<%end%>

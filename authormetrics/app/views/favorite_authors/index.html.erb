@@ -11,8 +11,7 @@
     <% r=Author.find(favorite_author.author_id)%>
       <li><%= r.name %>
       <%= link_to "Show", author_path(favorite_author.author_id) %>
-      <%= link_to 'Destroy', destroy_favorite_author_path(favorite_author.author_id,favorite_author.user_id), method: :delete %>
-    
+      <%= button_to 'Destroy', [User.find(favorite_author.user_id),favorite_author ], :method=>:delete %>
   <% end %>
 <% end %>
 </ul>
