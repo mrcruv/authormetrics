@@ -60,7 +60,11 @@ class ReviewsController < ApplicationController
   def destroy
     #authorize! :destroy, @review, :message => "BEWARE: you are not authorized to delete reviews."
     @review.destroy
-    redirect_to author_reviews_path(@author)
+    if (user_signed_in?)
+      redirect_to author_reviews_path(@author)
+    elsif (administrator_signed_in?)
+      redirect_to control_panel_path
+    end
   end
 
   private
@@ -76,7 +80,7 @@ class ReviewsController < ApplicationController
       if user_signed_in?
         @review = @author.review.where(user_id: current_user.id)[0]
       elsif administrator_signed_in?
-        @review = @author.review.where(user_id: params[:user_id])[0]
+        @review = @author.review.find(params[:id])
       end
     end
 

@@ -3,5 +3,5 @@
 
 <div>
 
- <%= button_to 'Destroy', [User.find(params[:id]),FavoriteAuthor.where(author_id: params[:user_id])[0]], :method=>:delete %>
+ <%= button_to 'Destroy', [User.find(params[:user_id]),FavoriteAuthor.where(author_id: params[:id])[0]], :method=>:delete %>
 </div>
