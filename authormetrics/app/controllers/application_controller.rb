@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   end
   rescue_from StandardError do |e|
     respond(:standard_error, 500, e.to_s)
-    #get /500
+    #get /500 path /500
   end
 =end
   # protect_from_forgery prepend: true

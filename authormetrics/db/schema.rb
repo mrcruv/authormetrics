@@ -47,7 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_14_074731) do
     t.date "start_date", default: -> { "CURRENT_DATE" }
     t.date "end_date", null: false
     t.text "reason"
-    t.integer "admin_id", null: false
+    t.integer "admin_id"
   end
 
   create_table "cited_bies", primary_key: "cited_by_id", id: :serial, force: :cascade do |t|
