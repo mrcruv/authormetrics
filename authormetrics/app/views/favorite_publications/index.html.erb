@@ -1,7 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
+<div class='margine'>
 <h1>Favorite publications</h1>
-
 <div id="favorite_publications">
   <% @favorite_publications.each do |favorite_publication| %>
     <%= render favorite_publication %>
@@ -14,3 +14,4 @@
 </div>
 
 <%= link_to "New favorite publication", new_user_favorite_publication_path %>
+</div>
