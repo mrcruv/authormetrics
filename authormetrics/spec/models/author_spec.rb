@@ -14,22 +14,15 @@ RSpec.describe Author, type: :model do
   it 'author_id must not be valid' do
     author.author_id = nil
     expect(author).to_not be_valid
-  end
-
-  it "empty object not a valid object" do
-    u=FactoryBot.build(:author)
-    expect(u).to_not be_valid                                                                                                      
-  end     
+  end    
 
   it "out of range name 1" do
     author.name=''
     expect(author).to_not be_valid
   end
 
-  it "out of range name 2" do
-  
+  it "bad format error name" do
     author.name=11
-    
     expect(author).to_not be_valid
   end
 
