@@ -1,7 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
-
+<div class='margine1'>
+<%= image_tag("Immagine2.png", size:"256,41x72,3", class: "logo")%>
 <div>
 
  <%= button_to 'Destroy', [User.find(params[:user_id]),FavoriteAuthor.where(author_id: params[:id])[0]], :method=>:delete %>
+</div>
 </div>

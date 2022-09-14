@@ -1,3 +1,5 @@
+<div class='margine1'>
+<%= image_tag("Immagine2.png", size:"256,41x72,3", class: "logo")%>
 <h1>Editing favorite publication</h1>
 
 <%= render "form", favorite_publication: @favorite_publication %>
@@ -5,6 +7,7 @@
 <br>
 
 <div>
-  <%= link_to "Show this favorite publication", @favorite_publication %> |
-  <%= link_to "Back to favorite publications", favorite_publications_path %>
+  <%= button_to "Show this favorite publication", @favorite_publication, :method=>:get%> 
+  <%= button_to "Back to favorite publications", favorite_publications_path, :method=>:get %>
 </div>
+<div>

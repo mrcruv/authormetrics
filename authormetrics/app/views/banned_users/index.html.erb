@@ -5,12 +5,12 @@
 <h1>Banned users</h1>
 
 <div id="banned_users">
+  <ul>
   <% @banned_users.each do |banned_user| %>
-    <%= render banned_user %>
-    <p>
-      <%= link_to "Show this banned user", banned_user %>
-    </p>
+    <li><%= render banned_user %>
+        <%= button_to "Show this banned user", banned_user, :method=>:get %>
   <% end %>
+  </ul>
 </div>
 <%= button_to "New banned user", new_banned_user_path, :method=>:get%>
 </div>

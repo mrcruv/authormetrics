@@ -1,6 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
-<div class='margine'>
+<div class='margine1'>
+<%= image_tag("Immagine2.png", size:"256,41x72,3", class: "logo")%> 
 <h1>Favorite authors</h1>
 
 <ul>
@@ -8,8 +9,9 @@
   <% @favorite_authors.each do |favorite_author| %>
     <% r=Author.find(favorite_author.author_id)%>
       <li><%= r.name %>
-      <%= link_to "Show", author_path(favorite_author.author_id) %>
+      <%= button_to "Show", author_path(favorite_author.author_id), :method=>:get %>
       <%= button_to 'Destroy', [User.find(favorite_author.user_id),favorite_author ], :method=>:delete %>
+      <br></br>
   <% end %>
 <% end %>
 </ul>
