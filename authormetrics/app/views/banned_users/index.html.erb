@@ -2,15 +2,17 @@
 
 <div class='margine1'>
 <%= image_tag("Immagine2.png", size:"256,41x72,3", class: "logo")%> 
-<h1>Banned users</h1>
+<h1>BANNED USERS</h1>
 
 <div id="banned_users">
   <ul>
   <% @banned_users.each do |banned_user| %>
     <li><%= render banned_user %>
-        <%= button_to "Show this banned user", banned_user, :method=>:get %>
+        <%= button_to "SHOW THIS BANNED USER", banned_user, :method=>:get %>
   <% end %>
   </ul>
-</div>
-<%= button_to "New banned user", new_banned_user_path, :method=>:get%>
-</div>
+   </div>
+  <%= button_to "NEW BANNED USER", new_banned_user_path, :method=>:get%>
+  <%= button_to "CONTROL PANEL", control_panel_path, :method=>:get%>
+  </div>
+

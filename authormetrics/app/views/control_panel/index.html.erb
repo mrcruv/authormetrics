@@ -6,6 +6,7 @@
     <%= button_to "BANNED USERS",  banned_users_path, method: :get %>
     <%= button_to "AUTHORS", authors_path, method: :get %>
     <%= button_to "PUBLICATIONS", publications_path, method: :get %>
+    <%= button_to "USERS", users_path, method: :get %>
     <%= button_to "HOME", home_path, method: :get %>
     <%= button_to "LOGOUT", destroy_administrator_session_path, :method => :delete if administrator_signed_in? %>
 </div>

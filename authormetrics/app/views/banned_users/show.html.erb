@@ -5,8 +5,8 @@
 <%= render @banned_user %>
 
 <div>
-  <%= button_to "Edit this banned user", edit_banned_user_path(@banned_user), :method=>:get %> 
-  <%= button_to "Destroy this banned user", @banned_user, method: :delete %>
-  <%= button_to "Back to banned users", banned_users_path, :method=>:get%>
+  <%= button_to "EDIT THIS BANNED USER", edit_banned_user_path(@banned_user), :method=>:get %> 
+  <%= button_to "DESTROY THIS BANNED USER", @banned_user, method: :delete %>
+  <%= button_to "BACK TO BANNED USERS", banned_users_path, :method=>:get%>
 </div>
 </div>
