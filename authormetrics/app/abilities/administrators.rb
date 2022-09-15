@@ -18,11 +18,11 @@ Canard::Abilities.for(:administrator) do
   can [], AuthorRating
   cannot [:create, :read, :update, :destroy, :index], AuthorRating
 
-  can [:destroy, :index], Comment
-  cannot [:create, :read, :update], Comment
+  can [:read, :destroy, :index], Comment
+  cannot [:create, :update], Comment
 
-  can [:destroy, :index], Review
-  cannot [:create, :read, :update], Review
+  can [:read, :destroy, :index], Review
+  cannot [:create, :update], Review
 
   can [:read, :index], User
   cannot [:create, :update, :destroy], User
