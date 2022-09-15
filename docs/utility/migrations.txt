@@ -63,3 +63,10 @@ reviews
   migrazione gia esistente:
       >bin/rails db:migrate
 
+6)
+commentss
+ comando:
+      alter table comments drop CONSTRAINT comments_pkey;
+  migrazione gia esistente:
+      >bin/rails db:migrate
+
