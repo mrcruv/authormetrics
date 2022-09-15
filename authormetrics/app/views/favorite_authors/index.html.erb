@@ -3,8 +3,6 @@
 <div class='margine1'>
 <%= image_tag("Immagine2.png", size:"256,41x72,3", class: "logo")%> 
 <h1>FAVORITE AUTHORS</h1>
-
-<%= button_to "NEW FAVORITE AUTHOR", new_user_favorite_author_path, :method=>:get %>
 <%= button_to "HOME", home_path, :method=>:get %>
 <%if user_signed_in?%>
   <%= button_to "MY ACCOUNT", dashboard_path, :method=>:get %>
@@ -21,6 +19,7 @@
   <% end %>
 <% end %>
 </ul>
+
 
 </div>
 </div>

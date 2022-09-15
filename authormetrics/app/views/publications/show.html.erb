@@ -28,7 +28,7 @@
 
 
 <%if user_signed_in?%>
-<%= button_to "ADD TO YOUR FAVORITES", user_favorite_publications_path(@publication), method: :get %>
+<%= button_to "ADD TO YOUR FAVORITES", new_user_favorite_publication_path(current_user.id), :method=>:get %>
 <%= button_to "ADD COMMENTS", publication_comments_path(@publication), method: :get %>
 <%= button_to "ADD PUBLICATION RATINGS", publication_publication_ratings_path(@publication), method: :get %>
 <%elsif administrator_signed_in? %>

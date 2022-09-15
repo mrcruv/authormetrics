@@ -4,11 +4,4 @@
     <%a=Publication.find(favorite_publication.publication_id)%>
     <%= link_to a.title, publication_path(a) %>
   </p>
-
-  <p>
-    <strong>User:</strong>
-    <%b=User.find(favorite_publication.user_id)%>
-    <%= b.username %>
-  </p>
-
 </div>
