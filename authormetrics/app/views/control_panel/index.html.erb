@@ -78,7 +78,7 @@
                     <td><%= user_name %></td>
                     <td><%= pub_title %></td>
                     <td><%= recent_comment.comment %></td>
-                    <td><%#button_to 'Destroy', [recent_comment.publication, recent_comment], method: :delete %></td>
+                    <td><%=button_to 'Destroy', [recent_comment.publication, recent_comment], method: :delete %></td>
                 </tr>
             <% end %>
         </tbody>
