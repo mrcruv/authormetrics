@@ -51,9 +51,13 @@
     <% if @reviews != [] && @reviews!= nil && @reviews != ''%>
       <h2>REVIEWS</h2>
       <% @reviews.each do |rev|%>
+      <p>
       <% r=User.find(rev.user_id)%>
-      <p><Strong><%= r.username %>:</strong><%= rev.review%></p>
+  
+      <Strong><%= r.username %>: </strong><%= rev.review%>
+
       <%end%>
+      </p>
     <%end%>
 <p>
 
@@ -68,10 +72,17 @@
 
 <br>
 <%if user_signed_in?%>
-<%= button_to "ADD TO YOUR FAVORITES", user_favorite_authors_path(@author), method: :get %>
+  <%= button_to "ADD TO YOUR FAVORITES", user_favorite_authors_path(@author), method: :get %>
+  <%= button_to "ADD REVIEWS", author_reviews_path(@author), method: :get %>
+  <%= button_to "ADD AUTHOR RATINGS", author_author_ratings_path(@author), method: :get %>
+<%elsif administrator_signed_in? %>
+  <%= button_to "REVIEWS", author_reviews_path(@author), method: :get %>
 <%end%>
-<%= button_to "REVIEWS", author_reviews_path(@author), method: :get %>
-<%= button_to "AUTHOR RATINGS", author_author_ratings_path(@author), method: :get %>
+
+
+
+
+
 <br>
 <br>
 <br>

@@ -20,7 +20,12 @@
 
   <% @comments.each do |comment| %>
     <%= render comment %>
-    <%if(@user!=nil)%>
+
+    <%if administrator_signed_in? %>
+        <%= button_to "Destroy comment", [comment.publication,comment], :method=>:delete %>
+    <%end%>
+
+    <%if(@user!=nil) && user_signed_in? %>
       <%if @user.user_id==comment.user_id%>
         <%= button_to "Edit comment", edit_publication_comment_path(comment.publication_id,comment.user_id), method: :get%>
         <%= button_to "Destroy comment", [comment.publication,comment], :method=>:delete %>

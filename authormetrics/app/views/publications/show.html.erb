@@ -19,8 +19,8 @@
     <% @comments.each do |com| %>
       <% r=User.find(com.user_id)%>
       <p>
-      <strong><%= r.username %>:</strong>
-      <%= com.comment %>
+      <strong><%= r.username %>: </strong><%= com.comment %>
+
       </p>
     <%end%>
   <%end%>
@@ -29,9 +29,15 @@
 
 <%if user_signed_in?%>
 <%= button_to "ADD TO YOUR FAVORITES", user_favorite_publications_path(@publication), method: :get %>
-<%end%>
+<%= button_to "ADD COMMENTS", publication_comments_path(@publication), method: :get %>
+<%= button_to "ADD PUBLICATION RATINGS", publication_publication_ratings_path(@publication), method: :get %>
+<%elsif administrator_signed_in? %>
 <%= button_to "COMMENTS", publication_comments_path(@publication), method: :get %>
-<%= button_to "PUBLICATION RATINGS", publication_publication_ratings_path(@publication), method: :get %>
+<%end%>
+
+
+
+
 <br></br>
 <div>
 <%= button_to "PUBLICATIONS", publications_path, method: :get %>

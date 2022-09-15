@@ -78,6 +78,7 @@
             <%= button_to "LOGIN/REGISTER", new_user_registration_path, method: :get %>
             <%= button_to "RESERVED AREA", new_administrator_registration_path, method: :get %>
         <% elsif user_signed_in? %>
+            <%= button_to "USERS", users_path, method: :get %>
             <%= button_to "MY ACCOUNT", dashboard_path, method: :get %>
             <%= button_to "LOGOUT", destroy_user_session_path, :method => :delete %>
         <%else%>

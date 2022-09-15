@@ -18,7 +18,12 @@
 
 <% @reviews.each do |review| %>
   <%= render review %>
-  <%if(@user!=nil)%>
+
+   <%if administrator_signed_in? %>
+        <%= button_to "Destroy review", [review.author,review], :method=>:delete %>
+  <%end%>
+
+  <%if(@user!=nil) && user_signed_in?%>
     <%if @user.user_id==review.user_id%>
       <%= button_to "Edit review", edit_author_review_path(review.author_id,review.user_id), method: :get%>
       <%= button_to "Destroy review", [review.author,review], :method=>:delete %>
