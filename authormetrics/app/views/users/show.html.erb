@@ -10,7 +10,8 @@
 <div>
   <%= button_to "FAVORITE AUTHORS", user_favorite_authors_path(@user), :method=>:get%>
   <%= button_to "FAVORITE PUBLICATIONS", user_favorite_publications_path(@user), :method=>:get%>
-  <%= button_to "MY ACCOUNT", dashboard_path,:method=>:get%>
+  <%= button_to "MY ACCOUNT", dashboard_path, :method=>:get%>
+  <%= button_to "EDIT", edit_user_registration_path, :method=>:get%>
 </div>
 </div>
 </div>
