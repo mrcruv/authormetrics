@@ -14,7 +14,7 @@
                     <%end%> 
                     </select> 
                 <br></br>
-                <button onclick="showFavPub();" style="display:inline-block;">SHOW FAVORITE PUBLICATION</button>
+                <%= button_to "SHOW FAVORITE PUBLICATIONS", user_favorite_publications_path(current_user.id), method: :get %>
                 </div> 
         </div>
 
@@ -28,7 +28,7 @@
                         <%end%> 
                         </select> 
                 <br></br>
-                <button onclick="showFavAuth();">SHOW FAVORITE AUTHOR</button>
+                <%= button_to "SHOW FAVORITE AUTHORS", user_favorite_authors_path(current_user.id), method: :get %>
                 </div> 
         </div>
     </div>

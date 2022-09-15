@@ -33,7 +33,6 @@ class FavoriteAuthorsController < ApplicationController
     end
   end
 
-
   # DELETE /favorite_authors/1 or /favorite_authors/1.json
   def destroy
     @user = User.find(current_user.id)
