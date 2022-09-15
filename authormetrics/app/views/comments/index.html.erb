@@ -1,5 +1,7 @@
 <body>
 <div class="margine">
+<%= image_tag("Immagine2.png", size:"256,41x72,3", class: "logo")%> 
+
 <p style="color: green"><%= notice %></p>
 
 <h1>COMMENTS</h1>
@@ -20,12 +22,10 @@
     <%= render comment %>
     <%if(@user!=nil)%>
       <%if @user.user_id==comment.user_id%>
-        <%= link_to "Edit comment", edit_publication_comment_path(comment.publication_id,comment.user_id)%>
+        <%= button_to "Edit comment", edit_publication_comment_path(comment.publication_id,comment.user_id), method: :get%>
         <%= button_to "Destroy comment", [comment.publication,comment], :method=>:delete %>
       <%end%>
     <%end%>
-    <br>
-    <br>
   <% end %>
 
 

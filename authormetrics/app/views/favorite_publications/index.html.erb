@@ -1,7 +1,7 @@
-<p style="color: green"><%= notice %></p>
-
+<p style="color: green"><%= notice %></p> 
 <div class='margine'>
-<h1>Favorite publications</h1>
+<%= image_tag("Immagine2.png", size:"256,41x72,3", class: "logo")%> 
+<h1>FAVORITE PUBLICATIONS</h1>
 
 <div id="favorite_publications">
   <ul>
@@ -14,7 +14,7 @@
   </ul>
 </div>
 
-<%= button_to "New favorite publication", new_user_favorite_publication_path, :method=>:get %>
+<%= button_to "NEW FAVORITE PUBLICATION", new_user_favorite_publication_path, :method=>:get %>
 <%= button_to "HOME", home_path, :method=>:get%>
 <%if user_signed_in?%>
   <%= button_to "MY ACCOUNT", dashboard_path, :method=>:get%>

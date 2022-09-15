@@ -1,5 +1,6 @@
 <body>
 <div class='margine'>
+<%= image_tag("Immagine2.png", size:"256,41x72,3", class: "logo")%> 
 <p style="color: green"><%= notice %></p>
 
 <h1>AUTHOR RATINGS</h1>
@@ -19,9 +20,11 @@
     <%= render author_rating %>
       <%if(@user!=nil)%>
         <%if @user.user_id==author_rating.user_id%>
-          <%= link_to "Edit rating", edit_author_author_rating_path(author_rating.author_id,author_rating.user_id) %>
-          <%= button_to 'Destroy rating', [author_rating.author,author_rating], :method=>:delete, style: 'background-color:#f8fcfb; border:none; box-shadow:2px 3px #f8fcfb; font-family: Verdana, sans-serif;' %>
+          <%= button_to "Edit rating", edit_author_author_rating_path(author_rating.author_id,author_rating.user_id), method: :get %>
+          <%= button_to 'Destroy rating', [author_rating.author,author_rating], :method=>:delete%>
         <%end%>
+        <br>
+        <br>
     <%end%>
   <% end %>
 </div>
