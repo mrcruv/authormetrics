@@ -4,7 +4,8 @@
 <%= image_tag("Immagine2.png", size:"256,41x72,3", class: "logo")%>
 
 <h1><%= 'AUTHOR:' + @author.name %></h1>
-<h2>RATING:<%= @avg_ratings%></h2>
+<h2>RATING: <%= @avg_ratings%></h2>
+<h3>ID: <%= @author.author_id %></h3>
 
 <div class="destra">
   <button onclick= "searchPubByAuth('<%=@author.id%>')" id= "PubByAuth">SEARCH PUB BY AUTHOR</button>
