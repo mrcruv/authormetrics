@@ -5,7 +5,31 @@
 
 <div id="users">
   <% @users.each do |user| %>
-    <%= render user %>
+    <p>
+      <strong>Username:</strong>
+      <%= user.username %>
+    </p>
+
+    <p>
+    <strong>Email:</strong>
+    <%= user.email %>
+    </p>
+
+    <p>
+      <%= link_to "SHOW THIS USER", user %>
+    </p>
    <br>
   <% end %>
 </div>
+
+<% if current_user!=nil %>
+  <div>
+    <%= button_to "MY ACCOUNT", dashboard_path, :method=>:get%>
+    <%= button_to "HOME", home_path, :method=>:get%>
+  </div>
+<% elsif administrator_signed_in? %>
+<div>
+  <%= button_to "CONTROL PANEL", control_panel_path, method: :get %>
+  <%= button_to "HOME", home_path, :method=>:get%> 
+</div>
+<%end%>

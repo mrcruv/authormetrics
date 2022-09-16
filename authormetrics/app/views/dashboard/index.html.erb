@@ -60,6 +60,7 @@
         <button onclick= "searchByPub()" id= "ByPub" style="background-color:#c9fdd7;"> SEARCH BY PUB</button>
         <%= button_to "AUTHORS", authors_path, method: :get %>
         <%= button_to "PUBLICATIONS", publications_path, method: :get %>
+        <%= button_to "USERS", users_path, method: :get %>
         <% user_show= "https://127.0.0.1:3000/users/#{current_user["user_id"]}"%> 
         <button onclick= "location.href='<%=user_show%>'"> MY DATA</button>
         <%= button_to "HOME", home_path, method: :get %>
