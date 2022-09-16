@@ -20,7 +20,7 @@
     <%= render author_rating %>
       <%if(@user!=nil)%>
         <%if @user.user_id==author_rating.user_id%>
-          <%= link_to "Edit rating", edit_author_author_rating_path(author_rating.author_id,author_rating.user_id) %>
+          <%= button_to "Edit rating", [author_rating.author,author_rating],:method=>:edit %>
           <%= button_to 'Destroy rating', [author_rating.author,author_rating], :method=>:delete%>
         <%end%>
         <br>

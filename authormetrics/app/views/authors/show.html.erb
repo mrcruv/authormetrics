@@ -71,10 +71,11 @@
 <%end%>
 
 <br>
+<%= button_to "REVIEWS", author_reviews_path(@author), method: :get %>
+<%= button_to "AUTHOR RATINGS", author_author_ratings_path(@author), method: :get %>
 <%if user_signed_in?%>
   <%= button_to "ADD TO YOUR FAVORITES", new_user_favorite_author_path(current_user.id), :method=>:get %>
-  <%= button_to "ADD REVIEWS", author_reviews_path(@author), method: :get %>
-  <%= button_to "ADD AUTHOR RATINGS", author_author_ratings_path(@author), method: :get %>
+  
 <%elsif administrator_signed_in? %>
   <%= button_to "REVIEWS", author_reviews_path(@author), method: :get %>
 
