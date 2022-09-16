@@ -13,7 +13,7 @@
 
   <div>
     <%= form.label :publication_id %>
-    <%= form.text_field :publication_id %>
+    <%= form.text_field :publication_id, value: $publication_info.publication_id, style:"width:250px" %>
     <%= form.submit %>
   </div>
 <% end %>

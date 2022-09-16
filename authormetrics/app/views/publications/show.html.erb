@@ -30,6 +30,7 @@
 <%= button_to "PUBLICATION RATINGS", publication_publication_ratings_path(@publication), method: :get %>
 
 <%if user_signed_in?%>
+<% $publication_info = @publication %>
 <%= button_to "ADD TO YOUR FAVORITES", new_user_favorite_publication_path(current_user.id), :method=>:get %>
 <%end%>
 

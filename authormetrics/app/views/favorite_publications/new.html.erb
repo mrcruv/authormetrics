@@ -2,7 +2,10 @@
 <%= image_tag("Immagine2.png", size:"256,41x72,3", class: "logo")%>
 <h1>NEW FAVORITE PUBLICATION</h1>
 
-<%= render "form", favorite_publication: @favorite_publication %>
+<p><strong>Publication: </strong><%= $publication_info.title %></p>
+<p><strong>ID: </strong><%= $publication_info.publication_id %></p>
+
+<%= render "form", favorite_publication: $publication_info %>
 
 <br>
 

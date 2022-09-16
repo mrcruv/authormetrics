@@ -1,12 +1,21 @@
+
+
 <div class='margine1'>
 <%= image_tag("Immagine2.png", size:"256,41x72,3", class: "logo")%>
 <h1>NEW FAVORITE AUTHOR</h1>
 
-<%= render "form", favorite_author: @favorite_author %>
+<p><strong>Author: </strong> <%= $author_info.name%></p>
+<p><strong>ID: </strong> <%= $author_info.author_id%></p>
 
+<br>
+
+<%= render "form", favorite_author: $author_info %>
+
+<br>
 <br>
 
 <div>
   <%= button_to "BACK TO FAVORITE AUTHORS", user_favorite_authors_path, :method=>:get%>
 </div>
 </div>
+
