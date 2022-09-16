@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  
+  
   devise_for :administrators
   resources :cited_bies
  
@@ -67,8 +70,9 @@ Rails.application.routes.draw do
   delete "/publications/:publication_id/comments/:id", to: "comments#destroy", as: :destroy_publication_comment
   delete "/authors/:author_id/reviews/:id", to: "reviews#destroy", as: :destroy_author_review
   
-  get '/404', to: 'errors#not_found'
-  get '/500', to: 'errors#internal_server_error'
+  match "/404", :to => "errors#not_found", :via => :all
+  match "/500", :to => "errors#internal_server_error", :via => :all
 
+  match '*unmatched', to: 'application#route_not_found', via: :all
   
 end

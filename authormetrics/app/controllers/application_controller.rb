@@ -1,36 +1,43 @@
+
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :configure_permitted_parameters, if: :devise_controller?
-=begin
+  before_action :configure_permitted_parameters, if: :devise_controller? 
+
+
+  def route_not_found
+    render 'public/404', status: :not_found, layout: false
+  end
+
   rescue_from ActiveRecord::RecordNotFound do |e|
-    respond(:record_not_found, 404, e.to_s)
+      render 'public/404'
   end
   rescue_from ActiveRecord::ActiveRecordError do |e|
-    respond(e.error, 422, e.to_s)
+      render "public/422"
   end
-  #rescue_from ActiveModel::ValidationError do |e|
-   # respond(e.error, 422, e.to_s)
-  #end
-  #rescue_from CustomApiError do |e|
-  #  respond(e.error, e.status, e.message.to_s)
-  #end
   rescue_from CanCan::AccessDenied do
-    respond(:forbidden, 401, "current user isn't authorized for that")
+    render "public/401"
   end
   rescue_from StandardError do |e|
-    respond(:standard_error, 500, e.to_s)
-    #get /500 path /500
+    render "public/500"
   end
-=end
+  rescue_from ActionController::RoutingError do |e|
+    render 'public/404'
+  end
+  rescue_from Errno do |e|
+    render 'public/404'
+  end
+
+
+
   # protect_from_forgery prepend: true
 
-  def current_ability
-    if administrator_signed_in?
-      @current_ability ||= Ability.new(current_administrator)
-    else
-      @current_ability ||= Ability.new(current_user)
+    def current_ability
+      if administrator_signed_in?
+        @current_ability ||= Ability.new(current_administrator)
+      else
+        @current_ability ||= Ability.new(current_user)
+      end
     end
-  end
   
 
     protected
@@ -41,6 +48,6 @@ class ApplicationController < ActionController::Base
     def respond(_error, _status, _message)
       json = Helpers::Render.json(_error, _status, _message)
       render json: json
-    end
-    
+    end 
 end
+
