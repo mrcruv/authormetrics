@@ -1,5 +1,10 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class='margine'>
+<div class='contenitore_1'>
 
+<%= image_tag("Immagine2.png", size:"384.6153846x108.4615338", class: "logo")%>
+<h2 style='text-aling:left; font-size: 30px;'><h2>EDIT ACCOUNT INFO</h2>
+
+<div class='contenitore'>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
 
@@ -54,3 +59,6 @@
 <br>
 
 <%= link_to "Back", :back %>
+
+</div>
+</div>
