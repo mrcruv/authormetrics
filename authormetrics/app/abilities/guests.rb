@@ -18,11 +18,11 @@ Canard::Abilities.for(:guest) do
   can [:read, :index], AuthorRating
   cannot [:create, :update, :destroy], AuthorRating
 
-  can [:index], Comment
-  cannot [:create, :read, :update, :destroy], Comment
+  can [:read, :index], Comment
+  cannot [:create, :update, :destroy], Comment
 
-  can [:index], Review
-  cannot [:create, :read, :update, :destroy], Review
+  can [:read, :index], Review
+  cannot [:create, :update, :destroy], Review
 
   can [], User
   # create using Devise
