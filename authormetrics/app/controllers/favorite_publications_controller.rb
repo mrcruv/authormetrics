@@ -34,7 +34,7 @@ class FavoritePublicationsController < ApplicationController
     authorize! :create, @favorite_publication, :message => "BEWARE: you are not authorized to create favorite publications."
     respond_to do |format|
       if @favorite_publication.save
-        format.html { redirect_to user_favorite_publications_url(@favorite_publication), notice: "Favorite publication was successfully created." }
+        format.html { redirect_to user_favorite_publications_path(@user), notice: "Favorite publication was successfully created." }
         format.json { render :show, status: :created, location: @favorite_publication }
       else
         format.html { render :new, status: :unprocessable_entity }
