@@ -1,6 +1,6 @@
 class Administrator < ApplicationRecord
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :rememberable, :validatable
     has_many :ban
     has_many :banned_user, :through => :ban
 
