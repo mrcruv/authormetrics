@@ -78,9 +78,6 @@ RSpec.describe AuthorRatingsController, type: :controller do
       expect(response).to redirect_to("http://test.host/authors/wT4V7isAAAAJ/author_ratings")#index of this author
     end
 
-    it "not allowed to new author ratings" do
-      expect{get :new, params:{:author_id=>author.author_id}}.to raise_error(CanCan::AccessDenied)
-    end
 
   end
   describe "TEST 1.2 AuthorRating: method INDEX" do
